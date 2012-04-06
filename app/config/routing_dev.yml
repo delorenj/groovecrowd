@@ -1,6 +1,6 @@
 _welcome:
     pattern:  /
-    defaults: { _controller: GCBundle:Welcome:index }
+    defaults: { _controller: GCWelcomeBundle:Welcome:index }
 
 _assetic:
     resource: .
