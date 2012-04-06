@@ -1,0 +1,3 @@
+GCWelcomeBundle_homepage:
+    pattern:  /
+    defaults: { _controller: GCWelcomeBundle:Welcome:index }
