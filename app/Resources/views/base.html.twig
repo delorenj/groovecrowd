@@ -1,13 +1,113 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <title>{% block title %}GrooveCrowd{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/bootstrap.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/responsive.css') }}" />
+         {% endblock %}
+        <!-- Le styles -->
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="{{ asset('//html5shim.googlecode.com/svn/trunk/html5.js') }}"></script>
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/images/favicon.ico">
+        <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/images/apple-touch-icon-114x114.png">
+    {% endblock %}  
+
+</head>
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Project name</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        {% block navlist %}
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        {% endblock %}                        
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block body %}
+            {% block hero %}
+                <div class="hero-unit">
+                    <h1>Welcome to GrooveCrowd!</h1>
+                    <p>Sound's good.</p>
+                    <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+                </div>
+            {% endblock %}
+            
+
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div>
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+               </div>
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div>
+            </div>
+            <hr>
+            <footer>
+                {% block footer %}
+                    <p>&copy; Company 2012</p>
+                {% endblock %}                
+            </footer>
+        {% endblock %}
+
+    </div> <!-- /container -->
+
+    {% block javascripts %}
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ asset('http://code.jquery.com/jquery.min.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-alert.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-scrollspy.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tab.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tooltip.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-popover.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js') }}"></script>
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js') }}"></script>    
+    {% endblock %}
+
+</body>
 </html>
