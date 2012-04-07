@@ -56,30 +56,6 @@
 	"buffers":
 	[
 		{
-			"file": "app/config/routing.yml",
-			"settings":
-			{
-				"buffer_size": 251,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/config/routing_dev.yml",
-			"settings":
-			{
-				"buffer_size": 507,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/WelcomeBundle/Resources/config/routing.yml",
-			"settings":
-			{
-				"buffer_size": 103,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/GC/WelcomeBundle/Controller/WelcomeController.php",
 			"settings":
 			{
@@ -88,32 +64,58 @@
 			}
 		},
 		{
-			"contents": "{% extends '::base.html.twig' %}\n\n{% block title %}\n	GrooveCrowd\n{% endblock %}\n\n{% block body %}\n     Hello fag!\n{% endblock %}",
 			"file": "src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
-			"file_size": 128,
-			"file_write_time": 1333754557000000,
 			"settings":
 			{
-				"buffer_size": 128,
+				"buffer_size": 995,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <title>{% block title %}GrooveCrowd{% endblock %}</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    {% block stylesheets %}\n        <link rel=\"stylesheet\" type=\"text/css\" href='{{asset(/css/css/bootstrap.css)}}' />\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/css/responsive.css\" />\n     {% endblock %}\n    <!-- Le styles -->\n\n    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->\n    <!--[if lt IE 9]>\n        <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n    <![endif]-->\n\n    <!-- Le fav and touch icons -->\n    <link rel=\"shortcut icon\" href=\"http://twitter.github.com/bootstrap/assets/images/favicon.ico\">\n    <link rel=\"apple-touch-icon\" href=\"images/apple-touch-icon.png\">\n    <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"http://twitter.github.com/bootstrap/assets/images/apple-touch-icon-72x72.png\">\n    <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"http://twitter.github.com/bootstrap/assets/images/apple-touch-icon-114x114.png\">\n</head>\n<body>\n\n    <div class=\"navbar navbar-fixed-top\">\n        <div class=\"navbar-inner\">\n            <div class=\"container\">\n                <a class=\"btn btn-navbar\" data-toggle=\"collapse\" data-target=\".nav-collapse\">\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </a>\n                <a class=\"brand\" href=\"#\">Project name</a>\n                <div class=\"nav-collapse\">\n                    <ul class=\"nav\">\n                        <li class=\"active\"><a href=\"#\">Home</a></li>\n                        <li><a href=\"#about\">About</a></li>\n                        <li><a href=\"#contact\">Contact</a></li>\n                    </ul>\n                </div><!--/.nav-collapse -->\n            </div>\n        </div>\n    </div>\n\n    <div class=\"container\">\n        <!-- Main hero unit for a primary marketing message or call to action -->\n        <div class=\"hero-unit\">\n            <h1>Hello, world!</h1>\n            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>\n            <p><a class=\"btn btn-primary btn-large\">Learn more &raquo;</a></p>\n        </div>\n\n        <!-- Example row of columns -->\n        <div class=\"row\">\n            <div class=\"span4\">\n                <h2>Heading</h2>\n                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>\n                <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>\n            </div>\n            <div class=\"span4\">\n                <h2>Heading</h2>\n                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>\n                <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>\n           </div>\n            <div class=\"span4\">\n                <h2>Heading</h2>\n                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\n                <p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>\n            </div>\n        </div>\n        <hr>\n        <footer>\n            <p>&copy; Company 2012</p>\n        </footer>\n\n    </div> <!-- /container -->\n\n    {% block javascripts %}\n        <!-- Le javascript\n        ================================================== -->\n        <!-- Placed at the end of the document so the pages load faster -->\n        <script src=\"{{asset(http://code.jquery.com/jquery.min.js)}}\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-alert.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-scrollspy.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tab.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tooltip.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-popover.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js\"></script>\n        <script src=\"https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js\"></script>    \n    {% endblock %}\n\n</body>\n</html>",
 			"file": "app/Resources/views/base.html.twig",
-			"file_size": 5541,
-			"file_write_time": 1333760131000000,
 			"settings":
 			{
-				"buffer_size": 5541,
+				"buffer_size": 4632,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/AppKernel.php",
+			"file": "src/GC/WelcomeBundle/Resources/views/layout.html.twig",
 			"settings":
 			{
-				"buffer_size": 1402,
+				"buffer_size": 298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/custom.less",
+			"settings":
+			{
+				"buffer_size": 155,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/bootstrap.less",
+			"settings":
+			{
+				"buffer_size": 1532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/bootswatch.less",
+			"settings":
+			{
+				"buffer_size": 2014,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/variables.less",
+			"settings":
+			{
+				"buffer_size": 5818,
 				"line_ending": "Unix"
 			}
 		}
@@ -121,9 +123,13 @@
 	"build_system": "Packages/ActionScript/actionscript.sublime-build",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 116.0,
 		"selected_items":
 		[
+			[
+				"drop",
+				"Snippet: Twitter Bootstrap button dropdowns"
+			],
 			[
 				"wrap",
 				"HTML: Wrap Selection With Tag"
@@ -206,11 +212,17 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing_dev.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/twig/doc/templates.rst",
+		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/config_dev.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/README.md",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Controller/DefaultController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
 		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
-		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing_dev.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/.gitignore",
 		"/Applications/MAMP/htdocs/groovecrowd/library/Twitter/Form.php",
 		"/Applications/MAMP/htdocs/groovecrowd/library/Twitter/Form/Decorators/Errors.php",
@@ -281,9 +293,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 91.0,
 		"where_history":
 		[
+			"",
+			"base.html.twig",
 			""
 		]
 	},
@@ -292,6 +306,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"style.css",
+			"script",
+			"\"></script>",
+			"/",
 			"Default",
 			"frontController",
 			"\n	// background-color: @bodyColor;\n	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E3YmVmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgc3RvcC1jb2xvcj0iI2YyZjhmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);\n	background: -moz-linear-gradient(top,  #a7bef2 0%, #f2f8ff 65%);\n	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7bef2), color-stop(65%,#f2f8ff));\n	background: -webkit-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n	background: -o-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n	background: -ms-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n	background: linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7bef2', endColorstr='#f2f8ff',GradientType=0 );\n	margin-bottom: 20px;\n\n	.dirt {\n		height: @dirtHeight;\n		// background: #a7bef2;\n		position: relative;\n		top: @logoHeight;\n		background: @bodyColor url('@{img}/dirt.png') 0 0 repeat-x;\n		text-align: center;\n		padding-right: 26px;\n		img {\n			position: relative;\n			top: -@logoHeight;\n			width: 640px;\n		}\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x;\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E3YmVmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgc3RvcC1jb2xvcj0iI2YyZjhmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, -moz-linear-gradient(top,  #a7bef2 0%, #f2f8ff 65%);\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7bef2), color-stop(65%,#f2f8ff));\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, -webkit-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, -o-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, -ms-linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n		// background: @bodyColor url('@{img}/dirt.png') 0 @logoHeight repeat-x, linear-gradient(top,  #a7bef2 0%,#f2f8ff 65%);\n		// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7bef2', endColorstr='#f2f8ff',GradientType=0 );\n\n		// background-image: url('@{img}/dirt.png');\n		// background-image: url('@{img}/dirt.png'), -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#000));\n		// background-image: url('@{img}/dirt.png'), -moz-linear-gradient(#FFF, #000);\n		// background-repeat: repeat-x;\n		// background-position: 0 @logoHeight;\n		// background-size: 276px 134px, 5px 5px;",
@@ -335,6 +353,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"') }}\"></script>",
 			"Welcome",
 			"65"
 		],
@@ -347,91 +366,11 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/config/routing.yml",
-					"settings":
-					{
-						"buffer_size": 251,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								95,
-								95
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/config/routing_dev.yml",
-					"settings":
-					{
-						"buffer_size": 507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/GC/WelcomeBundle/Resources/config/routing.yml",
-					"settings":
-					{
-						"buffer_size": 103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41,
-								41
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "src/GC/WelcomeBundle/Controller/WelcomeController.php",
 					"settings":
 					{
@@ -458,19 +397,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 1,
 					"file": "src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
 					"settings":
 					{
-						"buffer_size": 128,
+						"buffer_size": 995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								78,
-								78
+								885,
+								885
 							]
 						],
 						"settings":
@@ -484,19 +423,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "app/Resources/views/base.html.twig",
 					"settings":
 					{
-						"buffer_size": 5541,
+						"buffer_size": 4632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								40,
-								1180
+								2478,
+								2478
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/GC/WelcomeBundle/Resources/views/layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								282
 							]
 						],
 						"settings":
@@ -512,30 +480,106 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/AppKernel.php",
+					"buffer": 4,
+					"file": "web/css/less/custom.less",
 					"settings":
 					{
-						"buffer_size": 1402,
+						"buffer_size": 155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								796,
-								796
+								146,
+								146
 							]
 						],
 						"settings":
 						{
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LESS/LESS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "web/css/less/bootstrap.less",
+					"settings":
+					{
+						"buffer_size": 1532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1510,
+								1510
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 107.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "web/css/less/bootswatch.less",
+					"settings":
+					{
+						"buffer_size": 2014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2014,
+								2014
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 602.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "web/css/less/variables.less",
+					"settings":
+					{
+						"buffer_size": 5818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5818,
+								5818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2192.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -585,6 +629,14 @@
 		"selected_items":
 		[
 			[
+				"cus",
+				"web/css/less/custom.less"
+			],
+			[
+				"config",
+				"app/config/config_dev.yml"
+			],
+			[
 				"ker",
 				"app/AppKernel.php"
 			],
@@ -623,10 +675,6 @@
 			[
 				"controll",
 				"src/defaults/controller.as"
-			],
-			[
-				"config",
-				"src/config.as"
 			],
 			[
 				"pro",

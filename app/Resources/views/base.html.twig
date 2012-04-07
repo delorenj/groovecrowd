@@ -62,14 +62,40 @@
     <div class="container">
         {% block body %}
         {% endblock %}
-        <footer>
-            <hr>
-            {% block footer %}
-                <p>&copy; GrooveCrowd 2012</p>
-            {% endblock %}                
-        </footer>
     </div> <!-- /container -->
-
+   <footer>
+        {% block footer %}
+            <div class="row">
+                <div class="span3 offset4">
+                    <ul class="unstyled">
+                        <li><h4>Get to know us</h4></li>
+                        <li><a>In the press</a></li>
+                        <li><a>Careers</a></li>
+                        <li><a>Privacy Policy</a></li>
+                        <li><a>Terms & Agreement</a></li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="unstyled">
+                        <li><h4>Make money with us</h4></li>
+                        <li><a>My Account</a></li>
+                        <li><a>App Music Contests</a></li>                       
+                        <li><a>Audio FX Contests</a></li>
+                        <li><a>Jingle Contests</a></li>                        
+                    </ul>                    
+                </div>
+                <div class="span3">
+                    <ul class="unstyled">
+                        <li><h4>Let us help you</h4></li>                        
+                        <li><a>Contact Us</a></li>
+                        <li><a>FAQ</a></li>                        
+                        <li><a>Help</a></li>
+                    </ul>               
+                </div>
+            </div>
+            <p style="text-align: center">&copy; GrooveCrowd 2012</p>
+        {% endblock %}                
+    </footer>
     {% block javascripts %}
         <!-- Le javascript
         ================================================== -->

@@ -16,6 +16,13 @@ framework:
         default_locale: %locale%
         auto_start:     true
 
+#Services:
+services:
+    gc.twig.extension.debug:
+        class: Twig_Extension_Debug
+        tags:
+            - { name: 'twig.extension' }
+            
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
