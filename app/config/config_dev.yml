@@ -2,8 +2,10 @@ imports:
     - { resource: config.yml }
 
 framework:
-    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
-    profiler: { only_exceptions: false }
+    router:     { resource: "%kernel.root_dir%/config/routing_dev.yml" }
+    profiler:   { only_exceptions: false }
+    translator: { fallback: %locale% }
+
 
 web_profiler:
     toolbar: true
