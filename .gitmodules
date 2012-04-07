@@ -1,3 +1,0 @@
-[submodule "vendor/bundles/FOS/JsRoutingBundle"]
-	path = vendor/bundles/FOS/JsRoutingBundle
-	url = git://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git
