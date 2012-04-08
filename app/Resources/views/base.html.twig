@@ -12,8 +12,8 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/bootstrap.css') }}" />
             <style type="text/css">
               body {
-                padding-top: 60px;
-                padding-bottom: 40px;
+                /*padding-top: 60px;*/
+                /*padding-bottom: 40px;*/
               }
             </style>
             <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/responsive.css') }}" />
@@ -34,7 +34,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -52,7 +52,11 @@
                         {% endblock %}                        
                     </ul>
                     <ul class="nav pull-right">
-                        <li><a href="#">Login</a></li>
+                        {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>                        
+                        {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>                        
+                        {% endif %}
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -65,35 +69,42 @@
     </div> <!-- /container -->
    <footer>
         {% block footer %}
-            <div class="row">
-                <div class="span3 offset4">
-                    <ul class="unstyled">
-                        <li><h4>Get to know us</h4></li>
-                        <li><a>In the press</a></li>
-                        <li><a>Careers</a></li>
-                        <li><a>Privacy Policy</a></li>
-                        <li><a>Terms & Agreement</a></li>
-                    </ul>
-                </div>
-                <div class="span3">
-                    <ul class="unstyled">
-                        <li><h4>Make money with us</h4></li>
-                        <li><a>My Account</a></li>
-                        <li><a>App Music Contests</a></li>                       
-                        <li><a>Audio FX Contests</a></li>
-                        <li><a>Jingle Contests</a></li>                        
-                    </ul>                    
-                </div>
-                <div class="span3">
-                    <ul class="unstyled">
-                        <li><h4>Let us help you</h4></li>                        
-                        <li><a>Contact Us</a></li>
-                        <li><a>FAQ</a></li>                        
-                        <li><a>Help</a></li>
-                    </ul>               
+            <div class="container">
+                <div class="row offset2">
+                    <div class="span3">
+                        <ul class="unstyled">
+                            <li><h4>Learn more about us</h4></li>
+                            <li><a>In the press</a></li>
+                            <li><a>Careers</a></li>
+                        </ul>
+                    </div>
+                    <div id="mid-footer" class="span3">
+                        <ul class="unstyled">
+                            <li><h4>Make money with us</h4></li>
+                            <li><a>App Music Contests</a></li>                       
+                            <li><a>Audio FX Contests</a></li>
+                            <li><a>Voiceover Contests</a></li>                        
+                            <li><a>Jingle Contests</a></li>                        
+                        </ul>                    
+                    </div>
+                    <div class="span3">
+                        <ul class="unstyled">
+                            <li><h4>Let us help you</h4></li>                        
+                            <li><a>Contact Us</a></li>
+                            <li><a>FAQ</a></li>                        
+                            <li><a>Help</a></li>
+                        </ul>               
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center">&copy; GrooveCrowd 2012</p>
+                <div>
+                    <p style="text-align: center">
+                        &copy; GrooveCrowd 2012 |
+                        <a>Privacy Policy</a> |
+                        <a>Terms & Agreement</a>
+                    </p>                    
+                </div>            
+
         {% endblock %}                
     </footer>
     {% block javascripts %}

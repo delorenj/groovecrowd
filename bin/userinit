@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/php ./app/console fos:user:create admin admin@groovecrowd.com admin123 --super-admin
+/usr/bin/php ./app/console fos:user:create test test@balls.com test123
+/usr/bin/php ./app/console fos:user:create testies testies@nuts.com test123 --inactive

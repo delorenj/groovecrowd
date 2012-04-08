@@ -1,9 +1,10 @@
+GCUserBundle:
+    resource: "@GCUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 GCWelcomeBundle:
     resource: "@GCWelcomeBundle/Resources/config/routing.yml"
     prefix:   /
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
 # Internal routing configuration to handle ESI
 #_internal:
