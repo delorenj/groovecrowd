@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+	<span>Roles:</span><br />
+	{% for role in app.user.roles %}
+	<span>{{role}}</span><br />
+	{% endfor %}
+
+{% endblock %}

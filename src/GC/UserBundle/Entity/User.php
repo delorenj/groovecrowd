@@ -20,19 +20,10 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @var string $first_name
-     *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
-     */
-    protected $first_name;
-
-    /**
-     * @var string $last_name
-     *
-     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
-     */
-    protected $last_name;
+    // /**
+    //  * @ORM\Column(type="array", name="roles")
+    //  */
+    // protected $roles;
 
     /**
      * @var string $image_path
@@ -45,96 +36,6 @@ class User extends BaseUser
     {
         parent::__construct();
         // init stuff
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set first_name
-     *
-     * @param string $firstName
-     */
-    public function setFirstName($firstName)
-    {
-        $this->first_name = $firstName;
-    }
-
-    /**
-     * Get first_name
-     *
-     * @return string 
-     */
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    /**
-     * Set last_name
-     *
-     * @param string $lastName
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-    }
-
-    /**
-     * Get last_name
-     *
-     * @return string 
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
     }
 
     /**
