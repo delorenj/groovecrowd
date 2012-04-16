@@ -1,0 +1,42 @@
+GrooveComment:
+  type: entity
+  table: groove_comment
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    body:
+      type: text
+      nullable: true
+    createdAt:
+      type: datetime
+      nullable: false
+      column: created_at
+    modifiedAt:
+      type: datetime
+      nullable: true
+      column: modified_at
+  oneToOne:
+    groove:
+      targetEntity: Groove
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        groove_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    user:
+      targetEntity: FosUser
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

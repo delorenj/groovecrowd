@@ -1,0 +1,51 @@
+Groove:
+  type: entity
+  table: groove
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    title:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+    description:
+      type: text
+      nullable: true
+    rating:
+      type: smallint
+      nullable: false
+    lengthInMilliseconds:
+      type: integer
+      unsigned: false
+      nullable: false
+      column: length_in_milliseconds
+    createdAt:
+      type: datetime
+      nullable: false
+      column: created_at
+  oneToOne:
+    grooveType:
+      targetEntity: GrooveType
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        groove_type_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    grooveSet:
+      targetEntity: GrooveSet
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        groove_set_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

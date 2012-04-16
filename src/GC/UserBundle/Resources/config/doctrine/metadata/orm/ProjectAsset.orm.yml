@@ -1,0 +1,43 @@
+ProjectAsset:
+  type: entity
+  table: project_asset
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    uri:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    caption:
+      type: text
+      nullable: true
+    createdAt:
+      type: datetime
+      nullable: false
+      column: created_at
+  oneToOne:
+    assetType:
+      targetEntity: AssetType
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        asset_type_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    project:
+      targetEntity: Project
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        project_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

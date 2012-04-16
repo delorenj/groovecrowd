@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"con",
+				"container"
+			],
+			[
+				"Cont",
+				"ContainerAwareInterface"
+			],
+			[
 				"re",
 				"realtive"
 			],
@@ -56,66 +64,18 @@
 	"buffers":
 	[
 		{
-			"file": "src/GC/WelcomeBundle/Controller/WelcomeController.php",
+			"file": "src/GC/UserBundle/Controller/DashboardController.php",
 			"settings":
 			{
-				"buffer_size": 278,
+				"buffer_size": 479,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
+			"file": "src/GC/UserBundle/Resources/views/Dashboard/test.html.twig",
 			"settings":
 			{
-				"buffer_size": 995,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Resources/views/base.html.twig",
-			"settings":
-			{
-				"buffer_size": 4632,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/WelcomeBundle/Resources/views/layout.html.twig",
-			"settings":
-			{
-				"buffer_size": 298,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/custom.less",
-			"settings":
-			{
-				"buffer_size": 155,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/bootstrap.less",
-			"settings":
-			{
-				"buffer_size": 1532,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/bootswatch.less",
-			"settings":
-			{
-				"buffer_size": 2014,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/variables.less",
-			"settings":
-			{
-				"buffer_size": 5818,
+				"buffer_size": 171,
 				"line_ending": "Unix"
 			}
 		}
@@ -123,9 +83,33 @@
 	"build_system": "Packages/ActionScript/actionscript.sublime-build",
 	"command_palette":
 	{
-		"height": 116.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"tbgrid",
+				"Snippet: Twitter Bootstrap basic three column grid"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"terminal",
+				"Preferences: Terminal Settings – Default"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"tb",
+				"Snippet: Twitter Bootstrap basic four column grid"
+			],
 			[
 				"drop",
 				"Snippet: Twitter Bootstrap button dropdowns"
@@ -145,14 +129,6 @@
 			[
 				"vintage",
 				"Set Syntax: VintageEx Command Line"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"controller",
@@ -195,7 +171,7 @@
 				"Snippet: <?php … ?>"
 			]
 		],
-		"width": 579.0
+		"width": 606.0
 	},
 	"console":
 	{
@@ -212,18 +188,46 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Entity/UserManager.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Dashboard/index.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Controller/DefaultController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/responsive.css",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/navbar.less",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Security/login.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/views/Security/login.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing_dev.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/twig/doc/templates.rst",
-		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/config/config_dev.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/layout.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/GCUserBundle.php",
+		"/Applications/MAMP/htdocs/groovecrowd/bin/userinit",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/security.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/DataFixtures/ORM/LoadUserData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Entity/User.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/views/layout.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Controller/WelcomeController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/custom.less",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/bin/data",
+		"/Applications/MAMP/htdocs/groovecrowd/.gitignore",
+		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/autoload.php",
+		"/Applications/MAMP/htdocs/groovecrowd/deps",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Terminal/Default (OSX).sublime-keymap",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Terminal/Terminal.sublime-settings",
+		"/Applications/MAMP/htdocs/groovecrowd/app/console",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/bootstrap.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/bootswatch.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/bootstrap.css",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing_dev.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/twig/doc/templates.rst",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/config_dev.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/README.md",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Controller/DefaultController.php",
 		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
-		"/Applications/MAMP/htdocs/groovecrowd/.gitignore",
 		"/Applications/MAMP/htdocs/groovecrowd/library/Twitter/Form.php",
 		"/Applications/MAMP/htdocs/groovecrowd/library/Twitter/Form/Decorators/Errors.php",
 		"/Applications/MAMP/htdocs/groovecrowd/library/Twitter/Form/Decorators/Checkboxlabel.php",
@@ -293,7 +297,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 91.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -306,6 +310,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"private",
+			"fos",
 			"style.css",
 			"script",
 			"\"></script>",
@@ -353,6 +359,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"protected",
 			"') }}\"></script>",
 			"Welcome",
 			"65"
@@ -366,29 +373,30 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/GC/WelcomeBundle/Controller/WelcomeController.php",
+					"file": "src/GC/UserBundle/Controller/DashboardController.php",
 					"settings":
 					{
-						"buffer_size": 278,
+						"buffer_size": 479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								204,
-								204
+								402,
+								402
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -398,188 +406,27 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
+					"file": "src/GC/UserBundle/Resources/views/Dashboard/test.html.twig",
 					"settings":
 					{
-						"buffer_size": 995,
+						"buffer_size": 171,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								885,
-								885
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Resources/views/base.html.twig",
-					"settings":
-					{
-						"buffer_size": 4632,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2478,
-								2478
+								141,
+								141
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/GC/WelcomeBundle/Resources/views/layout.html.twig",
-					"settings":
-					{
-						"buffer_size": 298,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								282,
-								282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "web/css/less/custom.less",
-					"settings":
-					{
-						"buffer_size": 155,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								146,
-								146
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "web/css/less/bootstrap.less",
-					"settings":
-					{
-						"buffer_size": 1532,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1510,
-								1510
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 107.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "web/css/less/bootswatch.less",
-					"settings":
-					{
-						"buffer_size": 2014,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2014,
-								2014
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 602.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "web/css/less/variables.less",
-					"settings":
-					{
-						"buffer_size": 5818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5818,
-								5818
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2192.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -629,24 +476,116 @@
 		"selected_items":
 		[
 			[
-				"cus",
-				"web/css/less/custom.less"
+				"userman",
+				"vendor/bundles/FOS/UserBundle/Entity/UserManager.php"
 			],
 			[
-				"config",
-				"app/config/config_dev.yml"
+				"respon",
+				"web/css/css/responsive.css"
+			],
+			[
+				"navba",
+				"web/css/less/navbar.less"
+			],
+			[
+				"login.",
+				"vendor/bundles/FOS/UserBundle/Resources/views/Security/login.html.twig"
+			],
+			[
+				"routi",
+				"app/config/routing.yml"
+			],
+			[
+				"rou",
+				"src/GC/UserBundle/Resources/config/routing.yml"
+			],
+			[
+				"gcuser",
+				"src/GC/UserBundle/GCUserBundle.php"
+			],
+			[
+				"userinit",
+				"bin/userinit"
+			],
+			[
+				"confi",
+				"app/config/config.yml"
+			],
+			[
+				"secur",
+				"app/config/security.yml"
+			],
+			[
+				"routin",
+				"app/config/routing.yml"
+			],
+			[
+				"secu",
+				"app/config/security.yml"
+			],
+			[
+				"con",
+				"app/config/config.yml"
+			],
+			[
+				"user",
+				"bin/userinit"
+			],
+			[
+				"data",
+				"bin/data"
+			],
+			[
+				"sec",
+				"app/config/security.yml"
+			],
+			[
+				"auto",
+				"app/autoload.php"
+			],
+			[
+				"deps",
+				"deps"
 			],
 			[
 				"ker",
 				"app/AppKernel.php"
 			],
 			[
-				"routing",
-				"src/GC/WelcomeBundle/Resources/config/routing.yml"
+				"giti",
+				".gitignore"
 			],
 			[
-				"routi",
+				".giti",
+				".gitignore"
+			],
+			[
+				"routing",
 				"app/config/routing.yml"
+			],
+			[
+				"appker",
+				"app/AppKernel.php"
+			],
+			[
+				"autolo",
+				"app/autoload.php"
+			],
+			[
+				"consol",
+				"app/console"
+			],
+			[
+				"config",
+				"app/config/config.yml"
+			],
+			[
+				"bootstrap.css",
+				"web/css/css/bootstrap.css"
+			],
+			[
+				"cus",
+				"web/css/less/custom.less"
 			],
 			[
 				"footer/con",
@@ -711,10 +650,6 @@
 			[
 				"bootsw",
 				"public/css/less/bootswatch.less"
-			],
-			[
-				"confi",
-				"laravel/config.php"
 			],
 			[
 				"hta",

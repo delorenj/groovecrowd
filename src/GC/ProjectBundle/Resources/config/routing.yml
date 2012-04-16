@@ -1,0 +1,3 @@
+GCProjectBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: GCProjectBundle:Default:index }
