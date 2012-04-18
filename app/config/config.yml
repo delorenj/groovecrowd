@@ -26,7 +26,7 @@ services:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: GC\UserBundle\Entity\User
+    user_class: GC\DataLayerBundle\Entity\User
 
 # Twig Configuration
 twig:

@@ -4,18 +4,18 @@ namespace GC\ProjectBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use GC\ProjectBundle\Entity\Category;
+use GC\DataLayerBundle\Entity\Category;
 
 class CategoryController extends Controller {
 
 	public function indexAction() {
-		$em = $this->get('doctrine')->getEntityManager()->getRepository('GCProjectBundle:Category');
+		$em = $this->get('doctrine')->getEntityManager()->getRepository('GCDataLayerBundle:Category');
 		$cats = $em->findAll();
 		return $this->render('GCProjectBundle:Category:index.html.twig', array("cats" => $cats));
 	}
 
 	public function addAction(Request $request) {
-		$em = $this->get('doctrine')->getEntityManager()->getRepository('GCProjectBundle:Category');
+		$em = $this->get('doctrine')->getEntityManager()->getRepository('GCDataLayerBundle:Category');
 		$existing_cats = $em->findAll();
 		$cat_names[] = "Root";
 		// foreach ($existing_cats as $x) {

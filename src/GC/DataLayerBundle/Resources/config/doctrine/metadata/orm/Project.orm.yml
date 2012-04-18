@@ -1,0 +1,92 @@
+Project:
+  type: entity
+  table: project
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    title:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+    organization:
+      type: string
+      length: 255
+      fixed: false
+      nullable: true
+    description:
+      type: text
+      nullable: false
+    payoutAmount:
+      type: integer
+      unsigned: false
+      nullable: false
+      column: payout_amount
+    payoutGuaranteed:
+      type: integer
+      unsigned: false
+      nullable: false
+      column: payout_guaranteed
+    expiresAt:
+      type: datetime
+      nullable: false
+      column: expires_at
+    enabled:
+      type: integer
+      unsigned: false
+      nullable: false
+    winningGrooveSetId:
+      type: integer
+      unsigned: false
+      nullable: true
+      column: winning_groove_set_id
+    blind:
+      type: integer
+      unsigned: false
+      nullable: false
+    flags:
+      type: integer
+      unsigned: false
+      nullable: false
+    createdAt:
+      type: datetime
+      nullable: true
+      column: created_at
+    modifiedAt:
+      type: datetime
+      nullable: true
+      column: modified_at
+  oneToOne:
+    industry:
+      targetEntity: Industry
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        industry_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    user:
+      targetEntity: FosUser
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    category:
+      targetEntity: Category
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        category_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

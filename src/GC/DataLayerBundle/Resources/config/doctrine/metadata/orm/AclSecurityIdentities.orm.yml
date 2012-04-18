@@ -1,0 +1,20 @@
+AclSecurityIdentities:
+  type: entity
+  table: acl_security_identities
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    identifier:
+      type: string
+      length: 200
+      fixed: false
+      nullable: false
+    username:
+      type: boolean
+      nullable: false
+  lifecycleCallbacks: {  }

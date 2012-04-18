@@ -1,3 +1,7 @@
+GCDataLayerBundle:
+    resource: "@GCDataLayerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 GCGrooveBundle:
     resource: "@GCGrooveBundle/Resources/config/routing.yml"
     prefix:   /

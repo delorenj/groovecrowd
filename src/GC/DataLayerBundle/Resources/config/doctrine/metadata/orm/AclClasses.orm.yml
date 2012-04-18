@@ -1,0 +1,18 @@
+AclClasses:
+  type: entity
+  table: acl_classes
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    classType:
+      type: string
+      length: 200
+      fixed: false
+      nullable: false
+      column: class_type
+  lifecycleCallbacks: {  }

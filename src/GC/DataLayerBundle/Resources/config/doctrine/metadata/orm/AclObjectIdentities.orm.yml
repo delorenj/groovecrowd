@@ -1,0 +1,45 @@
+AclObjectIdentities:
+  type: entity
+  table: acl_object_identities
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    classId:
+      type: integer
+      unsigned: false
+      nullable: false
+      column: class_id
+    objectIdentifier:
+      type: string
+      length: 100
+      fixed: false
+      nullable: false
+      column: object_identifier
+    entriesInheriting:
+      type: boolean
+      nullable: false
+      column: entries_inheriting
+  manyToMany:
+    objectentity:
+      targetEntity: AclObjectIdentities
+      cascade: {  }
+      mappedBy: ancestor
+      inversedBy: null
+      joinTable: null
+      orderBy: null
+  oneToOne:
+    parentObjectentity:
+      targetEntity: AclObjectIdentities
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        parent_object_identity_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

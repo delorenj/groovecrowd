@@ -1,0 +1,71 @@
+AclEntries:
+  type: entity
+  table: acl_entries
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    fieldName:
+      type: string
+      length: 50
+      fixed: false
+      nullable: true
+      column: field_name
+    aceOrder:
+      type: smallint
+      nullable: false
+      column: ace_order
+    mask:
+      type: integer
+      unsigned: false
+      nullable: false
+    granting:
+      type: boolean
+      nullable: false
+    grantingStrategy:
+      type: string
+      length: 30
+      fixed: false
+      nullable: false
+      column: granting_strategy
+    auditSuccess:
+      type: boolean
+      nullable: false
+      column: audit_success
+    auditFailure:
+      type: boolean
+      nullable: false
+      column: audit_failure
+  oneToOne:
+    securityentity:
+      targetEntity: AclSecurityIdentities
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        security_identity_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    objectentity:
+      targetEntity: AclObjectIdentities
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        object_identity_id:
+          referencedColumnName: id
+      orphanRemoval: false
+    class:
+      targetEntity: AclClasses
+      cascade: {  }
+      mappedBy: null
+      inversedBy: null
+      joinColumns:
+        class_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+parameters:
+#    gc_data_layer.example.class: GC\DataLayerBundle\Example
+
+services:
+#    gc_data_layer.example:
+#        class: %gc_data_layer.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
