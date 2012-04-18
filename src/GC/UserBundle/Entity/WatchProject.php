@@ -3,6 +3,7 @@
 namespace GC\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GC\ProjectBundle\Entity;
 
 /**
  * GC\UserBundle\Entity\WatchProject

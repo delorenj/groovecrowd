@@ -1,6 +1,6 @@
-ProjectComment:
+GrooveComment:
   type: entity
-  table: project_comment
+  table: groove_comment
   fields:
     id:
       id: true
@@ -11,27 +11,27 @@ ProjectComment:
         strategy: IDENTITY
     body:
       type: text
-      nullable: false
+      nullable: true
     createdAt:
       type: datetime
       nullable: false
       column: created_at
-    private:
-      type: integer
-      unsigned: false
-      nullable: false
+    modifiedAt:
+      type: datetime
+      nullable: true
+      column: modified_at
   oneToOne:
-    project:
-      targetEntity: Project
+    groove:
+      targetEntity: Groove
       cascade: {  }
       mappedBy: null
       inversedBy: null
       joinColumns:
-        project_id:
+        groove_id:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: FosUser
+      targetEntity: User
       cascade: {  }
       mappedBy: null
       inversedBy: null

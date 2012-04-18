@@ -59,6 +59,21 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        # entity_managers:
+        #     default:
+        #         mappings:
+        #             FOSUserBundle:
+        #                 type: xml
+        #                 dir: Resources/config/doctrine
+        #             GCGrooveBundle:
+        #                 type: yml
+        #                 dir: Resources/config/doctrine/metadata/orm
+        #             GCProjectBundle:
+        #                 type: yml
+        #                 dir: Resources/config/doctrine/metadata/orm
+        #             GCUserBundle:
+        #                 type: yml
+        #                 dir: Resources/config/doctrine/metadata/orm
 
 # Swiftmailer Configuration
 swiftmailer:

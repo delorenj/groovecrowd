@@ -6,6 +6,8 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * GC\UserBundle\Entity\User
+ *
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
@@ -56,15 +58,5 @@ class User extends BaseUser
     public function getImagePath()
     {
         return $this->image_path;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

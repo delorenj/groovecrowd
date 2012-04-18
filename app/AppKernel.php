@@ -17,12 +17,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new GC\WelcomeBundle\GCWelcomeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new GC\WelcomeBundle\GCWelcomeBundle(),            
             new GC\UserBundle\GCUserBundle(),
-            new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new GC\ProjectBundle\GCProjectBundle(),
-            new GC\GrooveBundle\GCGrooveBundle(),
+            new GC\GrooveBundle\GCGrooveBundle(),            
+            new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

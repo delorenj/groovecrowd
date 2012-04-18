@@ -1,3 +1,7 @@
-GCProjectBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GCProjectBundle:Default:index }
+_categorylist:
+    pattern:  categories/
+    defaults: { _controller: GCProjectBundle:Category:index }
+
+_categoryadd:
+    pattern:  categories/add
+    defaults: { _controller: GCProjectBundle:Category:add }

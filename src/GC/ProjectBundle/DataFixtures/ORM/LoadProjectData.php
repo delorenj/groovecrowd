@@ -1,15 +1,15 @@
 <?php
 
-namespace GC\UserBundle\DataFixtures\ORM;
+namespace GC\ProjectBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use GC\ProjectBundle\Entity\Category;
-use GC\UserBundle\Entity\User;
-class LoadUserData implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+use GC\ProjectBundle\Entity\User;
+
+class LoadProjectData implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
     private $container;
 
@@ -19,7 +19,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface, Ordered
     }
 
     public function getOrder() {
-        return 10;
+        return 8;
     }
 
     public function load(ObjectManager $manager)

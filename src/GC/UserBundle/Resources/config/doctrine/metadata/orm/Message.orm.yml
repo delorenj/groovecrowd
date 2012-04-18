@@ -23,7 +23,7 @@ Message:
       column: create_at
   oneToOne:
     toUser:
-      targetEntity: FosUser
+      targetEntity: User
       cascade: {  }
       mappedBy: null
       inversedBy: null
@@ -32,7 +32,7 @@ Message:
           referencedColumnName: id
       orphanRemoval: false
     fromUser:
-      targetEntity: FosUser
+      targetEntity: User
       cascade: {  }
       mappedBy: null
       inversedBy: null
