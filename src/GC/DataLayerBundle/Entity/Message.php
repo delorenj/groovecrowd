@@ -43,9 +43,9 @@ class Message
     private $createAt;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="to_user_id", referencedColumnName="id")
      * })
@@ -53,9 +53,9 @@ class Message
     private $toUser;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="from_user_id", referencedColumnName="id")
      * })
@@ -63,114 +63,4 @@ class Message
     private $fromUser;
 
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set body
-     *
-     * @param text $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-    }
-
-    /**
-     * Get body
-     *
-     * @return text 
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Set subject
-     *
-     * @param string $subject
-     */
-    public function setSubject($subject)
-    {
-        $this->subject = $subject;
-    }
-
-    /**
-     * Get subject
-     *
-     * @return string 
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
-
-    /**
-     * Set createAt
-     *
-     * @param datetime $createAt
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-    }
-
-    /**
-     * Get createAt
-     *
-     * @return datetime 
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-
-    /**
-     * Set toUser
-     *
-     * @param GC\DataLayerBundle\Entity\FosUser $toUser
-     */
-    public function setToUser(\GC\DataLayerBundle\Entity\FosUser $toUser)
-    {
-        $this->toUser = $toUser;
-    }
-
-    /**
-     * Get toUser
-     *
-     * @return GC\DataLayerBundle\Entity\FosUser 
-     */
-    public function getToUser()
-    {
-        return $this->toUser;
-    }
-
-    /**
-     * Set fromUser
-     *
-     * @param GC\DataLayerBundle\Entity\FosUser $fromUser
-     */
-    public function setFromUser(\GC\DataLayerBundle\Entity\FosUser $fromUser)
-    {
-        $this->fromUser = $fromUser;
-    }
-
-    /**
-     * Get fromUser
-     *
-     * @return GC\DataLayerBundle\Entity\FosUser 
-     */
-    public function getFromUser()
-    {
-        return $this->fromUser;
-    }
 }

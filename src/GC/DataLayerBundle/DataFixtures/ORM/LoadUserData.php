@@ -32,7 +32,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface, Ordered
         // $userAdmin->setLastName("Bishtweed");
         // $manager->persist($userAdmin);
         // $manager->flush();
-        // $userManager = $this->container->get('fos_user.user_manager');
+        $userManager = $this->container->get('fos_user.user_manager');
         // $user = $userManager->createUser();
         // $user->setUsername("admin");
         // $user->setPassword("admin123");
@@ -41,13 +41,11 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface, Ordered
         // $user->setLastName("Ballsham");
         // $userManager->updateUser($user);
 
-        // $user = $userManager->createUser();
-        // $user->setUsername("admin");
-        // $user->setPassword("admin123");
-        // $user->setEmail("admin@groovecrowd.com");
-        // $user->setFirstName("Shamus");
-        // $user->setLastName("Ballsham");
-        // $userManager->updateUser($user);
+        $user = $userManager->createUser();
+        $user->setUsername("admin");
+        $user->setPassword("admin123");
+        $user->setEmail("admin@groovecrowd.com");
+        $userManager->updateUser($user);
 
     }
 }

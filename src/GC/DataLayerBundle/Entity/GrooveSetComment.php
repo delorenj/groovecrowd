@@ -53,9 +53,9 @@ class GrooveSetComment
     private $grooveSet;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -63,114 +63,4 @@ class GrooveSetComment
     private $user;
 
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set body
-     *
-     * @param text $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-    }
-
-    /**
-     * Get body
-     *
-     * @return text 
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param datetime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set modifiedAt
-     *
-     * @param datetime $modifiedAt
-     */
-    public function setModifiedAt($modifiedAt)
-    {
-        $this->modifiedAt = $modifiedAt;
-    }
-
-    /**
-     * Get modifiedAt
-     *
-     * @return datetime 
-     */
-    public function getModifiedAt()
-    {
-        return $this->modifiedAt;
-    }
-
-    /**
-     * Set grooveSet
-     *
-     * @param GC\DataLayerBundle\Entity\GrooveSet $grooveSet
-     */
-    public function setGrooveSet(\GC\DataLayerBundle\Entity\GrooveSet $grooveSet)
-    {
-        $this->grooveSet = $grooveSet;
-    }
-
-    /**
-     * Get grooveSet
-     *
-     * @return GC\DataLayerBundle\Entity\GrooveSet 
-     */
-    public function getGrooveSet()
-    {
-        return $this->grooveSet;
-    }
-
-    /**
-     * Set user
-     *
-     * @param GC\DataLayerBundle\Entity\FosUser $user
-     */
-    public function setUser(\GC\DataLayerBundle\Entity\FosUser $user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * Get user
-     *
-     * @return GC\DataLayerBundle\Entity\FosUser 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

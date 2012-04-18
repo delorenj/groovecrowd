@@ -53,9 +53,9 @@ class GrooveComment
     private $groove;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -157,9 +157,9 @@ class GrooveComment
     /**
      * Set user
      *
-     * @param GC\DataLayerBundle\Entity\FosUser $user
+     * @param GC\DataLayerBundle\Entity\User $user
      */
-    public function setUser(\GC\DataLayerBundle\Entity\FosUser $user)
+    public function setUser(\GC\DataLayerBundle\Entity\User $user)
     {
         $this->user = $user;
     }
@@ -167,7 +167,7 @@ class GrooveComment
     /**
      * Get user
      *
-     * @return GC\DataLayerBundle\Entity\FosUser 
+     * @return GC\DataLayerBundle\Entity\User 
      */
     public function getUser()
     {

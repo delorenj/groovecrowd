@@ -53,9 +53,9 @@ class ProjectComment
     private $project;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -63,114 +63,4 @@ class ProjectComment
     private $user;
 
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set body
-     *
-     * @param text $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-    }
-
-    /**
-     * Get body
-     *
-     * @return text 
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param datetime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set private
-     *
-     * @param integer $private
-     */
-    public function setPrivate($private)
-    {
-        $this->private = $private;
-    }
-
-    /**
-     * Get private
-     *
-     * @return integer 
-     */
-    public function getPrivate()
-    {
-        return $this->private;
-    }
-
-    /**
-     * Set project
-     *
-     * @param GC\DataLayerBundle\Entity\Project $project
-     */
-    public function setProject(\GC\DataLayerBundle\Entity\Project $project)
-    {
-        $this->project = $project;
-    }
-
-    /**
-     * Get project
-     *
-     * @return GC\DataLayerBundle\Entity\Project 
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
-     * Set user
-     *
-     * @param GC\DataLayerBundle\Entity\FosUser $user
-     */
-    public function setUser(\GC\DataLayerBundle\Entity\FosUser $user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * Get user
-     *
-     * @return GC\DataLayerBundle\Entity\FosUser 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

@@ -20,7 +20,7 @@ WatchProject:
           referencedColumnName: id
       orphanRemoval: false
     user:
-      targetEntity: FosUser
+      targetEntity: User
       cascade: {  }
       mappedBy: null
       inversedBy: null

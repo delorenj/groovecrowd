@@ -32,9 +32,9 @@ class WatchCategory
     private $category;
 
     /**
-     * @var FosUser
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -42,54 +42,4 @@ class WatchCategory
     private $user;
 
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set category
-     *
-     * @param GC\DataLayerBundle\Entity\Category $category
-     */
-    public function setCategory(\GC\DataLayerBundle\Entity\Category $category)
-    {
-        $this->category = $category;
-    }
-
-    /**
-     * Get category
-     *
-     * @return GC\DataLayerBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * Set user
-     *
-     * @param GC\DataLayerBundle\Entity\FosUser $user
-     */
-    public function setUser(\GC\DataLayerBundle\Entity\FosUser $user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * Get user
-     *
-     * @return GC\DataLayerBundle\Entity\FosUser 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }
