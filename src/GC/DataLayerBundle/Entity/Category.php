@@ -31,7 +31,7 @@ class Category
     /**
      * @var integer $count
      *
-     * @ORM\Column(name="count", type="integer", nullable=false)
+     * @ORM\Column(name="count", type="integer", nullable=true)
      */
     private $count;
 
