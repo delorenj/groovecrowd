@@ -30,7 +30,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         //admin
         $user = $userManager->createUser();
         $user->setUsername("admin");
-        $user->setPassword("admin123");
+        $user->setPlainPassword("admin123");
         $user->setEmail("admin@groovecrowd.com");
         $user->addRole("ROLE_ADMIN");
         $user->setEnabled(true);
@@ -40,7 +40,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         //test consumer
         $user = $userManager->createUser();
         $user->setUsername("consumer");
-        $user->setPassword("test");
+        $user->setPlainPassword("test");
         $user->setEmail("consumer@sweetshoes.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CONSUMER"); 
@@ -50,7 +50,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         //test creator
         $user = $userManager->createUser();
         $user->setUsername("creator");
-        $user->setPassword("test");
+        $user->setPlainPassword("test");
         $user->setEmail("creator@bootsandass.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CREATOR"); 
@@ -60,7 +60,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         //disabled account
         $user = $userManager->createUser();
         $user->setUsername("test0");
-        $user->setPassword("test");
+        $user->setPlainPassword("test");
         $user->setEmail("test0@testies.com");
         $user->setEnabled(false);        
         $userManager->updateUser($user);
@@ -69,7 +69,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         for($i=1; $i<30; $i++) {
             $user = $userManager->createUser();
             $user->setUsername("test" . $i);
-            $user->setPassword("test");
+            $user->setPlainPassword("test");
             $user->setEmail("test" . $i . "@testies.com");
             $user->setEnabled(true);
             $user->addRole("ROLE_CONSUMER");             
