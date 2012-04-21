@@ -10,7 +10,8 @@ AssetType:
       generator:
         strategy: IDENTITY
     name:
-      type: integer
-      unsigned: false
-      nullable: true
+      type: string
+      length: 255
+      nullable: false
+      unique: true;
   lifecycleCallbacks: {  }

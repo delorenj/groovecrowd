@@ -6,7 +6,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use GC\DataLayerBundle\Entity\Category;
+use GC\DataLayerBundle\Entity\AssetType;
+use GC\DataLayerBundle\Entity\GrooveType;
+use GC\DataLayerBundle\Entity\Industry;
+use GC\DataLayerBundle\Entity\Tag;
 
 class LoadSimpleData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -19,49 +22,16 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
+        $this->add("AssetType", "image");
+        $this->add("AssetType", "video");
+        $this->add("AssetType", "audio");
+    }
 
-        $root = $this->add("root");
-        $game = $this->add("Game", $root->getId());
-        $this->add("Console", $game->getId());
-        $this->add("PC", $game->getId());
-        $this->add("Mobile", $game->getId());
 
-        $this->add("Brand Jingle", $root->getId());
-
-        $video = $this->add("Video", $root->getId());
-        $this->add("Advertisement", $video->getId());
-        $this->add("Web Series", $video->getId());
-        $anim = $this->add("Animation", $video->getId());
-
-        $root->setLft(1);
-        $rgt = $this->rebuild_tree($root);
-        $root->setRgt($rgt);
-        $this->manager->persist($root);
+    private function add($table, $name) {
+        $x = new AssetType();
+        $x->setName($name);
+        $this->manager->persist($x);
         $this->manager->flush();
-    }
-
-    private function rebuild_tree($root, $lft=0) {
-        $children = $this->manager->getRepository('GC\DataLayerBundle\Entity\Category')->findBy(array('parentId' => $root->getId()));
-        foreach($children as $root) {
-            $root->setLft($lft+1);
-            $rgt = $this->rebuild_tree($root, $lft+1);
-            $root->setRgt($rgt);
-            $this->manager->persist($root);
-            $this->manager->flush();            
-            $lft=$rgt;          
-        }
-        return $lft;
-    }
-
-    private function add($name, $parent = NULL) {
-        $cat = new Category();
-        $cat->setName($name);
-        if($parent) {
-            $cat->setParentId($parent);
-        }
-        $cat->setCount(0);
-        $this->manager->persist($cat);
-        $this->manager->flush();
-        return $cat;
-    }
+    }    
 }

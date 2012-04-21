@@ -42,4 +42,54 @@ class WatchCategory
     private $user;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set category
+     *
+     * @param GC\DataLayerBundle\Entity\Category $category
+     */
+    public function setCategory(\GC\DataLayerBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Get category
+     *
+     * @return GC\DataLayerBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set user
+     *
+     * @param GC\DataLayerBundle\Entity\User $user
+     */
+    public function setUser(\GC\DataLayerBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return GC\DataLayerBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

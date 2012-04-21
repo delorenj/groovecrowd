@@ -1,0 +1,16 @@
+{% macro has_children(c) %}
+	return (c.lft < (c.rgt-1))
+{% endmacro %}
+
+{% macro categorytree(cats) %}
+<ul>
+	{% for c in cats %}
+		<li>{{c.name}}</li>
+        {% if _self.has_children(c) %}
+            <ul>
+                {{ _self.categorytree(c) }}
+            </ul>
+        {% endif %}		
+	{% endfor %}	
+</ul>
+{% endmacro %}

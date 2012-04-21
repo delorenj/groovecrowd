@@ -10,7 +10,7 @@ class CategoryController extends Controller {
 
 	public function indexAction() {
 		$em = $this->get('doctrine')->getEntityManager()->getRepository('GCDataLayerBundle:Category');
-		$cats = $em->findAll();
+		$cats = $em->getSubtree("root");
 		return $this->render('GCProjectBundle:Category:index.html.twig', array("cats" => $cats));
 	}
 

@@ -42,4 +42,54 @@ class WatchProject
     private $user;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set project
+     *
+     * @param GC\DataLayerBundle\Entity\Project $project
+     */
+    public function setProject(\GC\DataLayerBundle\Entity\Project $project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * Get project
+     *
+     * @return GC\DataLayerBundle\Entity\Project 
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * Set user
+     *
+     * @param GC\DataLayerBundle\Entity\User $user
+     */
+    public function setUser(\GC\DataLayerBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return GC\DataLayerBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
