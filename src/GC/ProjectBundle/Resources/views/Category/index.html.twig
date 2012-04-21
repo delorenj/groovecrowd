@@ -1,12 +1,7 @@
 {% extends '::base.html.twig' %}
+{% import 'GCProjectBundle:Category:tree.html.twig' as tree %}
 
 {% block body %}
 <h2>Current Defined Categories:</h2>
-
-<ul>
-	{% for c in cats %}
-		<li>{{c.name}}</li>
-	{% endfor %}	
-</ul>
-
+	{{ tree.categorytree(cats) }}
 {% endblock %}
