@@ -72,7 +72,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
             $user->setEmail("test" . $i . "@testies.com");
             $user->setEnabled(true);
             $user->addRole("ROLE_CONSUMER");             
-            $userManager->updateUser($user);            
+            $userManager->updateUser($user); 
+            $this->addReference('test' . $i, $user);           
         }
 
     }

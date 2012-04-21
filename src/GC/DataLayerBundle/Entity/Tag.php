@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="tag")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks() 
  */
 class Tag
 {
@@ -86,4 +87,14 @@ class Tag
     {
         return $this->count;
     }
+
+
+    // /**
+    //  * @ORM\PostPersist
+    //  */
+    // public function updateTagCount()
+    // {
+    //     $tag = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag')->find($this->tagId);
+    //     $tag->setCount($tag->getCount() + 1);
+    // }
 }

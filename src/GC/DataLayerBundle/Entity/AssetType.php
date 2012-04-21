@@ -22,9 +22,9 @@ class AssetType
     private $id;
 
     /**
-     * @var integer $name
+     * @var string $name
      *
-     * @ORM\Column(name="name", type="integer", nullable=true)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false, unique=true)
      */
     private $name;
 
@@ -43,7 +43,7 @@ class AssetType
     /**
      * Set name
      *
-     * @param integer $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -53,7 +53,7 @@ class AssetType
     /**
      * Get name
      *
-     * @return integer 
+     * @return string 
      */
     public function getName()
     {

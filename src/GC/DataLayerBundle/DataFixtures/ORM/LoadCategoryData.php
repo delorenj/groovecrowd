@@ -7,6 +7,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use GC\DataLayerBundle\Entity\Category;
+use GC\DataLayerBundle\Helpers;
 
 class LoadCategoryData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -60,6 +61,7 @@ class LoadCategoryData extends AbstractFixture implements FixtureInterface, Orde
             $cat->setParentId($parent);
         }
         $cat->setCount(0);
+        $this->addReference("category-" . Helpers::slugify($name), $cat);
         $this->manager->persist($cat);
         $this->manager->flush();
         return $cat;
