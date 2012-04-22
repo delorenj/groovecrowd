@@ -38,7 +38,7 @@ class Groove
     /**
      * @var smallint $rating
      *
-     * @ORM\Column(name="rating", type="smallint", nullable=false)
+     * @ORM\Column(name="rating", type="smallint", nullable=true)
      */
     private $rating;
 
@@ -76,7 +76,15 @@ class Groove
      */
     private $grooveSet;
 
-
+    /**
+     * @var GrooveSlot
+     *
+     * @ORM\ManyToOne(targetEntity="GrooveSlot")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="groove_slot_id", referencedColumnName="id")
+     * })
+     */
+    private $grooveSlot;
 
     /**
      * Get id
@@ -227,4 +235,24 @@ class Groove
     {
         return $this->grooveSet;
     }
+
+    /**
+     * Set grooveSlot
+     *
+     * @param GC\DataLayerBundle\Entity\GrooveSlot $grooveSlot
+     */
+    public function setGrooveSlot(\GC\DataLayerBundle\Entity\GrooveSlot $grooveSlot)
+    {
+        $this->grooveSlot = $grooveSlot;
+    }
+
+    /**
+     * Get grooveSlot
+     *
+     * @return GC\DataLayerBundle\Entity\GrooveSlot
+     */
+    public function getGrooveSlot()
+    {
+        return $this->grooveSlot;
+    }    
 }

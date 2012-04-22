@@ -48,6 +48,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setProject($this->getReference('project-game'));
         $p->setDescription('Fun, catchy track');
         $p->setMinLengthInMilliseconds(60000);
+        $this->addReference('gs-game', $p);        
         $this->manager->persist($p);
         $this->manager->flush();
 

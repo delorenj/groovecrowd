@@ -53,6 +53,17 @@ class GrooveSlot
     private $payout_amount;
 
     /**
+     * @var integer $winning_groove
+     *
+     * @ORM\Column(name="winning_groove", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="Groove")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="winning_groove_id", referencedColumnName="id")
+     * })
+     */
+    private $winning_groove;
+
+    /**
      * @var datetime $createdAt
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -145,6 +156,26 @@ class GrooveSlot
     public function setPayoutAmount($payoutAmount)
     {
         $this->payout_amount = $payoutAmount;
+    }
+
+    /**
+     * Get winning_groove
+     *
+     * @return integer 
+     */
+    public function getWinningGroove()
+    {
+        return $this->winning_groove;
+    }
+
+    /**
+     * Set winning_groove
+     *
+     * @param integer $winning_groove
+     */
+    public function setWinningGroove($winningGroove)
+    {
+        $this->winning_groove = $winningGroove;
     }
 
     /**

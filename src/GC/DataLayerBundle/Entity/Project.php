@@ -71,13 +71,6 @@ class Project
     private $enabled;
 
     /**
-     * @var integer $winningGrooveSetId
-     *
-     * @ORM\Column(name="winning_groove_set_id", type="integer", nullable=true)
-     */
-    private $winningGrooveSetId;
-
-    /**
      * @var integer $fullGrooveSetsOnly
      *
      * @ORM\Column(name="full_groove_sets_only", type="integer", nullable=false)
@@ -292,26 +285,6 @@ class Project
     public function getEnabled()
     {
         return $this->enabled;
-    }
-
-    /**
-     * Set winningGrooveSetId
-     *
-     * @param integer $winningGrooveSetId
-     */
-    public function setWinningGrooveSetId($winningGrooveSetId)
-    {
-        $this->winningGrooveSetId = $winningGrooveSetId;
-    }
-
-    /**
-     * Get winningGrooveSetId
-     *
-     * @return integer 
-     */
-    public function getWinningGrooveSetId()
-    {
-        return $this->winningGrooveSetId;
     }
 
     /**

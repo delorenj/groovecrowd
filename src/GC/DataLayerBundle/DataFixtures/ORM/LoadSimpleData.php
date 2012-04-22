@@ -67,6 +67,8 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $x->setName($name);
         $this->manager->persist($x);
         $this->manager->flush();
+        $this->addReference("groove-" . Helpers::slugify($name), $x);
+
     }    
 
     private function industry($name) {
