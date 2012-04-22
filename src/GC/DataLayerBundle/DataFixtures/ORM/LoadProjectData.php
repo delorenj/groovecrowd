@@ -10,6 +10,7 @@ use GC\DataLayerBundle\Entity\Category;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Entity\ProjectTag;
+use GC\DataLayerBundle\Entity\GrooveSlot;
 
 class LoadProjectData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -39,6 +40,13 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setExpiresAt(new \DateTime("1 month"));
         $p->setFlags(0);
         $this->addReference('project-game', $p);
+        $this->manager->persist($p);
+        $this->manager->flush();
+
+        $p = new GrooveSlot();
+        $p->setProject($this->getReference('project-game'));
+        $p->setDescription('Fun, catchy track');
+        $p->setMinLengthInMilliseconds(60000);
         $this->manager->persist($p);
         $this->manager->flush();
 

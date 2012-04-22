@@ -32,13 +32,6 @@ class GrooveSlot
     private $project;
 
     /**
-     * @var string $name
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
      * @var text $description
      *
      * @ORM\Column(name="description", type="text")
@@ -55,7 +48,7 @@ class GrooveSlot
     /**
      * @var integer $payout_amount
      *
-     * @ORM\Column(name="payout_amount", type="integer")
+     * @ORM\Column(name="payout_amount", type="integer", nullable=true)
      */
     private $payout_amount;
 
@@ -103,25 +96,6 @@ class GrooveSlot
         return $this->project;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set description
