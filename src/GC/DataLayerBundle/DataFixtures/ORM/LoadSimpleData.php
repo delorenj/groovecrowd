@@ -48,6 +48,9 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $this->tag("sounds");
         $this->tag("effects");
         $this->tag("fx");
+        $this->tag("score");
+        $this->tag("bonus");
+        $this->tag("level up");
        
 
     }

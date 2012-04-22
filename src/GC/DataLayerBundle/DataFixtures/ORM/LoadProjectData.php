@@ -11,6 +11,7 @@ use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Entity\ProjectTag;
 use GC\DataLayerBundle\Entity\GrooveSlot;
+use GC\DataLayerBundle\Entity\GrooveSlotTag;
 
 class LoadProjectData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -96,6 +97,13 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->manager->persist($p);
         $this->manager->flush();
 
+        $p = new GrooveSlot();
+        $p->setProject($this->getReference('project-trailer'));
+        $p->setDescription('Trailer soundtrack');
+        $p->setMinLengthInMilliseconds(30000);
+        $this->manager->persist($p);
+        $this->manager->flush();        
+
         $p = new ProjectAsset();
         $p->setProject($this->getReference('project-trailer'));
         $p->setUri("http://vimeo.com/35692677");
@@ -141,6 +149,53 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->addReference('project-fx', $p);
         $this->manager->persist($p);
         $this->manager->flush();        
+
+        $p = new GrooveSlot();
+        $p->setProject($this->getReference('project-fx'));
+        $p->setDescription("Interface: Click/Select.  Like a pleasant 'pingy' noise");
+        $p->setPayoutAmount(10);
+        $this->manager->persist($p);
+        $this->manager->flush();  
+
+        $p = new GrooveSlot();
+        $p->setProject($this->getReference('project-fx'));
+        $p->setDescription("Heavy rolling ball sound. Needs to loop smoothly");
+        $p->setPayoutAmount(10);
+        $this->manager->persist($p);
+        $this->manager->flush();  
+
+        $p = new GrooveSlot();
+        $p->setProject($this->getReference('project-trailer'));
+        $p->setDescription('A happy congratulations noise for when a bonus is scored');
+        $p->setPayoutAmount(15);
+        $this->addReference('gs-congrats', $p);
+        $this->manager->persist($p);
+        $this->manager->flush();
+
+        $p = new GrooveSlotTag();
+        $p->setGrooveSlot($this->getReference('gs-congrats'));
+        $p->setTag($manager->merge($this->getReference('tag-score')));
+        $this->manager->persist($p);
+        $this->manager->flush();
+
+        $p = new GrooveSlotTag();
+        $p->setGrooveSlot($this->getReference('gs-congrats'));
+        $p->setTag($manager->merge($this->getReference('tag-level-up')));
+        $this->manager->persist($p);
+        $this->manager->flush();        
+
+        $p = new ProjectTag();
+        $p->setProject($this->getReference('project-fx'));
+        $p->setTag($manager->merge($this->getReference('tag-effects')));
+        $this->manager->persist($p);
+        $this->manager->flush();
+
+        $p = new ProjectTag();
+        $p->setProject($this->getReference('project-fx'));
+        $p->setTag($manager->merge($this->getReference('tag-fx')));
+        $this->manager->persist($p);
+        $this->manager->flush();    
+
 
         $p = new ProjectTag();
         $p->setProject($this->getReference('project-fx'));

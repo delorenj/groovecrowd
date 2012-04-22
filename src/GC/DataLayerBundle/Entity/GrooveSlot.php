@@ -41,7 +41,7 @@ class GrooveSlot
     /**
      * @var integer $min_length_in_milliseconds
      *
-     * @ORM\Column(name="min_length_in_milliseconds", type="integer")
+     * @ORM\Column(name="min_length_in_milliseconds", type="integer", nullable=true)
      */
     private $min_length_in_milliseconds;
 
