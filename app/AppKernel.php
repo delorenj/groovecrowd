@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new GC\ProjectBundle\GCProjectBundle(),
             new GC\GrooveBundle\GCGrooveBundle(),            
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+            new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

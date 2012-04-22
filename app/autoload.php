@@ -9,6 +9,7 @@ $loader->registerNamespaces(array(
     'Sensio'            => __DIR__.'/../vendor/bundles',
     'JMS'               => __DIR__.'/../vendor/bundles',
     'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/doctrine-fixtures/lib',
+    'Doctrine\\DBAL\\Migrations' => __DIR__.'/../vendor/doctrine-migrations/lib',    
     'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',    
     'Doctrine\\Common'  => __DIR__.'/../vendor/doctrine-common/lib',
     'Doctrine\\DBAL'    => __DIR__.'/../vendor/doctrine-dbal/lib',

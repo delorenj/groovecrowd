@@ -33,6 +33,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setPayoutAmount(300);
         $p->setPayoutGuaranteed(1);
         $p->setEnabled(1);
+        $p->setFullGrooveSetsOnly(1);
         $p->setBlind(0);
         $p->setCreatedAt(new \DateTime("-2 week"));
         $p->setExpiresAt(new \DateTime("1 month"));
@@ -78,6 +79,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setPayoutAmount(250);
         $p->setPayoutGuaranteed(1);
         $p->setEnabled(1);
+        $p->setFullGrooveSetsOnly(1);
         $p->setBlind(1);
         $p->setCreatedAt(new \DateTime("now"));
         $p->setExpiresAt(new \DateTime("1 month"));
@@ -123,6 +125,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setPayoutAmount(75);
         $p->setPayoutGuaranteed(0);
         $p->setEnabled(1);
+        $p->setFullGrooveSetsOnly(0);
         $p->setBlind(1);
         $p->setCreatedAt(new \DateTime("-3 week"));
         $p->setExpiresAt(new \DateTime("1 week"));

@@ -78,6 +78,13 @@ class Project
     private $winningGrooveSetId;
 
     /**
+     * @var integer $fullGrooveSetsOnly
+     *
+     * @ORM\Column(name="full_groove_sets_only", type="integer", nullable=false)
+     */
+    private $fullGrooveSetsOnly;
+
+    /**
      * @var integer $blind
      *
      * @ORM\Column(name="blind", type="integer", nullable=false)
@@ -445,5 +452,25 @@ class Project
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set fullGrooveSetsOnly
+     *
+     * @param integer $fullGrooveSetsOnly
+     */
+    public function setFullGrooveSetsOnly($fullGrooveSetsOnly)
+    {
+        $this->fullGrooveSetsOnly = $fullGrooveSetsOnly;
+    }
+
+    /**
+     * Get fullGrooveSetsOnly
+     *
+     * @return integer 
+     */
+    public function getFullGrooveSetsOnly()
+    {
+        return $this->fullGrooveSetsOnly;
     }
 }

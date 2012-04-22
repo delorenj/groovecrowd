@@ -45,6 +45,10 @@ Project:
       unsigned: false
       nullable: true
       column: winning_groove_set_id
+    full_groove_sets_only:
+      type: integer
+      unsigned: false
+      nullable: false
     blind:
       type: integer
       unsigned: false
