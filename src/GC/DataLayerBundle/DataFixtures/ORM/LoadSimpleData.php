@@ -29,6 +29,7 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
 
         $this->groove("generic");
         $this->groove("midi");
+        $this->groove("fx");
         $this->groove("synchronized");
 
         $this->industry("Film");

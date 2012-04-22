@@ -29,18 +29,18 @@ class Message
     private $body;
 
     /**
-     * @var string $subject
+     * @var string $viewed
      *
-     * @ORM\Column(name="subject", type="string", length=255, nullable=true)
+     * @ORM\Column(name="viewed", type="boolean", nullable=false)
      */
-    private $subject;
+    private $viewed;
 
     /**
-     * @var datetime $createAt
+     * @var datetime $createdAt
      *
-     * @ORM\Column(name="create_at", type="datetime", nullable=false)
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
-    private $createAt;
+    private $createdAt;
 
     /**
      * @var User
@@ -95,43 +95,43 @@ class Message
     }
 
     /**
-     * Set subject
+     * Set viewed
      *
-     * @param string $subject
+     * @param integer $viewed
      */
-    public function setSubject($subject)
+    public function setViewed($viewed)
     {
-        $this->subject = $subject;
+        $this->viewed = $viewed;
     }
 
     /**
-     * Get subject
+     * Get viewed
      *
-     * @return string 
+     * @return integer 
      */
-    public function getSubject()
+    public function getViewed()
     {
-        return $this->subject;
+        return $this->viewed;
     }
 
     /**
-     * Set createAt
+     * Set createdAt
      *
-     * @param datetime $createAt
+     * @param datetime $createdAt
      */
-    public function setCreateAt($createAt)
+    public function setCreatedAt($createdAt)
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
     }
 
     /**
-     * Get createAt
+     * Get createdAt
      *
      * @return datetime 
      */
-    public function getCreateAt()
+    public function getCreatedAt()
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
     /**

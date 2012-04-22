@@ -38,7 +38,7 @@ class GrooveSet
     /**
      * @var integer $privateComments
      *
-     * @ORM\Column(name="private_comments", type="integer", nullable=false)
+     * @ORM\Column(name="private_comments", type="boolean", nullable=false)
      */
     private $privateComments;
 

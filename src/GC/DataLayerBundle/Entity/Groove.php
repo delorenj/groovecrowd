@@ -36,6 +36,13 @@ class Groove
     private $description;
 
     /**
+     * @var string $uri
+     *
+     * @ORM\Column(name="uri", type="string", length=255, nullable=false)
+     */
+    private $uri;
+
+    /**
      * @var smallint $rating
      *
      * @ORM\Column(name="rating", type="smallint", nullable=true)
@@ -136,6 +143,26 @@ class Groove
         return $this->description;
     }
 
+    /**
+     * Set uri
+     *
+     * @param string $uri
+     */
+    public function setUri($uri)
+    {
+        $this->uri = $uri;
+    }
+
+    /**
+     * Get uri
+     *
+     * @return string 
+     */
+    public function getUri()
+    {
+        return $this->uri;
+    }
+    
     /**
      * Set rating
      *

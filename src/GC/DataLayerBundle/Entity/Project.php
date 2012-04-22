@@ -52,7 +52,7 @@ class Project
     /**
      * @var integer $payoutGuaranteed
      *
-     * @ORM\Column(name="payout_guaranteed", type="integer", nullable=false)
+     * @ORM\Column(name="payout_guaranteed", type="boolean", nullable=false)
      */
     private $payoutGuaranteed;
 
@@ -66,21 +66,21 @@ class Project
     /**
      * @var integer $enabled
      *
-     * @ORM\Column(name="enabled", type="integer", nullable=false)
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
 
     /**
      * @var integer $fullGrooveSetsOnly
      *
-     * @ORM\Column(name="full_groove_sets_only", type="integer", nullable=false)
+     * @ORM\Column(name="full_groove_sets_only", type="boolean", nullable=false)
      */
     private $fullGrooveSetsOnly;
 
     /**
      * @var integer $blind
      *
-     * @ORM\Column(name="blind", type="integer", nullable=false)
+     * @ORM\Column(name="blind", type="boolean", nullable=false)
      */
     private $blind;
 

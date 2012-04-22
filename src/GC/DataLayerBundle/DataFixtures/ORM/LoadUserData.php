@@ -56,6 +56,16 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $userManager->updateUser($user);
         $this->addReference('user-creator', $user);
 
+        //test creator 2
+        $user = $userManager->createUser();
+        $user->setUsername("creator2");
+        $user->setPlainPassword("test");
+        $user->setEmail("anothercreator@gravybrush.com");
+        $user->setEnabled(true);       
+        $user->addRole("ROLE_CREATOR"); 
+        $userManager->updateUser($user);
+        $this->addReference('user-creator2', $user);
+
         //disabled account
         $user = $userManager->createUser();
         $user->setUsername("test0");

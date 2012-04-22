@@ -38,7 +38,7 @@ class ProjectComment
     /**
      * @var integer $private
      *
-     * @ORM\Column(name="private", type="integer", nullable=false)
+     * @ORM\Column(name="private", type="boolean", nullable=false)
      */
     private $private;
 
