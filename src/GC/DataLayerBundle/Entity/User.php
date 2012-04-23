@@ -4,12 +4,14 @@ namespace GC\DataLayerBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use GC\DataLayerBundle\Entity\GrooveSet;
 
 /**
  * GC\DataLayerBundle\Entity\User
  *
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="GC\DataLayerBundle\Entity\UserRepository") 
  */
 class User extends BaseUser
 {
@@ -34,10 +36,18 @@ class User extends BaseUser
      */
     protected $image_path;
 
+    /**
+     * @var integer $groove_sets
+     *
+     * @ORM\OneToMany(targetEntity="GrooveSet", mappedBy="user")
+     */
+    protected $groove_sets;
+
+
     public function __construct()
     {
         parent::__construct();
-        // init stuff
+        $this->groove_sets = new ArrayCollection();
     }
 
     /**
@@ -61,6 +71,16 @@ class User extends BaseUser
     }
 
     /**
+     * Get groove_sets
+     *
+     * @return GC\DataLayerBundle\Entity\GrooveSet
+     */
+    public function getGrooveSets()
+    {
+        return $this->groove_sets;
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -68,5 +88,15 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add groove_sets
+     *
+     * @param GC\DataLayerBundle\Entity\GrooveSet $grooveSets
+     */
+    public function addGrooveSet(\GC\DataLayerBundle\Entity\GrooveSet $grooveSets)
+    {
+        $this->groove_sets[] = $grooveSets;
     }
 }

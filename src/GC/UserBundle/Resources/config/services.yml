@@ -1,7 +1,17 @@
-parameters:
+# parameters:
 #    gc_user.example.class: GC\UserBundle\Example
 
-services:
+# services:
 #    gc_user.example:
 #        class: %gc_user.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+parameters:
+    gc_security.authentication_handler: GC\UserBundle\AuthenticationHandler
+
+services:
+    authentication_handler:
+        class:  %gc_security.authentication_handler%
+        arguments:  [@router]
+        tags:
+            - { name: 'monolog.logger' channel: 'security' }
