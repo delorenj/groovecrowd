@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<div class="subnav">
+	    <ul class="nav nav-tabs">
+	      <li class="active"><a href="#">Current Contests</a></li>
+	      <li class=""><a href="#">Recent Activity</a></li>
+	      <li class=""><a href="#">Past Contests</a></li>
+	      <li class=""><a href="#">Payment History</a></li>
+	    </ul>
+	</div>
+	<div class="active-projects">
+		<h1>Active GrooveSets</h1>
+		<ul class='unstyled'>
+			{% for p in grooveSets %}
+				<li><a href=#>{{p.description}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
+
+{% block footer1 %}
+	<li><h4>My Account</h4></li>
+	<li><a>Profile Settings</a></li>
+	<li><a>Payments</a></li>
+	<li><a>View History</a></li>
+{% endblock %}

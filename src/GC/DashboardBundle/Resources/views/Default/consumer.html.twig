@@ -1,0 +1,39 @@
+{% extends 'GCDashboardBundle::layout.html.twig' %}
+
+{% block navlist %}
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">Browse Contests</a></li>
+    <li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
+{% endblock %}  
+
+{% block navwidgets %}
+	<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			{{app.user.username}}<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+          <li class=""><a href="#"><i class="icon-user"></i>Profile</a></li>
+          <li class=""><a href="#">Help</a></li>
+          <li class=""><a href="{{url('fos_user_security_logout')}}">Logout</a></li>
+        </ul>		
+	</li>
+{% endblock %}
+
+{% block body %}
+	<div class="subnav">
+	    <ul class="nav nav-tabs">
+	      <li class="active"><a href="#">Current Contests</a></li>
+	      <li class=""><a href="#">Recent Activity</a></li>
+	      <li class=""><a href="#">Past Contests</a></li>
+	      <li class=""><a href="#">Payment History</a></li>
+	    </ul>
+	</div>
+	<div class="active-projects">
+		<h1>Active Projects</h1>
+		<ul class='unstyled'>
+			{% for p in projects %}
+				<li><a href=#>{{p.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
