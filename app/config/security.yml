@@ -8,7 +8,7 @@ security:
 
 
     role_hierarchy:
-        ROLE_CREATOR:     ROLE_USER
+        ROLE_CREATOR:     ROLE_CONSUMER
         ROLE_ADMIN:       ROLE_CREATOR
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
@@ -34,5 +34,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: /dashboard, role: ROLE_CONSUMER }
+
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
