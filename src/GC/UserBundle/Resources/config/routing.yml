@@ -1,11 +1,3 @@
-GCUserBundle_dashboard:
-    pattern:  /hello/{name}
-    defaults: { _controller: GCUserBundle:Dashboard:index }
-
-_user_test:
-    pattern: /test
-    defaults: { _controller: GCUserBundle:Dashboard:test }
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

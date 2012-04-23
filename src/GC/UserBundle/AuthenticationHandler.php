@@ -25,15 +25,16 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
         if ($request->isXmlHttpRequest()) {
             // Handle XHR here
         } else {
-            // If the user tried to access a protected resource and was forces to login
+            // If the user tried to access a protected resource and was forced to login
             // redirect him back to that resource
             if ($targetPath = $request->getSession()->get('_security.target_path')) {
                 $url = $targetPath;
             } else {
                 // Otherwise, redirect him to wherever you want
-                $url = $this->router->generate('fos_user_profile_show', array(
-                    'username' => $token->getUser()->getUsername()
-                ));
+                $url = $this->router->generate('dashboard_index');              
+                // $url = $this->router->generate('dashboard_index', array(
+                //     'username' => $token->getUser()->getUsername()
+                // ));
             }
 
             return new RedirectResponse($url);

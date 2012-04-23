@@ -73,26 +73,34 @@
                 <div class="row offset2">
                     <div class="span3">
                         <ul class="unstyled">
-                            <li><h4>Learn more about us</h4></li>
-                            <li><a>In the press</a></li>
-                            <li><a>Careers</a></li>
+                            {% block footer1 %}
+                                <li><h4>Learn more about us</h4></li>
+                                <li><a>In the press</a></li>
+                                <li><a>Careers</a></li>
+                            {% endblock %}
+                            
                         </ul>
                     </div>
                     <div id="mid-footer" class="span3">
                         <ul class="unstyled">
-                            <li><h4>Make money with us</h4></li>
-                            <li><a>App Music Contests</a></li>                       
-                            <li><a>Audio FX Contests</a></li>
-                            <li><a>Voiceover Contests</a></li>                        
-                            <li><a>Jingle Contests</a></li>                        
+                            {% block footer2 %}
+                                <li><h4>Make money with us</h4></li>
+                                <li><a>App Music Contests</a></li>                       
+                                <li><a>Audio FX Contests</a></li>
+                                <li><a>Voiceover Contests</a></li>                        
+                                <li><a>Jingle Contests</a></li>                        
+                            {% endblock %}
+                            
                         </ul>                    
                     </div>
                     <div class="span3">
                         <ul class="unstyled">
-                            <li><h4>Let us help you</h4></li>                        
-                            <li><a>Contact Us</a></li>
-                            <li><a>FAQ</a></li>                        
-                            <li><a>Help</a></li>
+                            {% block footer3 %}
+                                <li><h4>Let us help you</h4></li>                        
+                                <li><a>Contact Us</a></li>
+                                <li><a>FAQ</a></li>                        
+                                <li><a>Help</a></li>
+                            {% endblock %}
                         </ul>               
                     </div>
                 </div>

@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<div class="active-projects">
+		<h1>Active Projects</h1>
+		<ul class='unstyled'>
+			{% for p in projects %}
+				<li><a href=#>{{p.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
+
+{% block footer1 %}
+	<li><h4>My Account</h4></li>
+	<li><a>Profile Settings</a></li>
+	<li><a>Payments</a></li>
+	<li><a>View History</a></li>
+{% endblock %}

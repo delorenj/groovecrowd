@@ -1,3 +1,7 @@
+GCDashboardBundle:
+    resource: "@GCDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
 GCDataLayerBundle:
     resource: "@GCDataLayerBundle/Resources/config/routing.yml"
     prefix:   /
