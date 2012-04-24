@@ -31,6 +31,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setUsername("admin");
         $user->setPlainPassword("admin123");
         $user->setEmail("admin@groovecrowd.com");
+        $user->setImage("admin.png");
         $user->addRole("ROLE_ADMIN");
         $user->setEnabled(true);
         $userManager->updateUser($user);
@@ -43,6 +44,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setEmail("consumer@sweetshoes.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CONSUMER"); 
+        $user->setImage("admin.png");
         $userManager->updateUser($user);
         $this->addReference('user-consumer', $user);
 
@@ -53,6 +55,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setEmail("creator@bootsandass.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CREATOR"); 
+        $user->setImage("default.jpg");
         $userManager->updateUser($user);
         $this->addReference('user-creator', $user);
 
@@ -63,6 +66,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setEmail("anothercreator@gravybrush.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CREATOR"); 
+        $user->setImage("default.jpg");
         $userManager->updateUser($user);
         $this->addReference('user-creator2', $user);
 
@@ -72,6 +76,7 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user->setPlainPassword("test");
         $user->setEmail("test0@testies.com");
         $user->setEnabled(false);        
+        $user->setImage("default.jpg");
         $userManager->updateUser($user);
         $this->addReference('user-disabled', $user);
 
@@ -81,7 +86,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
             $user->setPlainPassword("test");
             $user->setEmail("test" . $i . "@testies.com");
             $user->setEnabled(true);
-            $user->addRole("ROLE_CONSUMER");             
+            $user->addRole("ROLE_CONSUMER");  
+            $user->setImage("default.jpg");           
             $userManager->updateUser($user); 
             $this->addReference('test' . $i, $user);           
         }

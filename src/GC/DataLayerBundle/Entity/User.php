@@ -4,6 +4,7 @@ namespace GC\DataLayerBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use GC\DataLayerBundle\Entity\GrooveSet;
 
 /**
@@ -30,11 +31,11 @@ class User extends BaseUser
     // protected $roles;
 
     /**
-     * @var string $image_path
+     * @var string $image
      *
-     * @ORM\Column(name="image_path", type="string", length=255, nullable=true)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
-    protected $image_path;
+    protected $image;
 
     /**
      * @var integer $groove_sets
@@ -51,23 +52,23 @@ class User extends BaseUser
     }
 
     /**
-     * Set image_path
+     * Set image
      *
-     * @param string $imagePath
+     * @param string $image
      */
-    public function setImagePath($imagePath)
+    public function setImage($image)
     {
-        $this->image_path = $imagePath;
+        $this->image = $image;
     }
 
     /**
-     * Get image_path
+     * Get image
      *
      * @return string 
      */
-    public function getImagePath()
+    public function getImage()
     {
-        return $this->image_path;
+        return $this->image;
     }
 
     /**

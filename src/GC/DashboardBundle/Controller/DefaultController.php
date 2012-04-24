@@ -8,8 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class DefaultController extends Controller
 {
-
-    public function indexAction()
+   public function indexAction()
     {
     	$user = $this->get('security.context')->getToken()->getUser();
     	$userRepo = $this->userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');
@@ -23,7 +22,7 @@ class DefaultController extends Controller
 
     public function consumerIndexAction() {
     	$user = $this->get('security.context')->getToken()->getUser();
-    	$userRepo = $this->userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');    	
+    	$userRepo = $this->userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');  	
     	$projects = $userRepo->findAllActiveProjects($user);
         return $this->render('GCDashboardBundle:Default:consumer.html.twig', 
         	array('projects' => $projects));

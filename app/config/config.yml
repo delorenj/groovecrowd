@@ -33,6 +33,8 @@ fos_user:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        user_image_path: /img/profiles/
 
 # Assetic Configuration
 assetic:
