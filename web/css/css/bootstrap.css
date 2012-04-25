@@ -4229,3 +4229,7 @@ footer {
   display: block;
   margin-top: 5px;
 }
+.table tr td,
+a {
+  cursor: default;
+}

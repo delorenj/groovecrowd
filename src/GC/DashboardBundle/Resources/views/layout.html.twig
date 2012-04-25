@@ -1,5 +1,11 @@
 {% extends '::base.html.twig' %}
 
+{% block navlist %}
+    <li><a href="{{path ('_welcome')}}">Home</a></li>
+    <li><a href="#about">Browse Contests</a></li>
+    <li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
+{% endblock %}  
+
 {% block navwidgets %}
 	<li class="divider-vertical"></li>
 	<li class="user-image"><img src="{{ asset(user_image_path ~ app.user.image) }}" width=30 height=30 /></li>

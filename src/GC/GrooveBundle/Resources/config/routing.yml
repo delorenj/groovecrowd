@@ -1,3 +1,0 @@
-GCGrooveBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GCGrooveBundle:Default:index }

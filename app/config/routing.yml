@@ -6,14 +6,6 @@ GCDataLayerBundle:
     resource: "@GCDataLayerBundle/Resources/config/routing.yml"
     prefix:   /
 
-GCGrooveBundle:
-    resource: "@GCGrooveBundle/Resources/config/routing.yml"
-    prefix:   /
-
-GCProjectBundle:
-    resource: "@GCProjectBundle/Resources/config/routing.yml"
-    prefix:   /
-
 GCUserBundle:
     resource: "@GCUserBundle/Resources/config/routing.yml"
     prefix:   /

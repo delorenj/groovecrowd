@@ -21,11 +21,9 @@ class AppKernel extends Kernel
             new GC\DataLayerBundle\GCDataLayerBundle(),   
             new GC\WelcomeBundle\GCWelcomeBundle(),            
             new GC\UserBundle\GCUserBundle(),
-            new GC\ProjectBundle\GCProjectBundle(),
-            new GC\GrooveBundle\GCGrooveBundle(),            
+            new GC\DashboardBundle\GCDashboardBundle(),            
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
-            new GC\DashboardBundle\GCDashboardBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

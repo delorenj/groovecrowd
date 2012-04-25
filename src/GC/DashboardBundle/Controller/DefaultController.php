@@ -22,8 +22,17 @@ class DefaultController extends Controller
 
     public function consumerIndexAction() {
     	$user = $this->get('security.context')->getToken()->getUser();
-    	$userRepo = $this->userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');  	
+    	$userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');  	
     	$projects = $userRepo->findAllActiveProjects($user);
+
+    	$now = time();
+    	foreach($projects as $p) {
+			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
+			$datediff = $then - $now;
+			$p->remaining = floor($datediff/(60*60*24));
+			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
+    	}
+
         return $this->render('GCDashboardBundle:Default:consumer.html.twig', 
         	array('projects' => $projects));
 	}

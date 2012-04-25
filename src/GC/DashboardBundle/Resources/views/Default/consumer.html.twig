@@ -1,10 +1,5 @@
 {% extends 'GCDashboardBundle::layout.html.twig' %}
 
-{% block navlist %}
-    <li><a href="#">Home</a></li>
-    <li><a href="#about">Browse Contests</a></li>
-    <li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
-{% endblock %}  
 
 {% block body %}
 	<div class="subnav">
@@ -15,12 +10,27 @@
 	      <li class=""><a href="#">Payment History</a></li>
 	    </ul>
 	</div>
-	<div class="active-projects">
-		<h1>Active Projects</h1>
-		<ul class='unstyled'>
-			{% for p in projects %}
-				<li><a href=#>{{p.title}}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
+	<div class="span12">
+		<h1>Grooves in the making</h1>
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+			    <th>Project Title</th>
+			    <th>Payout</th>
+			    <th>Remaining</th>
+			    <th>Grooves</th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for p in projects %}
+					<tr>
+						<td><a href="{{ path('project_show', {'id': p.id})}}">{{ p.title }}</a></td>
+						<td>${{ p.payoutAmount }}</td>
+						<td>{{ p.remaining}} days</td>
+						<td>{{ p.grooveCount }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+    </div>
 {% endblock %}

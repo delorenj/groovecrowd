@@ -1,7 +1,0 @@
-parameters:
-#    gc_groove.example.class: GC\GrooveBundle\Example
-
-services:
-#    gc_groove.example:
-#        class: %gc_groove.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

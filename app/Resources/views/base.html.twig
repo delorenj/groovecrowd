@@ -46,9 +46,15 @@
                 <div class="nav-collapse">
                     <ul class="nav">
                         {% block navlist %}
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="{{path ('_welcome')}}">Home</a></li>
                             <li><a href="#about">Browse Contests</a></li>
+                            {% if is_granted('ROLE_USER') %}
+                            <li><a href="{{path ('dashboard_index')}}">My Contests</a></li>
+                            {% else %}
                             <li><a href="#contact">What is this?</a></li>
+                            {% endif %}
+
+                            
                         {% endblock %}                        
                     </ul>
                     <ul class="nav pull-right">                        

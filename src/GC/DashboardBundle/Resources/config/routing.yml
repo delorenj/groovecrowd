@@ -1,3 +1,7 @@
 dashboard_index:
     pattern:  /dashboard
     defaults: { _controller: GCDashboardBundle:Default:index }
+
+project_show:
+    pattern: /project/{id}
+    defaults: { _controller: GCDashboardBundle:Project:show }

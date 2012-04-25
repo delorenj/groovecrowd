@@ -9,19 +9,8 @@
 	      <li class=""><a href="#">Payment History</a></li>
 	    </ul>
 	</div>
-	<div class="active-projects">
-		<h1>Active GrooveSets</h1>
-		<ul class='unstyled'>
-			{% for p in grooveSets %}
-				<li><a href=#>{{p.description}}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-{% endblock %}
+	<div class="span12">
+		<h1>Project: {{project.title}}</h1>
 
-{% block footer1 %}
-	<li><h4>My Account</h4></li>
-	<li><a>Profile Settings</a></li>
-	<li><a>Payments</a></li>
-	<li><a>View History</a></li>
+    </div>
 {% endblock %}
