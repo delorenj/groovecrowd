@@ -5,3 +5,9 @@ dashboard_index:
 project_show:
     pattern: /project/{id}
     defaults: { _controller: GCDashboardBundle:Project:show }
+    requirements:
+        id: \d+
+
+project_new:
+    pattern: /project/new
+    defaults: { _controller: GCDashboardBundle:Project:new }

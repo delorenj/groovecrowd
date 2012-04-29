@@ -20,5 +20,11 @@ class ProjectRepository extends EntityRepository
         ->getSingleScalarResult();
     }
 
-
+    public function getPayoutAmount($project) {
+        return  $this->_em->createQuery('SELECT pm.payout FROM GC\DataLayerBundle\Entity\PriceMap pm 
+        	WHERE pm.project_type_id = :project_type_id AND pm.package_id = :package_id')
+        ->setParameter('project_type_id', $project->getProjectType()->getId())
+        ->setParameter('package_id', $project->getPackage()->getId())
+        ->getSingleScalarResult();
+    }
 }

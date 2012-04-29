@@ -1,0 +1,53 @@
+{% extends 'GCDashboardBundle::layout.html.twig' %}
+
+{% block body %}
+
+	<div class="row form-header">
+		<div class="span12">
+			<h1>Select your groove type</h1>
+		</div>
+	</div>
+	<form id="projectTypeForm" action="{{ path('project_new') }}" method="POST" enctype='text/plain' }}>	
+		<div class="row">
+			<div class="span4" id="music">
+				<div class="row">
+					<div class="span3"><h1>Music</h1></div>					
+					<div class="span1"><img src="{{asset('img/music.png')}}"></img></div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+					</div>
+				</div>
+				<button class="btn btn-large btn-primary">Select</button>
+			</div>
+			<div class="span4" id="voiceover">
+				<div class="row">
+					<div class="span3"><h1>Voice Over</h1></div>					
+					<div class="span1"><img src="{{asset('img/voiceover.png')}}"></img></div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+					</div>
+				</div>
+				<button class="btn btn-large btn-primary">Select</button>
+			</div>
+			<div class="span4" id="fx">
+				<div class="row">
+					<div class="span3"><h1>Audio FX</h1></div>					
+					<div class="span1"><img src="{{asset('img/fx.png')}}"></img></div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+					</div>
+				</div>
+				<button class="btn btn-large btn-primary">Select</button>
+			</div>
+		</div>
+		<input type="hidden" id="projectType" name="projectType" value="test"/>
+		<input type="submit" />
+	</form>
+
+{% endblock %}

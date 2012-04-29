@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
+    - { resource: @GCDataLayerBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -35,6 +36,9 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         user_image_path: /img/profiles/
+    form:
+        resources:
+            - 'GCDataLayerBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:

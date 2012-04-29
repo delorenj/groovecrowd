@@ -431,22 +431,22 @@ class Project
     }
 
     /**
-     * Set project_type
+     * Set projectType
      *
      * @param GC\DataLayerBundle\Entity\ProjectType $projectType
      */
     public function setProjectType(\GC\DataLayerBundle\Entity\ProjectType $projectType)
     {
-        $this->project_type = $projectType;
+        $this->projectType = $projectType;
     }
 
     /**
-     * Get project_type
+     * Get projectType
      *
      * @return GC\DataLayerBundle\Entity\ProjectType 
      */
     public function getProjectType()
     {
-        return $this->project_type;
+        return $this->projectType;
     }
 }

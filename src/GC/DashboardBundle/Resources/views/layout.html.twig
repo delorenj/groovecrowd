@@ -1,9 +1,16 @@
 {% extends '::base.html.twig' %}
 
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/gcproject.js') }}" type="text/javascript"></script>
+{% endblock %}
+
 {% block navlist %}
     <li><a href="{{path ('_welcome')}}">Home</a></li>
     <li><a href="#about">Browse Contests</a></li>
-    <li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
+	{% if is_granted('ROLE_USER') %}
+    	<li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
+	{% endif %}
 {% endblock %}  
 
 

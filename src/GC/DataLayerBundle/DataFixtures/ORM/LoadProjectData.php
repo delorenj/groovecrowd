@@ -32,6 +32,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setOrganization("Self");
         $p->setDescription("I need a catchy song to accompany my strategy game.  I'm looking for something happy and playful - something like the background music in Cut The Rope.  If I like it I may need a few more for other levels.");
         $p->setCategory($manager->merge($this->getReference('category-game')));
+        $p->setProjectType($manager->merge($this->getReference('project-type-music')));
         $p->setPackage($manager->merge($this->getReference('package-silver')));
         $p->setPayoutGuaranteed(1);
         $p->setEnabled(1);
@@ -84,6 +85,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setTitle("Intense soundtrack for my new iOS game trailer");
         $p->setOrganization("Self");
         $p->setDescription("I'm looking for an intense, maybe Techno style soundtrack for my 30 second game trailer.");
+        $p->setProjectType($manager->merge($this->getReference('project-type-music')));
         $p->setCategory($manager->merge($this->getReference('category-game')));
         $p->setPackage($manager->merge($this->getReference('package-silver')));
         $p->setPayoutGuaranteed(1);
@@ -136,6 +138,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setTitle("A set of sound effects for my new strategy game");
         $p->setOrganization("Self");
         $p->setDescription("I need a set of quality sound effects for a few key actions in my iOS game.");
+        $p->setProjectType($manager->merge($this->getReference('project-type-audio-fx')));
         $p->setCategory($manager->merge($this->getReference('category-game')));
         $p->setPackage($manager->merge($this->getReference('package-bronze')));
         $p->setPayoutGuaranteed(0);

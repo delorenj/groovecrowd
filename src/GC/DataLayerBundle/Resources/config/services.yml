@@ -5,3 +5,7 @@ services:
 #    gc_data_layer.example:
 #        class: %gc_data_layer.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    form.type.project_type:
+        class: GC\DataLayerBundle\Form\Type\ProjectType
+        tags:
+            - { name: form.type, alias: projectType }
