@@ -10,6 +10,7 @@ use GC\DataLayerBundle\Entity\Category;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Entity\ProjectTag;
+use GC\DataLayerBundle\Entity\Package;
 use GC\DataLayerBundle\Entity\GrooveSlot;
 use GC\DataLayerBundle\Entity\GrooveSlotTag;
 
@@ -30,9 +31,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setTitle("Addictive song for a new iOS strategy game");
         $p->setOrganization("Self");
         $p->setDescription("I need a catchy song to accompany my strategy game.  I'm looking for something happy and playful - something like the background music in Cut The Rope.  If I like it I may need a few more for other levels.");
-        $p->setIndustry($manager->merge($this->getReference('industry-video-games')));
-        $p->setCategory($manager->merge($this->getReference('category-mobile')));
-        $p->setPayoutAmount(300);
+        $p->setCategory($manager->merge($this->getReference('category-game')));
+        $p->setPackage($manager->merge($this->getReference('package-silver')));
         $p->setPayoutGuaranteed(1);
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(1);
@@ -84,9 +84,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setTitle("Intense soundtrack for my new iOS game trailer");
         $p->setOrganization("Self");
         $p->setDescription("I'm looking for an intense, maybe Techno style soundtrack for my 30 second game trailer.");
-        $p->setIndustry($manager->merge($this->getReference('industry-video-games')));
-        $p->setCategory($manager->merge($this->getReference('category-mobile')));
-        $p->setPayoutAmount(250);
+        $p->setCategory($manager->merge($this->getReference('category-game')));
+        $p->setPackage($manager->merge($this->getReference('package-silver')));
         $p->setPayoutGuaranteed(1);
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(1);
@@ -137,9 +136,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setTitle("A set of sound effects for my new strategy game");
         $p->setOrganization("Self");
         $p->setDescription("I need a set of quality sound effects for a few key actions in my iOS game.");
-        $p->setIndustry($manager->merge($this->getReference('industry-video-games')));
-        $p->setCategory($manager->merge($this->getReference('category-mobile')));
-        $p->setPayoutAmount(75);
+        $p->setCategory($manager->merge($this->getReference('category-game')));
+        $p->setPackage($manager->merge($this->getReference('package-bronze')));
         $p->setPayoutGuaranteed(0);
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(0);
@@ -154,21 +152,18 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-fx'));
         $p->setDescription("Interface: Click/Select.  Like a pleasant 'pingy' noise");
-        $p->setPayoutAmount(10);
         $this->manager->persist($p);
         $this->manager->flush();  
 
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-fx'));
         $p->setDescription("Heavy rolling ball sound. Needs to loop smoothly");
-        $p->setPayoutAmount(10);
         $this->manager->persist($p);
         $this->manager->flush();  
 
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-trailer'));
         $p->setDescription('A happy congratulations noise for when a bonus is scored');
-        $p->setPayoutAmount(15);
         $this->addReference('gs-congrats', $p);
         $this->manager->persist($p);
         $this->manager->flush();

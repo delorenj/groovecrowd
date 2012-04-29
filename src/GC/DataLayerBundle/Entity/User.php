@@ -44,11 +44,26 @@ class User extends BaseUser
      */
     protected $groove_sets;
 
+    /**
+     * @var integer $watched_categories
+     *
+     * @ORM\OneToMany(targetEntity="WatchCategory", mappedBy="user")
+     */
+    protected $watched_categories;
+
+    /**
+     * @var integer $watched_projects
+     *
+     * @ORM\OneToMany(targetEntity="WatchProject", mappedBy="user")
+     */
+    protected $watched_projects;
 
     public function __construct()
     {
         parent::__construct();
         $this->groove_sets = new ArrayCollection();
+        $this->watched_categories = new ArrayCollection();
+        $this->watched_projects = new ArrayCollection();
     }
 
     /**
@@ -99,5 +114,45 @@ class User extends BaseUser
     public function addGrooveSet(\GC\DataLayerBundle\Entity\GrooveSet $grooveSets)
     {
         $this->groove_sets[] = $grooveSets;
+    }
+
+    /**
+     * Add watched_categories
+     *
+     * @param GC\DataLayerBundle\Entity\WatchCategory $watchedCategories
+     */
+    public function addWatchCategory(\GC\DataLayerBundle\Entity\WatchCategory $watchedCategories)
+    {
+        $this->watched_categories[] = $watchedCategories;
+    }
+
+    /**
+     * Get watched_categories
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getWatchedCategories()
+    {
+        return $this->watched_categories;
+    }
+
+    /**
+     * Add watched_projects
+     *
+     * @param GC\DataLayerBundle\Entity\WatchProject $watchedProjects
+     */
+    public function addWatchProject(\GC\DataLayerBundle\Entity\WatchProject $watchedProjects)
+    {
+        $this->watched_projects[] = $watchedProjects;
+    }
+
+    /**
+     * Get watched_projects
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getWatchedProjects()
+    {
+        return $this->watched_projects;
     }
 }

@@ -5,12 +5,12 @@ namespace GC\DataLayerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * GC\DataLayerBundle\Entity\Industry
+ * GC\DataLayerBundle\Entity\ProjectType
  *
- * @ORM\Table(name="industry")
+ * @ORM\Table(name="project_type")
  * @ORM\Entity
  */
-class Industry
+class ProjectType
 {
     /**
      * @var integer $id
@@ -24,7 +24,7 @@ class Industry
     /**
      * @var string $name
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false, unique=true)
      */
     private $name;
 

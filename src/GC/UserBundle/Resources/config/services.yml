@@ -7,3 +7,7 @@ services:
         arguments:  [@router]
         tags:
             - { name: 'monolog.logger' channel: 'security' }
+    gc_user.gc_provider:
+            class: GC\UserBundle\Security\GCUserProvider
+            public: false
+            arguments: ["@fos_user.user_manager"]

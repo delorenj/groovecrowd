@@ -15,12 +15,14 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_manager
+        custom:
+            id: gc_user.gc_provider
 
     firewalls:
         main:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+                provider: custom
                 csrf_provider: form.csrf_provider
                 login_path:  /login
                 check_path:  /login_check

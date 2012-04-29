@@ -34,6 +34,8 @@ class LoadCategoryData extends AbstractFixture implements FixtureInterface, Orde
         $this->add("Web Series", $video->getId());
         $anim = $this->add("Animation", $video->getId());
 
+        $other = $this->add("Other", $root->getId());
+
         $root->setLft(1);
         $rgt = $this->rebuild_tree($root, 1);
         $root->setRgt($rgt+1);

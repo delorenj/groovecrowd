@@ -22,6 +22,26 @@ class Project
     private $id;
 
     /**
+     * @var Package
+     *
+     * @ORM\ManyToOne(targetEntity="Package")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="package_id", referencedColumnName="id")
+     * })
+     */
+    private $package;
+
+    /**
+     * @var ProjectType
+     *
+     * @ORM\ManyToOne(targetEntity="ProjectType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="project_type_id", referencedColumnName="id")
+     * })
+     */
+    private $projectType;
+
+    /**
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=false)
@@ -41,13 +61,6 @@ class Project
      * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
-
-    /**
-     * @var integer $payoutAmount
-     *
-     * @ORM\Column(name="payout_amount", type="integer", nullable=false)
-     */
-    private $payoutAmount;
 
     /**
      * @var integer $payoutGuaranteed
@@ -104,16 +117,6 @@ class Project
      * @ORM\Column(name="modified_at", type="datetime", nullable=true)
      */
     private $modifiedAt;
-
-    /**
-     * @var Industry
-     *
-     * @ORM\ManyToOne(targetEntity="Industry")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="industry_id", referencedColumnName="id")
-     * })
-     */
-    private $industry;
 
     /**
      * @var User
@@ -205,26 +208,6 @@ class Project
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set payoutAmount
-     *
-     * @param integer $payoutAmount
-     */
-    public function setPayoutAmount($payoutAmount)
-    {
-        $this->payoutAmount = $payoutAmount;
-    }
-
-    /**
-     * Get payoutAmount
-     *
-     * @return integer 
-     */
-    public function getPayoutAmount()
-    {
-        return $this->payoutAmount;
     }
 
     /**
@@ -368,26 +351,6 @@ class Project
     }
 
     /**
-     * Set industry
-     *
-     * @param GC\DataLayerBundle\Entity\Industry $industry
-     */
-    public function setIndustry(\GC\DataLayerBundle\Entity\Industry $industry)
-    {
-        $this->industry = $industry;
-    }
-
-    /**
-     * Get industry
-     *
-     * @return GC\DataLayerBundle\Entity\Industry 
-     */
-    public function getIndustry()
-    {
-        return $this->industry;
-    }
-
-    /**
      * Set user
      *
      * @param GC\DataLayerBundle\Entity\User $user
@@ -445,5 +408,45 @@ class Project
     public function getFullGrooveSetsOnly()
     {
         return $this->fullGrooveSetsOnly;
+    }
+
+    /**
+     * Set package
+     *
+     * @param GC\DataLayerBundle\Entity\Package $package
+     */
+    public function setPackage(\GC\DataLayerBundle\Entity\Package $package)
+    {
+        $this->package = $package;
+    }
+
+    /**
+     * Get package
+     *
+     * @return GC\DataLayerBundle\Entity\Package 
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+
+    /**
+     * Set project_type
+     *
+     * @param GC\DataLayerBundle\Entity\ProjectType $projectType
+     */
+    public function setProjectType(\GC\DataLayerBundle\Entity\ProjectType $projectType)
+    {
+        $this->project_type = $projectType;
+    }
+
+    /**
+     * Get project_type
+     *
+     * @return GC\DataLayerBundle\Entity\ProjectType 
+     */
+    public function getProjectType()
+    {
+        return $this->project_type;
     }
 }

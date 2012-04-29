@@ -8,7 +8,8 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use GC\DataLayerBundle\Entity\AssetType;
 use GC\DataLayerBundle\Entity\GrooveType;
-use GC\DataLayerBundle\Entity\Industry;
+use GC\DataLayerBundle\Entity\Package;
+use GC\DataLayerBundle\Entity\ProjectType;
 use GC\DataLayerBundle\Entity\Tag;
 use GC\DataLayerBundle\Helpers;
 
@@ -32,10 +33,13 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $this->groove("fx");
         $this->groove("synchronized");
 
-        $this->industry("Film");
-        $this->industry("Commercial - TV");
-        $this->industry("Commercial - Internet");
-        $this->industry("Video Games");
+        $this->package("Bronze");
+        $this->package("Silver");
+        $this->package("Gold");
+        
+        $this->projectType("Music");
+        $this->projectType("Voice Over");
+        $this->projectType("Audio FX");
 
         $this->tag("playful");
         $this->tag("video game");
@@ -52,8 +56,6 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $this->tag("score");
         $this->tag("bonus");
         $this->tag("level up");
-       
-
     }
 
     private function asset($name) {
@@ -72,15 +74,23 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
 
     }    
 
-    private function industry($name) {
-        $x = new Industry();
+    private function package($name) {
+        $x = new Package();
         $x->setName($name);
         $this->manager->persist($x);
         $this->manager->flush();
-        $this->addReference("industry-" . Helpers::slugify($name), $x);
+        $this->addReference("package-" . Helpers::slugify($name), $x);
+
     }    
 
+    private function projectType($name) {
+        $x = new ProjectType();
+        $x->setName($name);
+        $this->manager->persist($x);
+        $this->manager->flush();
+        $this->addReference("project-type-" . Helpers::slugify($name), $x);
 
+    }    
     private function tag($name) {
         $x = new Tag();
         $x->setCount(0);

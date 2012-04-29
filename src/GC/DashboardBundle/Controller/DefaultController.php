@@ -30,6 +30,7 @@ class DefaultController extends Controller
 			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
 			$datediff = $then - $now;
 			$p->remaining = floor($datediff/(60*60*24));
+            $p->payoutAmount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getPayoutAmount($p); //REFACTOR 
 			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
     	}
 

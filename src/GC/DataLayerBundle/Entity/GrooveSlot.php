@@ -46,13 +46,6 @@ class GrooveSlot
     private $min_length_in_milliseconds;
 
     /**
-     * @var integer $payout_amount
-     *
-     * @ORM\Column(name="payout_amount", type="integer", nullable=true)
-     */
-    private $payout_amount;
-
-    /**
      * @var integer $winning_groove
      *
      * @ORM\Column(name="winning_groove", type="integer", nullable=true)

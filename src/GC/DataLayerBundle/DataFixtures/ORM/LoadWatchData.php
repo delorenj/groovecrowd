@@ -10,7 +10,7 @@ use GC\DataLayerBundle\Entity\WatchCategory;
 use GC\DataLayerBundle\Entity\WatchProject;
 
 
-class LoadTheMessageData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
+class LoadWatchData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
     public function getOrder() {
         return 50;
@@ -24,10 +24,13 @@ class LoadTheMessageData extends AbstractFixture implements FixtureInterface, Or
         $p = new WatchCategory();
         $p->setUser($manager->merge($this->getReference('user-creator')));
         $p->setCategory($manager->merge($this->getReference('category-game')));
+        $manager->persist($p);
 
        	$p = new WatchProject();
         $p->setUser($manager->merge($this->getReference('user-creator')));
         $p->setProject($manager->merge($this->getReference('project-trailer')));
+        $manager->persist($p);
+        $manager->flush();
     }
 
 }
