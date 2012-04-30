@@ -7,9 +7,10 @@
 
     //Public Method
     gcproject.init = function() {
-        $("#music, #voiceover, #fx").click(function() {
+        $("#music, #voice-over, #fx").click(function() {
             $("#projectType").val($(this).attr("id"));
-            $("#projectTypeForm").submit();
+            console.log($("#projectType").val());
+            $("#projectTypeForm").trigger("submit");
         })
     };
 

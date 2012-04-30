@@ -44,7 +44,7 @@ class Project
     /**
      * @var string $title
      *
-     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
@@ -58,49 +58,49 @@ class Project
     /**
      * @var text $description
      *
-     * @ORM\Column(name="description", type="text", nullable=false)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var integer $payoutGuaranteed
      *
-     * @ORM\Column(name="payout_guaranteed", type="boolean", nullable=false)
+     * @ORM\Column(name="payout_guaranteed", type="boolean", nullable=true)
      */
     private $payoutGuaranteed;
 
     /**
      * @var datetime $expiresAt
      *
-     * @ORM\Column(name="expires_at", type="datetime", nullable=false)
+     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
      */
     private $expiresAt;
 
     /**
      * @var integer $enabled
      *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
      */
     private $enabled;
 
     /**
      * @var integer $fullGrooveSetsOnly
      *
-     * @ORM\Column(name="full_groove_sets_only", type="boolean", nullable=false)
+     * @ORM\Column(name="full_groove_sets_only", type="boolean", nullable=true)
      */
     private $fullGrooveSetsOnly;
 
     /**
      * @var integer $blind
      *
-     * @ORM\Column(name="blind", type="boolean", nullable=false)
+     * @ORM\Column(name="blind", type="boolean", nullable=true)
      */
     private $blind;
 
     /**
      * @var integer $flags
      *
-     * @ORM\Column(name="flags", type="integer", nullable=false)
+     * @ORM\Column(name="flags", type="integer", nullable=true)
      */
     private $flags;
 

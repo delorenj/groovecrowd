@@ -24,14 +24,11 @@ class ProjectController extends Controller
 	}
 
 	public function newAction(Request $request) {
-		// $request = $this->getRequest();		
-		if($request->getMethod() == "POST") {
-			$this->get('logger')->info($this->get('request')->request->get('projectType'));
-			
+		if($request->getMethod() == "POST") {			
 			$em = $this->getDoctrine()->getEntityManager();
 			$projectType = $request->request->get('projectType');
 			$project = new Project();
-			$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneByName($projectType);
+			$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
 			$project->setProjectType($pt);
 			$em->persist($project);
 			$em->flush();
@@ -40,12 +37,17 @@ class ProjectController extends Controller
 				$return = json_encode(array("responseCode"=>200));
 				return new Response($return, 200);
 			} else {
-				$return = $this->render('GCDashboardBundle:Project:category_select.html.twig');	
+				$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', 
+					array("id" => md5($project->getId())));	
 			}				
 		} else {
 			$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
 		}
         
         return $return;
+    }
+
+    public function new_categoryAction(Request $request, $id) {
+    	return $this->render('GCDashboardBundle:Project:category_select.html.twig');
     }
 }

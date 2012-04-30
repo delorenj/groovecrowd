@@ -7,7 +7,7 @@
 			<h1>Select your groove type</h1>
 		</div>
 	</div>
-	<form id="projectTypeForm" action="{{ path('project_new') }}" method="POST" enctype='text/plain' }}>	
+	<form id="projectTypeForm" action="{{ path('project_new') }}" method="POST">	
 		<div class="row">
 			<div class="span4" id="music">
 				<div class="row">
@@ -21,7 +21,7 @@
 				</div>
 				<button class="btn btn-large btn-primary">Select</button>
 			</div>
-			<div class="span4" id="voiceover">
+			<div class="span4" id="voice-over">
 				<div class="row">
 					<div class="span3"><h1>Voice Over</h1></div>					
 					<div class="span1"><img src="{{asset('img/voiceover.png')}}"></img></div>
@@ -47,7 +47,6 @@
 			</div>
 		</div>
 		<input type="hidden" id="projectType" name="projectType" value="test"/>
-		<input type="submit" />
 	</form>
 
 {% endblock %}

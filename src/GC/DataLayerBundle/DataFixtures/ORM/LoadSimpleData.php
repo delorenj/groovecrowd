@@ -86,6 +86,7 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
     private function projectType($name) {
         $x = new ProjectType();
         $x->setName($name);
+        $x->setSlug(Helpers::slugify($name));
         $this->manager->persist($x);
         $this->manager->flush();
         $this->addReference("project-type-" . Helpers::slugify($name), $x);
