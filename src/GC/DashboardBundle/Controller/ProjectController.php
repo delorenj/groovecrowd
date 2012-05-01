@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Cookie;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
+use GC\DataLayerBundle\Helpers;
 
 class ProjectController extends Controller
 {
@@ -32,13 +34,24 @@ class ProjectController extends Controller
 			$project->setProjectType($pt);
 			$em->persist($project);
 			$em->flush();
+			$code = Helpers::idToCode($project->getId());
+
+			if($request->cookies->has('continueCode')) {
+				$oldCode = $request->cookies->get('continueCode');
+				$this->get('logger')->info("FOUND CONTINUE CODE: " . $oldCode);
+				//do something...
+			}
+
+			$this->get('logger')->info("NEW CONTINUE CODE: " . $code);
 
 			if ($request->isXmlHttpRequest()) {
 				$return = json_encode(array("responseCode"=>200));
 				return new Response($return, 200);
 			} else {
 				$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', 
-					array("id" => md5($project->getId())));	
+					array("id" => $code));	
+				$cookie = new Cookie("continueCode", $code);
+				$return->headers->setCookie($cookie);
 			}				
 		} else {
 			$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
