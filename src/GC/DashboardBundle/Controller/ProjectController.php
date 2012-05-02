@@ -38,8 +38,12 @@ class ProjectController extends Controller
 		if($request->cookies->has('continueCode')) {
 			$code = $request->cookies->get('continueCode');
 			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);
-			$project = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->findOneById(187);
-			$progress = $project->getProjectCreationProgress();
+			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			
+			if(!$progress) {
+				$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
+			}
+			$project = $progress->getProject();
+
 			switch($progress->getPhase()) {
 				case 1: //category select
 					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("id" => $code));;
@@ -66,8 +70,12 @@ class ProjectController extends Controller
 			$projectType = $request->request->get('projectType');
 			$project = new Project();
 			$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
+			if(!$pt) {
+				$this->createNotFoundException("ProjectType not found: " . $projectType);
+			}
 			$project->setProjectType($pt);
 			$em->persist($project);
+			$em->flush();			
 			$code = Helpers::idToCode($project->getId());
 			$progress = new ProjectCreationProgress();
 			$progress->setPhase(1);

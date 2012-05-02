@@ -138,12 +138,6 @@ class Project
      */
     private $category;
 
-    /**
-     * @var ProjectCreationProgress
-     *
-     * @ORM\OneToOne(targetEntity="ProjectCreationProgress")
-     */
-    private $project_creation_progress;
 
     /**
      * Get id
@@ -455,23 +449,4 @@ class Project
         return $this->projectType;
     }
 
-    /**
-     * Set project_creation_progress
-     *
-     * @param GC\DataLayerBundle\Entity\ProjectCreationProgress $projectCreationProgress
-     */
-    public function setProjectCreationProgress(\GC\DataLayerBundle\Entity\ProjectCreationProgress $projectCreationProgress)
-    {
-        $this->project_creation_progress = $projectCreationProgress;
-    }
-
-    /**
-     * Get project_creation_progress
-     *
-     * @return GC\DataLayerBundle\Entity\ProjectCreationProgress 
-     */
-    public function getProjectCreationProgress()
-    {
-        return $this->project_creation_progress;
-    }
 }

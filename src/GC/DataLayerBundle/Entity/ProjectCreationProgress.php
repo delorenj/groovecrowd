@@ -22,7 +22,7 @@ class ProjectCreationProgress
     private $id;
 
     /**
-     * @var Project
+     * @var integer $project
      *
      * @ORM\OneToOne(targetEntity="Project")
      */
