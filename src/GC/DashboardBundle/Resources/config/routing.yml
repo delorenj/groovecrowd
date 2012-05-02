@@ -11,7 +11,3 @@ project_show:
 project_new:
     pattern: /project/new
     defaults: { _controller: GCDashboardBundle:Project:new }
-
-project_category_select:
-    pattern: /project/new/category/{id}
-    defaults: { _controller: GCDashboardBundle:Project:new_category }

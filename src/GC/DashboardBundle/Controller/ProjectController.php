@@ -44,62 +44,87 @@ class ProjectController extends Controller
 			}
 			$project = $progress->getProject();
 
-			switch($progress->getPhase()) {
-				case 1: //category select
-					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("id" => $code));;
-					break;
+			if($request->getMethod() == "GET") {
+				switch($progress->getPhase()) {
+					case 1: //category select
+						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig');
+						break;
 
-				case 2: //project brief
-					$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("id" => $code));
-					break;
+					case 2: //project brief
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig');
+						break;
 
-				case 3: //package select
-					$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code));
-					break;
+					case 3: //package select
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig');
+						break;
 
-				case 4: //payment
-					$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code));
-					break;
+					case 4: //payment
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig');
+						break;
 
-				default: //start form over
-					$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
+					default: //start form over
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
 
-			}
-
-		} else if($request->getMethod() == "POST") {			
-			$projectType = $request->request->get('projectType');
-			$project = new Project();
-			$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
-			if(!$pt) {
-				$this->createNotFoundException("ProjectType not found: " . $projectType);
-			}
-			$project->setProjectType($pt);
-			$em->persist($project);
-			$em->flush();			
-			$code = Helpers::idToCode($project->getId());
-			$progress = new ProjectCreationProgress();
-			$progress->setPhase(1);
-			$progress->setProject($project);
-			$em->persist($progress);
-			$em->flush();
-
-			if ($request->isXmlHttpRequest()) {
-				$return = json_encode(array("responseCode"=>200));
-				$return = new Response($return, 200);
+				}				
 			} else {
-				$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', 
-					array("id" => $code));	
-				$cookie = new Cookie("continueCode", $code);
-				$return->headers->setCookie($cookie);
-			}				
-		} else { // method == GET && no continue cookie
-			$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
+				switch($progress->getPhase()) {
+					case 1: //category select
+						$this->get('logger')->info('GET PROJECT: ' . $project->getId());
+						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig');
+					break;
+
+					case 2: //project brief
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig');
+					break;
+
+					case 3: //package select
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig');
+					break;
+
+					case 4: //payment
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig');
+					break;
+
+					default: //start form over
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig');						
+					break;
+				}// end switch: POST			
+			}// end if continueCode found
 		}
-        
+		else { // if no continue code found...
+			if($request->getMethod() == "POST") {
+				$projectType = $request->request->get('projectType');
+				$project = new Project();
+				$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
+				if(!$pt) {
+					$this->createNotFoundException("ProjectType not found: " . $projectType);
+				}
+				$project->setProjectType($pt);
+				$em->persist($project);
+				$em->flush();			
+				$code = Helpers::idToCode($project->getId());
+				$progress = new ProjectCreationProgress();
+				$progress->setPhase(1);
+				$progress->setProject($project);
+				$em->persist($progress);
+				$em->flush();
+
+				if ($request->isXmlHttpRequest()) {
+					$return = json_encode(array("responseCode"=>200));
+					$return = new Response($return, 200);
+				} else {
+					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', 
+						array("id" => $code));	
+					$cookie = new Cookie("continueCode", $code);
+					$return->headers->setCookie($cookie);
+				}
+
+			} //end no continue POST
+			else {
+				$return = $this->render('GCDashboardBundle:Project:new.html.twig');
+			}// end no continue GET
+		} //end no continue block
         return $return;
     }
 
-    public function new_categoryAction(Request $request, $id) {
-    	return $this->render('GCDashboardBundle:Project:category_select.html.twig');
-    }
 }
