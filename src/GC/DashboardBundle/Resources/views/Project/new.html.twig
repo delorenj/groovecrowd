@@ -7,9 +7,9 @@
 			<h1>Select your groove type</h1>
 		</div>
 	</div>
-	<form id="projectTypeForm" action="{{ path('project_new') }}" method="POST">	
+	<form id="selectForm" action="{{ path('project_new') }}" method="POST">	
 		<div class="row">
-			<div class="span4" id="music">
+			<div class="span4" id="music" class="selectFormChoice">
 				<div class="row">
 					<div class="span3"><h1>Music</h1></div>					
 					<div class="span1"><img src="{{asset('img/music.png')}}"></img></div>
@@ -21,7 +21,7 @@
 				</div>
 				<button class="btn btn-large btn-primary">Select</button>
 			</div>
-			<div class="span4" id="voice-over">
+			<div class="span4" id="voice-over" class="selectFormChoice">
 				<div class="row">
 					<div class="span3"><h1>Voice Over</h1></div>					
 					<div class="span1"><img src="{{asset('img/voiceover.png')}}"></img></div>
@@ -33,7 +33,7 @@
 				</div>
 				<button class="btn btn-large btn-primary">Select</button>
 			</div>
-			<div class="span4" id="audio-fx">
+			<div class="span4" id="audio-fx" class="selectFormChoice">
 				<div class="row">
 					<div class="span3"><h1>Audio FX</h1></div>					
 					<div class="span1"><img src="{{asset('img/fx.png')}}"></img></div>
