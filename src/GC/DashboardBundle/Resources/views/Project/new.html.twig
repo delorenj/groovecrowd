@@ -7,46 +7,53 @@
 			<h1>Select your groove type</h1>
 		</div>
 	</div>
-	<form id="selectForm" action="{{ path('project_new') }}" method="POST">	
 		<div class="row">
-			<div class="span4" id="music" class="selectFormChoice">
-				<div class="row">
-					<div class="span3"><h1>Music</h1></div>					
-					<div class="span1"><img src="{{asset('img/music.png')}}"></img></div>
-				</div>
-				<div class="row">
-					<div class="span4">
-						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+			<form class="selectForm" action="{{ path('project_new') }}" method="POST">				
+				<div class="span4" id="music" class="selectFormChoice">
+					<div class="row">
+						<div class="span3"><h1>Music</h1></div>					
+						<div class="span1"><img src="{{asset('img/music.png')}}"></img></div>
 					</div>
-				</div>
-				<button class="btn btn-large btn-primary">Select</button>
-			</div>
-			<div class="span4" id="voice-over" class="selectFormChoice">
-				<div class="row">
-					<div class="span3"><h1>Voice Over</h1></div>					
-					<div class="span1"><img src="{{asset('img/voiceover.png')}}"></img></div>
-				</div>
-				<div class="row">
-					<div class="span4">
-						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+						</div>
 					</div>
+					<button class="btn btn-large btn-primary">Select</button>
 				</div>
-				<button class="btn btn-large btn-primary">Select</button>
-			</div>
-			<div class="span4" id="audio-fx" class="selectFormChoice">
-				<div class="row">
-					<div class="span3"><h1>Audio FX</h1></div>					
-					<div class="span1"><img src="{{asset('img/fx.png')}}"></img></div>
-				</div>
-				<div class="row">
-					<div class="span4">
-						<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+				<input type="hidden" name="projectType" value="music" />
+			</form>
+			<form class="selectForm" action="{{ path('project_new') }}" method="POST">				
+				<div class="span4" id="voice-over" class="selectFormChoice">
+					<div class="row">
+						<div class="span3"><h1>Voice Over</h1></div>					
+						<div class="span1"><img src="{{asset('img/voiceover.png')}}"></img></div>
 					</div>
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+						</div>
+					</div>
+					<button class="btn btn-large btn-primary">Select</button>
 				</div>
-				<button class="btn btn-large btn-primary">Select</button>
-			</div>
+				<input type="hidden" name="projectType" value="voice-over" />				
+			</form>
+			<form class="selectForm" action="{{ path('project_new') }}" method="POST">				
+				<div class="span4" id="audio-fx" class="selectFormChoice">
+					<div class="row">
+						<div class="span3"><h1>Audio FX</h1></div>					
+						<div class="span1"><img src="{{asset('img/fx.png')}}"></img></div>
+					</div>
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>						
+						</div>
+					</div>
+					<button class="btn btn-large btn-primary">Select</button>
+				</div>
+				<input type="hidden" name="projectType" value="audio-fx" />								
+			</form>
 		</div>
-		<input type="hidden" id="projectType" name="projectType" value="test"/>
 	</form>
 
 {% endblock %}

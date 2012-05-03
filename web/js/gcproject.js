@@ -7,10 +7,11 @@
 
     //Public Method
     gcproject.init = function() {
-        $(".selectFormChoice").click(function() {
-            $("input[type='hidden']").val($(this).attr("id"));
-            $("#selectForm").trigger("submit");
-        })
+        $(".selectFormChoice")
+            .click(function() {
+                $("input[type='hidden']").val($(this).attr("id"));
+                $(this).closest(".selectForm").trigger("submit");
+            })
     };
 
     gcproject.initCategorySelect = function(){

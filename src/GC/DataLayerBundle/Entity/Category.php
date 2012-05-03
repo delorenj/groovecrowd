@@ -29,6 +29,12 @@ class Category
     private $name;
 
     /**
+     * @var string $slug
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false)
+     */
+    private $slug;
+    /**
      * @var integer $count
      *
      * @ORM\Column(name="count", type="integer", nullable=true)
@@ -166,5 +172,25 @@ class Category
     public function getRgt()
     {
         return $this->rgt;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

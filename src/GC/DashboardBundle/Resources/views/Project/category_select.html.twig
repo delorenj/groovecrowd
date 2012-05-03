@@ -7,40 +7,48 @@
 			<h1>Select a category</h1>
 		</div>
 	</div>
-	<form id="selectForm" action="{{ path('project_new') }}" method="POST" enctype='text/plain' }}>	
-		<div class="row">
-			<div class="span12" id="music" class="selectFormChoice">
-				<div class="row">
-					<ul class="thumbnails">
-					  <li class="span2">
-					    <h4 style="text-align: center;"	>Apps &amp; Games</h4>
-					    <div class="thumbnail">
-					      <img src="http://placehold.it/260x180" alt="">
-					    </div>
-					  </li>
-					  <li class="span2">
-					    <h4 style="text-align: center;"	>Videos &amp; Animation</h4>
-					    <div class="thumbnail">
-					      <img src="http://placehold.it/260x180" alt="">
-					    </div>
-					  </li>
-					  <li class="span2">
-					    <h4 style="text-align: center;"	>Brand Jingle</h4>
-					    <div class="thumbnail">
-					      <img src="http://placehold.it/260x180" alt="">
-					    </div>
-					  </li>
-					  <li class="span2">
-					    <h4 style="text-align: center;"	>Other</h4>
-					    <div class="thumbnail">
-					      <img src="http://placehold.it/260x180" alt="">
-					    </div>
-					  </li>					  					  					  
-					</ul>					
-				</div>
-			</div>
+		<div class="span12">
+			<ul class="thumbnails">
+				<form class="selectForm" action="{{ path('project_new') }}" method="POST">	
+				  <li id="game" class="span3 selectFormChoice">
+				    <h2>Apps &amp; Games</h2>
+				    <div class="thumbnail">
+				      <img src="http://placehold.it/260x180" alt="">
+				    </div>
+				  </li>
+				  <input type="hidden" name="category" value="game" />
+				</form>
+				<form class="selectForm" action="{{ path('project_new') }}" method="POST">					
+				  <li id="video" class="span3 selectFormChoice">
+				    <h2>Videos &amp; Animation</h2>
+				    <div class="thumbnail">
+				      <img src="http://placehold.it/260x180" alt="">
+				    </div>
+				  </li>
+				  <input type="hidden" name="category" value="video" />
+				</form>				  
+				<form class="selectForm" action="{{ path('project_new') }}" method="POST">					  
+				  <li id="brand-jingle" class="span3 selectFormChoice">
+				    <h2>Brand Jingle</h2>
+				    <div class="thumbnail">
+				      <img src="http://placehold.it/260x180" alt="">
+				    </div>
+				  </li>
+				  <input type="hidden" name="category" value="brand-jingle" />				  
+				</form>
+				<form class="selectForm" action="{{ path('project_new') }}" method="POST">					  
+				  <li id="other" class="span3 selectFormChoice">
+				    <h2>Other</h2>
+				    <div class="thumbnail">
+				      <img src="http://placehold.it/260x180" alt="">
+				    </div>
+				  </li>	
+				  <input type="hidden" name="category" value="other" />				  
+				</form>				  					  					  
+			</ul>					
 		</div>
-		<input type="hidden" id="category" name="category"/>
-	</form>
+			<input type="hidden" id="category" name="category"/>
+
+	<a href="#" class=btn btn-primary><< Back</a>
 
 {% endblock %}

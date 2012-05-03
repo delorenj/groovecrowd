@@ -59,6 +59,8 @@ class LoadCategoryData extends AbstractFixture implements FixtureInterface, Orde
     private function add($name, $parent = NULL) {
         $cat = new Category();
         $cat->setName($name);
+        $cat->setSlug(Helpers::slugify($name));
+        
         if($parent) {
             $cat->setParentId($parent);
         }
