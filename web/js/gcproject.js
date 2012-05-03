@@ -10,7 +10,7 @@
         $(".selectFormChoice")
             .click(function() {
                 $("input[type='hidden']").val($(this).attr("id"));
-                $(this).closest(".selectForm").trigger("submit");
+                $(this).find(".selectForm").trigger("submit");
             })
     };
 
