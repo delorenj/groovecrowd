@@ -44,6 +44,14 @@ class ProjectController extends Controller
 			}
 			$project = $progress->getProject();
 
+			if($request->request->get('back') == 1) {
+				if($progress->getPhase() > 0) {
+					$progress->setPhase($progress->getPhase()-1);
+					$em->persist($progress);
+					$em->flush();
+				}
+
+			}
 			if($request->getMethod() == "GET") {
 				switch($progress->getPhase()) {
 					case 1: //category select
@@ -86,7 +94,7 @@ class ProjectController extends Controller
 					break;
 
 					default: //start form over
-						$return = $this->render('GCDashboardBundle:Project:new.html.twig');						
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 1));						
 					break;
 				}// end switch: POST			
 			}// end if continueCode found
