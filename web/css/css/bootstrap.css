@@ -167,7 +167,43 @@ a:hover {
 .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 940px;
+  width: 1900px;
+}
+.span24 {
+  width: 1900px;
+}
+.span23 {
+  width: 1820px;
+}
+.span22 {
+  width: 1740px;
+}
+.span21 {
+  width: 1660px;
+}
+.span20 {
+  width: 1580px;
+}
+.span19 {
+  width: 1500px;
+}
+.span18 {
+  width: 1420px;
+}
+.span17 {
+  width: 1340px;
+}
+.span16 {
+  width: 1260px;
+}
+.span15 {
+  width: 1180px;
+}
+.span14 {
+  width: 1100px;
+}
+.span13 {
+  width: 1020px;
 }
 .span12 {
   width: 940px;
@@ -204,6 +240,42 @@ a:hover {
 }
 .span1 {
   width: 60px;
+}
+.offset24 {
+  margin-left: 1940px;
+}
+.offset23 {
+  margin-left: 1860px;
+}
+.offset22 {
+  margin-left: 1780px;
+}
+.offset21 {
+  margin-left: 1700px;
+}
+.offset20 {
+  margin-left: 1620px;
+}
+.offset19 {
+  margin-left: 1540px;
+}
+.offset18 {
+  margin-left: 1460px;
+}
+.offset17 {
+  margin-left: 1380px;
+}
+.offset16 {
+  margin-left: 1300px;
+}
+.offset15 {
+  margin-left: 1220px;
+}
+.offset14 {
+  margin-left: 1140px;
+}
+.offset13 {
+  margin-left: 1060px;
 }
 .offset12 {
   margin-left: 980px;
@@ -260,6 +332,42 @@ a:hover {
 }
 .row-fluid > [class*="span"]:first-child {
   margin-left: 0;
+}
+.row-fluid > .span24 {
+  width: 202.127659554%;
+}
+.row-fluid > .span23 {
+  width: 193.617021257%;
+}
+.row-fluid > .span22 {
+  width: 185.10638296000002%;
+}
+.row-fluid > .span21 {
+  width: 176.595744663%;
+}
+.row-fluid > .span20 {
+  width: 168.085106366%;
+}
+.row-fluid > .span19 {
+  width: 159.57446806899998%;
+}
+.row-fluid > .span18 {
+  width: 151.063829772%;
+}
+.row-fluid > .span17 {
+  width: 142.553191475%;
+}
+.row-fluid > .span16 {
+  width: 134.042553178%;
+}
+.row-fluid > .span15 {
+  width: 125.531914881%;
+}
+.row-fluid > .span14 {
+  width: 117.02127658399999%;
+}
+.row-fluid > .span13 {
+  width: 108.510638287%;
 }
 .row-fluid > .span12 {
   width: 99.99999998999999%;
@@ -801,6 +909,42 @@ input,
 textarea,
 .uneditable-input {
   margin-left: 0;
+}
+input.span24, textarea.span24, .uneditable-input.span24 {
+  width: 1890px;
+}
+input.span23, textarea.span23, .uneditable-input.span23 {
+  width: 1810px;
+}
+input.span22, textarea.span22, .uneditable-input.span22 {
+  width: 1730px;
+}
+input.span21, textarea.span21, .uneditable-input.span21 {
+  width: 1650px;
+}
+input.span20, textarea.span20, .uneditable-input.span20 {
+  width: 1570px;
+}
+input.span19, textarea.span19, .uneditable-input.span19 {
+  width: 1490px;
+}
+input.span18, textarea.span18, .uneditable-input.span18 {
+  width: 1410px;
+}
+input.span17, textarea.span17, .uneditable-input.span17 {
+  width: 1330px;
+}
+input.span16, textarea.span16, .uneditable-input.span16 {
+  width: 1250px;
+}
+input.span15, textarea.span15, .uneditable-input.span15 {
+  width: 1170px;
+}
+input.span14, textarea.span14, .uneditable-input.span14 {
+  width: 1090px;
+}
+input.span13, textarea.span13, .uneditable-input.span13 {
+  width: 1010px;
 }
 input.span12, textarea.span12, .uneditable-input.span12 {
   width: 930px;
@@ -2987,7 +3131,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 940px;
+  width: 1900px;
 }
 .navbar-fixed-top {
   top: 0;

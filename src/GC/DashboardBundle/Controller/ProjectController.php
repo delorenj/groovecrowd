@@ -40,11 +40,12 @@ class ProjectController extends Controller
 			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);
 			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			
 			if(!$progress) {
-				$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
+				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));	
 			}
 			$project = $progress->getProject();
 
-			if($request->request->get('back') == 1) {
+			if($request->query->get('back') == 1) {
+				$this->get('logger')->info('HERE~!!!!!');
 				if($progress->getPhase() > 0) {
 					$progress->setPhase($progress->getPhase()-1);
 					$em->persist($progress);
@@ -59,42 +60,54 @@ class ProjectController extends Controller
 						break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 2));
 						break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
 						break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 4));
 						break;
 
 					default: //start form over
-						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 1));	
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));	
 
 				}				
 			} else {
 				switch($progress->getPhase()) {
+					case 0: //groove type select (only on back)
+						$projectType = $request->request->get('projectType');
+						$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
+						$project->setProjectType($pt);
+						$em->persist($project);
+						$em->flush();			
+						$progress->setPhase(1);
+						$em->persist($progress);
+						$em->flush();
+						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("id" => $code, "phase" => 1));	
+					break;
+
 					case 1: //category select
 						$this->get('logger')->info('GET PROJECT: ' . $project->getId());
 						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("phase" => 1));
 					break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 2));
 					break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
 					break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 1));
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 4));
 					break;
 
 					default: //start form over
-						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 1));						
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));						
 					break;
 				}// end switch: POST			
 			}// end if continueCode found
@@ -104,9 +117,6 @@ class ProjectController extends Controller
 				$projectType = $request->request->get('projectType');
 				$project = new Project();
 				$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
-				if(!$pt) {
-					$this->createNotFoundException("ProjectType not found: " . $projectType);
-				}
 				$project->setProjectType($pt);
 				$em->persist($project);
 				$em->flush();			

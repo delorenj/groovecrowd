@@ -41,7 +41,7 @@
 	<div class="row form-header">
 		<div class="span12">
 			{% block formheader %}
-				<h1>Select a category</h1>
+				<h1>Form header placeholder</h1>
 			{% endblock %}
 		</div>
 	</div>
@@ -52,7 +52,21 @@
 
 	{% block minorbreadcrumbs %}
 		<div class="minorbreadcrumbs row center">
-			<img src="http://placehold.it/400x20&text=minor breadcrumbs placeholder" />
+			<div class="offset4 span4 center">
+				<img src="{{ asset ('img/dot-filled.png') }}" width=30 />
+				{% if (phase > 1)  %} 
+				{% set ext = 'filled' %}
+				{% else %}
+				{% set ext = 'empty' %}
+				{% endif %}				
+				<img src="{{ asset ('img/dot-' ~ ext ~ '.png') }}" width=30 />
+				{% if (phase > 2)  %} 
+				{% set ext = 'filled' %}
+				{% else %}
+				{% set ext = 'empty' %}
+				{% endif %}					
+				<img src="{{ asset ('img/dot-' ~ ext ~ '.png') }}" width=30 />
+			</div>
 		</div>
 	{% endblock %}
 
