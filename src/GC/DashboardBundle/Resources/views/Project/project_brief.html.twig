@@ -1,0 +1,14 @@
+{% extends 'GCDashboardBundle::breadcrumb_form.html.twig' %}
+
+{% block formheader %}
+	<h1>Description</h1>
+{% endblock %}
+
+{% block formbody %}
+	<form action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >
+		{{ form_widget(form) }}
+		<input type="submit" />
+	</form>
+{% endblock %}
+
+{% block minorbreadcrumbs %}{% endblock %}

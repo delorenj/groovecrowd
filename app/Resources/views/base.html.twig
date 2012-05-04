@@ -87,31 +87,25 @@
    <footer>
         {% block footer %}
             <div class="container">
-                <div class="row offset2">
-                    <div class="span3">
-                        <ul class="unstyled">
+                <div class="row">
+                    <div class="offset2 span9">
+                        <ul class="unstyled span3">
                             {% block footer1 %}
                                 <li><h4>Learn more about us</h4></li>
                                 <li><a>In the press</a></li>
                                 <li><a>Careers</a></li>
                             {% endblock %}
-                            
                         </ul>
-                    </div>
-                    <div id="mid-footer" class="span3">
-                        <ul class="unstyled">
+                        <ul class="unstyled span3">
                             {% block footer2 %}
                                 <li><h4>Make money with us</h4></li>
                                 <li><a>App Music Contests</a></li>                       
                                 <li><a>Audio FX Contests</a></li>
                                 <li><a>Voiceover Contests</a></li>                        
                                 <li><a>Jingle Contests</a></li>                        
-                            {% endblock %}
-                            
+                            {% endblock %}                            
                         </ul>                    
-                    </div>
-                    <div class="span3">
-                        <ul class="unstyled">
+                        <ul class="unstyled span3">
                             {% block footer3 %}
                                 <li><h4>Let us help you</h4></li>                        
                                 <li><a>Contact Us</a></li>
@@ -121,14 +115,16 @@
                         </ul>               
                     </div>
                 </div>
+            <div class="row center">
+                <div class="span11 center">
+                <p>
+                    &copy; GrooveCrowd 2012 |
+                    <a>Privacy Policy</a> |
+                    <a>Terms & Agreement</a>
+                </p>                    
             </div>
-                <div>
-                    <p style="text-align: center">
-                        &copy; GrooveCrowd 2012 |
-                        <a>Privacy Policy</a> |
-                        <a>Terms & Agreement</a>
-                    </p>                    
-                </div>            
+            </div>                  
+            </div>          
 
         {% endblock %}                
     </footer>

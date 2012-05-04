@@ -40,7 +40,9 @@ class ProjectController extends Controller
 			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);
 			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			
 			if(!$progress) {
-				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));	
+				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));
+				$cookie = new Cookie('continueCode','');
+				$return->headers->setCookie($cookie);
 			}
 			$project = $progress->getProject();
 
@@ -57,19 +59,24 @@ class ProjectController extends Controller
 				switch($progress->getPhase()) {
 					case 1: //category select
 						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("phase" => 1));
-						break;
+					break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 2));
-						break;
+						$form = $this->createFormBuilder($project)
+							->add('title', 'text')
+							->add('description', 'textarea')
+							->getForm();
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+							array("phase" => 2, "form" => $form->createView()));
+					break;
 
 					case 3: //package select
 						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
-						break;
+					break;
 
 					case 4: //payment
 						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 4));
-						break;
+					break;
 
 					default: //start form over
 						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));	
@@ -90,20 +97,32 @@ class ProjectController extends Controller
 					break;
 
 					case 1: //category select
-						$this->get('logger')->info('GET PROJECT: ' . $project->getId());
-						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("phase" => 1));
-					break;
+						$cat = $request->request->get('category');
+						$cat = $em->getRepository('GCDataLayerBundle:Category')->findOneBySlug($cat);
+						$project->setCategory($cat);
+						$em->persist($project);
+						$em->flush();
+						$progress->setPhase(2);
+						$em->persist($progress);
+						$em->flush();	
+						$form = $this->createFormBuilder($project)
+							->add('title', 'text')
+							->add('description', 'textarea')
+							->getForm();
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+							array("phase" => 2, "form" => $form->createView()));
+						break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 2));
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));					
 					break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
+						$return = $this->render('GCDashboardBundle:Project:payment_select.html.twig', array("phase" => 4));					
 					break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 4));
+						$return = $this->render('GCDashboardBundle:Project:show', array("project" => $project));				
 					break;
 
 					default: //start form over

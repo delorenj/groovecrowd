@@ -115,6 +115,54 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+			"settings":
+			{
+				"buffer_size": 1686,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
+			"settings":
+			{
+				"buffer_size": 2907,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+			"settings":
+			{
+				"buffer_size": 461,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+			"settings":
+			{
+				"buffer_size": 5228,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+			"settings":
+			{
+				"buffer_size": 2261,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/custom.less",
+			"settings":
+			{
+				"buffer_size": 1057,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/ActionScript/actionscript.sublime-build",
 	"command_palette":
@@ -224,6 +272,7 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/breadcrumb_form.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Category.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Tests/HelpersTest.php",
@@ -283,7 +332,6 @@
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadUserData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/bootstrap.css",
-		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/index.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/config/routing.yml",
@@ -522,8 +570,173 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+					"settings":
+					{
+						"buffer_size": 1686,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1642,
+								1686
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
+					"settings":
+					{
+						"buffer_size": 2907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2907,
+								2907
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+					"settings":
+					{
+						"buffer_size": 461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"settings":
+					{
+						"buffer_size": 5228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1607,
+								1607
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 463.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+					"settings":
+					{
+						"buffer_size": 2261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2023,
+								2023
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "web/css/less/custom.less",
+					"settings":
+					{
+						"buffer_size": 1057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								369,
+								369
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -568,6 +781,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"vari",
+				"web/css/less/variables.less"
+			],
+			[
+				"custom.le",
+				"web/css/less/custom.less"
+			],
 			[
 				"base",
 				"app/Resources/views/base.html.twig"
