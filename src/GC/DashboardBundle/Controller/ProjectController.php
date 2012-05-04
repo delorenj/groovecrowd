@@ -55,42 +55,42 @@ class ProjectController extends Controller
 			if($request->getMethod() == "GET") {
 				switch($progress->getPhase()) {
 					case 1: //category select
-						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("phase" => 1));
 						break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 1));
 						break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 1));
 						break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 1));
 						break;
 
 					default: //start form over
-						$return = $this->render('GCDashboardBundle:Project:new.html.twig');	
+						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 1));	
 
 				}				
 			} else {
 				switch($progress->getPhase()) {
 					case 1: //category select
 						$this->get('logger')->info('GET PROJECT: ' . $project->getId());
-						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("phase" => 1));
 					break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', array("phase" => 1));
 					break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 1));
 					break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig');
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 1));
 					break;
 
 					default: //start form over
@@ -121,15 +121,14 @@ class ProjectController extends Controller
 					$return = json_encode(array("responseCode"=>200));
 					$return = new Response($return, 200);
 				} else {
-					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', 
-						array("id" => $code));	
+					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("id" => $code, "phase" => 1));	
 					$cookie = new Cookie("continueCode", $code);
 					$return->headers->setCookie($cookie);
 				}
 
 			} //end no continue POST
 			else {
-				$return = $this->render('GCDashboardBundle:Project:new.html.twig');
+				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));
 			}// end no continue GET
 		} //end no continue block
         return $return;
