@@ -1,4 +1,5 @@
 {% extends 'GCDashboardBundle::breadcrumb_form.html.twig' %}
+{% form_theme form 'GCDataLayerBundle:Form:fields.html.twig' %}
 
 
 {% block javascripts %}
@@ -20,20 +21,36 @@
 		{{ form_errors(form) }}
 		<fieldset>
 			<legend><h1>Description</h1></legend>
-			<div class="control-group">
+			<div class="control-group gc-control-label">
 				{{ form_label(form.title) }}
 				<div class="controls">
 					{{ form_widget(form.title, {'attr': {'class': 'input-xlarge span6'}}) }}
 					<p class="help-block">{{ form_errors(form.title) }}</p>	
 				</div>			    			    
 			</div>
-			<div class="control-group">
+			<div class="control-group gc-control-label">
 				{{ form_label(form.description) }}
 				<div class="controls">
 					{{ form_widget(form.description, {'attr': {'class': 'input-xlarge span6'}}) }}
 					<p class="help-block">{{ form_errors(form.description) }}</p>	
 				</div>			    			    
 			</div>
+			<div class="control-group gc-control-label">
+				{{ form_label(form.expires_at) }}
+				<div class="controls">
+					{{ form_widget(form.expires_at, {'attr': {'class': 'input-xlarge span6'}}) }}
+					<p class="help-block">{{ form_errors(form.expires_at) }}</p>	
+				</div>			    			    
+			</div>			
+<!-- 			<div class="control-group project-length-control">
+				<label for="project-length" class="control-label">Contest Length</label>
+				<div class="controls">
+					<div class="slider">
+						<h4>hi</h4>
+					</div>
+					<p class="help-block"></p>	
+				</div>			    			    
+			</div>		 -->							
 			<div class="control-group">
 				{{ form_label(form.tag_list) }}
 				<div class="controls">

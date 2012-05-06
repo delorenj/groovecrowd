@@ -15,7 +15,8 @@
 
 
 $(document).ready(function() {
-    $("label").addClass("control-label");
+    $(".gc-control-label > label").addClass("control-label");
+    // $(".gc-radio label").addClass("radio");
     $(".tag-widget").tagsInput({
         'width': '320px',
         'placeholderColor': '#369BD7',

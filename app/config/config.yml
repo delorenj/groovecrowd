@@ -36,9 +36,6 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         user_image_path: /img/profiles/
-    form:
-        resources:
-            - 'GCDataLayerBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:

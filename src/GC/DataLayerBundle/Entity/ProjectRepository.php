@@ -33,8 +33,6 @@ class ProjectRepository extends EntityRepository
             $q = $this->getEntityManager()
                            ->getConnection()
                            ->prepare('DELETE FROM project_tag WHERE project_id = ' . $project->getId() . ' AND tag_id = ' . $tag->getId());
-              // $q->bindValue('pid ', $project->getId());
-              // $q->bindValue('tid ', $tag->getId());
               $q->execute();
               return 1;         
         } else {
