@@ -3,6 +3,9 @@
 namespace GC\DataLayerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use GC\DataLayerBundle\Entity\ProjectTag;
+use GC\DataLayerBundle\Entity\Tag;
 
 /**
  * GC\DataLayerBundle\Entity\Project
@@ -136,8 +139,19 @@ class Project
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
      */
+
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="projects")
+     * @ORM\JoinTable(name="project_tag")
+     **/
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -449,4 +463,51 @@ class Project
         return $this->projectType;
     }
 
+
+    /**
+     * Add tags
+     *
+     * @param GC\DataLayerBundle\Entity\Tag $tag
+     */
+    public function addTag(\GC\DataLayerBundle\Entity\Tag $tag)
+    {
+        if (!$this->tags->exists(function($key, $val) use($tag) {
+                                    $check = false;
+                                    if ($val === $tag)
+                                        $check = true;
+                                    return $check;
+                                })
+            ) {
+            $this->tags->add($tag);            
+        }       
+        $tag->addProject($this);
+    }
+
+    public function removeTag(\GC\DataLayerBundle\Entity\Tag $tag)
+    {
+        if ($this->tags->exists(function($key, $val) use($tag) {
+                                    $check = false;
+                                    if ($val === $tag)
+                                        $check = true;
+                                    return $check;
+                                })
+            ) {
+            $this->tags->delete($tag);            
+        }       
+        $tag->removeProject($this);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    public function hasTag($name) {
+        return in_array($name, $this->tags);
+    }
 }

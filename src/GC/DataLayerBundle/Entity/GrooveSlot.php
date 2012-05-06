@@ -2,6 +2,7 @@
 
 namespace GC\DataLayerBundle\Entity;
 
+use \Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -69,6 +70,18 @@ class GrooveSlot
      * @ORM\Column(name="modified_at", type="datetime", nullable=true)
      */
     private $modifiedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="grooveSlots")
+     * @ORM\JoinTable(name="groove_slots_tags")
+     **/
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -221,4 +234,24 @@ class GrooveSlot
         return $this->modifiedAt;
     }
 
+
+    /**
+     * Add tags
+     *
+     * @param GC\DataLayerBundle\Entity\Tag $tags
+     */
+    public function addTag(\GC\DataLayerBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }

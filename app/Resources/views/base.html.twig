@@ -144,7 +144,9 @@
         <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js') }}"></script>
         <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js') }}"></script>
         <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js') }}"></script>    
+        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>        
     {% endblock %}
 
 </body>

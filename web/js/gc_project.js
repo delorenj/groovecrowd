@@ -1,12 +1,12 @@
-(function( gcproject, $, undefined ) {
+(function( gc_project, $, undefined ) {
     //Private Property
     var isHot = true;
 
     //Public Property
-    gcproject.ingredient = "Bacon Strips";
+    gc_project.ingredient = "Bacon Strips";
 
     //Public Method
-    gcproject.init = function() {
+    gc_project.init = function() {
         $(".selectFormChoice")
             .click(function() {
                 $("input[type='hidden']").val($(this).attr("id"));
@@ -14,7 +14,7 @@
             })
     };
 
-    gcproject.initCategorySelect = function(){
+    gc_project.initCategorySelect = function(){
         $("#ProjectTypeContainer")
             .animate(
             { left: 200 }, {
@@ -30,7 +30,7 @@
             console.log( "Adding " + $.trim(item) );
         }
     }    
-}( window.gcproject = window.gcproject || {}, jQuery ));
+}( window.gc_project = window.gcproject || {}, jQuery ));
 
 
 $(document).ready(function() {
@@ -51,5 +51,5 @@ $(document).ready(function() {
     //   return false;        
     // });
 
-    gcproject.init();
+    gc_project.init();
 });

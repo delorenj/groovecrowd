@@ -9,10 +9,8 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use GC\DataLayerBundle\Entity\Category;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectAsset;
-use GC\DataLayerBundle\Entity\ProjectTag;
 use GC\DataLayerBundle\Entity\Package;
 use GC\DataLayerBundle\Entity\GrooveSlot;
-use GC\DataLayerBundle\Entity\GrooveSlotTag;
 
 class LoadProjectData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -38,6 +36,9 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(1);
         $p->setBlind(0);
+        $p->addTag($manager->merge($this->getReference('tag-playful')));
+        $p->addTag($manager->merge($this->getReference('tag-pizzacato')));
+        $p->addTag($manager->merge($this->getReference('tag-video-game')));
         $p->setCreatedAt(new \DateTime("-2 week"));
         $p->setExpiresAt(new \DateTime("1 month"));
         $p->setFlags(0);
@@ -62,24 +63,6 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->manager->persist($p);
         $this->manager->flush();
 
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-game'));
-        $p->setTag($manager->merge($this->getReference('tag-playful')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-game'));
-        $p->setTag($manager->merge($this->getReference('tag-pizzacato')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-game'));
-        $p->setTag($manager->merge($this->getReference('tag-video-game')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
         $p = new Project();
         $p->setUser($manager->merge($this->getReference('user-consumer')));
         $p->setTitle("Intense soundtrack for my new iOS game trailer");
@@ -92,6 +75,9 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(1);
         $p->setBlind(1);
+        $p->addTag($manager->merge($this->getReference('tag-playful')));
+        $p->addTag($manager->merge($this->getReference('tag-trailer')));
+        $p->addTag($manager->merge($this->getReference('tag-industrial')));
         $p->setCreatedAt(new \DateTime("now"));
         $p->setExpiresAt(new \DateTime("1 month"));
         $p->setFlags(0);
@@ -112,25 +98,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setCreatedAt(new \DateTime("-1 week"));
         $p->setAssetType($manager->merge($this->getReference('asset-video')));
         $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-trailer'));
-        $p->setTag($manager->merge($this->getReference('tag-playful')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-trailer'));
-        $p->setTag($manager->merge($this->getReference('tag-trailer')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-trailer'));
-        $p->setTag($manager->merge($this->getReference('tag-industrial')));
-        $this->manager->persist($p);
-        $this->manager->flush();        
+        $this->manager->flush();    
 
         //Come back to set winner later...
         $p = new Project();
@@ -145,6 +113,9 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setEnabled(1);
         $p->setFullGrooveSetsOnly(0);
         $p->setBlind(1);
+        $p->addTag($manager->merge($this->getReference('tag-effects')));
+        $p->addTag($manager->merge($this->getReference('tag-fx')));
+        $p->addTag($manager->merge($this->getReference('tag-sounds')));
         $p->setCreatedAt(new \DateTime("-3 week"));
         $p->setExpiresAt(new \DateTime("1 week"));
         $p->setFlags(0);
@@ -167,52 +138,12 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-trailer'));
         $p->setDescription('A happy congratulations noise for when a bonus is scored');
+        $p->addTag($manager->merge($this->getReference('tag-score')));
+        $p->addTag($manager->merge($this->getReference('tag-level-up')));
         $this->addReference('gs-congrats', $p);
         $this->manager->persist($p);
         $this->manager->flush();
 
-        $p = new GrooveSlotTag();
-        $p->setGrooveSlot($this->getReference('gs-congrats'));
-        $p->setTag($manager->merge($this->getReference('tag-score')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new GrooveSlotTag();
-        $p->setGrooveSlot($this->getReference('gs-congrats'));
-        $p->setTag($manager->merge($this->getReference('tag-level-up')));
-        $this->manager->persist($p);
-        $this->manager->flush();        
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-fx'));
-        $p->setTag($manager->merge($this->getReference('tag-effects')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-fx'));
-        $p->setTag($manager->merge($this->getReference('tag-fx')));
-        $this->manager->persist($p);
-        $this->manager->flush();    
-
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-fx'));
-        $p->setTag($manager->merge($this->getReference('tag-sounds')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-fx'));
-        $p->setTag($manager->merge($this->getReference('tag-effects')));
-        $this->manager->persist($p);
-        $this->manager->flush();
-
-        $p = new ProjectTag();
-        $p->setProject($this->getReference('project-fx'));
-        $p->setTag($manager->merge($this->getReference('tag-fx')));
-        $this->manager->persist($p);
-        $this->manager->flush();    
     }
 
 

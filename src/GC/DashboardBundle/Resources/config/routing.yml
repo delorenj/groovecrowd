@@ -11,3 +11,9 @@ project_show:
 project_new:
     pattern: /project/new
     defaults: { _controller: GCDashboardBundle:Project:new }
+
+project_remove_tag:
+    pattern: /project/{id}/removetag/{tag}
+    defaults: { _controller: GCDashboardBundle:Project:removeTag }
+    options:
+        expose: true

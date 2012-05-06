@@ -27,4 +27,18 @@ class ProjectRepository extends EntityRepository
         ->setParameter('package_id', $project->getPackage()->getId())
         ->getSingleScalarResult();
     }
+
+    public function removeTag($project, $tagName) {
+        if($tag= $this->_em->getRepository('GCDataLayerBundle:Tag')->findOneByName($tagName)) {            
+            $q = $this->getEntityManager()
+                           ->getConnection()
+                           ->prepare('DELETE FROM project_tag WHERE project_id = ' . $project->getId() . ' AND tag_id = ' . $tag->getId());
+              // $q->bindValue('pid ', $project->getId());
+              // $q->bindValue('tid ', $tag->getId());
+              $q->execute();
+              return 1;         
+        } else {
+            return 0;
+        }
+    }
 }

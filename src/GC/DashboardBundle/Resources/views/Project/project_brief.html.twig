@@ -1,13 +1,50 @@
 {% extends 'GCDashboardBundle::breadcrumb_form.html.twig' %}
 
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/gc_project_brief.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.tagsinput.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/jquery.tagsinput.css') }}" />
+{% endblock %}
+
 {% block formheader %}
-	<h1>Description</h1>
 {% endblock %}
 
 {% block formbody %}
-	<form action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >
-		{{ form_widget(form) }}
+	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >
+		{{ form_errors(form) }}
+		<fieldset>
+			<legend><h1>Description</h1></legend>
+			<div class="control-group">
+				{{ form_label(form.title) }}
+				<div class="controls">
+					{{ form_widget(form.title, {'attr': {'class': 'input-xlarge span6'}}) }}
+					<p class="help-block">{{ form_errors(form.title) }}</p>	
+				</div>			    			    
+			</div>
+			<div class="control-group">
+				{{ form_label(form.description) }}
+				<div class="controls">
+					{{ form_widget(form.description, {'attr': {'class': 'input-xlarge span6'}}) }}
+					<p class="help-block">{{ form_errors(form.description) }}</p>	
+				</div>			    			    
+			</div>
+			<div class="control-group">
+				{{ form_label(form.tag_list) }}
+				<div class="controls">
+					{{ form_widget(form.tag_list, {'attr': {'class': 'input-xlarge tag-widget span6', 'value': tag_list}}) }}
+					<p class="help-block">{{ form_errors(form.tag_list) }}</p>	
+				</div>			    			    
+			</div>						
+		</fieldset>
+
 		<input type="submit" />
+		{{ form_rest(form) }}
 	</form>
 {% endblock %}
 

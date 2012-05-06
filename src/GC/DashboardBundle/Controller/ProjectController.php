@@ -11,6 +11,7 @@ use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
 use GC\DataLayerBundle\Entity\ProjectCreationProgress;
 use GC\DataLayerBundle\Helpers;
+use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
 
 class ProjectController extends Controller
 {
@@ -26,6 +27,25 @@ class ProjectController extends Controller
         	array('project' => $project));
 	}
 
+	public function removeTagAction(Request $request, $id, $tag) {
+		$this->get('logger')->info("removing tag $tag from project $id");
+	 	$em = $this->getDoctrine()->getEntityManager();
+		$repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
+		if($project = $repo->find($id)) {
+				$repo->removeTag($project, $tag);
+				$code = 200;				
+		} else {
+			$code = 404;
+		}
+		if ($request->isXmlHttpRequest()) {
+			$return = json_encode(array("responseCode"=>$code));
+			$return = new Response($return, $code);	
+		} else {
+			$return = json_encode(array("responseCode"=>304));
+			$return = new Response($return, 304);	
+		}
+		return $return;
+	}
 /*
  *	 check for cookie
  *	 if cookie, redirect to appropriate phase
@@ -62,12 +82,14 @@ class ProjectController extends Controller
 					break;
 
 					case 2: //project brief
-						$form = $this->createFormBuilder($project)
-							->add('title', 'text')
-							->add('description', 'textarea')
-							->getForm();
+						$form = $this->createForm(new ProjectDescriptionType(), $project);
+						$tags = $project->getTags();
+						foreach($tags as $tag) {
+							$t[] = $tag->getName();
+						}
+						$tag_list = implode(',', $t);
 						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-							array("phase" => 2, "form" => $form->createView()));
+							array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
 					break;
 
 					case 3: //package select
@@ -105,16 +127,30 @@ class ProjectController extends Controller
 						$progress->setPhase(2);
 						$em->persist($progress);
 						$em->flush();	
-						$form = $this->createFormBuilder($project)
-							->add('title', 'text')
-							->add('description', 'textarea')
-							->getForm();
+						$form = $this->createForm(new ProjectDescriptionType(), $project);
 						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
 							array("phase" => 2, "form" => $form->createView()));
 						break;
 
 					case 2: //project brief
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));					
+						$form = $this->createForm(new ProjectDescriptionType(), $project);
+						$form->bindRequest($request);
+						if($form->isValid()) {
+							$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag');
+							$pd = $request->request->get('projectDescription');
+							$tags = explode(',', $pd['tag_list']);
+					        foreach($tags as $tag) {
+					            $t = $repo->createIfNotExists($tag);
+					            $project->addTag($t);
+					        }
+							$em->persist($project);
+							$em->flush();
+							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
+						} else {
+							$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+								array("phase" => 2, "form" => $form->createView()));							
+						}
+						
 					break;
 
 					case 3: //package select

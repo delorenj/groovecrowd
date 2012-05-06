@@ -2,6 +2,7 @@
 
 namespace GC\DataLayerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -92,6 +93,18 @@ class Groove
      * })
      */
     private $grooveSlot;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="grooves")
+     * @ORM\JoinTable(name="grooves_tags")
+     **/
+    protected $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -282,4 +295,24 @@ class Groove
     {
         return $this->grooveSlot;
     }    
+
+    /**
+     * Add tags
+     *
+     * @param GC\DataLayerBundle\Entity\Tag $tags
+     */
+    public function addTag(\GC\DataLayerBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }
