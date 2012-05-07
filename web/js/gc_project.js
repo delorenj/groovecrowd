@@ -41,23 +41,6 @@
 
 
 $(document).ready(function() {
-    // $("#projectTypeForm").submit(function() {
-    //    $.post($("#projectTypeForm").attr("action"), {
-    //        projectType: $("#projectType").val()
-    //    },function(data){
-   
-    //         if(data.responseCode==200 ){           
-    //             gcproject.initCategorySelect()
-    //         }
-    //        else if(data.response==400){//bad request
-    //            $('#output').html(data.msg);
-    //       }
-       
-    //    },"json");
-
-    //   return false;        
-    // });
-
     gc_project.init();
     gc_project.initBackButton();
 });
