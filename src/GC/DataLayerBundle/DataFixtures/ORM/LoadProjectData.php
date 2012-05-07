@@ -40,7 +40,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-pizzacato')));
         $p->addTag($manager->merge($this->getReference('tag-video-game')));
         $p->setCreatedAt(new \DateTime("-2 week"));
-        $p->setExpiresAt(new \DateTime("1 month"));
+        $p->setContestLength(15);
         $p->setFlags(0);
         $this->addReference('project-game', $p);
         $this->manager->persist($p);
@@ -79,7 +79,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-trailer')));
         $p->addTag($manager->merge($this->getReference('tag-industrial')));
         $p->setCreatedAt(new \DateTime("now"));
-        $p->setExpiresAt(new \DateTime("1 month"));
+        $p->setContestLength(15);
         $p->setFlags(0);
         $this->addReference('project-trailer', $p);
         $this->manager->persist($p);
@@ -117,7 +117,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-fx')));
         $p->addTag($manager->merge($this->getReference('tag-sounds')));
         $p->setCreatedAt(new \DateTime("-3 week"));
-        $p->setExpiresAt(new \DateTime("1 week"));
+        $p->setContestLength(7);
         $p->setFlags(0);
         $this->addReference('project-fx', $p);
         $this->manager->persist($p);

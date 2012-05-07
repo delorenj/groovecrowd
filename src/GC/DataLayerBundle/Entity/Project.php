@@ -73,11 +73,11 @@ class Project
     private $payoutGuaranteed;
 
     /**
-     * @var datetime $expiresAt
+     * @var integer $contestLength
      *
-     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
+     * @ORM\Column(name="contest_length", type="integer", nullable=true)
      */
-    private $expiresAt;
+    private $contestLength;
 
     /**
      * @var integer $enabled
@@ -241,26 +241,6 @@ class Project
     public function getPayoutGuaranteed()
     {
         return $this->payoutGuaranteed;
-    }
-
-    /**
-     * Set expiresAt
-     *
-     * @param datetime $expiresAt
-     */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
-    }
-
-    /**
-     * Get expiresAt
-     *
-     * @return datetime 
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
     }
 
     /**
@@ -509,5 +489,25 @@ class Project
 
     public function hasTag($name) {
         return in_array($name, $this->tags);
+    }
+
+    /**
+     * Set contestLength
+     *
+     * @param integer $contestLength
+     */
+    public function setContestLength($contestLength)
+    {
+        $this->contestLength = $contestLength;
+    }
+
+    /**
+     * Get contestLength
+     *
+     * @return integer 
+     */
+    public function getContestLength()
+    {
+        return $this->contestLength;
     }
 }

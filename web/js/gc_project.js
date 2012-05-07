@@ -24,6 +24,13 @@
 
     }
 
+    gc_project.initBackButton = function(){
+        $("#backbutton").click(function() {
+            location.href = Routing.generate('project_back');
+            return false;
+        });
+    }
+
     //Private Method
     function addItem( item ) {
         if ( item !== undefined ) {
@@ -52,4 +59,5 @@ $(document).ready(function() {
     // });
 
     gc_project.init();
+    gc_project.initBackButton();
 });

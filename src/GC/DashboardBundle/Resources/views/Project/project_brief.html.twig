@@ -36,10 +36,10 @@
 				</div>			    			    
 			</div>
 			<div class="control-group gc-control-label">
-				{{ form_label(form.expires_at) }}
+				{{ form_label(form.contest_length) }}
 				<div class="controls">
-					{{ form_widget(form.expires_at, {'attr': {'class': 'input-xlarge span6'}}) }}
-					<p class="help-block">{{ form_errors(form.expires_at) }}</p>	
+					{{ form_widget(form.contest_length, {'attr': {'class': 'input-xlarge'}}) }}
+					<p class="help-block">{{ form_errors(form.contest_length) }}</p>	
 				</div>			    			    
 			</div>			
 <!-- 			<div class="control-group project-length-control">
@@ -51,7 +51,7 @@
 					<p class="help-block"></p>	
 				</div>			    			    
 			</div>		 -->							
-			<div class="control-group">
+			<div class="control-group gc-control-label">
 				{{ form_label(form.tag_list) }}
 				<div class="controls">
 					{{ form_widget(form.tag_list, {'attr': {'class': 'input-xlarge tag-widget span6', 'value': tag_list}}) }}
@@ -59,10 +59,34 @@
 				</div>			    			    
 			</div>						
 		</fieldset>
+		<fieldset>
+			<h1>Media</h1>
+			<div class="tabbable">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab1" data-toggle="tab">Upload a File</a>
+					</li>
+					<li>
+						<a href="#tab2" data-toggle="tab">From the Web</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab1">
+						<p>I'm in Section 1.</p>
+					</div>
+					<div class="tab-pane" id="tab2">
+						<p>Howdy, I'm in Section 2.</p>
+					</div>
+				</div>
+			</div>		
+		</fieldset>
 
-		<input type="submit" />
+		<button type="submit" class="btn btn-primary">Save & Continue</button>
+		<button id="backbutton" class="btn btn-primary">Back</button>
+
 		{{ form_rest(form) }}
 	</form>
 {% endblock %}
 
 {% block minorbreadcrumbs %}{% endblock %}
+{% block backbutton %}{% endblock %}

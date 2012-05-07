@@ -2,6 +2,12 @@ dashboard_index:
     pattern:  /dashboard
     defaults: { _controller: GCDashboardBundle:Default:index }
 
+project_back:
+    pattern: /project/back
+    defaults: { _controller: GCDashboardBundle:Project:back }
+    options:
+        expose: true
+
 project_show:
     pattern: /project/{id}
     defaults: { _controller: GCDashboardBundle:Project:show }
@@ -11,6 +17,8 @@ project_show:
 project_new:
     pattern: /project/new
     defaults: { _controller: GCDashboardBundle:Project:new }
+    options:
+        expose: true
 
 project_remove_tag:
     pattern: /project/{id}/removetag/{tag}
