@@ -4,6 +4,21 @@
 	<h1>Select a Package</h1>
 {% endblock %}
 
+{% block formbody %}
+	<div class="row">
+		<div class="span4">
+			<h1>Bronze</h1>
+		</div>
+		<div class="span4">
+			<h1>Silver</h1>
+		</div>
+		<div class="span4">
+			<h1>Gold</h1>
+		</div>				
+	</div>
+
+	{{ parent() }}
+{% endblock %}
 
 
 	{% block backbutton %}

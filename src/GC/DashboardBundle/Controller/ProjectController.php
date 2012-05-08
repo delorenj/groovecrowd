@@ -168,11 +168,14 @@ class ProjectController extends Controller
 					            $project->addTag($t);
 					        }
 							$em->persist($project);
-							$em->flush();							
+							$em->flush();	
+							$progress->setPhase(3);
+							$em->persist($progress);
+							$em->flush();	
 							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
 						} else {
 							$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-								array("phase" => 2, "form" => $form->createView()));							
+								array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
 						}
 						
 					break;
