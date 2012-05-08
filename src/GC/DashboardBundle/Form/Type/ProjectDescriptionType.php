@@ -25,6 +25,14 @@ class ProjectDescriptionType extends AbstractType
     	$builder->add('tag_list', null, array(
     		'property_path' => false,
     		'label' => "Tags"));
+
+    	$builder->add('media_upload', "file", array(
+    		'property_path' => false,
+    		'label' => "Upload Media"));
+
+    	$builder->add('web_upload', "url", array(
+    		'property_path' => false,
+    		'label' => "Link"));
 	}
 
 	public function getName() {
