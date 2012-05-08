@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * GC\DataLayerBundle\Entity\PriceMap
  *
  * @ORM\Table(name="price_map")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="GC\DataLayerBundle\Entity\PriceMapRepository")
  */
 class PriceMap
 {

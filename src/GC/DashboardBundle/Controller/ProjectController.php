@@ -110,7 +110,9 @@ class ProjectController extends Controller
 					break;
 
 					case 3: //package select
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
+						$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
+						$prices = $price_repo->getPackagePrices($project, "bronze");
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3, "project" => $project, "prices" => $prices));
 					break;
 
 					case 4: //payment
