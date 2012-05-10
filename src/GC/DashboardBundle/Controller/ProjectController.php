@@ -12,6 +12,7 @@ use GC\DataLayerBundle\Entity\ProjectType;
 use GC\DataLayerBundle\Entity\ProjectCreationProgress;
 use GC\DataLayerBundle\Helpers;
 use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
+use GC\DashboardBundle\Form\Type\PackageSelectionType;
 
 class ProjectController extends Controller
 {
@@ -111,8 +112,9 @@ class ProjectController extends Controller
 
 					case 3: //package select
 						$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
+						$form = $this->createForm(new PackageSelectionType(), $project);						
 						$prices = $price_repo->getPackagePrices($project, "bronze");
-						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3, "project" => $project, "prices" => $prices));
+						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, "project" => $project, "prices" => $prices, "form" => $form->createView()));
 					break;
 
 					case 4: //payment
@@ -174,7 +176,10 @@ class ProjectController extends Controller
 							$progress->setPhase(3);
 							$em->persist($progress);
 							$em->flush();	
-							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("phase" => 3));
+							$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
+							$form = $this->createForm(new PackageSelectionType(), $project);						
+							$prices = $price_repo->getPackagePrices($project, "bronze");
+							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, "project" => $project, "prices" => $prices, "form" => $form->createView()));
 						} else {
 							$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
 								array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));

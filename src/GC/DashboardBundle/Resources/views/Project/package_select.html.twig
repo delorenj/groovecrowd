@@ -1,88 +1,123 @@
 {% extends 'GCDashboardBundle::breadcrumb_form.html.twig' %}
+{% form_theme form 'GCDataLayerBundle:Form:fields.html.twig' %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/gc_package_select.js') }}" type="text/javascript"></script>
+{% endblock %}
 
 {% block formheader %}
 	<h1>Select a Package</h1>
 {% endblock %}
 
 {% block formbody %}
-	<div class="row">
-		<div class="span4">
-			<div class="row">
-				<div class="span2">
-					<h1>Bronze</h1>				
-				</div>
-				<div class="span2">
-					<img class="span1" src="http://placehold.it/260x180" alt="">	
-				</div>				
-			</div>
-			<div class="row">
-				<div class="span4">
-					<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
-				</div>
-			</div>
-			<div class="row">
-				<div class="span2">
-					<h2>${{ prices[0].price }}</h2>
-				</div>				
-				<div class="span2">
-					<button class="btn btn-primary pull-right">Select</button>
-				</div>
-			</div>
-		</div>
-		<div class="span4">
-			<div class="row">
-				<div class="span2">
-					<h1>Silver</h1>				
-				</div>
-				<div class="span2">
-					<img class="span1" src="http://placehold.it/260x180" alt="">	
-				</div>				
-			</div>
-			<div class="row">
-				<div class="span4">
-					<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
-				</div>
-			</div>
-			<div class="row">
-				<div class="span2">
-					<h2>${{ prices[1].price }}</h2>
-				</div>				
-				<div class="span2">
-					<button class="btn btn-primary pull-right">Select</button>
-				</div>
-			</div>
-		</div>
-		<div class="span4">
-			<div class="row">
-				<div class="span2">
-					<h1>Gold</h1>				
-				</div>
-				<div class="span2">
-					<img class="span1" src="http://placehold.it/260x180" alt="">	
-				</div>				
-			</div>
-			<div class="row">
-				<div class="span4">
-					<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
-				</div>
-			</div>
-			<div class="row">
-				<div class="span2">
-					<h2>${{ prices[2].price }}</h2>
-				</div>				
-				<div class="span2">
-					<button class="btn btn-primary pull-right">Select</button>
-				</div>
-			</div>
-		</div>				
-	</div>
+	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >
+		<fieldset>
 
+			<div id="package-select-controls" class="row">
+				<div id="bronze" class="span4">
+					<div class="row">
+						<div class="span2">
+							<h1>Bronze</h1>				
+						</div>
+						<div class="span2">
+							<img class="span1" src="http://placehold.it/260x180" alt="">	
+						</div>				
+					</div>
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
+						</div>
+					</div>
+					<div class="row">
+						<div class="span2">
+							<h2>${{ prices[0].price }}</h2>
+						</div>				
+						<div class="span2">
+							<button class="btn btn-primary pull-right" onClick="return false;">Select</button>
+						</div>
+					</div>
+				</div>
+				<div id="silver" class="span4">
+					<div class="row">
+						<div class="span2">
+							<h1>Silver</h1>				
+						</div>
+						<div class="span2">
+							<img class="span1" src="http://placehold.it/260x180" alt="">	
+						</div>				
+					</div>
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
+						</div>
+					</div>
+					<div class="row">
+						<div class="span2">
+							<h2>${{ prices[1].price }}</h2>
+						</div>				
+						<div class="span2">
+							<button class="btn btn-primary pull-right" onClick="return false;">Select</button>
+						</div>
+					</div>
+				</div>
+				<div id="gold" class="span4">
+					<div class="row">
+						<div class="span2">
+							<h1>Gold</h1>				
+						</div>
+						<div class="span2">
+							<img class="span1" src="http://placehold.it/260x180" alt="">	
+						</div>				
+					</div>
+					<div class="row">
+						<div class="span4">
+							<p>Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>					
+						</div>
+					</div>
+					<div class="row">
+						<div class="span2">
+							<h2>${{ prices[2].price }}</h2>
+						</div>				
+						<div class="span2">
+							<button class="btn btn-primary pull-right" onClick="return false;">Select</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 20px; border-top: 1px solid #D1D1D1; padding-top: 20px;">
+				<div class="span12">
+					<h1>Package Options</h1>
+					<ul class="unstyled checkboxlist">
+						<li>
+							<label class="checkbox">
+								{{ form_widget (form.blind) }}
+								{{ form_label (form.blind) }}
+		                    	<p class="help-block">Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>
+		                	</label>
+						</li>
+						<li>
+							<label class="checkbox">
+								{{ form_widget (form.payout_guaranteed) }}
+								{{ form_label (form.payout_guaranteed) }}
+								<p class="help-block">Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p>
+							</label>
+						</li>
+						<li>
+							<label class="checkbox">
+								{{ form_widget (form.protection) }}	
+								{{ form_label (form.protection) }}	
+								<p class="help-block">Our proprietary service will digitally watermark all uploaded audio.  All audio will be checked for duplicate submissions.  If at any time, now or in the future, a similar track is uploaded you will be notified by email and proper action will be taken.</p>
+							</label>		
+						</li>
+					</ul>
+				</div>
+			</div>			
+		</fieldset>
+		{{ form_rest(form) }}
+	</form>
 	{{ parent() }}
 {% endblock %}
-
-
-	{% block backbutton %}
-	{% endblock %}
 
 
 	{% block minorbreadcrumbs %}{% endblock %}

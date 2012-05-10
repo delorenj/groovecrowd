@@ -4406,3 +4406,9 @@ div.tagsinput span.tag {
 div.tagsinput span.tag a {
   color: #f5f5f5 !important;
 }
+ul.checkboxlist li {
+  margin-top: 40px;
+}
+label.checkbox label {
+  font-size: 2em;
+}

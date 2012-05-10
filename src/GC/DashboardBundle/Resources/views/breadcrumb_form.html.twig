@@ -71,15 +71,4 @@
 		</div>
 	{% endblock %}
 
-	{% block backbutton %}
-		<form action="{{ path('project_new') }}" method="GET">
-			<div class="row center">
-				<div class="span12">
-					<button type="submit" class="btn btn-primary">Back</button>
-					<input type="hidden" name="back" value="1" />
-				</div>
-			</div>			
-		</form>
-	{% endblock %}
-
 {% endblock %}
