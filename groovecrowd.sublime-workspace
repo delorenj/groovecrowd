@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"prop",
+				"property_exists"
+			],
+			[
+				"GC",
+				"GCDataLayerBundle"
+			],
+			[
+				"init",
+				"initBackButton"
+			],
+			[
+				"tag-p",
+				"tag-pizzacato"
+			],
+			[
 				"ProjectC",
 				"ProjectCreationProgress"
 			],
@@ -42,10 +58,6 @@
 			[
 				"ex",
 				"existing_cats"
-			],
-			[
-				"GC",
-				"GCProjectBundle"
 			],
 			[
 				"Pro",
@@ -104,10 +116,6 @@
 				"elder_score"
 			],
 			[
-				"init",
-				"curl_init"
-			],
-			[
 				"data",
 				"initData"
 			]
@@ -116,10 +124,154 @@
 	"buffers":
 	[
 		{
-			"file": "src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+			"file": "src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
 			"settings":
 			{
-				"buffer_size": 1686,
+				"buffer_size": 4065,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+			"settings":
+			{
+				"buffer_size": 9060,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+			"settings":
+			{
+				"buffer_size": 2064,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/custom.less",
+			"settings":
+			{
+				"buffer_size": 1414,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php",
+			"settings":
+			{
+				"buffer_size": 1184,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Form/Type/PackageSelectionType.php",
+			"settings":
+			{
+				"buffer_size": 894,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/layout.html.twig",
+			"settings":
+			{
+				"buffer_size": 599,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/gc_project_brief.js",
+			"settings":
+			{
+				"buffer_size": 765,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/gc_package_select.js",
+			"settings":
+			{
+				"buffer_size": 289,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/gc_project.js",
+			"settings":
+			{
+				"buffer_size": 1162,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+			"settings":
+			{
+				"buffer_size": 1490,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+			"settings":
+			{
+				"buffer_size": 1073,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
+			"settings":
+			{
+				"buffer_size": 661,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/config/config.yml",
+			"settings":
+			{
+				"buffer_size": 2604,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Entity/ProjectCreationProgress.php",
+			"settings":
+			{
+				"buffer_size": 1485,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Entity/Project.php",
+			"settings":
+			{
+				"buffer_size": 10110,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
+			"settings":
+			{
+				"buffer_size": 6725,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
+			"settings":
+			{
+				"buffer_size": 680,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+			"settings":
+			{
+				"buffer_size": 5069,
 				"line_ending": "Unix"
 			}
 		},
@@ -132,34 +284,26 @@
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+			"file": "src/GC/DataLayerBundle/Entity/Package.php",
 			"settings":
 			{
-				"buffer_size": 461,
+				"buffer_size": 924,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+			"file": "src/GC/DataLayerBundle/Entity/PriceMap.php",
 			"settings":
 			{
-				"buffer_size": 5228,
+				"buffer_size": 2449,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+			"file": "vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig",
 			"settings":
 			{
-				"buffer_size": 2261,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/custom.less",
-			"settings":
-			{
-				"buffer_size": 1057,
+				"buffer_size": 8626,
 				"line_ending": "Unix"
 			}
 		}
@@ -167,7 +311,7 @@
 	"build_system": "Packages/ActionScript/actionscript.sublime-build",
 	"command_palette":
 	{
-		"height": 28.0,
+		"height": 50.0,
 		"selected_items":
 		[
 			[
@@ -272,7 +416,44 @@
 	},
 	"file_history":
 	[
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/ccg/application/configs/application.ini",
+		"/Applications/MAMP/htdocs/ccg/application/Bootstrap.php",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+		"/Applications/MAMP/htdocs/mvdpainting/js/epc.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/jquery.tagsinput.css",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Project.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/TagRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Tag.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/controllers/SupportController.php",
+		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/controllers/PagesController.php",
+		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/layouts/layout-sidebar.phtml",
+		"/Applications/MAMP/htdocs/ccg/Chase",
+		"/Applications/MAMP/htdocs/ccg/Community",
+		"/Applications/MAMP/htdocs/ccg/Giving/CCG/application/modules/Site/controllers/SupportController.php",
+		"/modules/Site/controllers/SupportController.phpç/modules/Site/controllers/SupportController.php",
+		"/Applications/MAMP/htdocs/ccg/modules/Site/controllers/SupportController.php",
+		"/modules/Site/controllers/SupportController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/autoload.php",
+		"/Applications/MAMP/htdocs/groovecrowd/deps",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Groove.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSlot.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSet.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Form/Type/TagType.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/bootswatch.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project_description.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectTag.php",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/breadcrumb_form.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Category.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Tests/HelpersTest.php",
@@ -280,29 +461,20 @@
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/parameters.ini",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/custom.less",
-		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/config/routing.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers.php",
 		"/Users/jdelorenzo/Dropbox/Work/Firstborn/sonic backend/include/SonicAPI.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/User.php",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
 		"/Applications/MAMP/htdocs/groovecrowd/app/logs/dev.log",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Project.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectCreationProgress.php",
 		"/Applications/MAMP/htdocs/groovecrowd/vendor/doctrine/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/project.js",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/services.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Form/Type/ProjectType.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/appDevDebugProjectContainer.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/autoload.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Groove.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadWatchData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectType.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadCategoryData.php",
@@ -310,15 +482,12 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/PriceMap.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Package.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/config/services.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Controller/DefaultController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/config/routing.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Security/GCUserProvider.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/consumer.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/DefaultController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSlot.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/security.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/AuthenticationHandler.php",
@@ -327,8 +496,6 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/authenticated_layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/authenticated_layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/DefaultController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/AppKernel.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadUserData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/bootstrap.css",
@@ -338,24 +505,20 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Message.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadMessageData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Tests/Entity/UserRepositoryFunctionalTest.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSet.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadGrooveData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/AuthenticationListener.php",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/tquery",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/fixture-get-reference-external",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectComment.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSlotTag.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectTag.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/tree.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/index.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectCommentData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/Project.orm.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/FosUser.php",
-		"/Applications/MAMP/htdocs/groovecrowd/deps",
 		"/Applications/MAMP/htdocs/groovecrowd/app/DoctrineMigrations/Version20120421204212.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/ormBK/Project.orm.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm_BK/Project.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Tag.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectComments.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers/Helpers.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers/Slugify.php",
@@ -380,26 +543,7 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/FosUser.orm.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/User.orm.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/add.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Entity/User.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/config/doctrine/metadata/orm/User.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/doctrine/lib/Doctrine/ORM/Configuration.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Dashboard/test.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/Symfony/Bundle/DoctrineFixturesBundle/Resources/doc/index.rst",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/new.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/index.twig.html",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/new.twig.html",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Entity/WatchProject.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Entity/WatchCategory.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/DataFixtures/ORM/LoadProjectData.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/DataFixtures/ORM/LoadGrooveData.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/DataFixtures/ORM/LoadUserData.php",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/doctrine-fixtures/README.md",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Entity/Project.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/Resources/config/doctrine/metadata/orm/GrooveType.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/Resources/config/doctrine/metadata/orm/GrooveSetComment.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/Resources/config/doctrine/metadata/orm/GrooveSet.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/Resources/config/doctrine/metadata/orm/GrooveComment.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/GrooveBundle/Resources/config/doctrine/metadata/orm/Groove.orm.yml"
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Entity/User.php"
 	],
 	"find":
 	{
@@ -407,9 +551,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 91.0,
 		"where_history":
 		[
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web",
 			"/Applications/MAMP/htdocs/groovecrowd/src",
 			"/Applications/MAMP/htdocs/groovecrowd/web",
 			"/Applications/MAMP/htdocs/groovecrowd/src",
@@ -426,6 +571,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"project_brief",
+			"block space",
+			"spaceless",
+			"checkbox",
+			"PriceMapRepository",
+			"lorem",
+			"container",
+			"sdfssd",
+			"redirect",
+			"#3E78B3",
+			"helvetica",
+			"helvetica-neue",
+			"gc_project_description",
+			"gcproject",
 			"h4",
 			"test",
 			"projectcrea",
@@ -531,6 +690,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"package_select",
+			"gc_project_brief",
+			"gc_project_description",
 			"h2",
 			"gc",
 			"",
@@ -570,50 +732,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 18,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+					"file": "src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
 					"settings":
 					{
-						"buffer_size": 1686,
+						"buffer_size": 4065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1642,
-								1686
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
-					"settings":
-					{
-						"buffer_size": 2907,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2907,
-								2907
+								4065,
+								4065
 							]
 						],
 						"settings":
@@ -623,17 +758,378 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 1092.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"settings":
+					{
+						"buffer_size": 9060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4263,
+								4263
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1452.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+					"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
 					"settings":
 					{
-						"buffer_size": 461,
+						"buffer_size": 2064,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2047,
+								2047
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 327.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "web/css/less/custom.less",
+					"settings":
+					{
+						"buffer_size": 1414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1409,
+								1409
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php",
+					"settings":
+					{
+						"buffer_size": 1184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								675,
+								675
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/GC/DashboardBundle/Form/Type/PackageSelectionType.php",
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/GC/DashboardBundle/Resources/views/layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								303,
+								303
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "web/js/gc_project_brief.js",
+					"settings":
+					{
+						"buffer_size": 765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								201,
+								201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "web/js/gc_package_select.js",
+					"settings":
+					{
+						"buffer_size": 289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "web/js/gc_project.js",
+					"settings":
+					{
+						"buffer_size": 1162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1102,
+								1102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+					"settings":
+					{
+						"buffer_size": 1490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1371,
+								1371
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+					"settings":
+					{
+						"buffer_size": 1073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1041,
+								1041
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
+					"settings":
+					{
+						"buffer_size": 661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								611,
+								611
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/config/config.yml",
+					"settings":
+					{
+						"buffer_size": 2604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1032,
+								1032
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/GC/DataLayerBundle/Entity/ProjectCreationProgress.php",
+					"settings":
+					{
+						"buffer_size": 1485,
 						"regions":
 						{
 						},
@@ -646,8 +1142,10 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -656,47 +1154,105 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"buffer": 15,
+					"file": "src/GC/DataLayerBundle/Entity/Project.php",
 					"settings":
 					{
-						"buffer_size": 5228,
+						"buffer_size": 10110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1607,
-								1607
+								293,
+								356
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 463.0,
+						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+					"buffer": 16,
+					"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 					"settings":
 					{
-						"buffer_size": 2261,
+						"buffer_size": 6725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2023,
-								2023
+								5621,
+								5621
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1421.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								208,
+								208
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+					"settings":
+					{
+						"buffer_size": 5069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								405,
+								405
 							]
 						],
 						"settings":
@@ -706,33 +1262,120 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 450.0,
+						"translation.y": 1182.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "web/css/less/custom.less",
+					"buffer": 19,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
 					"settings":
 					{
-						"buffer_size": 1057,
+						"buffer_size": 2907,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								369,
-								369
+								868,
+								868
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "src/GC/DataLayerBundle/Entity/Package.php",
+					"settings":
+					{
+						"buffer_size": 924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								167,
+								167
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "src/GC/DataLayerBundle/Entity/PriceMap.php",
+					"settings":
+					{
+						"buffer_size": 2449,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 8626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								453,
+								453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -782,6 +1425,106 @@
 		"selected_items":
 		[
 			[
+				"bri",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"bread",
+				"src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig"
+			],
+			[
+				"gc_",
+				"web/js/gc_project_brief.js"
+			],
+			[
+				"custom",
+				"web/css/less/custom.less"
+			],
+			[
+				"form_div",
+				"vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig"
+			],
+			[
+				"",
+				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
+			],
+			[
+				"project",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"routing",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"fields",
+				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
+			],
+			[
+				"repos",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"tag",
+				"src/GC/DataLayerBundle/Entity/Tag.php"
+			],
+			[
+				"projectre",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"proj",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"projectco",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"base",
+				"app/Resources/views/base.html.twig"
+			],
+			[
+				"rou",
+				"app/config/routing.yml"
+			],
+			[
+				"rout",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"ker",
+				"app/AppKernel.php"
+			],
+			[
+				"auto",
+				"app/autoload.php"
+			],
+			[
+				"deps",
+				"deps"
+			],
+			[
+				"cus",
+				"web/css/less/custom.less"
+			],
+			[
+				"varia",
+				"web/css/less/variables.less"
+			],
+			[
+				"bootsw",
+				"web/css/less/bootswatch.less"
+			],
+			[
+				"cust",
+				"web/css/less/custom.less"
+			],
+			[
+				"jquery",
+				"web/css/css/jquery.tagsinput.css"
+			],
+			[
 				"vari",
 				"web/css/less/variables.less"
 			],
@@ -790,28 +1533,12 @@
 				"web/css/less/custom.less"
 			],
 			[
-				"base",
-				"app/Resources/views/base.html.twig"
-			],
-			[
 				"new.",
 				"src/GC/DashboardBundle/Resources/views/Project/new.html.twig"
 			],
 			[
-				"custom",
-				"web/css/less/custom.less"
-			],
-			[
 				"gc.js",
 				"web/js/gcproject.js"
-			],
-			[
-				"project",
-				"src/GC/DashboardBundle/Controller/ProjectController.php"
-			],
-			[
-				"routing",
-				"src/GC/DashboardBundle/Resources/config/routing.yml"
 			],
 			[
 				"cate",
@@ -846,24 +1573,12 @@
 				"src/GC/DataLayerBundle/Helpers.php"
 			],
 			[
-				"rout",
-				"src/GC/DashboardBundle/Resources/config/routing.yml"
-			],
-			[
 				"classmetadatafac",
 				"vendor/doctrine/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php"
 			],
 			[
 				"web/js/",
 				"web/js/gcproject.js"
-			],
-			[
-				"fields",
-				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
-			],
-			[
-				"auto",
-				"app/autoload.php"
 			],
 			[
 				"appdevde",
@@ -894,10 +1609,6 @@
 				"app/config/security.yml"
 			],
 			[
-				"cus",
-				"web/css/less/custom.less"
-			],
-			[
 				"confi",
 				"app/config/config.yml"
 			],
@@ -922,16 +1633,8 @@
 				"app/Resources/views/base.html.twig"
 			],
 			[
-				"ker",
-				"app/AppKernel.php"
-			],
-			[
 				"loadpr",
 				"src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php"
-			],
-			[
-				"deps",
-				"deps"
 			],
 			[
 				"categ",
@@ -966,10 +1669,6 @@
 				"src/GC/ProjectBundle/Resources/config/routing.yml"
 			],
 			[
-				"",
-				"src/GC/UserBundle/DataFixtures/ORM/LoadUserData.php"
-			],
-			[
 				"userman",
 				"vendor/bundles/FOS/UserBundle/Entity/UserManager.php"
 			],
@@ -988,10 +1687,6 @@
 			[
 				"routi",
 				"app/config/routing.yml"
-			],
-			[
-				"rou",
-				"src/GC/UserBundle/Resources/config/routing.yml"
 			],
 			[
 				"gcuser",
@@ -1094,20 +1789,12 @@
 				"src/scrollBeamAction.as"
 			],
 			[
-				"cust",
-				"public/css/less/custom.less"
-			],
-			[
 				"her",
 				"public/hero.html"
 			],
 			[
 				"nav",
 				"public/css/less/navbar.less"
-			],
-			[
-				"bootsw",
-				"public/css/less/bootswatch.less"
 			],
 			[
 				"hta",
@@ -1132,10 +1819,6 @@
 			[
 				"cu",
 				"public/css/less/custom.less"
-			],
-			[
-				"varia",
-				"public/css/less/variables.less"
 			]
 		],
 		"width": 0.0

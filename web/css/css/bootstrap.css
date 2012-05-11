@@ -4412,3 +4412,9 @@ ul.checkboxlist li {
 label.checkbox label {
   font-size: 2em;
 }
+span.price {
+  position: relative;
+  left: 30px;
+  color: #73a839;
+  font-size: 0.8em;
+}
