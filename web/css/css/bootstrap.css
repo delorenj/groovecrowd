@@ -4418,3 +4418,6 @@ span.price {
   color: #73a839;
   font-size: 0.8em;
 }
+#package-select-controls button.active {
+  background-color: #73a839;
+}

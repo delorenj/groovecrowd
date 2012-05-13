@@ -29,6 +29,13 @@ class Package
     private $name;
 
     /**
+     * @var string $slug
+     *
+     * @ORM\Column(name="slug", type="string", length=40, nullable=false)
+     */
+    private $slug;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -56,5 +63,25 @@ class Package
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

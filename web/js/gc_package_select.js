@@ -14,7 +14,6 @@
             $(buttons).each(function() {
                 $(this).removeClass('active');
             })
-            $(this).css("backgroundColor", "green");
             $("#packageSelection_package").val($(this).attr("id"));
         })
       })

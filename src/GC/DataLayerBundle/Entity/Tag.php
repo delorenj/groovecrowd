@@ -4,6 +4,7 @@ namespace GC\DataLayerBundle\Entity;
 
 use \Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GC\DataLayerBundle\Helpers;
 
 /**
  * GC\DataLayerBundle\Entity\Tag
@@ -29,6 +30,14 @@ class Tag
      * @ORM\Column(name="name", type="string", length=40, nullable=false)
      */
     private $name;
+
+    /**
+     * @var string $slug
+     *
+     * @ORM\Column(name="slug", type="string", length=40, nullable=false)
+     */
+    private $slug;
+
 
     /**
      * @var integer $count
@@ -79,6 +88,7 @@ class Tag
     public function setName($name)
     {
         $this->name = $name;
+        $this->slug = Helpers::slugify($name);
     }
 
     /**
@@ -192,5 +202,25 @@ class Tag
     public function getGrooves()
     {
         return $this->grooves;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

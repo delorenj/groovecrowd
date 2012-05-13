@@ -31,7 +31,7 @@
 					<h2>${{ prices[0].price }}</h2>
 				</div>				
 				<div class="span2">
-					<button  id="bronze" class="btn btn-primary pull-right" data-toggle="button">Select</button>
+					<button  id="bronze" class="btn btn-primary pull-right {% if(project.package.slug == 'bronze') %}active{% endif %}" data-toggle="button">Select</button>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 					<h2>${{ prices[1].price }}</h2>
 				</div>				
 				<div class="span2">
-					<button id="silver"  class="btn btn-primary pull-right" data-toggle="button">Select</button>
+					<button id="silver"  class="btn btn-primary pull-right {% if(project.package.slug == 'silver') %}active{% endif %}" data-toggle="button">Select</button>
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 					<h2>${{ prices[2].price }}</h2>
 				</div>				
 				<div class="span2">
-					<button id="gold" class="btn btn-primary pull-right" data-toggle="button">Select</button>
+					<button id="gold" class="btn btn-primary pull-right {% if(project.package.slug == 'gold') %}active{% endif %}" data-toggle="button">Select</button>
 				</div>
 			</div>
 		</div>
@@ -110,10 +110,10 @@
 					</li>
 				</ul>
 			</div>
-		</div>							
+		</div>
+		{{ parent() }}		
 		{{ form_rest(form) }}
 	</form>
-	{{ parent() }}
 {% endblock %}
 
 	{% block minorbreadcrumbs %}{% endblock %}

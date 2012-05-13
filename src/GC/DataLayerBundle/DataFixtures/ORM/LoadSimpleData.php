@@ -77,6 +77,7 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
     private function package($name) {
         $x = new Package();
         $x->setName($name);
+        $x->setSlug(Helpers::slugify($name));        
         $this->manager->persist($x);
         $this->manager->flush();
         $this->addReference("package-" . Helpers::slugify($name), $x);
@@ -96,6 +97,7 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $x = new Tag();
         $x->setCount(0);
         $x->setName($name);
+        $x->setSlug(Helpers::slugify($name));        
         $this->addReference("tag-" . Helpers::slugify($name), $x);        
         $this->manager->persist($x);
         $this->manager->flush();

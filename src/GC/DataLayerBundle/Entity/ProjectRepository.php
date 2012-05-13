@@ -28,6 +28,14 @@ class ProjectRepository extends EntityRepository
         ->getSingleScalarResult();
     }
 
+    public function getPrice($project) {
+        return  $this->_em->createQuery('SELECT pm.payout FROM GC\DataLayerBundle\Entity\PriceMap pm 
+            WHERE pm.project_type_id = :project_type_id AND pm.package_id = :package_id')
+        ->setParameter('project_type_id', $project->getProjectType()->getId())
+        ->setParameter('package_id', $project->getPackage()->getId())
+        ->getSingleScalarResult();
+    }
+
     public function removeTag($project, $tagName) {
         if($tag= $this->_em->getRepository('GCDataLayerBundle:Tag')->findOneByName($tagName)) {            
             $q = $this->getEntityManager()

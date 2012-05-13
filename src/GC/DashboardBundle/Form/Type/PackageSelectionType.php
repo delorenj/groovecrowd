@@ -11,7 +11,8 @@ class PackageSelectionType extends AbstractType
 	public function buildForm(FormBuilder $builder, array $options)
 	{
 		$builder->add('package', 'hidden', array(
-			"required" => true)
+			"required" => true,
+			"property_path" => false)		
 		);
 		$builder->add('blind', 'checkbox', array(
 			"label" => "Make it a blind contest <span class='price'><em>Free</em></span>",

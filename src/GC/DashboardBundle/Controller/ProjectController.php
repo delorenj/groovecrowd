@@ -13,6 +13,7 @@ use GC\DataLayerBundle\Entity\ProjectCreationProgress;
 use GC\DataLayerBundle\Helpers;
 use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
 use GC\DashboardBundle\Form\Type\PackageSelectionType;
+use GC\DashboardBundle\Form\Type\PaymentType;
 
 class ProjectController extends Controller
 {
@@ -118,7 +119,10 @@ class ProjectController extends Controller
 					break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("phase" => 4));
+						$project_repo = $em->getRepository('GCDataLayerBundle:Project');
+						$form = $this->createForm(new PaymentType(), $project);
+						$price = $project_repo->getPrice($project);				
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "project" => $project, "price" => $price, "form" => $form->createView()));
 					break;
 
 					default: //start form over
@@ -192,15 +196,19 @@ class ProjectController extends Controller
 						$form = $this->createForm(new PackageSelectionType(), $project);
 						$form->bindRequest($request);
 						if($form->isValid()) {
+							$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Package');
+							$packageName = $request->request->get('packageSelection');
+							$packageName = $packageName['package'];
+							$project->setPackage($repo->findOneBySlug($packageName));
 							$em->persist($project);
 							$em->flush();	
 							$progress->setPhase(4);
 							$em->persist($progress);
 							$em->flush();
-							$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-							$form = $this->createForm(new PackageSelectionType(), $project);						
-							$prices = $price_repo->getPackagePrices($project, "bronze");
-							$return = $this->render('GCDashboardBundle:Project:payment_select.html.twig', array("phase" => 4));
+							$project_repo = $em->getRepository('GCDataLayerBundle:Project');
+							$form = $this->createForm(new PaymentType(), $project);
+							$price = $project_repo->getPrice($project);				
+							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "project" => $project, "price" => $price, "form" => $form->createView()));
 						} else {
 							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, 
 								"project" => $project, "prices" => $prices, "form" => $form->createView()));
