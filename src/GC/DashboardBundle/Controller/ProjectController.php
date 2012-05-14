@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Cookie;
+use GC\DataLayerBundle\Entity\User;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
 use GC\DataLayerBundle\Entity\ProjectCreationProgress;
@@ -113,16 +114,17 @@ class ProjectController extends Controller
 
 					case 3: //package select
 						$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-						$form = $this->createForm(new PackageSelectionType(), $project);						
+						$form = $this->createForm(new PackageSelectionType(), $project);					
 						$prices = $price_repo->getPackagePrices($project, "bronze");
 						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, "project" => $project, "prices" => $prices, "form" => $form->createView()));
 					break;
 
 					case 4: //payment
 						$project_repo = $em->getRepository('GCDataLayerBundle:Project');
-						$form = $this->createForm(new PaymentType(), $project);
+						$user = new User();
+						$form = $this->createForm(new PaymentType(), $user);
 						$price = $project_repo->getPrice($project);				
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "project" => $project, "price" => $price, "form" => $form->createView()));
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
 					break;
 
 					default: //start form over
@@ -206,9 +208,10 @@ class ProjectController extends Controller
 							$em->persist($progress);
 							$em->flush();
 							$project_repo = $em->getRepository('GCDataLayerBundle:Project');
-							$form = $this->createForm(new PaymentType(), $project);
+							$user = new User();
+							$form = $this->createForm(new PaymentType(), $user);
 							$price = $project_repo->getPrice($project);				
-							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "project" => $project, "price" => $price, "form" => $form->createView()));
+							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
 						} else {
 							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, 
 								"project" => $project, "prices" => $prices, "form" => $form->createView()));
