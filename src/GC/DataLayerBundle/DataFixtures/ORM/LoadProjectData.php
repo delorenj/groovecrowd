@@ -39,8 +39,10 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-playful')));
         $p->addTag($manager->merge($this->getReference('tag-pizzacato')));
         $p->addTag($manager->merge($this->getReference('tag-video-game')));
-        $p->setCreatedAt(new \DateTime("-2 week"));
         $p->setContestLength(15);
+        $postedDate = "-2 week";        
+        $p->setCreatedAt(new \DateTime($postedDate));
+        $p->setExpiresAt(new \DateTime($postedDate . " + " . $p->getContestLength() . " day"));
         $p->setFlags(0);
         $this->addReference('project-game', $p);
         $this->manager->persist($p);
@@ -64,6 +66,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->manager->flush();
 
         $p = new Project();
+        $postedDate = "now";
         $p->setUser($manager->merge($this->getReference('user-consumer')));
         $p->setTitle("Intense soundtrack for my new iOS game trailer");
         $p->setOrganization("Self");
@@ -78,8 +81,10 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-playful')));
         $p->addTag($manager->merge($this->getReference('tag-trailer')));
         $p->addTag($manager->merge($this->getReference('tag-industrial')));
-        $p->setCreatedAt(new \DateTime("now"));
-        $p->setContestLength(15);
+        $p->setContestLength(15);        
+        $postedDate = "now";        
+        $p->setCreatedAt(new \DateTime($postedDate));
+        $p->setExpiresAt(new \DateTime($postedDate . " + " . $p->getContestLength() . " day"));
         $p->setFlags(0);
         $this->addReference('project-trailer', $p);
         $this->manager->persist($p);
@@ -116,8 +121,10 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->addTag($manager->merge($this->getReference('tag-effects')));
         $p->addTag($manager->merge($this->getReference('tag-fx')));
         $p->addTag($manager->merge($this->getReference('tag-sounds')));
-        $p->setCreatedAt(new \DateTime("-3 week"));
-        $p->setContestLength(7);
+        $p->setContestLength(7);        
+        $postedDate = "-2 week";        
+        $p->setCreatedAt(new \DateTime($postedDate));
+        $p->setExpiresAt(new \DateTime($postedDate . " + " . $p->getContestLength() . " day"));
         $p->setFlags(0);
         $this->addReference('project-fx', $p);
         $this->manager->persist($p);

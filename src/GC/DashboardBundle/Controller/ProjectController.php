@@ -121,7 +121,11 @@ class ProjectController extends Controller
 
 					case 4: //payment
 						$project_repo = $em->getRepository('GCDataLayerBundle:Project');
-						$user = new User();
+						$userManager = $this->container->get('fos_user.user_manager');											
+				    	$user = $this->get('security.context')->getToken()->getUser();
+				    	if($user == "anon.") {
+				    		$user = $userManager->createUser();
+				    	}
 						$form = $this->createForm(new PaymentType(), $user);
 						$price = $project_repo->getPrice($project);				
 						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
@@ -220,7 +224,39 @@ class ProjectController extends Controller
 					break;
 
 					case 4: //payment
-						$return = $this->render('GCDashboardBundle:Project:show', array("project" => $project));				
+						$userManager = $this->container->get('fos_user.user_manager');					
+				    	$user = $this->get('security.context')->getToken()->getUser();
+				    	if($user == "anon.") {
+				    		$user = $userManager->createUser();
+				    	}					
+						$project_repo = $em->getRepository('GCDataLayerBundle:Project');						
+						$form = $this->createForm(new PaymentType(), $user);
+						$form->bindRequest($request);
+						if($form->isValid()) {
+					        if(!$user->hasRole('USER')) {
+					        	$user->setImage("default.jpg");
+					        	$user->setEnabled(1);
+					        	$user->addRole("ROLE_CONSUMER");
+					        	$userManager->updateUser($user);
+					        }
+							$progress->setPhase(4); //CHANGE!
+							$em->persist($progress);
+							$em->flush();
+							$project->setEnabled(1);
+							$project->setUser($user);
+							$project->setCreatedAt(new \DateTime("now"));
+        					$p->setExpiresAt(new \DateTime("now + " . $p->getContestLength() . " day"));
+							$em->persist($project);
+							$em->flush();
+							$cookie = new Cookie('continueCode','');
+							$return = $this->redirect('GCDashboardBundle:Default:index.html.twig');
+							$return->headers->setCookie($cookie);														
+						} else {
+							$price = $project_repo->getPrice($project);											
+							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, 
+								"project" => $project, "price" => $price, "form" => $form->createView()));
+
+						}					
 					break;
 
 					default: //start form over

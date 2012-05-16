@@ -48,8 +48,12 @@ class PaymentType extends AbstractType
 			"required" => true)		
 		);		
 
-		$builder->add('password', 'password', array(
+		$builder->add('plain_password', 'password', array(
 			"required" => true)		
+		);		
+
+		$builder->add('phone', 'text', array(
+			"required" => false)		
 		);		
 	}
 

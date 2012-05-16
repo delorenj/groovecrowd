@@ -22,21 +22,22 @@
 				</div>			    			    
 			</div>		
 			<div class="control-group gc-control-label">
-				{{ form_label(form.password) }}
+				{{ form_label(form.plain_password) }}
 				<div class="controls">
-					{{ form_widget(form.password, {'attr': {'class': 'input-xlarge span3'}}) }}
-					<p class="help-block">{{ form_errors(form.password) }}</p>	
+					{{ form_widget(form.plain_password, {'attr': {'class': 'input-xlarge span3'}}) }}
+					<p class="help-block">{{ form_errors(form.plain_password) }}</p>	
 				</div>			    			    
-			</div>							
+			</div>
+			<button class="btn" id="login" onclick="return false;">Log In</button>
 		</fieldset>				
 		<fieldset>
 			<h1>Payment Method</h1>
-			<!-- <ul class="unstyled" style="inline"> -->
+			<ul class="horizontal-list unstyled">
 				<li><img src="{{asset('img/google-checkout-curved-32px.png')}}"></li>
 				<li><img src="{{asset('img/paypal-curved-32px.png')}}"></li>
 				<li><img src="{{asset('img/mastercard-curved-32px.png')}}"></li>
 				<li><img src="{{asset('img/discover-curved-32px.png')}}"></li>
-			<!-- </ul> -->
+			</ul>
 		</fieldset>		
 		<fieldset>
 			<legend><h1>Billing Info</h1></legend>
@@ -88,7 +89,14 @@
 					{{ form_widget(form.zip, {'attr': {'class': 'input-xlarge span3'}}) }}
 					<p class="help-block">{{ form_errors(form.zip) }}</p>	
 				</div>			    			    
-			</div>																																
+			</div>
+			<div class="control-group gc-control-label">
+				{{ form_label(form.phone) }}
+				<div class="controls">
+					{{ form_widget(form.phone, {'attr': {'class': 'input-xlarge span3'}}) }}
+					<p class="help-block">{{ form_errors(form.phone) }}</p>	
+				</div>			    			    
+			</div>	
 		</fieldset>
 		{{ parent() }}		
 		{{ form_rest(form) }}

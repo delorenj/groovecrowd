@@ -23,7 +23,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         if ($request->isXmlHttpRequest()) {
-            // Handle XHR here
+            return new Response("Yay!");
         } else {
             // If the user tried to access a protected resource and was forced to login
             // redirect him back to that resource
@@ -44,7 +44,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         if ($request->isXmlHttpRequest()) {
-            // Handle XHR here
+            return new Response("Nope!");
         } else {
             // Create a flash message with the authentication error message
             $request->getSession()->setFlash('error', $exception->getMessage());

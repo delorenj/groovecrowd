@@ -112,6 +112,15 @@ class Project
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
+
+    private $expiresAt;
+
+    /**
+     * @var datetime $expiresAt
+     *
+     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
+     */
+
     private $createdAt;
 
     /**
@@ -509,5 +518,25 @@ class Project
     public function getContestLength()
     {
         return $this->contestLength;
+    }
+
+    /**
+     * Set expiresAt
+     *
+     * @param datetime $expiresAt
+     */
+    public function setExpiresAt($expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+    }
+
+    /**
+     * Get expiresAt
+     *
+     * @return datetime 
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
     }
 }

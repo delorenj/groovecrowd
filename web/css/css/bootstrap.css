@@ -4412,6 +4412,10 @@ ul.checkboxlist li {
 label.checkbox label {
   font-size: 2em;
 }
+ul.horizontal-list li {
+  float: left;
+  padding: 0 5px;
+}
 span.price {
   position: relative;
   left: 30px;
