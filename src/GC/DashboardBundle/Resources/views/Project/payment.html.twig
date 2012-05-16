@@ -3,7 +3,7 @@
 
 {% block javascripts %}
 	{{ parent() }}
-    <script src="{{ asset('js/gc_payment.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/gc_payment.js?6') }}" type="text/javascript"></script>
 {% endblock %}
 
 {% block formheader %}
@@ -29,6 +29,7 @@
 				</div>			    			    
 			</div>
 			<button class="btn" id="login" onclick="return false;">Log In</button>
+			<input type="hidden" id="_csrf_token" value="{{ csrf }}" />
 		</fieldset>				
 		<fieldset>
 			<h1>Payment Method</h1>

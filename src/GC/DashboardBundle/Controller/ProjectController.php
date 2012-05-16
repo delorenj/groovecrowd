@@ -127,8 +127,9 @@ class ProjectController extends Controller
 				    		$user = $userManager->createUser();
 				    	}
 						$form = $this->createForm(new PaymentType(), $user);
+						$csrf = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
 						$price = $project_repo->getPrice($project);				
-						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
+						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("csrf" => $csrf, "id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
 					break;
 
 					default: //start form over
