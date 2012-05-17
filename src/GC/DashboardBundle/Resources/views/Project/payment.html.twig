@@ -13,8 +13,7 @@
 	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >		
 		{{ form_errors(form) }}
 		{% if (is_granted('ROLE_USER')) %}
-			{{ form_widget(form.email, {'attr': {'style': 'display:none;'}}) }}
-			{{ form_widget(form.plain_password, {'attr': {'style': 'display:none'}}) }}
+
 		{% else %}
 		<fieldset>
 			<h1>User Info</h1>
@@ -118,7 +117,7 @@
 		</label>		
 		<button type="submit" class="btn btn-primary">Launch Contest</button>
 		<button id="backbutton" class="btn btn-primary">Back</button>
-		{{ form_rest(form) }}
+		{{ form_row(form._token)}}
 	</form>
 {% endblock %}
 

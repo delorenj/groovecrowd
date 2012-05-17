@@ -34,7 +34,7 @@ class ProjectRepository extends EntityRepository
     }
 
     public function getPrice($project) {
-        return  $this->_em->createQuery('SELECT pm.payout FROM GC\DataLayerBundle\Entity\PriceMap pm 
+        return  $this->_em->createQuery('SELECT pm.price FROM GC\DataLayerBundle\Entity\PriceMap pm 
             WHERE pm.project_type_id = :project_type_id AND pm.package_id = :package_id')
         ->setParameter('project_type_id', $project->getProjectType()->getId())
         ->setParameter('package_id', $project->getPackage()->getId())

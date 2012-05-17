@@ -240,13 +240,13 @@ class ProjectController extends Controller
 					        	$user->addRole("ROLE_CONSUMER");
 					        	$userManager->updateUser($user);
 					        }
-							$progress->setPhase(4); //CHANGE!
+							$progress->setPhase(5); //CHANGE!
 							$em->persist($progress);
 							$em->flush();
 							$project->setEnabled(1);
 							$project->setUser($user);
 							$project->setCreatedAt(new \DateTime("now"));
-        					$p->setExpiresAt(new \DateTime("now + " . $p->getContestLength() . " day"));
+        					$project->setExpiresAt(new \DateTime("now + " . $project->getContestLength() . " day"));
 							$em->persist($project);
 							$em->flush();
 							$cookie = new Cookie('continueCode','');

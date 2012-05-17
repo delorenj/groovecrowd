@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"tar",
+				"targetPath"
+			],
+			[
+				"last",
+				"last_username"
+			],
+			[
+				"project",
+				"projectRepo"
+			],
+			[
+				"user",
+				"userManager"
+			],
+			[
 				"pack",
 				"packageName"
 			],
@@ -128,18 +144,44 @@
 	"buffers":
 	[
 		{
-			"file": "src/GC/DashboardBundle/Form/Type/PackageSelectionType.php",
+			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
 			"settings":
 			{
-				"buffer_size": 1081,
+				"buffer_size": 12351,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Form/Type/PaymentType.php",
+			"file": "src/GC/UserBundle/AuthenticationHandler.php",
 			"settings":
 			{
-				"buffer_size": 432,
+				"buffer_size": 2314,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 7686 files for \"_csrf_token\"\n\n/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Security/login.html.twig:\n    7  \n    8  <form action=\"{{ path(\"fos_user_security_check\") }}\" method=\"post\">\n    9:     <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token }}\" />\n   10  \n   11      <label for=\"username\">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js:\n   10                                                                   \"_username\": $(\"#payment_email\").val(), \n   11                                                                   \"_password\": $(\"#payment_plain_password\").val(),\n   12:                                                                  \"_csrf_token\": $(\"#payment_token\").val() }\n   13                                      ), \n   14                  {\n   15:                     \"_csrf_token\": $(\"#payment_token\").val()\n   16                  },\n   17  	        	function(data) {\n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/appDevDebugProjectContainer.php:\n 1631          $n->addHandler(new \\Symfony\\Component\\Security\\Http\\Logout\\SessionLogoutHandler());\n 1632  \n 1633:         return $this->services['security.firewall.map.context.main'] = new \\Symfony\\Bundle\\SecurityBundle\\Security\\FirewallContext(array(0 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ChannelListener($l, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\RetryAuthenticationEntryPoint(), $a), 1 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ContextListener($b, array(0 => $this->get('fos_user.user_manager'), 1 => $this->get('gc_user.gc_provider')), 'main', $a, $c), 2 => $n, 3 => new \\Symfony\\Component\\Security\\Http\\Firewall\\UsernamePasswordFormAuthenticationListener($b, $e, new \\Symfony\\Component\\Security\\Http\\Session\\SessionAuthenticationStrategy('migrate'), $m, 'main', array('check_path' => '/login_check', 'login_path' => '/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $f, $f, $a, $c, $this->get('form.csrf_provider')), 4 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AnonymousAuthenticationListener($b, '4fb3889b4a0c7', $a), 5 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AccessListener($b, $this->get('security.access.decision_manager'), $l, $e, $a)), new \\Symfony\\Component\\Security\\Http\\Firewall\\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\FormAuthenticationEntryPoint($this->get('http_kernel'), $m, '/login', false), NULL, NULL, $a));\n 1634      }\n 1635  \n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/appDevDebugProjectContainer.xml:\n 1897                <argument key=\"username_parameter\">_username</argument>\n 1898                <argument key=\"password_parameter\">_password</argument>\n 1899:               <argument key=\"csrf_parameter\">_csrf_token</argument>\n 1900                <argument key=\"intention\">authenticate</argument>\n 1901                <argument key=\"post_only\">true</argument>\n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/twig/ca/55/18de1ae0ada1a0522d08cc7a603a.php:\n   40          echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath(\"fos_user_security_check\"), \"html\", null, true);\n   41          echo \"\\\" method=\\\"post\\\">\n   42:     <input type=\\\"hidden\\\" name=\\\"_csrf_token\\\" value=\\\"\";\n   43          // line 9\n   44          echo twig_escape_filter($this->env, $this->getContext($context, \"csrf_token\"), \"html\", null, true);\n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/prod/appProdProjectContainer.php:\n  516          $n = new \\Symfony\\Component\\Security\\Http\\Firewall\\LogoutListener($b, $m, '/logout', '/', NULL);\n  517          $n->addHandler(new \\Symfony\\Component\\Security\\Http\\Logout\\SessionLogoutHandler());\n  518:         return $this->services['security.firewall.map.context.main'] = new \\Symfony\\Bundle\\SecurityBundle\\Security\\FirewallContext(array(0 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ChannelListener($l, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\RetryAuthenticationEntryPoint(), $a), 1 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ContextListener($b, array(0 => $this->get('fos_user.user_manager'), 1 => $this->get('gc_user.gc_provider')), 'main', $a, $c), 2 => $n, 3 => new \\Symfony\\Component\\Security\\Http\\Firewall\\UsernamePasswordFormAuthenticationListener($b, $e, new \\Symfony\\Component\\Security\\Http\\Session\\SessionAuthenticationStrategy('migrate'), $m, 'main', array('check_path' => '/login_check', 'login_path' => '/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $f, $f, $a, $c, $this->get('form.csrf_provider')), 4 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AnonymousAuthenticationListener($b, '4f9d9a26b8254', $a), 5 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AccessListener($b, $this->get('security.access.decision_manager'), $l, $e, $a)), new \\Symfony\\Component\\Security\\Http\\Firewall\\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\FormAuthenticationEntryPoint($this->get('http_kernel'), $m, '/login', false), NULL, NULL, $a));\n  519      }\n  520      protected function getSecurity_Rememberme_ResponseListenerService()\n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/test/appTestDebugProjectContainer.php:\n 1606          $n->addHandler(new \\Symfony\\Component\\Security\\Http\\Logout\\SessionLogoutHandler());\n 1607  \n 1608:         return $this->services['security.firewall.map.context.main'] = new \\Symfony\\Bundle\\SecurityBundle\\Security\\FirewallContext(array(0 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ChannelListener($l, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\RetryAuthenticationEntryPoint(), $a), 1 => new \\Symfony\\Component\\Security\\Http\\Firewall\\ContextListener($b, array(0 => $this->get('fos_user.user_manager'), 1 => $this->get('gc_user.gc_provider')), 'main', $a, $c), 2 => $n, 3 => new \\Symfony\\Component\\Security\\Http\\Firewall\\UsernamePasswordFormAuthenticationListener($b, $e, new \\Symfony\\Component\\Security\\Http\\Session\\SessionAuthenticationStrategy('migrate'), $m, 'main', array('check_path' => '/login_check', 'login_path' => '/login', 'use_forward' => false, 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false, 'failure_path' => NULL, 'failure_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $f, $f, $a, $c, $this->get('form.csrf_provider')), 4 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AnonymousAuthenticationListener($b, '4f9f2cba7cba8', $a), 5 => new \\Symfony\\Component\\Security\\Http\\Firewall\\AccessListener($b, $this->get('security.access.decision_manager'), $l, $e, $a)), new \\Symfony\\Component\\Security\\Http\\Firewall\\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, new \\Symfony\\Component\\Security\\Http\\EntryPoint\\FormAuthenticationEntryPoint($this->get('http_kernel'), $m, '/login', false), NULL, NULL, $a));\n 1609      }\n 1610  \n\n/Applications/MAMP/htdocs/groovecrowd/app/cache/test/appTestDebugProjectContainer.xml:\n 1926                <argument key=\"username_parameter\">_username</argument>\n 1927                <argument key=\"password_parameter\">_password</argument>\n 1928:               <argument key=\"csrf_parameter\">_csrf_token</argument>\n 1929                <argument key=\"intention\">authenticate</argument>\n 1930                <argument key=\"post_only\">true</argument>\n\n/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Security/login.html.twig:\n    7  \n    8  <form action=\"{{ path(\"fos_user_security_check\") }}\" method=\"post\">\n    9:     <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token }}\" />\n   10  \n   11      <label for=\"username\">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/views/Security/login.html.twig:\n    7  \n    8  <form action=\"{{ path(\"fos_user_security_check\") }}\" method=\"post\">\n    9:     <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token }}\" />\n   10  \n   11      <label for=\"username\">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Bundle/SecurityBundle/DependencyInjection/Security/Factory/FormLoginFactory.php:\n   29          $this->addOption('username_parameter', '_username');\n   30          $this->addOption('password_parameter', '_password');\n   31:         $this->addOption('csrf_parameter', '_csrf_token');\n   32          $this->addOption('intention', 'authenticate');\n   33          $this->addOption('post_only', true);\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php:\n   43              'username_parameter' => '_username',\n   44              'password_parameter' => '_password',\n   45:             'csrf_parameter'     => '_csrf_token',\n   46              'intention'          => 'authenticate',\n   47              'post_only'          => true,\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js:\n   10                                                                   \"_username\": $(\"#payment_email\").val(), \n   11                                                                   \"_password\": $(\"#payment_plain_password\").val(),\n   12:                                                                  \"_csrf_token\": $(\"#payment_token\").val() }\n   13                                      ), \n   14                  {\n   15:                     \"_csrf_token\": $(\"#payment_token\").val()\n   16                  },\n   17  	        	function(data) {\n\n15 matches across 13 files\n\n\nSearching 7695 files for \"Invalid CSRF Token\"\n\n/Applications/MAMP/htdocs/groovecrowd/app/logs/dev.log:\n 113762  [2012-05-15 19:19:36] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 113763  [2012-05-15 19:19:36] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 113764: [2012-05-15 19:19:36] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 113765  [2012-05-15 19:24:00] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\HttpKernel\\EventListener\\ProfilerListener::onKernelRequest\". [] []\n 113766  [2012-05-15 19:24:00] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener::onEarlyKernelRequest\". [] []\n 113767  [2012-05-15 19:24:00] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 113768  [2012-05-15 19:24:00] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 113769: [2012-05-15 19:24:00] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 113770  [2012-05-15 19:24:00] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 113771  [2012-05-15 19:24:00] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 113849  [2012-05-15 19:24:13] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 113850  [2012-05-15 19:24:13] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 113851: [2012-05-15 19:24:13] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 113852  [2012-05-15 19:24:13] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 113853  [2012-05-15 19:24:13] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 113931  [2012-05-15 19:24:44] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 113932  [2012-05-15 19:24:44] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 113933: [2012-05-15 19:24:44] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 113934  [2012-05-15 19:24:44] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 113935  [2012-05-15 19:24:44] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 114276  [2012-05-16 06:31:51] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 114277  [2012-05-16 06:31:51] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 114278: [2012-05-16 06:31:51] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 114279  [2012-05-16 06:31:51] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 114280  [2012-05-16 06:31:51] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 114621  [2012-05-16 06:44:32] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 114622  [2012-05-16 06:44:32] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 114623: [2012-05-16 06:44:32] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 114624  [2012-05-16 06:44:32] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 114625  [2012-05-16 06:44:32] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 114966  [2012-05-16 06:45:01] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 114967  [2012-05-16 06:45:01] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 114968: [2012-05-16 06:45:01] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 114969  [2012-05-16 06:45:01] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 114970  [2012-05-16 06:45:01] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 115061  [2012-05-16 06:45:06] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 115062  [2012-05-16 06:45:06] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 115063: [2012-05-16 06:45:06] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 115064  [2012-05-16 06:45:06] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 115065  [2012-05-16 06:45:06] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 117374  [2012-05-16 07:27:24] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 117375  [2012-05-16 07:27:24] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 117376: [2012-05-16 07:27:24] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 117377  [2012-05-16 07:27:24] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 117378  [2012-05-16 07:27:24] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 118396  [2012-05-16 07:32:11] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 118397  [2012-05-16 07:32:11] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 118398: [2012-05-16 07:32:11] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 118399  [2012-05-16 07:32:11] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 118400  [2012-05-16 07:32:11] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 118518  [2012-05-16 07:33:27] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 118519  [2012-05-16 07:33:27] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 118520: [2012-05-16 07:33:27] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 118521  [2012-05-16 07:33:27] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 118522  [2012-05-16 07:33:27] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119074  [2012-05-16 07:35:20] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119075  [2012-05-16 07:35:20] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119076: [2012-05-16 07:35:20] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119077  [2012-05-16 07:35:20] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119078  [2012-05-16 07:35:20] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119148  [2012-05-16 07:36:39] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119149  [2012-05-16 07:36:39] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119150: [2012-05-16 07:36:39] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119151  [2012-05-16 07:36:39] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119152  [2012-05-16 07:36:39] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119561  [2012-05-16 07:40:32] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119562  [2012-05-16 07:40:32] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119563: [2012-05-16 07:40:32] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119564  [2012-05-16 07:40:32] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119565  [2012-05-16 07:40:32] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119576  [2012-05-16 07:40:42] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119577  [2012-05-16 07:40:42] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119578: [2012-05-16 07:40:42] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119579  [2012-05-16 07:40:42] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119580  [2012-05-16 07:40:42] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119591  [2012-05-16 07:40:53] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119592  [2012-05-16 07:40:53] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119593: [2012-05-16 07:40:53] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119594  [2012-05-16 07:40:53] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119595  [2012-05-16 07:40:53] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119606  [2012-05-16 07:41:06] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119607  [2012-05-16 07:41:06] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119608: [2012-05-16 07:41:06] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119609  [2012-05-16 07:41:06] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119610  [2012-05-16 07:41:06] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119621  [2012-05-16 07:41:14] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119622  [2012-05-16 07:41:14] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119623: [2012-05-16 07:41:14] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119624  [2012-05-16 07:41:14] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119625  [2012-05-16 07:41:14] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119703  [2012-05-16 07:41:53] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119704  [2012-05-16 07:41:53] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119705: [2012-05-16 07:41:53] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119706  [2012-05-16 07:41:53] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119707  [2012-05-16 07:41:53] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119718  [2012-05-16 07:41:59] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119719  [2012-05-16 07:41:59] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119720: [2012-05-16 07:41:59] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119721  [2012-05-16 07:41:59] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119722  [2012-05-16 07:41:59] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119733  [2012-05-16 07:42:12] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119734  [2012-05-16 07:42:12] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119735: [2012-05-16 07:42:12] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119736  [2012-05-16 07:42:12] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119737  [2012-05-16 07:42:12] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119748  [2012-05-16 07:42:13] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119749  [2012-05-16 07:42:13] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119750: [2012-05-16 07:42:13] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119751  [2012-05-16 07:42:13] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119752  [2012-05-16 07:42:13] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119763  [2012-05-16 08:04:32] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119764  [2012-05-16 08:04:32] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119765: [2012-05-16 08:04:32] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119766  [2012-05-16 08:04:32] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119767  [2012-05-16 08:04:32] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 119778  [2012-05-16 08:08:14] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 119779  [2012-05-16 08:08:14] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 119780: [2012-05-16 08:08:14] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 119781  [2012-05-16 08:08:14] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 119782  [2012-05-16 08:08:14] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 122646  [2012-05-16 08:35:37] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 122647  [2012-05-16 08:35:37] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 122648: [2012-05-16 08:35:37] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 122649  [2012-05-16 08:35:37] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 122650  [2012-05-16 08:35:37] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 122728  [2012-05-16 08:36:22] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 122729  [2012-05-16 08:36:22] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 122730: [2012-05-16 08:36:22] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 122731  [2012-05-16 08:36:22] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 122732  [2012-05-16 08:36:22] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 122810  [2012-05-16 08:36:49] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 122811  [2012-05-16 08:36:49] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 122812: [2012-05-16 08:36:49] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 122813  [2012-05-16 08:36:49] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 122814  [2012-05-16 08:36:49] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 122825  [2012-05-16 08:37:08] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 122826  [2012-05-16 08:37:08] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 122827: [2012-05-16 08:37:08] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 122828  [2012-05-16 08:37:08] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 122829  [2012-05-16 08:37:08] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123219  [2012-05-16 08:38:08] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 123220  [2012-05-16 08:38:08] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 123221: [2012-05-16 08:38:08] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123222  [2012-05-16 08:38:08] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123223  [2012-05-16 08:38:08] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123301  [2012-05-16 08:38:41] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 123302  [2012-05-16 08:38:41] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 123303: [2012-05-16 08:38:41] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123304  [2012-05-16 08:38:41] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123305  [2012-05-16 08:38:41] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123642  [2012-05-16 08:40:17] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 123643  [2012-05-16 08:40:17] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 123644: [2012-05-16 08:40:17] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123645  [2012-05-16 08:40:17] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123646  [2012-05-16 08:40:17] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123743  [2012-05-16 08:45:43] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 123744  [2012-05-16 08:45:43] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 123745: [2012-05-16 08:45:43] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123746  [2012-05-16 08:45:43] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123747  [2012-05-16 08:45:43] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123844  [2012-05-16 08:46:28] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 123845  [2012-05-16 08:46:28] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 123846: [2012-05-16 08:46:28] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123847  [2012-05-16 08:46:28] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123848  [2012-05-16 08:46:28] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 123945  [2012-05-16 08:47:56] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 123946  [2012-05-16 08:47:56] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 123947: [2012-05-16 08:47:56] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 123948  [2012-05-16 08:47:56] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 123949  [2012-05-16 08:47:56] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 124046  [2012-05-16 08:48:36] doctrine.DEBUG: SELECT t0.username AS username1, t0.username_canonical AS username_canonical2, t0.email AS email3, t0.email_canonical AS email_canonical4, t0.enabled AS enabled5, t0.salt AS salt6, t0.password AS password7, t0.last_login AS last_login8, t0.locked AS locked9, t0.expired AS expired10, t0.expires_at AS expires_at11, t0.confirmation_token AS confirmation_token12, t0.password_requested_at AS password_requested_at13, t0.roles AS roles14, t0.credentials_expired AS credentials_expired15, t0.credentials_expire_at AS credentials_expire_at16, t0.id AS id17, t0.first_name AS first_name18, t0.last_name AS last_name19, t0.address1 AS address120, t0.address2 AS address221, t0.city AS city22, t0.state AS state23, t0.zip AS zip24, t0.phone AS phone25, t0.image AS image26 FROM fos_user t0 WHERE t0.username_canonical = ? ([\"consumer\"]) [] []\n 124047  [2012-05-16 08:48:36] security.DEBUG: Username \"consumer\" was reloaded from user provider. [] []\n 124048: [2012-05-16 08:48:36] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 124049  [2012-05-16 08:48:36] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 124050  [2012-05-16 08:48:36] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 125362  [2012-05-16 09:17:01] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 125363  [2012-05-16 09:17:01] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 125364: [2012-05-16 09:17:01] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 125365  [2012-05-16 09:17:01] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 125366  [2012-05-16 09:17:01] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 125444  [2012-05-16 09:21:23] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 125445  [2012-05-16 09:21:23] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 125446: [2012-05-16 09:21:23] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 125447  [2012-05-16 09:21:23] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 125448  [2012-05-16 09:21:23] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 126668  [2012-05-16 10:58:16] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 126669  [2012-05-16 10:58:16] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 126670: [2012-05-16 10:58:16] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 126671  [2012-05-16 10:58:16] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 126672  [2012-05-16 10:58:16] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n .....\n 126817  [2012-05-16 11:10:40] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener::onKernelRequest\". [] []\n 126818  [2012-05-16 11:10:40] event.DEBUG: Notified event \"kernel.request\" to listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\". [] []\n 126819: [2012-05-16 11:10:40] security.INFO: Authentication request failed: Invalid CSRF token. [] []\n 126820  [2012-05-16 11:10:40] event.DEBUG: Listener \"Symfony\\Component\\Security\\Http\\Firewall::onKernelRequest\" stopped propagation of the event \"kernel.request\". [] []\n 126821  [2012-05-16 11:10:40] event.DEBUG: Listener \"Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener\" was not called for event \"kernel.request\". [] []\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php:\n   68  \n   69              if (false === $this->csrfProvider->isCsrfTokenValid($this->options['intention'], $csrfToken)) {\n   70:                 throw new InvalidCsrfTokenException('Invalid CSRF token.');\n   71              }\n   72          }\n\n40 matches across 2 files\n\n\nSearching 7690 files for \"Invalid CSRF Token\"\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php:\n   68  \n   69              if (false === $this->csrfProvider->isCsrfTokenValid($this->options['intention'], $csrfToken)) {\n   70:                 throw new InvalidCsrfTokenException('Invalid CSRF token.');\n   71              }\n   72          }\n\n1 match in 1 file\n\n\nSearching 7690 files for \"isCsrfTokenValid\"\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/CsrfProviderInterface.php:\n   24   * supply an \"intention\" string. This way you make sure that the form can only\n   25   * be bound to pages that are designed to handle the form, that is, that use\n   26:  * the same intention string to validate the CSRF token with isCsrfTokenValid().\n   27   *\n   28   * @author Bernhard Schussek <bernhard.schussek@symfony.com>\n   ..\n   46       * @return Boolean Whether the token supplied by the browser is correct\n   47       */\n   48:     public function isCsrfTokenValid($intention, $token);\n   49  }\n   50  \n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProvider.php:\n   52       * {@inheritDoc}\n   53       */\n   54:     public function isCsrfTokenValid($intention, $token)\n   55      {\n   56          return $token === $this->generateCsrfToken($intention);\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/Type/CsrfType.php:\n   50          {\n   51              if ((!$form->hasParent() || $form->getParent()->isRoot())\n   52:                 && !$csrfProvider->isCsrfTokenValid($intention, $form->getData())) {\n   53                  $form->addError(new FormError('The CSRF token is invalid. Please try to resubmit the form'));\n   54                  $form->setData($csrfProvider->generateCsrfToken($intention));\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php:\n   69                  $this->logger->debug(sprintf('CSRF Token Parameter: %s', $csrfToken));\n   70              }\n   71:             if (false === $this->csrfProvider->isCsrfTokenValid($this->options['intention'], $csrfToken)) {\n   72                  throw new InvalidCsrfTokenException('Invalid CSRF token, holmes.');\n   73              }\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProviderTest.php:\n   40      }\n   41  \n   42:     public function testIsCsrfTokenValidSucceeds()\n   43      {\n   44          $token = sha1('SECRET'.'foo'.session_id());\n   45  \n   46:         $this->assertTrue($this->provider->isCsrfTokenValid('foo', $token));\n   47      }\n   48  \n   49:     public function testIsCsrfTokenValidFails()\n   50      {\n   51          $token = sha1('SECRET'.'bar'.session_id());\n   52  \n   53:         $this->assertFalse($this->provider->isCsrfTokenValid('foo', $token));\n   54      }\n   55  }\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/CsrfProvider/SessionCsrfProviderTest.php:\n   48      }\n   49  \n   50:     public function testIsCsrfTokenValidSucceeds()\n   51      {\n   52          $this->session->expects($this->once())\n   ..\n   56          $token = sha1('SECRET'.'foo'.'ABCDEF');\n   57  \n   58:         $this->assertTrue($this->provider->isCsrfTokenValid('foo', $token));\n   59      }\n   60  \n   61:     public function testIsCsrfTokenValidFails()\n   62      {\n   63          $this->session->expects($this->once())\n   ..\n   67          $token = sha1('SECRET'.'bar'.'ABCDEF');\n   68  \n   69:         $this->assertFalse($this->provider->isCsrfTokenValid('foo', $token));\n   70      }\n   71  }\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/Type/CsrfTypeTest.php:\n   58      {\n   59          $this->provider->expects($this->once())\n   60:             ->method('isCsrfTokenValid')\n   61              ->with('%INTENTION%', 'token')\n   62              ->will($this->returnValue(true));\n   ..\n   74      {\n   75          $this->provider->expects($this->never())\n   76:             ->method('isCsrfTokenValid');\n   77  \n   78          $form = $this->factory->create('csrf', null, array(\n   ..\n   91              ->will($this->returnValue('token1'));\n   92          $this->provider->expects($this->at(1))\n   93:             ->method('isCsrfTokenValid')\n   94              ->with('%INTENTION%', 'invalid')\n   95              ->will($this->returnValue(false));\n\n16 matches across 7 files\n\n\nSearching 7690 files for \"generateCsrfToken\"\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Controller/SecurityController.php:\n   47              return new Response(json_encode($result));    \n   48          } else {\n   49:             $csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');\n   50  \n   51              return $this->container->get('templating')->renderResponse('FOSUserBundle:Security:login.html.'.$this->container->getParameter('fos_user.template.engine'), array(\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/CsrfProviderInterface.php:\n   15   * Marks classes able to provide CSRF protection\n   16   *\n   17:  * You can generate a CSRF token by using the method generateCsrfToken(). To\n   18   * this method you should pass a value that is unique to the page that should\n   19   * be secured against CSRF attacks. This value doesn't necessarily have to be\n   ..\n   36       *                          (i.e. \"authenticate\"). Doesn't have to be a secret value.\n   37       */\n   38:     public function generateCsrfToken($intention);\n   39  \n   40      /**\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProvider.php:\n   44       * {@inheritDoc}\n   45       */\n   46:     public function generateCsrfToken($intention)\n   47      {\n   48          return sha1($this->secret.$intention.$this->getSessionId());\n   ..\n   54      public function isCsrfTokenValid($intention, $token)\n   55      {\n   56:         return $token === $this->generateCsrfToken($intention);\n   57      }\n   58  \n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/Type/CsrfType.php:\n   52                  && !$csrfProvider->isCsrfTokenValid($intention, $form->getData())) {\n   53                  $form->addError(new FormError('The CSRF token is invalid. Please try to resubmit the form'));\n   54:                 $form->setData($csrfProvider->generateCsrfToken($intention));\n   55              }\n   56          };\n   57  \n   58          $builder\n   59:             ->setData($csrfProvider->generateCsrfToken($intention))\n   60              ->addValidator(new CallbackValidator($validator))\n   61          ;\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/AbstractLayoutTest.php:\n  802      {\n  803          $this->csrfProvider->expects($this->any())\n  804:             ->method('generateCsrfToken')\n  805              ->will($this->returnValue('foo&bar'));\n  806  \n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProviderTest.php:\n   33      }\n   34  \n   35:     public function testGenerateCsrfToken()\n   36      {\n   37:         $token = $this->provider->generateCsrfToken('foo');\n   38  \n   39          $this->assertEquals(sha1('SECRET'.'foo'.session_id()), $token);\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/CsrfProvider/SessionCsrfProviderTest.php:\n   37      }\n   38  \n   39:     public function testGenerateCsrfToken()\n   40      {\n   41          $this->session->expects($this->once())\n   ..\n   43                  ->will($this->returnValue('ABCDEF'));\n   44  \n   45:         $token = $this->provider->generateCsrfToken('foo');\n   46  \n   47          $this->assertEquals(sha1('SECRET'.'foo'.'ABCDEF'), $token);\n\n/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/tests/Symfony/Tests/Component/Form/Extension/Csrf/Type/CsrfTypeTest.php:\n   40      }\n   41  \n   42:     public function testGenerateCsrfToken()\n   43      {\n   44          $this->provider->expects($this->once())\n   45:             ->method('generateCsrfToken')\n   46              ->with('%INTENTION%')\n   47              ->will($this->returnValue('token'));\n   ..\n   87      {\n   88          $this->provider->expects($this->at(0))\n   89:             ->method('generateCsrfToken')\n   90              ->with('%INTENTION%')\n   91              ->will($this->returnValue('token1'));\n   ..\n   98          // the session ID changed\n   99          $this->provider->expects($this->at(2))\n  100:             ->method('generateCsrfToken')\n  101              ->with('%INTENTION%')\n  102              ->will($this->returnValue('token2'));\n\n16 matches across 8 files\n",
+			"settings":
+			{
+				"buffer_size": 57047,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProvider.php",
+			"settings":
+			{
+				"buffer_size": 1777,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php",
+			"settings":
+			{
+				"buffer_size": 3960,
 				"line_ending": "Unix"
 			}
 		},
@@ -147,15 +189,103 @@
 			"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
 			"settings":
 			{
-				"buffer_size": 1914,
+				"buffer_size": 2081,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+			"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 			"settings":
 			{
-				"buffer_size": 1073,
+				"buffer_size": 7187,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Controller/DefaultController.php",
+			"settings":
+			{
+				"buffer_size": 1939,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/gc_payment.js",
+			"settings":
+			{
+				"buffer_size": 1224,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
+			"settings":
+			{
+				"buffer_size": 5238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml",
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/UserBundle/Resources/config/routing.yml",
+			"settings":
+			{
+				"buffer_size": 549,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/bundles/FOS/UserBundle/Controller/SecurityController.php",
+			"settings":
+			{
+				"buffer_size": 2706,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/UserBundle/Resources/views/Security/login.html.twig",
+			"settings":
+			{
+				"buffer_size": 1001,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/views/base.html.twig",
+			"settings":
+			{
+				"buffer_size": 8284,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Form/Type/PaymentType.php",
+			"settings":
+			{
+				"buffer_size": 1489,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/css/less/custom.less",
+			"settings":
+			{
+				"buffer_size": 1640,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+			"settings":
+			{
+				"buffer_size": 2064,
 				"line_ending": "Unix"
 			}
 		},
@@ -171,106 +301,34 @@
 			"file": "src/GC/DataLayerBundle/Entity/Project.php",
 			"settings":
 			{
-				"buffer_size": 10110,
+				"buffer_size": 11069,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+			"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
 			"settings":
 			{
-				"buffer_size": 5329,
+				"buffer_size": 1073,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/jdelorenzo/Downloads/ccg_staging (1).sql",
+			"file": "/Users/jdelorenzo/Documents/tresemme_publickey.txt",
 			"settings":
 			{
-				"buffer_size": 74111,
-				"line_ending": "Unix"
+				"buffer_size": 1940,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
+			"contents": "<?php\n\nnamespace GC\\DataLayerBundle\\DataFixtures\\ORM;\n\nuse Doctrine\\Common\\Persistence\\ObjectManager;\nuse Doctrine\\Common\\DataFixtures\\FixtureInterface;\nuse Doctrine\\Common\\DataFixtures\\AbstractFixture;\nuse Doctrine\\Common\\DataFixtures\\OrderedFixtureInterface;\nuse GC\\DataLayerBundle\\Entity\\PriceMap;\n\n\nclass LoadPriceMapData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface\n{\n    public function getOrder() {\n        return 50;\n    }\n\n    protected $manager;\n\n    public function load(ObjectManager $manager)\n    {\n        $this->manager = $manager;\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-bronze'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-music'))->getId());\n        $p->setPayout(150);\n        $p->setPrice(199);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-bronze'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-voice-over'))->getId());\n        $p->setPayout(150);\n        $p->setPrice(199);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-bronze'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-audio-fx'))->getId());\n        $manager->persist($p);    \n        $p->setPayout(150);\n        $p->setPrice(199);\n\n\n###################\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-silver'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-music'))->getId());\n        $p->setPayout(340);\n        $p->setPrice(399);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-silver'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-voice-over'))->getId());\n        $p->setPayout(340);\n        $p->setPrice(399);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-silver'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-audio-fx'))->getId());\n        $manager->persist($p);    \n        $p->setPayout(340);\n        $p->setPrice(399);        \n\n\n\n###################\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-gold'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-music'))->getId());\n        $p->setPayout(600);\n        $p->setPrice(699);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-gold'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-voice-over'))->getId());\n        $p->setPayout(600);\n        $p->setPrice(699);\n        $manager->persist($p);\n\n        $p = new PriceMap();\n        $p->setPackageId($manager->merge($this->getReference('package-gold'))->getId());\n        $p->setProjectTypeId($manager->merge($this->getReference('project-type-audio-fx'))->getId());\n        $manager->persist($p);    \n        $p->setPayout(600);\n        $p->setPrice(699);        \n\n\n\n        $manager->flush();\n    }    \n}",
+			"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadPriceMapData.php",
+			"file_size": 3464,
+			"file_write_time": 1335665962000000,
 			"settings":
 			{
-				"buffer_size": 697,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig",
-			"settings":
-			{
-				"buffer_size": 8626,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
-			"settings":
-			{
-				"buffer_size": 3116,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DataLayerBundle/Entity/Tag.php",
-			"settings":
-			{
-				"buffer_size": 4508,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DataLayerBundle/Entity/Package.php",
-			"settings":
-			{
-				"buffer_size": 1342,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php\n\nnamespace GC\\DashboardBundle\\Controller;\n\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller;\nuse Symfony\\Component\\HttpFoundation\\Response;\nuse Symfony\\Component\\HttpFoundation\\Request;\nuse Symfony\\Component\\HttpFoundation\\RedirectResponse;\nuse Symfony\\Component\\HttpFoundation\\Cookie;\nuse GC\\DataLayerBundle\\Entity\\Project;\nuse GC\\DataLayerBundle\\Entity\\ProjectType;\nuse GC\\DataLayerBundle\\Entity\\ProjectCreationProgress;\nuse GC\\DataLayerBundle\\Helpers;\nuse GC\\DashboardBundle\\Form\\Type\\ProjectDescriptionType;\nuse GC\\DashboardBundle\\Form\\Type\\PackageSelectionType;\nuse GC\\DashboardBundle\\Form\\Type\\PaymentType;\n\nclass ProjectController extends Controller\n{\n   public function indexAction()\n    {\n        return new Response(\"todo\");\n    }\n\n    public function showAction($id) {\n    	$project = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->find($id);\n\n        return $this->render('GCDashboardBundle:Project:show.html.twig', \n        	array('project' => $project));\n	}\n\n	public function removeTagAction(Request $request, $id, $tag) {\n		$this->get('logger')->info(\"removing tag $tag from project $id\");\n	 	$em = $this->getDoctrine()->getEntityManager();\n		$repo = $this->getDoctrine()->getRepository(\"GCDataLayerBundle:Project\");\n		if($project = $repo->find($id)) {\n				$repo->removeTag($project, $tag);\n				$code = 200;				\n		} else {\n			$code = 404;\n		}\n		if ($request->isXmlHttpRequest()) {\n			$return = json_encode(array(\"responseCode\"=>$code));\n			$return = new Response($return, $code);	\n		} else {\n			$return = json_encode(array(\"responseCode\"=>304));\n			$return = new Response($return, 304);	\n		}\n		return $return;\n	}\n\n	public function backAction(Request $request) {\n		$em = $this->getDoctrine()->getEntityManager();\n\n		if($request->cookies->has('continueCode')) {\n			$code = $request->cookies->get('continueCode');\n			$this->get('logger')->info(\"FOUND CONTINUE CODE: \" . $code);\n			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			\n			if(!$progress) {\n				$return = $this->redirect('GCDashboardBundle:Project:new.html.twig', array(\"phase\" => 0));\n				$cookie = new Cookie('continueCode','');\n				$return->headers->setCookie($cookie);\n				return $return;\n			}			\n\n			if($progress->getPhase() > 0) {\n				$progress->setPhase($progress->getPhase()-1);\n				$em->persist($progress);\n				$em->flush();\n			}\n		}\n\n		return $this->forward(\"GCDashboardBundle:Project:new\", array(\"phase\" => $progress->getPhase()));\n\n	}\n/*\n *	 check for cookie\n *	 if cookie, redirect to appropriate phase\n *	 else, if post, update phase 1, create cookie redirect to phase 2\n *	 else, if get, render phase 1\n */\n	public function newAction(Request $request) {\n		$em = $this->getDoctrine()->getEntityManager();\n\n		if($request->cookies->has('continueCode')) {\n			$code = $request->cookies->get('continueCode');\n			$this->get('logger')->info(\"FOUND CONTINUE CODE: \" . $code);\n			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			\n			if(!$progress) {\n				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array(\"phase\" => 0));\n				$cookie = new Cookie('continueCode','');\n				$return->headers->setCookie($cookie);\n			}\n			$project = $progress->getProject();\n\n			if($request->getMethod() == \"GET\") {\n				switch($progress->getPhase()) {\n					case 1: //category select\n						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array(\"phase\" => 1));\n					break;\n\n					case 2: //project brief\n						$form = $this->createForm(new ProjectDescriptionType(), $project);\n						$tags = $project->getTags();\n						$t[] = null;\n						foreach($tags as $tag) {\n							$t[] = $tag->getName();\n						}\n						$tag_list = implode(',', $t);\n						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', \n							array(\"phase\" => 2, \"form\" => $form->createView(), \"tag_list\" => $tag_list, \"id\" => $project->getId()));\n					break;\n\n					case 3: //package select\n						$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');\n						$form = $this->createForm(new PackageSelectionType(), $project);					\n						$prices = $price_repo->getPackagePrices($project, \"bronze\");\n						$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array(\"id\" => $code, \"phase\" => 3, \"project\" => $project, \"prices\" => $prices, \"form\" => $form->createView()));\n					break;\n\n					case 4: //payment\n						$project_repo = $em->getRepository('GCDataLayerBundle:Project');\n						$form = $this->createForm(new PaymentType(), $project);\n						$price = $project_repo->getPrice($project);				\n						$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array(\"id\" => $code, \"phase\" => 4, \"project\" => $project, \"price\" => $price, \"form\" => $form->createView()));\n					break;\n\n					default: //start form over\n						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array(\"phase\" => 0));	\n\n				}				\n			} else {\n				switch($progress->getPhase()) {\n					case 0: //groove type select (only on back)\n						$projectType = $request->request->get('projectType');\n						$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);\n						$project->setProjectType($pt);\n						$em->persist($project);\n						$em->flush();			\n						$progress->setPhase(1);\n						$em->persist($progress);\n						$em->flush();\n						$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array(\"id\" => $code, \"phase\" => 1));	\n					break;\n\n					case 1: //category select\n						$cat = $request->request->get('category');\n						$cat = $em->getRepository('GCDataLayerBundle:Category')->findOneBySlug($cat);\n						$project->setCategory($cat);\n						$em->persist($project);\n						$em->flush();\n						$progress->setPhase(2);\n						$em->persist($progress);\n						$em->flush();	\n						$form = $this->createForm(new ProjectDescriptionType(), $project);\n						$tags = $project->getTags();\n						$t[] = null;\n						foreach($tags as $tag) {\n							$t[] = $tag->getName();\n						}\n						$tag_list = implode(',', $t);\n						$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', \n							array(\"phase\" => 2, \"form\" => $form->createView(), \"tag_list\" => $tag_list, \"id\" => $project->getId()));\n					break;\n						break;\n\n					case 2: //project brief\n						$form = $this->createForm(new ProjectDescriptionType(), $project);\n						$form->bindRequest($request);\n						if($form->isValid()) {\n							$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag');\n							$pd = $request->request->get('projectDescription');\n							$tags = explode(',', $pd['tag_list']);\n					        foreach($tags as $tag) {\n					            $t = $repo->createIfNotExists($tag);\n					            $project->addTag($t);\n					        }\n							$em->persist($project);\n							$em->flush();	\n							$progress->setPhase(3);\n							$em->persist($progress);\n							$em->flush();	\n							$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');\n							$form = $this->createForm(new PackageSelectionType(), $project);						\n							$prices = $price_repo->getPackagePrices($project, \"bronze\");\n							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array(\"id\" => $code, \"phase\" => 3, \"project\" => $project, \n								\"prices\" => $prices, \"form\" => $form->createView()));\n						} else {\n							$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', \n								array(\"phase\" => 2, \"form\" => $form->createView(), \"tag_list\" => $tag_list, \"id\" => $project->getId()));\n						}\n						\n					break;\n\n					case 3: //package select\n						$form = $this->createForm(new PackageSelectionType(), $project);\n						$form->bindRequest($request);\n						if($form->isValid()) {\n							$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Package');\n							$packageName = $request->request->get('packageSelection');\n							$packageName = $packageName['package'];\n							$project->setPackage($repo->findOneBySlug($packageName));\n							$em->persist($project);\n							$em->flush();	\n							$progress->setPhase(4);\n							$em->persist($progress);\n							$em->flush();\n							$project_repo = $em->getRepository('GCDataLayerBundle:Project');\n							$form = $this->createForm(new PaymentType(), $project);\n							$price = $project_repo->getPrice($project);				\n							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array(\"id\" => $code, \"phase\" => 4, \"project\" => $project, \"price\" => $price, \"form\" => $form->createView()));\n						} else {\n							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array(\"id\" => $code, \"phase\" => 3, \n								\"project\" => $project, \"prices\" => $prices, \"form\" => $form->createView()));\n						}					\n\n					break;\n\n					case 4: //payment\n						$return = $this->render('GCDashboardBundle:Project:show', array(\"project\" => $project));				\n					break;\n\n					default: //start form over\n						$return = $this->render('GCDashboardBundle:Project:new.html.twig', array(\"phase\" => 0));						\n					break;\n				}// end switch: POST			\n			}// end if continueCode found\n		}\n		else { // if no continue code found...\n			if($request->getMethod() == \"POST\") {\n				$projectType = $request->request->get('projectType');\n				$project = new Project();\n				$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);\n				$project->setProjectType($pt);\n				$em->persist($project);\n				$em->flush();			\n				$code = Helpers::idToCode($project->getId());\n				$progress = new ProjectCreationProgress();\n				$progress->setPhase(1);\n				$progress->setProject($project);\n				$em->persist($progress);\n				$em->flush();\n\n				if ($request->isXmlHttpRequest()) {\n					$return = json_encode(array(\"responseCode\"=>200));\n					$return = new Response($return, 200);\n				} else {\n					$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array(\"id\" => $code, \"phase\" => 1));	\n					$cookie = new Cookie(\"continueCode\", $code);\n					$return->headers->setCookie($cookie);\n				}\n\n			} //end no continue POST\n			else {\n				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array(\"phase\" => 0));\n			}// end no continue GET\n		} //end no continue block\n        return $return;\n    }\n\n}\n",
-			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
-			"file_size": 10424,
-			"file_write_time": 1336937600000000,
-			"settings":
-			{
-				"buffer_size": 10423,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/js/gc_package_select.js",
-			"settings":
-			{
-				"buffer_size": 722,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
-			"settings":
-			{
-				"buffer_size": 680,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
-			"settings":
-			{
-				"buffer_size": 2064,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/css/less/custom.less",
-			"settings":
-			{
-				"buffer_size": 1570,
+				"buffer_size": 3464,
 				"line_ending": "Unix"
 			}
 		}
@@ -383,37 +441,63 @@
 	},
 	"file_history":
 	[
+		"/Users/jdelorenzo/Documents/tresemme_publickey.txt",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/CsrfProviderInterface.php",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Component/Security/Http/Firewall/AbstractAuthenticationListener.php",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/config/security.xml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Form/Type/PackageSelectionType.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Form/Type/PaymentType.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Project.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Tag.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Package.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_package_select.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/custom.less",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/User.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project_brief.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Controller/RegistrationController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/PaymentController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadUserData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/AuthenticationHandler.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/views/Security/login.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/DefaultController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/config/doctrine/User.orm.xml",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/User.orm.yml",
+		"/Users/jdelorenzo/Downloads/ccg_staging (1).sql",
+		"/Applications/MAMP/htdocs/ccg/.git/config",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/variables.less",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/PriceMap.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Package.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/config/routing.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectCreationProgress.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_package_select.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project_brief.js",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php",
-		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/custom.less",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/vendor/doctrine/tests/Doctrine/Tests/Models/ECommerce/ECommerceCustomer.php",
 		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/Resources/views/form.html.twig",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Applications/MAMP/htdocs/ccg/application/configs/application.ini",
 		"/Applications/MAMP/htdocs/ccg/application/Bootstrap.php",
-		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
 		"/Applications/MAMP/htdocs/mvdpainting/js/epc.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/jquery.tagsinput.css",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Project.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/TagRepository.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Tag.php",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/routing.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
 		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/controllers/SupportController.php",
 		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/controllers/PagesController.php",
 		"/Applications/MAMP/htdocs/ccg/Chase Community Giving/CCG/application/modules/Site/layouts/layout-sidebar.phtml",
@@ -436,16 +520,13 @@
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_project_description.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectTag.php",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/breadcrumb_form.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Category.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Tests/HelpersTest.php",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/parameters.ini",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers.php",
 		"/Users/jdelorenzo/Dropbox/Work/Firstborn/sonic backend/include/SonicAPI.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/User.php",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
 		"/Applications/MAMP/htdocs/groovecrowd/app/logs/dev.log",
 		"/Applications/MAMP/htdocs/groovecrowd/vendor/doctrine/lib/Doctrine/ORM/Mapping/ClassMetadataFactory.php",
@@ -457,23 +538,18 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectType.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadCategoryData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadPriceMapData.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Resources/config/services.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Controller/DefaultController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/config/routing.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Security/GCUserProvider.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/consumer.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/DefaultController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/security.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/AuthenticationHandler.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/creator.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/consumer.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/authenticated_layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/authenticated_layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/DefaultController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/layout.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadUserData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/bootstrap.css",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/layout.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/index.html.twig",
@@ -492,25 +568,7 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectCommentData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/Project.orm.yml",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/FosUser.php",
-		"/Applications/MAMP/htdocs/groovecrowd/app/DoctrineMigrations/Version20120421204212.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/ormBK/Project.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm_BK/Project.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectComments.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers/Helpers.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Helpers/Slugify.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/AssetType.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Controller/CategoryController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/CategoryRepository.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/AssetType.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/UserBundle/Controller/DashboardController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/ProjectBundle/Resources/views/Category/categorytree.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/bundles/FOS/UserBundle/CouchDocument/UserManager.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/WatchProject.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/WatchCategory.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveSetComment.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/GrooveComment.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/GrooveComment.orm.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm/GrooveSet.orm.yml"
+		"/Applications/MAMP/htdocs/groovecrowd/app/DoctrineMigrations/Version20120421204212.php"
 	],
 	"find":
 	{
@@ -518,9 +576,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 91.0,
 		"where_history":
 		[
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd",
 			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web",
 			"/Applications/MAMP/htdocs/groovecrowd/src",
 			"/Applications/MAMP/htdocs/groovecrowd/web",
@@ -538,6 +598,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bind",
+			"generateCsrfToken",
+			"isCsrfTokenValid",
+			"Invalid CSRF Token",
+			"_csrf_token",
+			"csrf",
+			"onAuthenticationSuccess",
+			"login_check",
+			"SecurityCheck",
+			"fos_user_security",
+			"security_check",
+			"username",
+			"paymentty",
+			"payment",
 			"\"phase\" =>",
 			"payment",
 			"payment_",
@@ -651,13 +725,7 @@
 			"rgba",
 			"navbarHeight",
 			"AD1D28",
-			"'s",
-			"descriptor",
-			"'s ",
-			"int",
-			"shee",
-			"he",
-			"    "
+			"'s"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -708,23 +776,23 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 21,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/GC/DashboardBundle/Form/Type/PackageSelectionType.php",
+					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
 					"settings":
 					{
-						"buffer_size": 1081,
+						"buffer_size": 12351,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								314,
-								314
+								5010,
+								5010
 							]
 						],
 						"settings":
@@ -734,82 +802,445 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1538.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/GC/DashboardBundle/Form/Type/PaymentType.php",
+					"file": "src/GC/UserBundle/AuthenticationHandler.php",
 					"settings":
 					{
-						"buffer_size": 432,
+						"buffer_size": 2314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								291,
-								291
+								1545,
+								1545
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
 					"settings":
 					{
-						"buffer_size": 1914,
+						"buffer_size": 57047,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										259,
+										270
+									],
+									[
+										776,
+										787
+									],
+									[
+										918,
+										929
+									],
+									[
+										2274,
+										2285
+									],
+									[
+										3216,
+										3227
+									],
+									[
+										3698,
+										3709
+									],
+									[
+										5220,
+										5231
+									],
+									[
+										7199,
+										7210
+									],
+									[
+										8143,
+										8154
+									],
+									[
+										8520,
+										8531
+									],
+									[
+										8901,
+										8912
+									],
+									[
+										9384,
+										9395
+									],
+									[
+										9816,
+										9827
+									],
+									[
+										10306,
+										10317
+									],
+									[
+										10448,
+										10459
+									],
+									[
+										11088,
+										11106
+									],
+									[
+										11874,
+										11892
+									],
+									[
+										12648,
+										12666
+									],
+									[
+										13422,
+										13440
+									],
+									[
+										14854,
+										14872
+									],
+									[
+										16286,
+										16304
+									],
+									[
+										17718,
+										17736
+									],
+									[
+										19150,
+										19168
+									],
+									[
+										20582,
+										20600
+									],
+									[
+										21356,
+										21374
+									],
+									[
+										22130,
+										22148
+									],
+									[
+										22904,
+										22922
+									],
+									[
+										23678,
+										23696
+									],
+									[
+										24452,
+										24470
+									],
+									[
+										25226,
+										25244
+									],
+									[
+										26000,
+										26018
+									],
+									[
+										26774,
+										26792
+									],
+									[
+										27548,
+										27566
+									],
+									[
+										28322,
+										28340
+									],
+									[
+										29096,
+										29114
+									],
+									[
+										29870,
+										29888
+									],
+									[
+										30644,
+										30662
+									],
+									[
+										31418,
+										31436
+									],
+									[
+										32192,
+										32210
+									],
+									[
+										32966,
+										32984
+									],
+									[
+										33740,
+										33758
+									],
+									[
+										34514,
+										34532
+									],
+									[
+										35288,
+										35306
+									],
+									[
+										36062,
+										36080
+									],
+									[
+										36836,
+										36854
+									],
+									[
+										38268,
+										38286
+									],
+									[
+										39700,
+										39718
+									],
+									[
+										41132,
+										41150
+									],
+									[
+										42564,
+										42582
+									],
+									[
+										43996,
+										44014
+									],
+									[
+										44770,
+										44788
+									],
+									[
+										45544,
+										45562
+									],
+									[
+										46318,
+										46336
+									],
+									[
+										47092,
+										47110
+									],
+									[
+										47782,
+										47800
+									],
+									[
+										48248,
+										48266
+									],
+									[
+										48748,
+										48764
+									],
+									[
+										48977,
+										48993
+									],
+									[
+										49236,
+										49252
+									],
+									[
+										49608,
+										49624
+									],
+									[
+										50176,
+										50192
+									],
+									[
+										50547,
+										50563
+									],
+									[
+										50704,
+										50720
+									],
+									[
+										50790,
+										50806
+									],
+									[
+										50945,
+										50961
+									],
+									[
+										51199,
+										51215
+									],
+									[
+										51412,
+										51428
+									],
+									[
+										51498,
+										51514
+									],
+									[
+										51709,
+										51725
+									],
+									[
+										51989,
+										52005
+									],
+									[
+										52215,
+										52231
+									],
+									[
+										52456,
+										52472
+									],
+									[
+										52926,
+										52943
+									],
+									[
+										53413,
+										53430
+									],
+									[
+										53752,
+										53769
+									],
+									[
+										54010,
+										54027
+									],
+									[
+										54252,
+										54269
+									],
+									[
+										54681,
+										54698
+									],
+									[
+										54828,
+										54845
+									],
+									[
+										55158,
+										55175
+									],
+									[
+										55442,
+										55459
+									],
+									[
+										55516,
+										55533
+									],
+									[
+										55827,
+										55844
+									],
+									[
+										56030,
+										56047
+									],
+									[
+										56318,
+										56335
+									],
+									[
+										56435,
+										56452
+									],
+									[
+										56654,
+										56671
+									],
+									[
+										56902,
+										56919
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								827,
-								827
+								52610,
+								52610
 							]
 						],
 						"settings":
 						{
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 9299.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+					"file": "vendor/symfony/src/Symfony/Component/Form/Extension/Csrf/CsrfProvider/DefaultCsrfProvider.php",
 					"settings":
 					{
-						"buffer_size": 1073,
+						"buffer_size": 1777,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1041,
-								1041
+								1425,
+								1442
 							]
 						],
 						"settings":
@@ -820,54 +1251,54 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 265.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
+					"file": "vendor/symfony/src/Symfony/Component/Security/Http/Firewall/UsernamePasswordFormAuthenticationListener.php",
 					"settings":
 					{
-						"buffer_size": 982,
+						"buffer_size": 3960,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								935,
-								935
+								3325,
+								3325
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 416.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "src/GC/DataLayerBundle/Entity/Project.php",
+					"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
 					"settings":
 					{
-						"buffer_size": 10110,
+						"buffer_size": 2081,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								470,
+								470
 							]
 						],
 						"settings":
@@ -885,38 +1316,39 @@
 				},
 				{
 					"buffer": 6,
-					"file": "src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+					"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 					"settings":
 					{
-						"buffer_size": 5329,
+						"buffer_size": 7187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1269,
-								1269
+								4033,
+								4128
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 897.0,
+						"translation.y": 1109.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "/Users/jdelorenzo/Downloads/ccg_staging (1).sql",
+					"file": "src/GC/DashboardBundle/Controller/DefaultController.php",
 					"settings":
 					{
-						"buffer_size": 74111,
+						"buffer_size": 1939,
 						"regions":
 						{
 						},
@@ -929,60 +1361,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/SQL/SQL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 9916.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
-					"settings":
-					{
-						"buffer_size": 697,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								585,
-								585
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig",
-					"settings":
-					{
-						"buffer_size": 8626,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6372,
-								6060
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -993,25 +1373,82 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
+					"buffer": 8,
+					"file": "web/js/gc_payment.js",
 					"settings":
 					{
-						"buffer_size": 3116,
+						"buffer_size": 1224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								493
+								1086,
+								1086
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
+					"settings":
+					{
+						"buffer_size": 5238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4426,
+								4426
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml",
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								442,
+								442
+							]
+						],
+						"settings":
+						{
+							"is_xml": true,
+							"syntax": "Packages/XML/XML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1023,26 +1460,23 @@
 				},
 				{
 					"buffer": 11,
-					"file": "src/GC/DataLayerBundle/Entity/Tag.php",
+					"file": "src/GC/UserBundle/Resources/config/routing.yml",
 					"settings":
 					{
-						"buffer_size": 4508,
+						"buffer_size": 549,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								160,
-								160
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/YAML/YAML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1052,18 +1486,18 @@
 				},
 				{
 					"buffer": 12,
-					"file": "src/GC/DataLayerBundle/Entity/Package.php",
+					"file": "vendor/bundles/FOS/UserBundle/Controller/SecurityController.php",
 					"settings":
 					{
-						"buffer_size": 1342,
+						"buffer_size": 2706,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1900,
+								1979
 							]
 						],
 						"settings":
@@ -1074,25 +1508,81 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10.0,
+						"translation.y": 70.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 13,
-					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"file": "src/GC/UserBundle/Resources/views/Security/login.html.twig",
 					"settings":
 					{
-						"buffer_size": 10423,
+						"buffer_size": 1001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4235,
-								4235
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/Resources/views/base.html.twig",
+					"settings":
+					{
+						"buffer_size": 8284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3980,
+								3984
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 332.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "src/GC/DashboardBundle/Form/Type/PaymentType.php",
+					"settings":
+					{
+						"buffer_size": 1489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1259,
+								1259
 							]
 						],
 						"settings":
@@ -1102,69 +1592,40 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1289.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "web/js/gc_package_select.js",
-					"settings":
-					{
-						"buffer_size": 722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								484,
-								484
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
-					"settings":
-					{
-						"buffer_size": 680,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 16,
+					"file": "web/css/less/custom.less",
+					"settings":
+					{
+						"buffer_size": 1640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1630,
+								1630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 760.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
 					"file": "src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
 					"settings":
 					{
@@ -1175,8 +1636,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1314,
+								1314
 							]
 						],
 						"settings":
@@ -1185,34 +1646,149 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 261.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "web/css/less/custom.less",
+					"buffer": 18,
+					"file": "src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
 					"settings":
 					{
-						"buffer_size": 1570,
+						"buffer_size": 982,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1526,
-								1526
+								829,
+								829
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 660.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "src/GC/DataLayerBundle/Entity/Project.php",
+					"settings":
+					{
+						"buffer_size": 11069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "src/GC/DataLayerBundle/Entity/PriceMapRepository.php",
+					"settings":
+					{
+						"buffer_size": 1073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "/Users/jdelorenzo/Documents/tresemme_publickey.txt",
+					"settings":
+					{
+						"buffer_size": 1940,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								141,
+								141
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "src/GC/DataLayerBundle/DataFixtures/ORM/LoadPriceMapData.php",
+					"settings":
+					{
+						"buffer_size": 3464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1262,24 +1838,164 @@
 		"selected_items":
 		[
 			[
-				"gc_",
-				"web/js/gc_package_select.js"
+				"pri",
+				"src/GC/DataLayerBundle/Entity/PriceMapRepository.php"
+			],
+			[
+				"pricemap",
+				"src/GC/DataLayerBundle/DataFixtures/ORM/LoadPriceMapData.php"
+			],
+			[
+				"price",
+				"src/GC/DataLayerBundle/Entity/PriceMapRepository.php"
+			],
+			[
+				"project",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"field",
+				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
 			],
 			[
 				"custom",
 				"web/css/less/custom.less"
 			],
 			[
-				"package_sele",
-				"src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig"
+				"paymenttype",
+				"src/GC/DashboardBundle/Form/Type/PaymentType.php"
+			],
+			[
+				"proje",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"security.xml",
+				"vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml"
+			],
+			[
+				"payment",
+				"src/GC/DashboardBundle/Resources/views/Project/payment.html.twig"
+			],
+			[
+				"base",
+				"app/Resources/views/base.html.twig"
+			],
+			[
+				"login",
+				"src/GC/UserBundle/Resources/views/Security/login.html.twig"
+			],
+			[
+				"routin",
+				"src/GC/UserBundle/Resources/config/routing.yml"
+			],
+			[
+				"routing/security",
+				"vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml"
+			],
+			[
+				"security.x",
+				"vendor/bundles/FOS/UserBundle/Resources/config/security.xml"
+			],
+			[
+				"gc_",
+				"web/js/gc_payment.js"
+			],
+			[
+				"auth",
+				"src/GC/UserBundle/AuthenticationHandler.php"
+			],
+			[
+				"default",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"projectrepo",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"user.orm.",
+				"vendor/bundles/FOS/UserBundle/Resources/config/doctrine/User.orm.xml"
+			],
+			[
+				"config.",
+				"app/config/config.yml"
+			],
+			[
+				"userre",
+				"src/GC/DataLayerBundle/Entity/UserRepository.php"
+			],
+			[
+				"defaul",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"gc_p",
+				"web/js/gc_payment.js"
+			],
+			[
+				"payment.",
+				"src/GC/DashboardBundle/Resources/views/Project/payment.html.twig"
+			],
+			[
+				"routing/se",
+				"vendor/bundles/FOS/UserBundle/Resources/config/routing/security.xml"
+			],
+			[
+				"projectcon",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"layout.",
+				"src/GC/DashboardBundle/Resources/views/layout.html.twig"
 			],
 			[
 				"bread",
 				"src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig"
 			],
 			[
-				"project",
-				"src/GC/DataLayerBundle/Entity/Project.php"
+				"project_br",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"bas",
+				"app/Resources/views/base.html.twig"
+			],
+			[
+				"user.",
+				"src/GC/DataLayerBundle/Entity/User.php"
+			],
+			[
+				"register",
+				"vendor/bundles/FOS/UserBundle/Controller/RegistrationController.php"
+			],
+			[
+				"gc_pa",
+				"web/js/gc_payment.js"
+			],
+			[
+				"gc_proj",
+				"web/js/gc_project_brief.js"
+			],
+			[
+				"project_b",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"projectc",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"package_se",
+				"src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig"
+			],
+			[
+				"packtype",
+				"src/GC/DashboardBundle/Form/Type/PackageSelectionType.php"
+			],
+			[
+				"package_sele",
+				"src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig"
 			],
 			[
 				"routing",
@@ -1292,10 +2008,6 @@
 			[
 				"tag.php",
 				"src/GC/DataLayerBundle/Entity/Tag.php"
-			],
-			[
-				"projectcon",
-				"src/GC/DashboardBundle/Controller/ProjectController.php"
 			],
 			[
 				"projectr",
@@ -1352,10 +2064,6 @@
 			[
 				"projectco",
 				"src/GC/DashboardBundle/Controller/ProjectController.php"
-			],
-			[
-				"base",
-				"app/Resources/views/base.html.twig"
 			],
 			[
 				"rou",
@@ -1416,10 +2124,6 @@
 			[
 				"cate",
 				"src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig"
-			],
-			[
-				"proje",
-				"src/GC/DataLayerBundle/Entity/Project.php"
 			],
 			[
 				"creation",
@@ -1498,10 +2202,6 @@
 				"src/GC/DataLayerBundle/Entity/User.php"
 			],
 			[
-				"bas",
-				"app/Resources/views/base.html.twig"
-			],
-			[
 				"loadpr",
 				"src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php"
 			],
@@ -1532,10 +2232,6 @@
 			[
 				"appke",
 				"app/AppKernel.php"
-			],
-			[
-				"routin",
-				"src/GC/ProjectBundle/Resources/config/routing.yml"
 			],
 			[
 				"userman",
@@ -1652,42 +2348,6 @@
 			[
 				"light",
 				"src/lightbox.as"
-			],
-			[
-				"beama",
-				"src/scrollBeamAction.as"
-			],
-			[
-				"her",
-				"public/hero.html"
-			],
-			[
-				"nav",
-				"public/css/less/navbar.less"
-			],
-			[
-				"hta",
-				"public/.htaccess"
-			],
-			[
-				"sca",
-				"public/css/less/scaffolding.less"
-			],
-			[
-				"lay",
-				"public/css/less/layouts.less"
-			],
-			[
-				"bootst",
-				"public/css/less/bootstrap.less"
-			],
-			[
-				"boo",
-				"public/css/less/bootswatch.less"
-			],
-			[
-				"cu",
-				"public/css/less/custom.less"
 			]
 		],
 		"width": 0.0
