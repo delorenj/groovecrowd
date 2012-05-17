@@ -49,12 +49,18 @@ class PaymentType extends AbstractType
 		);		
 
 		$builder->add('plain_password', 'password', array(
-			"required" => true)		
+			"required" => true,
+			"label" => "Password")		
 		);		
 
 		$builder->add('phone', 'text', array(
 			"required" => false)		
 		);		
+
+		$builder->add('terms', 'checkbox', array(
+			"label" => "I agree with the terms and condtitions",
+			"property_path" => false,
+			"required" => true));
 	}
 
 	public function getName() {

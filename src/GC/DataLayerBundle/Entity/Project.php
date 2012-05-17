@@ -73,6 +73,13 @@ class Project
     private $payoutGuaranteed;
 
     /**
+     * @var integer $protection
+     *
+     * @ORM\Column(name="protection", type="boolean", nullable=true)
+     */
+    private $protection;
+
+    /**
      * @var integer $contestLength
      *
      * @ORM\Column(name="contest_length", type="integer", nullable=true)
@@ -538,5 +545,25 @@ class Project
     public function getExpiresAt()
     {
         return $this->expiresAt;
+    }
+
+    /**
+     * Set protection
+     *
+     * @param boolean $protection
+     */
+    public function setProtection($protection)
+    {
+        $this->protection = $protection;
+    }
+
+    /**
+     * Get protection
+     *
+     * @return boolean 
+     */
+    public function getProtection()
+    {
+        return $this->protection;
     }
 }

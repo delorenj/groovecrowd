@@ -12,14 +12,27 @@
                                                                  "_csrf_token": $("#_csrf_token").val() }
                                     ),
 	        	function(data) {
-	        		alert("success: " + data.success);
+                    if(data.success == true) {
+                        loginView();
+                    } else {
+                        loginFailed();
+                    }
 	        	},
                 "json"
 	        );
             return false;
     	})
     };
-  
+
+    function loginView() {
+        console.log("Login view init...");
+    }  
+
+    function loginFailed() {
+        $("#login-error").css("visibility", "visible");
+
+    }
+
 }( window.gc_payment = window.gc_payment || {}, jQuery ));
 
 

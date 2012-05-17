@@ -82,7 +82,7 @@ class ProjectController extends Controller
  */
 	public function newAction(Request $request) {
 		$em = $this->getDoctrine()->getEntityManager();
-
+		$request->getSession()->set("_gc.target_path", "project_new");
 		if($request->cookies->has('continueCode')) {
 			$code = $request->cookies->get('continueCode');
 			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);

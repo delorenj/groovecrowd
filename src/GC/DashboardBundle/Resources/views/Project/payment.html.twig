@@ -12,6 +12,10 @@
 {% block formbody %}
 	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >		
 		{{ form_errors(form) }}
+		{% if (is_granted('ROLE_USER')) %}
+			{{ form_widget(form.email, {'attr': {'style': 'display:none;'}}) }}
+			{{ form_widget(form.plain_password, {'attr': {'style': 'display:none'}}) }}
+		{% else %}
 		<fieldset>
 			<h1>User Info</h1>
 			<div class="control-group gc-control-label">
@@ -25,12 +29,13 @@
 				{{ form_label(form.plain_password) }}
 				<div class="controls">
 					{{ form_widget(form.plain_password, {'attr': {'class': 'input-xlarge span3'}}) }}
-					<p class="help-block">{{ form_errors(form.plain_password) }}</p>	
-				</div>			    			    
-			</div>
-			<button class="btn" id="login" onclick="return false;">Log In</button>
+					<p class="help-block">{{ form_errors(form.plain_password) }}</p>
+					<p class="help-block"><a href="{{path('fos_user_security_login') }}">Already have an account?</a></p>
+				</div>
+			</div>	
 			<input type="hidden" id="_csrf_token" value="{{ csrf }}" />
-		</fieldset>				
+		</fieldset>
+		{% endif %}
 		<fieldset>
 			<h1>Payment Method</h1>
 			<ul class="horizontal-list unstyled">
@@ -99,7 +104,20 @@
 				</div>			    			    
 			</div>	
 		</fieldset>
-		{{ parent() }}		
+		<div>
+			<h4>{{ project.package.name }} Package</h4>
+			{% if (project.protection == true) %}
+			<h4>Optional Copyright Protection: $40</h4>
+			{% endif %}
+			<span>Total: </span>${{ price }}
+		</div>
+		<label class="checkbox" style="font-size: 0.5em !important">
+			{{ form_widget (form.terms) }}
+			{{ form_label(form.terms) }}
+<!-- 	    	<p class="help-block">Lorem hizzle gangster crackalackin amizzle, consectetizzle adipiscing elit. Nullam fo shizzle velizzle, aliquet volutpizzle, suscipizzle quis, own yo' vizzle, dawg. Pellentesque away tortizzle. Sed erizzle. Fusce crazy dolor dapibus turpis tempizzle tempor. Mauris rizzle nibh nunc. Break yo neck, yall suscipizzle. Shit semper velit dang crackalackin.</p> -->
+		</label>		
+		<button type="submit" class="btn btn-primary">Launch Contest</button>
+		<button id="backbutton" class="btn btn-primary">Back</button>
 		{{ form_rest(form) }}
 	</form>
 {% endblock %}

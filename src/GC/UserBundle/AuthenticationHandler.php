@@ -32,10 +32,11 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
                 $url = $targetPath;
             } else {
                 // Otherwise, redirect him to wherever you want
-                $url = $this->router->generate('dashboard_index');              
-                // $url = $this->router->generate('dashboard_index', array(
-                //     'username' => $token->getUser()->getUsername()
-                // ));
+                if($targetPath = $request->getSession()->get('_gc.target_path')) {
+                    $url = $this->router->generate($targetPath);
+                } else {
+                    $url = $this->router->generate('dashboard_index');    
+                }
             }
 
             return new RedirectResponse($url);
