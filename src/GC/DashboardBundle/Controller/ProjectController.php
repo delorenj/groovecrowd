@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use GC\DataLayerBundle\Entity\User;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
@@ -215,9 +216,12 @@ class ProjectController extends Controller
 							$project_repo = $em->getRepository('GCDataLayerBundle:Project');
 							$user = new User();
 							$form = $this->createForm(new PaymentType(), $user);
+							$csrf = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
 							$price = $project_repo->getPrice($project);				
-							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
+							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("csrf" => $csrf, "id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
 						} else {
+							$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
+							$prices = $price_repo->getPackagePrices($project, "bronze");							
 							$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, 
 								"project" => $project, "prices" => $prices, "form" => $form->createView()));
 						}					
@@ -229,18 +233,18 @@ class ProjectController extends Controller
 				    	$user = $this->get('security.context')->getToken()->getUser();
 				    	if($user == "anon.") {
 				    		$user = $userManager->createUser();
+					        $user->setImage("default.jpg");				    		
 				    	}					
 						$project_repo = $em->getRepository('GCDataLayerBundle:Project');						
 						$form = $this->createForm(new PaymentType(), $user);
 						$form->bindRequest($request);
 						if($form->isValid()) {
 					        if(!$user->hasRole('USER')) {
-					        	$user->setImage("default.jpg");
 					        	$user->setEnabled(1);
 					        	$user->addRole("ROLE_CONSUMER");
 					        	$userManager->updateUser($user);
 					        }
-							$progress->setPhase(5); //CHANGE!
+							$progress->setPhase(4);
 							$em->persist($progress);
 							$em->flush();
 							$project->setEnabled(1);
@@ -249,9 +253,14 @@ class ProjectController extends Controller
         					$project->setExpiresAt(new \DateTime("now + " . $project->getContestLength() . " day"));
 							$em->persist($project);
 							$em->flush();
+							if($this->get('security.context')->getToken()->getUser() == "anon.") {
+								$this->get('logger')->info("-------------------USER IS NOT LOGGED IN ------------------");
+								$token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
+								$this->get('security.context')->setToken($token);
+							}
 							$cookie = new Cookie('continueCode','');
-							$return = $this->redirect('GCDashboardBundle:Default:index.html.twig');
-							$return->headers->setCookie($cookie);														
+							$return = $this->forward('GCDashboardBundle:Default:index');
+							$return->headers->setCookie($cookie);										
 						} else {
 							$price = $project_repo->getPrice($project);											
 							$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, 
@@ -296,6 +305,26 @@ class ProjectController extends Controller
 			}// end no continue GET
 		} //end no continue block
         return $return;
+    }
+
+     /**
+     * Authenticate a user with Symfony Security
+     *
+     * @param \FOS\UserBundle\Model\UserInterface $user
+     */
+    protected function authenticateUser(UserInterface $user)
+    {
+        try {
+            $this->container->get('fos_user.user_checker')->checkPostAuth($user);
+        } catch (AccountStatusException $e) {
+            // Don't authenticate locked, disabled or expired users
+            return;
+        }
+
+        $providerKey = $this->container->getParameter('fos_user.firewall_name');
+        $token = new UsernamePasswordToken($user, null, $providerKey, $user->getRoles());
+        $this->get('logger')->info("AUTH TOKEN: " . $token);
+        $this->container->get('security.context')->setToken($token);
     }
 
 }

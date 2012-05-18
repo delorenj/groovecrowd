@@ -5,15 +5,6 @@
     <script src="{{ asset('js/gc_project.js') }}" type="text/javascript"></script>
 {% endblock %}
 
-{% block navlist %}
-    <li><a href="{{path ('_welcome')}}">Home</a></li>
-    <li><a href="#about">Browse Contests</a></li>
-	{% if is_granted('ROLE_USER') %}
-    	<li class="active"><a href="{{url('dashboard_index')}}">My Contests</a></li>
-	{% endif %}
-{% endblock %}  
-
-
 {% block footer1 %}
 	<li><h4>My Account</h4></li>
 	<li><a>Profile Settings</a></li>

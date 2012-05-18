@@ -46,13 +46,15 @@
                 <div class="nav-collapse">
                     <ul class="nav">
                         {% block navlist %}
-                            <li class="active"><a href="{{path ('_welcome')}}">Home</a></li>
-                            <li><a href="#about">Browse Contests</a></li>
+                            <li class="{% if app.request.attributes.get('_route') == '_welcome' %}active{% endif %}"><a href="{{path ('_welcome')}}">Home</a></li>
+                            <li class="{% if app.request.attributes.get('_route') == 'project_browse' %}active{% endif %}"><a href="#about">Browse Contests</a></li>
                             {% if is_granted('ROLE_USER') %}
-                            <li><a href="{{path ('dashboard_index')}}">My Contests</a></li>
+                            <li class="{% if app.request.attributes.get('_route') == 'dashboard_index' %}active{% endif %}"><a href="{{path ('dashboard_index')}}">My Contests</a></li>
                             {% else %}
-                            <li><a href="#contact">How does it work?</a></li>
-                            {% endif %}             
+                            <li class="{% if app.request.attributes.get('_route') == '_welcome_how' %}active{% endif %}"><a href="#contact">How does it work?</a></li>
+                            {% endif %}
+                            <li class="divider-vertical"></li>
+                            <li class="{% if app.request.attributes.get('_route') == 'project_new' %}active{% endif %}"><a href="{{ path("project_new") }}">Launch a contest</a></li>
                         {% endblock %}                        
                     </ul>
                     <ul class="nav pull-right">                        
@@ -62,7 +64,11 @@
                                 <li class="user-image"><img src="{{ asset(user_image_path ~ app.user.image) }}" width=30 height=30 /></li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        {{app.user.username}}<b class="caret"></b>
+                                        {% if app.user.username %}
+                                            {{app.user.username}}<b class="caret"></b>
+                                        {% else %}
+                                            {{app.user.firstName}} {{app.user.lastName|slice(0, 1)}}.<b class="caret"></b>
+                                        {% endif %}
                                     </a>
                                     <ul class="dropdown-menu">
                                       <li class=""><a href="#"><i class="icon-user"></i>Profile</a></li>
@@ -132,19 +138,19 @@
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ asset('http://code.jquery.com/jquery.min.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-alert.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-scrollspy.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tab.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tooltip.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-popover.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js') }}"></script>
-        <script src="{{ asset('https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-transition.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-alert.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-modal.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-dropdown.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-scrollspy.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-tab.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-tooltip.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-popover.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-button.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-collapse.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-carousel.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-typeahead.js') }}"></script>
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>        
     {% endblock %}

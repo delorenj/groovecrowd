@@ -24,8 +24,7 @@ class PackageSelectionType extends AbstractType
 		);		
 		$builder->add('protection', 'checkbox', array(
 			"label" => "Add copy protection to all uploaded entries <span class='price'><em>$40</em></span>",
-			"required" => false,
-			"property_path" => false)
+			"required" => false)
 		);		
 	}
 
