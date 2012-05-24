@@ -136,69 +136,134 @@ class ProjectController extends Controller
 		if($redirect = $this->progressRedirect($progress, $phase)) {
 			return $this->redirect($redirect);
 		}
+
+		$form = $this->createForm(new ProjectDescriptionType(), $project);
+		$form->bindRequest($request);
+		$tags = $project->getTags();
+		$t[] = null;
+		foreach($tags as $tag) {
+			$t[] = $tag->getName();
+		}
+		$tag_list = implode(',', $t);
+
+		if($request->getMethod() == "GET") {
+			return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+				array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
+
+		} else if($request->getMethod() == "POST") {
+			if($form->isValid()) {
+				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag');
+				$pd = $request->request->get('projectDescription');
+				$tags = explode(',', $pd['tag_list']);
+		        foreach($tags as $tag) {
+		            $t = $repo->createIfNotExists($tag);
+		            $project->addTag($t);
+		        }
+				$em->persist($project);
+				$progress->setPhase($phase+1);
+				$em->persist($progress);
+				$em->flush();	
+				return $this->redirect($this->generateUrl('project_payment'));
+			} else {
+				return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+					array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
+			}
+		}
+	}
+
+	protected function packageAction(Request $request) {
+		$em = $this->getDoctrine()->getEntityManager();
+		$phase = 3;
+		$project = $this->projectFromSession($request);
+		$progress = $this->progressFromProject($project);
+		if($redirect = $this->progressRedirect($progress, $phase)) {
+			return $this->redirect($redirect);
+		}
+
+		$form = $this->createForm(new PackageSelectionType(), $project);
+		$form->bindRequest($request);
+		$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
+		$prices = $price_repo->getPackagePrices($project, "bronze");							
 		
 		if($request->getMethod() == "GET") {
-			$form = $this->createForm(new ProjectDescriptionType(), $project);
-			$tags = $project->getTags();
-			$t[] = null;
-			foreach($tags as $tag) {
-				$t[] = $tag->getName();
+			return $this->render('GCDashboardBundle:Project:package_select.html.twig', 
+				array(	"id" => $code, 
+						"phase" => $phase, 
+						"project" => $project, 
+						"prices" => $prices, 
+						"form" => $form->createView()));
+
+		} else if($request->getMethod() == "POST") {
+			if($form->isValid()) {
+				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Package');
+				$packageName = $request->request->get('packageSelection');
+				$packageName = $packageName['package'];
+				$project->setPackage($repo->findOneBySlug($packageName));
+				$em->persist($project);
+				$progress->setPhase($phase+1);
+				$em->persist($progress);
+				$em->flush();
+				return $this->redirect($this->generateUrl('project_payment'));
+			} else {
+				return $this->render('GCDashboardBundle:Project:package_select.html.twig', 
+					array(	"id" => $code, 
+							"phase" => $phase, 
+							"project" => $project, 
+							"prices" => $prices, 
+							"form" => $form->createView()));
 			}
-			$tag_list = implode(',', $t);
-			return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-				array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
-
-		} else {
-
 		}
-		// $form = $this->createForm(new ProjectDescriptionType(), $project);
-		// $tags = $project->getTags();
-		// $t[] = null;
-		// foreach($tags as $tag) {
-		// 	$t[] = $tag->getName();
-		// }
-		// $tag_list = implode(',', $t);
-
 	}
 
 
+/**
+*    Helpers
+*		
+**/
+
 	protected function progressRedirect($progress, $phase) {
 		if($progress == null) {
+			$this->get('logger')->info('No progress found');
 			return null;		
 		}
 
-		if($progress->getPhase() >= $phase) {
-			return null;
+		$this->get('logger')->info('Progress is currently set to \'' . $progress->getPhase() . '\' --> Trying to access phase ' . $phase);
+
+		if($progress->getPhase() < $phase) {
+			$this->get('logger')->info('Trying to access a phase that you haven\'t reached yet');
+			switch($progress->getPhase()) {
+				case '1':
+					return $this->generateUrl('project_category_select');
+				break;
+
+				case '2':
+					return $this->generateUrl('project_brief');			
+				break;
+
+				case '3':
+					return $this->generateUrl('project_package_select');			
+				break;
+
+				case '4':
+					return $this->generateUrl('project_payment');
+				break;
+
+				default:
+					return $this->generateUrl('project_new');
+			}
 		} 
 
-		switch($progress->getPhase()) {
-			case '1':
-				return $this->generateUrl('project_category_select');
-			break;
+		return null;
 
-			case '2':
-				return $this->generateUrl('project_brief');			
-			break;
-
-			case '3':
-				return $this->generateUrl('project_package_select');			
-			break;
-
-			case '4':
-				return $this->generateUrl('project_payment');
-			break;
-
-			default:
-				return $this->generateUrl('project_new');
-		}
 	}
 
 	protected function projectFromSession($request) {
 		$em = $this->getDoctrine()->getEntityManager();
 		$session = $request->getSession();
 		if($code = $session->get("continueCode")) {
-			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);
+			$this->get('logger')->info("FOUND CONTINUE CODE IN SESSION: " . $code);
 			if(!$project = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->find(Helpers::codeToId($code))) {
+				$this->get('logger')->info('CODE FOUND, BUT PROJECT NOT...Creating a new one.');
 				$project = new Project();
 				$em->persist($project);
 				$em->flush();
@@ -217,7 +282,7 @@ class ProjectController extends Controller
     protected function projectFromCookie() {
 		if($request->cookies->has('continueCode')) {
 			$code = $request->cookies->get('continueCode');
-			$this->get('logger')->info("FOUND CONTINUE CODE: " . $code);
+			$this->get('logger')->info("FOUND CONTINUE CODE IN COOKIE: " . $code);
 			$progress = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectCreationProgress')->findOneByProject(Helpers::codeToId($code));			
 			if(!$progress) {
 				$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));
