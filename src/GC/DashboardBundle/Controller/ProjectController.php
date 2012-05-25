@@ -138,7 +138,6 @@ class ProjectController extends Controller
 		}
 
 		$form = $this->createForm(new ProjectDescriptionType(), $project);
-		$form->bindRequest($request);
 		$tags = $project->getTags();
 		$t[] = null;
 		foreach($tags as $tag) {
@@ -151,6 +150,7 @@ class ProjectController extends Controller
 				array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
 
 		} else if($request->getMethod() == "POST") {
+			$form->bindRequest($request);			
 			if($form->isValid()) {
 				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag');
 				$pd = $request->request->get('projectDescription');
@@ -163,7 +163,7 @@ class ProjectController extends Controller
 				$progress->setPhase($phase+1);
 				$em->persist($progress);
 				$em->flush();	
-				return $this->redirect($this->generateUrl('project_payment'));
+				return $this->redirect($this->generateUrl('project_package'));
 			} else {
 				return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
 					array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
@@ -171,7 +171,7 @@ class ProjectController extends Controller
 		}
 	}
 
-	protected function packageAction(Request $request) {
+	public function packageAction(Request $request) {
 		$em = $this->getDoctrine()->getEntityManager();
 		$phase = 3;
 		$project = $this->projectFromSession($request);
@@ -181,19 +181,18 @@ class ProjectController extends Controller
 		}
 
 		$form = $this->createForm(new PackageSelectionType(), $project);
-		$form->bindRequest($request);
 		$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-		$prices = $price_repo->getPackagePrices($project, "bronze");							
-		
+		$prices = $price_repo->getPackagePrices($project);							
 		if($request->getMethod() == "GET") {
 			return $this->render('GCDashboardBundle:Project:package_select.html.twig', 
-				array(	"id" => $code, 
+				array(	"id" => Helpers::idToCode($project->getId()), 
 						"phase" => $phase, 
 						"project" => $project, 
 						"prices" => $prices, 
 						"form" => $form->createView()));
 
 		} else if($request->getMethod() == "POST") {
+			$form->bindRequest($request);			
 			if($form->isValid()) {
 				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Package');
 				$packageName = $request->request->get('packageSelection');
@@ -215,6 +214,72 @@ class ProjectController extends Controller
 		}
 	}
 
+	public function paymentAction(Request $request) {
+		$em = $this->getDoctrine()->getEntityManager();
+		$phase = 4;
+		$project = $this->projectFromSession($request);
+		$progress = $this->progressFromProject($project);
+		if($redirect = $this->progressRedirect($progress, $phase)) {
+			return $this->redirect($redirect);
+		}
+
+		$userManager = $this->container->get('fos_user.user_manager');					
+    	$user = $this->get('security.context')->getToken()->getUser();
+    	if($user == "anon.") {
+    		$this->get('logger')->info('Anon: Creating a new user...');
+    		$user = $userManager->createUser();
+	        $user->setImage("default.jpg");				    		
+    	}
+		$project_repo = $em->getRepository('GCDataLayerBundle:Project');						
+		$price = $project_repo->getPrice($project);	
+		$csrf = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');														
+		$form = $this->createForm(new PaymentType(), $user);
+		
+		if($request->getMethod() == "GET") {
+			return $this->render('GCDashboardBundle:Project:payment.html.twig', 
+				array(	"id" => Helpers::idToCode($project->getId()), 
+						"phase" => $phase, 
+						"user" => $user, 
+			 			"project" => $project, 
+			 			"price" => $price, 
+			 			"csrf" => $csrf,
+			 			"form" => $form->createView()));
+
+		} else if($request->getMethod() == "POST") {
+			$form->bindRequest($request);
+			if($form->isValid()) {
+		        if(!$user->hasRole('USER')) {
+		        	$user->setEnabled(1);
+		        	$user->addRole("ROLE_CONSUMER");
+		        	$userManager->updateUser($user);
+		        }
+				$progress->setPhase($phase);
+				$em->persist($progress);
+				$em->flush();
+				$project->setEnabled(1);
+				$project->setUser($user);
+				$project->setCreatedAt(new \DateTime("now"));
+				$project->setExpiresAt(new \DateTime("now + " . $project->getContestLength() . " day"));
+				$em->persist($project);
+				$em->flush();
+				if($this->get('security.context')->getToken()->getUser() == "anon.") {
+					$this->get('logger')->info("-------------------USER IS NOT LOGGED IN ------------------");
+					$token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
+					$this->get('security.context')->setToken($token);
+				}
+				$return = $this->redirect($this->generateUrl('dashboard_index'));
+				return $return;
+			} else {
+				return $this->render('GCDashboardBundle:Project:payment.html.twig', 
+					array(	"id" => Helpers::idToCode($project->getId()), 
+							"phase" => $phase, 
+							"user" => $user, 
+				 			"project" => $project, 
+				 			"price" => $price, 
+				 			"form" => $form->createView()));
+			}
+		}
+	}
 
 /**
 *    Helpers
