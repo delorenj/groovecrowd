@@ -17,8 +17,26 @@ project_show:
 project_new:
     pattern: /project/new
     defaults: { _controller: GCDashboardBundle:Project:new }
-    options:
-        expose: true
+
+project_category_select:
+    pattern: /project/new/category
+    defaults: { _controller: GCDashboardBundle:Project:categorySelect }
+
+project_brief:
+    pattern: /project/new/brief
+    defaults: { _controller: GCDashboardBundle:Project:brief }
+
+project_package:
+    pattern: /project/new/package
+    defaults: { _controller: GCDashboardBundle:Project:package }
+
+project_payment:
+    pattern: /project/new/launch
+    defaults: { _controller: GCDashboardBundle:Project:payment }
+
+project_type_select:
+    pattern: /project/new/type
+    defaults: { _controller: GCDashboardBundle:Project:projectType}
 
 project_remove_tag:
     pattern: /project/{id}/removetag/{tag}

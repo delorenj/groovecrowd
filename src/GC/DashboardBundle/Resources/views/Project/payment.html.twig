@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block formbody %}
-	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >		
+	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_payment') }}" method="POST" {{ form_enctype(form) }} >		
 		{{ form_errors(form) }}
 		{% if (is_granted('ROLE_USER')) %}
 

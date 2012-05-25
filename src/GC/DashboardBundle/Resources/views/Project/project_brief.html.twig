@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block formbody %}
-	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_new') }}" method="POST" {{ form_enctype(form) }} >
+	<form class="form-horizontal" id='project-{{ id }}'action="{{ path('project_brief') }}" method="POST" {{ form_enctype(form) }} >
 		{{ form_errors(form) }}
 		<fieldset>
 			<legend><h1>Description</h1></legend>
@@ -115,10 +115,10 @@
 				</ul>
 			</div>
 		</fieldset>
+		{{ form_rest(form) }}
 
 		{{ parent() }}
 
-		{{ form_rest(form) }}
 	</form>
 {% endblock %}
 
