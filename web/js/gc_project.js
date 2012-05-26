@@ -42,5 +42,5 @@
 
 $(document).ready(function() {
     gc_project.init();
-    gc_project.initBackButton();
+    //gc_project.initBackButton();
 });

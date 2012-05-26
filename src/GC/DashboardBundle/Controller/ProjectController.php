@@ -226,6 +226,7 @@ class ProjectController extends Controller
 		$userManager = $this->container->get('fos_user.user_manager');					
     	$user = $this->get('security.context')->getToken()->getUser();
     	if($user == "anon.") {
+    		$this->get('logger')->info('Creating User!');
     		$this->get('logger')->info('Anon: Creating a new user...');
     		$user = $userManager->createUser();
 	        $user->setImage("default.jpg");				    		
@@ -248,10 +249,12 @@ class ProjectController extends Controller
 		} else if($request->getMethod() == "POST") {
 			$form->bindRequest($request);
 			if($form->isValid()) {
-		        if(!$user->hasRole('USER')) {
+		        if(!$user->hasRole('USER') &&	 !$user->hasRole('ROLE_CONSUMER')) {
+		        	$this->get('logger')->info('User doesnt have role USER');
 		        	$user->setEnabled(1);
 		        	$user->addRole("ROLE_CONSUMER");
 		        	$userManager->updateUser($user);
+		        	$this->get('logger')->info('here');
 		        }
 				$progress->setPhase($phase);
 				$em->persist($progress);
@@ -392,184 +395,3 @@ class ProjectController extends Controller
     }
 
 }
-
-
-			// if($request->getMethod() == "GET") {
-			// 	switch($progress->getPhase()) {
-			// 		case 1: //category select
-			// 			$this->redirect('GCDashboardBundle:Project:categorySelect');
-			// 		break;
-
-			// 		case 2: //project brief
-			// 			$form = $this->createForm(new ProjectDescriptionType(), $project);
-			// 			$tags = $project->getTags();
-			// 			$t[] = null;
-			// 			foreach($tags as $tag) {
-			// 				$t[] = $tag->getName();
-			// 			}
-			// 			$tag_list = implode(',', $t);
-			// 			$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-			// 				array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
-			// 		break;
-
-			// 		case 3: //package select
-			// 			$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-			// 			$form = $this->createForm(new PackageSelectionType(), $project);					
-			// 			$prices = $price_repo->getPackagePrices($project, "bronze");
-			// 			$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, "project" => $project, "prices" => $prices, "form" => $form->createView()));
-			// 		break;
-
-			// 		case 4: //payment
-			// 			$project_repo = $em->getRepository('GCDataLayerBundle:Project');
-			// 			$userManager = $this->container->get('fos_user.user_manager');											
-			// 	    	$user = $this->get('security.context')->getToken()->getUser();
-			// 	    	if($user == "anon.") {
-			// 	    		$user = $userManager->createUser();
-			// 	    	}
-			// 			$form = $this->createForm(new PaymentType(), $user);
-			// 			$csrf = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
-			// 			$price = $project_repo->getPrice($project);				
-			// 			$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("csrf" => $csrf, "id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
-			// 		break;
-
-			// 		default: //start form over
-			// 			$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));	
-
-			// 	}				
-			// } else {
-			// 	switch($progress->getPhase()) {
-			// 		case 0: //groove type select (only on back)
-			// 			$projectType = $request->request->get('projectType');
-			// 			$pt = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectType')->findOneBySlug($projectType);
-			// 			$project->setProjectType($pt);
-			// 			$em->persist($project);
-			// 			$em->flush();			
-			// 			$progress->setPhase(1);
-			// 			$em->persist($progress);
-			// 			$em->flush();
-			// 			$return = $this->render('GCDashboardBundle:Project:category_select.html.twig', array("id" => $code, "phase" => 1));	
-			// 		break;
-
-			// 		case 1: //category select
-			// 			$cat = $request->request->get('category');
-			// 			$cat = $em->getRepository('GCDataLayerBundle:Category')->findOneBySlug($cat);
-			// 			$project->setCategory($cat);
-			// 			$em->persist($project);
-			// 			$em->flush();
-			// 			$progress->setPhase(2);
-			// 			$em->persist($progress);
-			// 			$em->flush();	
-			// 			$form = $this->createForm(new ProjectDescriptionType(), $project);
-			// 			$tags = $project->getTags();
-			// 			$t[] = null;
-			// 			foreach($tags as $tag) {
-			// 				$t[] = $tag->getName();
-			// 			}
-			// 			$tag_list = implode(',', $t);
-			// 			$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-			// 				array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
-			// 		break;
-			// 			break;
-
-			// 		case 2: //project brief
-			// 			$form = $this->createForm(new ProjectDescriptionType(), $project);
-			// 			$form->bindRequest($request);
-			// 			if($form->isValid()) {
-			// 				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Tag');
-			// 				$pd = $request->request->get('projectDescription');
-			// 				$tags = explode(',', $pd['tag_list']);
-			// 		        foreach($tags as $tag) {
-			// 		            $t = $repo->createIfNotExists($tag);
-			// 		            $project->addTag($t);
-			// 		        }
-			// 				$em->persist($project);
-			// 				$em->flush();	
-			// 				$progress->setPhase(3);
-			// 				$em->persist($progress);
-			// 				$em->flush();	
-			// 				$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-			// 				$form = $this->createForm(new PackageSelectionType(), $project);						
-			// 				$prices = $price_repo->getPackagePrices($project, "bronze");
-			// 				$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, "project" => $project, 
-			// 					"prices" => $prices, "form" => $form->createView()));
-			// 			} else {
-			// 				$return = $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-			// 					array("phase" => 2, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
-			// 			}
-						
-			// 		break;
-
-			// 		case 3: //package select
-			// 			$form = $this->createForm(new PackageSelectionType(), $project);
-			// 			$form->bindRequest($request);
-			// 			if($form->isValid()) {
-			// 				$repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Package');
-			// 				$packageName = $request->request->get('packageSelection');
-			// 				$packageName = $packageName['package'];
-			// 				$project->setPackage($repo->findOneBySlug($packageName));
-			// 				$em->persist($project);
-			// 				$em->flush();	
-			// 				$progress->setPhase(4);
-			// 				$em->persist($progress);
-			// 				$em->flush();
-			// 				$project_repo = $em->getRepository('GCDataLayerBundle:Project');
-			// 				$user = new User();
-			// 				$form = $this->createForm(new PaymentType(), $user);
-			// 				$csrf = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
-			// 				$price = $project_repo->getPrice($project);				
-			// 				$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("csrf" => $csrf, "id" => $code, "phase" => 4, "user" => $user, "project" => $project, "price" => $price, "form" => $form->createView()));
-			// 			} else {
-			// 				$price_repo = $em->getRepository('GCDataLayerBundle:PriceMap');
-			// 				$prices = $price_repo->getPackagePrices($project, "bronze");							
-			// 				$return = $this->render('GCDashboardBundle:Project:package_select.html.twig', array("id" => $code, "phase" => 3, 
-			// 					"project" => $project, "prices" => $prices, "form" => $form->createView()));
-			// 			}					
-
-			// 		break;
-
-			// 		case 4: //payment
-			// 			$userManager = $this->container->get('fos_user.user_manager');					
-			// 	    	$user = $this->get('security.context')->getToken()->getUser();
-			// 	    	if($user == "anon.") {
-			// 	    		$user = $userManager->createUser();
-			// 		        $user->setImage("default.jpg");				    		
-			// 	    	}					
-			// 			$project_repo = $em->getRepository('GCDataLayerBundle:Project');						
-			// 			$form = $this->createForm(new PaymentType(), $user);
-			// 			$form->bindRequest($request);
-			// 			if($form->isValid()) {
-			// 		        if(!$user->hasRole('USER')) {
-			// 		        	$user->setEnabled(1);
-			// 		        	$user->addRole("ROLE_CONSUMER");
-			// 		        	$userManager->updateUser($user);
-			// 		        }
-			// 				$progress->setPhase(4);
-			// 				$em->persist($progress);
-			// 				$em->flush();
-			// 				$project->setEnabled(1);
-			// 				$project->setUser($user);
-			// 				$project->setCreatedAt(new \DateTime("now"));
-   //      					$project->setExpiresAt(new \DateTime("now + " . $project->getContestLength() . " day"));
-			// 				$em->persist($project);
-			// 				$em->flush();
-			// 				if($this->get('security.context')->getToken()->getUser() == "anon.") {
-			// 					$this->get('logger')->info("-------------------USER IS NOT LOGGED IN ------------------");
-			// 					$token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
-			// 					$this->get('security.context')->setToken($token);
-			// 				}
-			// 				$cookie = new Cookie('continueCode','');
-			// 				$return = $this->forward('GCDashboardBundle:Default:index');
-			// 				$return->headers->setCookie($cookie);										
-			// 			} else {
-			// 				$price = $project_repo->getPrice($project);											
-			// 				$return = $this->render('GCDashboardBundle:Project:payment.html.twig', array("id" => $code, "phase" => 4, "user" => $user, 
-			// 					"project" => $project, "price" => $price, "form" => $form->createView()));
-
-			// 			}					
-			// 		break;
-
-			// 		default: //start form over
-			// 			$return = $this->render('GCDashboardBundle:Project:new.html.twig', array("phase" => 0));						
-			// 		break;
-			// 	}// end switch: POST			
-			//}// end if continueCode found

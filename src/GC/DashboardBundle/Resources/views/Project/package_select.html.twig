@@ -111,9 +111,11 @@
 				</ul>
 			</div>
 		</div>
-		{{ parent() }}		
+		{{ parent() }}	
+		<a id="backbutton" class="btn btn-primary" href="{{ path('project_brief') }}">Back</a>			
 		{{ form_rest(form) }}
 	</form>
 {% endblock %}
 
+	{% block backButton %}<a id="backbutton" class="btn btn-primary" href="{{ path('project_brief') }}">Back</a>{% endblock %}
 	{% block minorbreadcrumbs %}{% endblock %}

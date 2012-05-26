@@ -34,10 +34,6 @@ project_payment:
     pattern: /project/new/launch
     defaults: { _controller: GCDashboardBundle:Project:payment }
 
-project_type_select:
-    pattern: /project/new/type
-    defaults: { _controller: GCDashboardBundle:Project:projectType}
-
 project_remove_tag:
     pattern: /project/{id}/removetag/{tag}
     defaults: { _controller: GCDashboardBundle:Project:removeTag }

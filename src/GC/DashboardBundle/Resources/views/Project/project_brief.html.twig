@@ -6,6 +6,7 @@
 	{{ parent() }}
     <script src="{{ asset('js/gc_project_brief.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/jquery.tagsinput.js') }}" type="text/javascript"></script>
+	<script src="{{ asset ('js/yoxview/yoxview-init.js') }}" type="text/javascript"></script>
 {% endblock %}
 
 {% block stylesheets %}
@@ -90,36 +91,35 @@
 				<div class="alert alert-info">
 				  <p>Have a video or image? Add some media to enhance your listing</p>
 				</div>
-				<ul class="thumbnails">
+				<ul class="thumbnails yoxview">
 				  <li class="span2">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
 				      <img src="http://placehold.it/260x180" alt="">
 				    </a>
 				  </li>
 				  <li class="span2">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
 				      <img src="http://placehold.it/260x180" alt="">
 				    </a>
 				  </li>
 				  <li class="span2">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
 				      <img src="http://placehold.it/260x180" alt="">
 				    </a>
 				  </li>
 				  <li class="span2">
-				    <a href="#" class="thumbnail">
+				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
 				      <img src="http://placehold.it/260x180" alt="">
 				    </a>
 				  </li>
-
 				</ul>
 			</div>
 		</fieldset>
 		{{ form_rest(form) }}
-
 		{{ parent() }}
-
+		<a id="backbutton" class="btn btn-primary" href="{{ path('project_category_select') }}">Back</a>
 	</form>
 {% endblock %}
+
 
 {% block minorbreadcrumbs %}{% endblock %}

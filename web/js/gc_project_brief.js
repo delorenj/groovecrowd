@@ -24,4 +24,6 @@ $(document).ready(function() {
     });
 
     gc_project_brief.init();
+
+    $(".yoxview").yoxview({ skin: "top_menu" });
 });
