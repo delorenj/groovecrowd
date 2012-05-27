@@ -4425,3 +4425,9 @@ span.price {
 #package-select-controls button.active {
   background-color: #73a839;
 }
+#swf-container {
+  display: inline;
+  width: 180px;
+  height: 33px;
+  margin-bottom: 10px;
+}

@@ -85,12 +85,9 @@
     git=git://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git
     target=/bundles/FOS/JsRoutingBundle 
 
-[gaufrette]
-    git=http://github.com/KnpLabs/Gaufrette.git
+[aws-sdk-for-php]
+    git=http://github.com/amazonwebservices/aws-sdk-for-php.git
 
-[aws-sdk]
-    git=https://github.com/amazonwebservices/aws-sdk-for-php
-    
-[KnpGaufretteBundle]
-    git=http://github.com/KnpLabs/KnpGaufretteBundle.git
-    target=/bundles/Knp/Bundle/GaufretteBundle
+[AmazonWebServicesBundle]
+    git=http://github.com/Cybernox/AmazonWebServicesBundle.git
+    target=/bundles/Cybernox/AmazonWebServicesBundle

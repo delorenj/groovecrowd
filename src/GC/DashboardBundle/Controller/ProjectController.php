@@ -36,8 +36,8 @@ class ProjectController extends Controller
 	public function uploadWebAssetAction(Request $request, $id) {
 		$em = $this->getDoctrine()->getEntityManager();
 		$url = $request->request->get('url');
-		$this->get('logger')->info("adding web media from url $url for project $id");		
-	 	$em = $this->getDoctrine()->getEntityManager();
+		$this->get('logger')->info("adding web media from url $url for project $id");
+
 		$repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
 		if($project = $repo->find($id)) {
 			$type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('web');
