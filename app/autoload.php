@@ -18,6 +18,8 @@ $loader->registerNamespaces(array(
     'Assetic'           => __DIR__.'/../vendor/assetic/src',
     'Metadata'          => __DIR__.'/../vendor/metadata/src',
     'FOS'               => __DIR__.'/../vendor/bundles',
+    'Knp\Bundle'                => __DIR__.'/../vendor/bundles',
+    'Gaufrette'                 => __DIR__.'/../vendor/gaufrette/src', 
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
@@ -46,4 +48,4 @@ AnnotationRegistry::registerFile(__DIR__.'/../vendor/doctrine/lib/Doctrine/ORM/M
 // the lazy loading of the init file (which is expensive)
 require_once __DIR__.'/../vendor/swiftmailer/lib/classes/Swift.php';
 Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/lib/swift_init.php');
-
+require_once __DIR__.'/../vendor/aws-sdk/sdk.class.php';
