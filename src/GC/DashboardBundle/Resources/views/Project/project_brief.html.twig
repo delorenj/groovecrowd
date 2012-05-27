@@ -81,38 +81,28 @@
 					<div class="tab-pane" id="tab2">
 						<div class="control-group gc-control-label">
 							{{ form_widget(form.web_upload) }}
-							<button id="upload_btn" class="btn">Upload</button>
+							<button id="upload-btn" class="btn">Upload</button>
 							<p class="help-block">{{ form_errors(form.web_upload) }}</p>	
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="media-container">
+				{% if assets|length == 0 %}
 				<div class="alert alert-info">
 				  <p>Have a video or image? Add some media to enhance your listing</p>
 				</div>
+				{% else %}
 				<ul class="thumbnails yoxview">
-				  <li class="span2">
-				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
-				      <img src="http://placehold.it/260x180" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
-				      <img src="http://placehold.it/260x180" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
-				      <img src="http://placehold.it/260x180" alt="">
-				    </a>
-				  </li>
-				  <li class="span2">
-				    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
-				      <img src="http://placehold.it/260x180" alt="">
-				    </a>
-				  </li>
+					{% for item in assets %}
+					  <li class="span2">
+					    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
+					      <img src="http://placehold.it/260x180" alt="">
+					    </a>
+					  </li>
+					{% endfor %}
 				</ul>
+				{% endif %}
 			</div>
 		</fieldset>
 		{{ form_rest(form) }}

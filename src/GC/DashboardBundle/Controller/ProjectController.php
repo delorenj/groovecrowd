@@ -12,6 +12,7 @@ use GC\DataLayerBundle\Entity\User;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
 use GC\DataLayerBundle\Entity\ProjectCreationProgress;
+use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Helpers;
 use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
 use GC\DashboardBundle\Form\Type\PackageSelectionType;
@@ -30,6 +31,37 @@ class ProjectController extends Controller
 
         return $this->render('GCDashboardBundle:Project:show.html.twig', 
         	array('project' => $project));
+	}
+
+	public function uploadWebAssetAction(Request $request, $id) {
+		$em = $this->getDoctrine()->getEntityManager();
+		$url = $request->request->get('url');
+		$this->get('logger')->info("adding web media from url $url for project $id");		
+	 	$em = $this->getDoctrine()->getEntityManager();
+		$repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
+		if($project = $repo->find($id)) {
+			$type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('web');
+			$asset = new ProjectAsset();
+			$asset->setAssetType($type);
+			$asset->setUri($url);
+			$asset->setCreatedAt(new \DateTime('now'));
+			$asset->setProject($project);
+			$em->persist($asset);
+			$em->flush();
+			$code = 200;
+		} else {
+			$code = 404;
+		}
+		if ($request->isXmlHttpRequest()) {
+			$this->get('logger')->info('Ajax request return: $code');
+			$return = json_encode(array("responseCode"=>$code));
+			$return = new Response($return, $code);	
+		} else {
+			$this->get('logger')->info('Non ajax response...');
+			$return = json_encode(array("responseCode"=>304));
+			$return = new Response($return, 304);	
+		}
+		return $return;
 	}
 
 	public function removeTagAction(Request $request, $id, $tag) {
@@ -147,7 +179,11 @@ class ProjectController extends Controller
 
 		if($request->getMethod() == "GET") {
 			return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-				array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
+				array(	"phase" => $phase,
+					 	"form" => $form->createView(), 
+					 	"tag_list" => $tag_list, 
+					 	"id" => $project->getId(),
+					 	"assets" => $project->getAssets()));
 
 		} else if($request->getMethod() == "POST") {
 			$form->bindRequest($request);			
@@ -166,7 +202,11 @@ class ProjectController extends Controller
 				return $this->redirect($this->generateUrl('project_package'));
 			} else {
 				return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
-					array("phase" => $phase, "form" => $form->createView(), "tag_list" => $tag_list, "id" => $project->getId()));
+					array(	"phase" => $phase,
+						 	"form" => $form->createView(), 
+						 	"tag_list" => $tag_list, 
+						 	"id" => $project->getId(),
+						 	"assets" => $project->getAssets()));			
 			}
 		}
 	}

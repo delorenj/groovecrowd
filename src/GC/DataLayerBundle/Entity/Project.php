@@ -164,9 +164,17 @@ class Project
      **/
     protected $tags;
 
+/**
+     * @ORM\OneToMany(targetEntity="ProjectAsset", mappedBy="project")
+     * @ORM\JoinTable(name="project_asset")
+     **/
+    protected $assets;
+
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->assets = new ArrayCollection();
     }
 
     /**
@@ -565,5 +573,25 @@ class Project
     public function getProtection()
     {
         return $this->protection;
+    }
+
+    /**
+     * Add assets
+     *
+     * @param GC\DataLayerBundle\Entity\ProjectAsset $assets
+     */
+    public function addProjectAsset(\GC\DataLayerBundle\Entity\ProjectAsset $assets)
+    {
+        $this->assets[] = $assets;
+    }
+
+    /**
+     * Get assets
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getAssets()
+    {
+        return $this->assets;
     }
 }

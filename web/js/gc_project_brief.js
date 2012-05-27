@@ -7,8 +7,13 @@
 
     gc_project_brief.onRemoveTag = function(tag) {
         var project_id = $("form[id^='project']").attr("id").split("-")[1]         
-        $.post(Routing.generate('project_remove_tag', { "id": project_id, "tag": tag }));
-    }
+        $.post(Routing.generate('project_remove_tag', { 
+                "id": project_id, 
+                "tag": tag 
+            }
+        )
+    );
+}
  
    
 }( window.gc_project_brief = window.gc_project_brief || {}, jQuery ));
@@ -23,7 +28,16 @@ $(document).ready(function() {
         'onRemoveTag': gc_project_brief.onRemoveTag
     });
 
-    gc_project_brief.init();
+    $("#upload-btn").click(function() {
+        var project_id = $("form[id^='project']").attr("id").split("-")[1];        
+        $.post(Routing.generate('project_upload_web_asset', { "id": project_id }), {
+                url: $("#projectDescription_web_upload").val()
+            }, function(data) {
+                alert("yay!: " + data);
+            }, "json"
+        );
+        return false;
+    });
 
     $(".yoxview").yoxview({ skin: "top_menu" });
 });

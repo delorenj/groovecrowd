@@ -35,7 +35,13 @@ project_payment:
     defaults: { _controller: GCDashboardBundle:Project:payment }
 
 project_remove_tag:
-    pattern: /project/{id}/removetag/{tag}
+    pattern: /project/{id}/tag/remove/{tag}
     defaults: { _controller: GCDashboardBundle:Project:removeTag }
+    options:
+        expose: true
+
+project_upload_web_asset:
+    pattern: /project/{id}/media/add
+    defaults: { _controller: GCDashboardBundle:Project:uploadWebAsset }
     options:
         expose: true

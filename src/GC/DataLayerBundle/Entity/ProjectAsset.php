@@ -56,9 +56,7 @@ class ProjectAsset
      * @var Project
      *
      * @ORM\ManyToOne(targetEntity="Project")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
 

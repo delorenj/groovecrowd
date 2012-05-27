@@ -61,7 +61,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setUri("http://www.youtube.com/watch?v=dha4drF5EmQ");
         $p->setCaption("I want music throughout the entire experience. It would be nice to have it loop smoothly.");
         $p->setCreatedAt(new \DateTime("now"));
-        $p->setAssetType($manager->merge($this->getReference('asset-video')));
+        $p->setAssetType($manager->merge($this->getReference('asset-web')));
         $this->manager->persist($p);
         $this->manager->flush();
 
@@ -101,7 +101,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setProject($this->getReference('project-trailer'));
         $p->setUri("http://vimeo.com/35692677");
         $p->setCreatedAt(new \DateTime("-1 week"));
-        $p->setAssetType($manager->merge($this->getReference('asset-video')));
+        $p->setAssetType($manager->merge($this->getReference('asset-web')));
         $this->manager->persist($p);
         $this->manager->flush();    
 
