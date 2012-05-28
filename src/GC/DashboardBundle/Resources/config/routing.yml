@@ -48,3 +48,12 @@ project_upload_web_asset:
         id: \d+
     options:
         expose: true
+
+project_upload_video_asset:
+    pattern: /project/{id}/video/add
+    defaults: { _controller: GCDashboardBundle:Project:uploadVideoAsset }
+    requirements:
+        _method: POST
+        id: \d+
+    options:
+        expose: true

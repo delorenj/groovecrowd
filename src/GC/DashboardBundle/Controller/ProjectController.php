@@ -33,6 +33,10 @@ class ProjectController extends Controller
         	array('project' => $project));
 	}
 
+	public function uploadVideoAssetAction(Request $request, $id) {
+		return new Response(json_encode(array("responseCode"=>301)), "301");
+	}
+
 	public function uploadWebAssetAction(Request $request, $id) {
 		$em = $this->getDoctrine()->getEntityManager();
 		$url = $request->request->get('url');
@@ -48,8 +52,40 @@ class ProjectController extends Controller
 		}
 
 		$filedata = $_FILES["Filedata"];
+
+		if(!$filetype = exif_imagetype($filedata["tmp_name"])) {
+			//Maybe a video?
+			$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+			$mimetype = finfo_file($finfo, $filedata["tmp_name"]);
+			finfo_close($finfo);			
+			$this->get('logger')->info('finfo: ' . $mimetype);
+			$majortype = explode('/', $mimetype);
+			$majortype = $majortype[0];
+			if($majortype == "video") {
+				$this->get('logger')->info('Video found! forwarding to video processing controller');
+				return $this->forward('GCDashboardBundle:Project:uploadVideoAsset', array('id' => $id));
+			}
+		}
+		$this->get('logger')->info('filetype: ' . $filetype);
+
+		try {
+			switch($filetype) {
+				case 1:
+					$img = imagecreatefromgif($filedata["tmp_name"]);
+				break;
+				case 2:
+					$img = imagecreatefromjpeg($filedata["tmp_name"]);
+				break;
+				case 3:
+					$img = imagecreatefrompng($filedata["tmp_name"]);			
+				break;
+				default:
+			}			
+		} catch(Exception $e) {
+			$this->get('logger')->info('Wtf?: ' . $e);
+		}
+
 		// Get the image and create a thumbnail
-		$img = imagecreatefromjpeg($filedata["tmp_name"]);
 
 		if (!$img) {
 			$this->get('logger')->info("ERROR:could not create image handle ");
@@ -98,33 +134,36 @@ class ProjectController extends Controller
 			return new Response(json_encode(array("responseCode"=>304)), "304");
 		}
 
-		if (!$request->getSession()->get("file_info")) {
-			$this->get('logger')->info('SWFUPLOAD: Creating session var file_info');
-			$request->getSession()->set("file_info", array());
+		try {
+			switch($filetype) {
+				case 1:
+					imagegif($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
+				break;
+				case 2:
+					$this->get('logger')->info('creating jpeg thumb: ' . "thumb-" . $request->request->get('Filename'));
+					imagejpeg($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
+					$this->get('logger')->info('done');
+				break;
+				case 3:
+					imagepng($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
+				break;
+				default:
+			}			
+		} catch(Exception $e) {
+			$this->get('logger')->info('Wtf?: ' . $e);
 		}
 
-		// Use a output buffering to load the image into a variable
-		ob_start();
-		imagejpeg($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
-		$imagevariable = ob_get_contents();
-		ob_end_clean();
 
-		$file_id = md5($filedata["tmp_name"] + rand()*100000);
-		
-//		$request->getSession()->set("file_info"[$file_id] = $imagevariable;
-
-
-		$response = $s3->create_object('groovecrowd', $imgPathPrefix . $request->request->get('Filename'), array(
+		$full_response = $s3->create_object('groovecrowd', $imgPathPrefix . $request->request->get('Filename'), array(
 		    'fileUpload' => $filedata['tmp_name'],
 		    'acl' => \AmazonS3::ACL_PUBLIC
 		));
 
-		$response = $s3->create_object('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'), array(
+		$thumb_response = $s3->create_object('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'), array(
 		    'fileUpload' => sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'),
 		    'acl' => \AmazonS3::ACL_PUBLIC
 		));
 
-		$this->get('logger')->info('s3 Response: ' . json_encode($response));
 		$repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
 		if($project = $repo->find($id)) {
 			$type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('web');
