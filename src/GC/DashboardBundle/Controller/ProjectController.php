@@ -38,26 +38,19 @@ class ProjectController extends Controller
 		$url = $request->request->get('url');
 		$this->get('logger')->info("adding web media from url $url for project $id");
 		$s3 = $this->get('aws_s3');
-
-	    // unset($_POST['Filename']);
-	    // unset($_POST['Upload']);
-	    // $request->request->remove('Filename');
-	    // $request->request->remove('Upload');
-	    // $request->query->remove(ini_get('session.name'));
-	    // $request->files->set('projectDescription', array(
-	    //     'file' => $request->files->get('Filedata'),
-	    // ));
-	    // $request->files->remove('Filedata');
+		$imgPathPrefix = "contest/$id/";
+		$imgThumbPathPrefix = $imgPathPrefix . "thumbs/";
 
 		// Check the upload
 		if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
 			$this->get('logger')->info("ERROR: Filedata not found");
 			return new Response(json_encode(array("responseCode"=>304)), "304");
 		}
-		$this->get('logger')->info('THERE');
+
 		$filedata = $_FILES["Filedata"];
 		// Get the image and create a thumbnail
 		$img = imagecreatefromjpeg($filedata["tmp_name"]);
+
 		if (!$img) {
 			$this->get('logger')->info("ERROR:could not create image handle ");
 			return new Response(json_encode(array("responseCode"=>304)), "304");
@@ -72,8 +65,8 @@ class ProjectController extends Controller
 		}
 
 		// Build the thumbnail
-		$target_width = 100;
-		$target_height = 100;
+		$target_width = 160;
+		$target_height = 110;
 		$target_ratio = $target_width / $target_height;
 
 		$img_ratio = $width / $height;
@@ -93,8 +86,9 @@ class ProjectController extends Controller
 			$new_height = $target_width;
 		}
 
-		$new_img = ImageCreateTrueColor(100, 100);
-		if (!@imagefilledrectangle($new_img, 0, 0, $target_width-1, $target_height-1, 0)) {	// Fill the image black
+		$new_img = ImageCreateTrueColor(160, 110);
+		$white = imagecolorallocate($new_img, 255, 255, 255);
+		if (!@imagefilledrectangle($new_img, 0, 0, $target_width-1, $target_height-1, $white)) {	// Fill the image white
 			$this->get('logger')->info("ERROR:could not fill new image ");
 			return new Response(json_encode(array("responseCode"=>304)), "304");
 		}
@@ -105,12 +99,13 @@ class ProjectController extends Controller
 		}
 
 		if (!$request->getSession()->get("file_info")) {
+			$this->get('logger')->info('SWFUPLOAD: Creating session var file_info');
 			$request->getSession()->set("file_info", array());
 		}
 
 		// Use a output buffering to load the image into a variable
 		ob_start();
-		imagejpeg($new_img);
+		imagejpeg($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
 		$imagevariable = ob_get_contents();
 		ob_end_clean();
 
@@ -119,8 +114,13 @@ class ProjectController extends Controller
 //		$request->getSession()->set("file_info"[$file_id] = $imagevariable;
 
 
-		$response = $s3->create_object('groovecrowd', $request->request->get('Filename'), array(
+		$response = $s3->create_object('groovecrowd', $imgPathPrefix . $request->request->get('Filename'), array(
 		    'fileUpload' => $filedata['tmp_name'],
+		    'acl' => \AmazonS3::ACL_PUBLIC
+		));
+
+		$response = $s3->create_object('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'), array(
+		    'fileUpload' => sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'),
 		    'acl' => \AmazonS3::ACL_PUBLIC
 		));
 
@@ -136,13 +136,14 @@ class ProjectController extends Controller
 			$em->persist($asset);
 			$em->flush();
 			$code = 200;
-			$uri = "/img/profiles/default.jpg";
+			$thumb_uri = $s3->get_object_url('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'));
+			$full_uri = $s3->get_object_url('groovecrowd', $imgPathPrefix . $request->request->get('Filename'));
 		} else {
 			$code = 404;
 			$uri = null;
 		}
 		$this->get('logger')->info("Ajax request return: $code");
-		$return = json_encode(array("responseCode"=>$code, "uri"=>$uri));
+		$return = json_encode(array("responseCode"=>$code, "uri"=>$full_uri, "thumb"=>$thumb_uri));
 		$return = new Response($return, $code);	
 
 		return $return;

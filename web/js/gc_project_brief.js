@@ -18,7 +18,9 @@
         gc_project_brief.swfu = new SWFUpload({
             // Backend Settings
             upload_url: Routing.generate('project_upload_web_asset', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(),
-
+            post_params: {
+                    'projectDescription[_token]': $('#projectDescription__token').attr('value')
+            },
             // File Upload Settings
             file_size_limit : "12 MB",   // 12MB
             file_types : "*.jpg; *.png; *.gif; *.avi; *.mp4; *.m4v; *.mpg",
@@ -126,7 +128,7 @@
             var data = JSON.parse(serverData);
 
             if (data.responseCode == "200") {
-                addImage(data.uri);
+                addRealImage(data.uri, data.thumb);
 
                 progress.setStatus("Thumbnail Created.");
                 progress.toggleCancel(false);
@@ -202,9 +204,45 @@
     }
 
 
+    function addRealImage(full, thumb) {
+        var node = $('<li />')
+            .addClass('span2')
+            .append($('<a />', {
+                        href: full
+                    }
+                )
+                .addClass("thumbnail")
+                .append($('<img />', {
+                        src: thumb
+                    })
+                )
+            )
+
+        var newImg = $(node).find('img')[0];
+        $("#thumbnails").append(node);
+        if (newImg.filters) {
+            try {
+                newImg.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
+            } catch (e) {
+                // If it is not set initially, the browser will throw an error.  This will set it if it is not set yet.
+                newImg.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + 0 + ')';
+            }
+        } else {
+            newImg.style.opacity = 0;
+        }
+
+        newImg.onload = function () {
+            fadeIn(newImg, 0);
+        };
+        newImg.src = src;
+    }
+
     function addImage(src) {
         var node = $('<li />')
             .addClass('span2')
+            .append($('<a />'), {
+                href: ""
+            })
             .append(
                 $('<img />', {
                     src: src
