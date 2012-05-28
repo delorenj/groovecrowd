@@ -1,5 +1,7 @@
 <?php
-
+if (array_key_exists(ini_get('session.name'), $_GET)) {
+    $_COOKIE[ini_get('session.name')] = $_GET[ini_get('session.name')];
+}
 // if you don't want to setup permissions the proper way, just uncomment the following PHP line
 // read http://symfony.com/doc/current/book/installation.html#configuration-and-setup for more information
 //umask(0000);

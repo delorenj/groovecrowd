@@ -17,12 +17,12 @@
         var project_id = $("form[id^='project']").attr("id").split("-")[1]                 
         gc_project_brief.swfu = new SWFUpload({
             // Backend Settings
-            upload_url: Routing.generate('project_upload_web_asset', {"id": project_id}),
+            upload_url: Routing.generate('project_upload_web_asset', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(),
 
             // File Upload Settings
             file_size_limit : "12 MB",   // 12MB
-            file_types : "*.jpg",
-            file_types_description : "JPG Images",
+            file_types : "*.jpg; *.png; *.gif; *.avi; *.mp4; *.m4v; *.mpg",
+            file_types_description : "Images and Videos",
             file_upload_limit : "0",
 
             // Event Handler Settings - these functions as defined in Handlers.js
@@ -123,9 +123,10 @@
     function uploadSuccess(file, serverData) {
         try {
             var progress = new FileProgress(file,  this.customSettings.upload_target);
+            var data = JSON.parse(serverData);
 
-            if (serverData.substring(0, 7) === "FILEID:") {
-                addImage("thumbnail.php?id=" + serverData.substring(7));
+            if (data.responseCode == "200") {
+                addImage(data.uri);
 
                 progress.setStatus("Thumbnail Created.");
                 progress.toggleCancel(false);
@@ -134,7 +135,6 @@
                 progress.setStatus("Error.");
                 progress.toggleCancel(false);
                 alert(serverData);
-
             }
 
 
@@ -203,10 +203,16 @@
 
 
     function addImage(src) {
-        var newImg = document.createElement("img");
-        newImg.style.margin = "5px";
+        var node = $('<li />')
+            .addClass('span2')
+            .append(
+                $('<img />', {
+                    src: src
+                })
+            )
 
-        document.getElementById("thumbnails").appendChild(newImg);
+        var newImg = $(node).find('img')[0];
+        $("#thumbnails").append(node);
         if (newImg.filters) {
             try {
                 newImg.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;

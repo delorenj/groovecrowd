@@ -83,7 +83,6 @@
 								<span id="spanButtonPlaceholder"></span>
 							</div>
 							<div id="divFileProgressContainer" style="height: 75px;"></div>
-							<div id="thumbnails"></div>
 						</div>
 					</div>
 					<div class="tab-pane" id="tab2">
@@ -101,7 +100,7 @@
 				  <p>Have a video or image? Add some media to enhance your listing</p>
 				</div>
 				{% else %}
-				<ul class="thumbnails yoxview">
+				<ul id="thumbnails" class="thumbnails yoxview">
 					{% for item in assets %}
 					  <li class="span2">
 					    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
@@ -113,6 +112,8 @@
 				{% endif %}
 			</div>
 		</fieldset>
+		<input id="session_name" type="hidden" value="{{session.name}}" />
+		<input id="session_id" type="hidden" value="{{session.id}}" />
 		{{ form_rest(form) }}
 		{{ parent() }}
 		<a id="backbutton" class="btn btn-primary" href="{{ path('project_category_select') }}">Back</a>

@@ -43,5 +43,8 @@ project_remove_tag:
 project_upload_web_asset:
     pattern: /project/{id}/media/add
     defaults: { _controller: GCDashboardBundle:Project:uploadWebAsset }
+    requirements:
+        _method: POST
+        id: \d+
     options:
         expose: true
