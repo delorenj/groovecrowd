@@ -27,15 +27,16 @@ class ProjectDescriptionType extends AbstractType
     		'required' => false,
     		'label' => "Tags"));
 
-    	$builder->add('media_upload', "file", array(
-    		'property_path' => false,
-    		'required' => false,
-    		'label' => "Upload Media"));
-
     	$builder->add('web_upload', "url", array(
     		'property_path' => false,
     		'required' => false,
-    		'label' => "Link"));
+    		'label' => "URL"));
+
+    	$builder->add('web_upload_description', "textarea", array(
+    		'property_path' => false,
+    		'required' => false,
+    		'label' => "Description"));
+
 	}
 
 	public function getName() {

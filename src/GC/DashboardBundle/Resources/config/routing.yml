@@ -40,20 +40,27 @@ project_remove_tag:
     options:
         expose: true
 
-project_upload_web_asset:
-    pattern: /project/{id}/media/add
-    defaults: { _controller: GCDashboardBundle:Project:uploadWebAsset }
+asset_delete:
+    pattern: /project/{id}/media/delete/{aid}
+    defaults: { _controller: GCDashboardBundle:Asset:delete }
     requirements:
         _method: POST
-        id: \d+
+        aid: \d+
     options:
         expose: true
 
-project_upload_video_asset:
-    pattern: /project/{id}/video/add
-    defaults: { _controller: GCDashboardBundle:Project:uploadVideoAsset }
+asset_upload:
+    pattern: /project/{id}/media/add
+    defaults: { _controller: GCDashboardBundle:Asset:uploadImageOrVideo }
     requirements:
         _method: POST
-        id: \d+
+    options:
+        expose: true
+
+asset_upload_video:
+    pattern: /project/{id}/video/add
+    defaults: { _controller: GCDashboardBundle:Asset:uploadVideo }
+    requirements:
+        _method: POST
     options:
         expose: true

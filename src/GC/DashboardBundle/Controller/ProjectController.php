@@ -33,160 +33,6 @@ class ProjectController extends Controller
         	array('project' => $project));
 	}
 
-	public function uploadVideoAssetAction(Request $request, $id) {
-		return new Response(json_encode(array("responseCode"=>301)), "301");
-	}
-
-	public function uploadWebAssetAction(Request $request, $id) {
-		$em = $this->getDoctrine()->getEntityManager();
-		$url = $request->request->get('url');
-		$this->get('logger')->info("adding web media from url $url for project $id");
-		$s3 = $this->get('aws_s3');
-		$imgPathPrefix = "contest/$id/";
-		$imgThumbPathPrefix = $imgPathPrefix . "thumbs/";
-
-		// Check the upload
-		if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
-			$this->get('logger')->info("ERROR: Filedata not found");
-			return new Response(json_encode(array("responseCode"=>304)), "304");
-		}
-
-		$filedata = $_FILES["Filedata"];
-
-		if(!$filetype = exif_imagetype($filedata["tmp_name"])) {
-			//Maybe a video?
-			$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-			$mimetype = finfo_file($finfo, $filedata["tmp_name"]);
-			finfo_close($finfo);			
-			$this->get('logger')->info('finfo: ' . $mimetype);
-			$majortype = explode('/', $mimetype);
-			$majortype = $majortype[0];
-			if($majortype == "video") {
-				$this->get('logger')->info('Video found! forwarding to video processing controller');
-				return $this->forward('GCDashboardBundle:Project:uploadVideoAsset', array('id' => $id));
-			}
-		}
-		$this->get('logger')->info('filetype: ' . $filetype);
-
-		try {
-			switch($filetype) {
-				case 1:
-					$img = imagecreatefromgif($filedata["tmp_name"]);
-				break;
-				case 2:
-					$img = imagecreatefromjpeg($filedata["tmp_name"]);
-				break;
-				case 3:
-					$img = imagecreatefrompng($filedata["tmp_name"]);			
-				break;
-				default:
-			}			
-		} catch(Exception $e) {
-			$this->get('logger')->info('Wtf?: ' . $e);
-		}
-
-		// Get the image and create a thumbnail
-
-		if (!$img) {
-			$this->get('logger')->info("ERROR:could not create image handle ");
-			return new Response(json_encode(array("responseCode"=>304)), "304");
-		}
-
-		$width = imageSX($img);
-		$height = imageSY($img);
-
-		if (!$width || !$height) {
-			$this->get('logger')->info("ERROR:Invalid width or height ");
-			return new Response(json_encode(array("responseCode"=>304)), "304");
-		}
-
-		// Build the thumbnail
-		$target_width = 160;
-		$target_height = 110;
-		$target_ratio = $target_width / $target_height;
-
-		$img_ratio = $width / $height;
-
-		if ($target_ratio > $img_ratio) {
-			$new_height = $target_height;
-			$new_width = $img_ratio * $target_height;
-		} else {
-			$new_height = $target_width / $img_ratio;
-			$new_width = $target_width;
-		}
-
-		if ($new_height > $target_height) {
-			$new_height = $target_height;
-		}
-		if ($new_width > $target_width) {
-			$new_height = $target_width;
-		}
-
-		$new_img = ImageCreateTrueColor(160, 110);
-		$white = imagecolorallocate($new_img, 255, 255, 255);
-		if (!@imagefilledrectangle($new_img, 0, 0, $target_width-1, $target_height-1, $white)) {	// Fill the image white
-			$this->get('logger')->info("ERROR:could not fill new image ");
-			return new Response(json_encode(array("responseCode"=>304)), "304");
-		}
-
-		if (!@imagecopyresampled($new_img, $img, ($target_width-$new_width)/2, ($target_height-$new_height)/2, 0, 0, $new_width, $new_height, $width, $height)) {
-			$this->get('logger')->info("ERROR:could not resize image");
-			return new Response(json_encode(array("responseCode"=>304)), "304");
-		}
-
-		try {
-			switch($filetype) {
-				case 1:
-					imagegif($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
-				break;
-				case 2:
-					$this->get('logger')->info('creating jpeg thumb: ' . "thumb-" . $request->request->get('Filename'));
-					imagejpeg($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
-					$this->get('logger')->info('done');
-				break;
-				case 3:
-					imagepng($new_img, sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'));
-				break;
-				default:
-			}			
-		} catch(Exception $e) {
-			$this->get('logger')->info('Wtf?: ' . $e);
-		}
-
-
-		$full_response = $s3->create_object('groovecrowd', $imgPathPrefix . $request->request->get('Filename'), array(
-		    'fileUpload' => $filedata['tmp_name'],
-		    'acl' => \AmazonS3::ACL_PUBLIC
-		));
-
-		$thumb_response = $s3->create_object('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'), array(
-		    'fileUpload' => sys_get_temp_dir() . "thumb-" . $request->request->get('Filename'),
-		    'acl' => \AmazonS3::ACL_PUBLIC
-		));
-
-		$repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
-		if($project = $repo->find($id)) {
-			$type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('web');
-			$asset = new ProjectAsset();
-			$asset->setAssetType($type);
-			$asset->setUri($url);
-			$asset->setCreatedAt(new \DateTime('now'));
-			$asset->setProject($project);
-			$em->persist($asset);
-			$em->flush();
-			$code = 200;
-			$thumb_uri = $s3->get_object_url('groovecrowd', $imgThumbPathPrefix . $request->request->get('Filename'));
-			$full_uri = $s3->get_object_url('groovecrowd', $imgPathPrefix . $request->request->get('Filename'));
-		} else {
-			$code = 404;
-			$uri = null;
-		}
-		$this->get('logger')->info("Ajax request return: $code");
-		$return = json_encode(array("responseCode"=>$code, "uri"=>$full_uri, "thumb"=>$thumb_uri));
-		$return = new Response($return, $code);	
-
-		return $return;
-	}
 
 	public function removeTagAction(Request $request, $id, $tag) {
 		$this->get('logger')->info("removing tag $tag from project $id");
@@ -306,7 +152,7 @@ class ProjectController extends Controller
 				array(	"phase" => $phase,
 					 	"form" => $form->createView(), 
 					 	"tag_list" => $tag_list, 
-					 	"id" => $project->getId(),
+					 	"id" => Helpers::idToCode($project->getId()),
 					    'session' => array(
 					        'name' => ini_get('session.name'),
 					        'id' => session_id(),
@@ -333,7 +179,7 @@ class ProjectController extends Controller
 					array(	"phase" => $phase,
 						 	"form" => $form->createView(), 
 						 	"tag_list" => $tag_list, 
-						 	"id" => $project->getId(),
+						 	"id" => Helpers::idToCode($project->getId()),
 						 	"assets" => $project->getAssets()));			
 			}
 		}

@@ -47,16 +47,7 @@
 					{{ form_widget(form.contest_length, {'attr': {'class': 'input-xlarge'}}) }}
 					<p class="help-block">{{ form_errors(form.contest_length) }}</p>	
 				</div>			    			    
-			</div>			
-<!-- 			<div class="control-group project-length-control">
-				<label for="project-length" class="control-label">Contest Length</label>
-				<div class="controls">
-					<div class="slider">
-						<h4>hi</h4>
-					</div>
-					<p class="help-block"></p>	
-				</div>			    			    
-			</div>		 -->							
+			</div>									
 			<div class="control-group gc-control-label">
 				{{ form_label(form.tag_list) }}
 				<div class="controls">
@@ -87,7 +78,8 @@
 					</div>
 					<div class="tab-pane" id="tab2">
 						<div class="control-group gc-control-label">
-							{{ form_widget(form.web_upload) }}
+							{{ form_row(form.web_upload) }}
+							{{ form_row(form.web_upload_description) }}
 							<button id="upload-btn" class="btn">Upload</button>
 							<p class="help-block">{{ form_errors(form.web_upload) }}</p>	
 						</div>
@@ -99,17 +91,17 @@
 				<div class="alert alert-info">
 				  <p>Have a video or image? Add some media to enhance your listing</p>
 				</div>
-				{% else %}
+				{% endif %}
 				<ul id="thumbnails" class="thumbnails yoxview">
 					{% for item in assets %}
-					  <li class="span2">
-					    <a href="{{ asset('img/profiles/default.jpg') }}" class="thumbnail">
-					      <img src="http://placehold.it/260x180" alt="">
-					    </a>
-					  </li>
-					{% endfor %}
+					 	<li id='asset-{{item.id}}' class="span2">
+					    	<a href="{{ item.uri }}" class="thumbnail">
+					      		<img src="{{ item.thumbUri }}" alt="">
+					      		<button class="close">&times;</button>
+					    	</a>
+					  	</li>
+					{% endfor %}			
 				</ul>
-				{% endif %}
 			</div>
 		</fieldset>
 		<input id="session_name" type="hidden" value="{{session.name}}" />

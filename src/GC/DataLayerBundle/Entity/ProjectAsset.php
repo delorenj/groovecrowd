@@ -29,6 +29,13 @@ class ProjectAsset
     private $uri;
 
     /**
+     * @var string $thumbUri
+     *
+     * @ORM\Column(name="thumb_uri", type="string", length=255, nullable=true)
+     */
+    private $thumbUri;
+
+    /**
      * @var text $caption
      *
      * @ORM\Column(name="caption", type="text", nullable=true)
@@ -170,5 +177,25 @@ class ProjectAsset
     public function getProject()
     {
         return $this->project;
+    }
+
+    /**
+     * Set thumbUri
+     *
+     * @param string $thumbUri
+     */
+    public function setThumbUri($thumbUri)
+    {
+        $this->thumbUri = $thumbUri;
+    }
+
+    /**
+     * Get thumbUri
+     *
+     * @return string 
+     */
+    public function getThumbUri()
+    {
+        return $this->thumbUri;
     }
 }

@@ -17,13 +17,11 @@
         var project_id = $("form[id^='project']").attr("id").split("-")[1]                 
         gc_project_brief.swfu = new SWFUpload({
             // Backend Settings
-            upload_url: Routing.generate('project_upload_web_asset', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(),
-            post_params: {
-                    'projectDescription[_token]': $('#projectDescription__token').attr('value')
-            },
+            upload_url: Routing.generate('asset_upload', {"id": project_id}),
+
             // File Upload Settings
             file_size_limit : "12 MB",   // 12MB
-            file_types : "*.jpg; *.png; *.gif; *.avi; *.mp4; *.m4v; *.mpg",
+            file_types : "*.jpg; *.jpeg, *.png; *.gif; *.avi; *.mp4; *.m4v; *.mpg; *.mpeg",
             file_types_description : "Images and Videos",
             file_upload_limit : "0",
 
@@ -85,8 +83,6 @@
                 break;
             }
 
-            addImage(imgPath + imageName);
-
         } catch (ex) {
             this.debug(ex);
         }
@@ -128,15 +124,13 @@
             var data = JSON.parse(serverData);
 
             if (data.responseCode == "200") {
-                addRealImage(data.uri, data.thumb);
+                addRealImage(data.uri, data.thumb, data.id);
 
                 progress.setStatus("Thumbnail Created.");
                 progress.toggleCancel(false);
             } else {
-                addImage(imgPath + "error.gif");
                 progress.setStatus("Error.");
                 progress.toggleCancel(false);
-                alert(serverData);
             }
 
 
@@ -195,8 +189,6 @@
                 break;
             }
 
-            addImage(imgPath + imageName);
-
         } catch (ex3) {
             this.debug(ex3);
         }
@@ -205,7 +197,9 @@
 
 
     function addRealImage(full, thumb) {
-        var node = $('<li />')
+        var node = $('<li />', {
+                attr: "asset-" + id
+            })
             .addClass('span2')
             .append($('<a />', {
                         href: full
@@ -216,37 +210,6 @@
                         src: thumb
                     })
                 )
-            )
-
-        var newImg = $(node).find('img')[0];
-        $("#thumbnails").append(node);
-        if (newImg.filters) {
-            try {
-                newImg.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
-            } catch (e) {
-                // If it is not set initially, the browser will throw an error.  This will set it if it is not set yet.
-                newImg.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + 0 + ')';
-            }
-        } else {
-            newImg.style.opacity = 0;
-        }
-
-        newImg.onload = function () {
-            fadeIn(newImg, 0);
-        };
-        newImg.src = src;
-    }
-
-    function addImage(src) {
-        var node = $('<li />')
-            .addClass('span2')
-            .append($('<a />'), {
-                href: ""
-            })
-            .append(
-                $('<img />', {
-                    src: src
-                })
             )
 
         var newImg = $(node).find('img')[0];
@@ -405,7 +368,7 @@ $(document).ready(function() {
 
     $("#upload-btn").click(function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];        
-        $.post(Routing.generate('project_upload_web_asset', { "id": project_id }), {
+        $.post(Routing.generate('asset_from_web', { "id": project_id }), {
                 url: $("#projectDescription_web_upload").val()
             }, function(data) {
                 alert("yay!: " + data);
@@ -414,5 +377,21 @@ $(document).ready(function() {
         return false;
     });
 
-    $(".yoxview").yoxview({ skin: "top_menu" });
+    $(".thumbnail button.close").click(function() {
+        var project_id = $("form[id^='project']").attr("id").split("-")[1];
+        var asset_id = $(this).closest('li').attr('id').split('-')[1];
+        $.post(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}), function(data) {
+            if(data.responseCode == "200") {
+                $(this).closest('li').fadeOut(function() {
+                    $(this).remove();
+                })
+            } else {
+                alert("error!");
+            }
+        })
+    });
+
+    $(".yoxview").yoxview({ 
+        skin: "top_menu",
+        backgroundColor: "#ffffff" });
 });
