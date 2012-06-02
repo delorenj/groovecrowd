@@ -196,22 +196,12 @@
     }
 
 
-    function addRealImage(full, thumb) {
-        var node = $('<li />', {
-                attr: "asset-" + id
-            })
-            .addClass('span2')
-            .append($('<a />', {
-                        href: full
-                    }
-                )
-                .addClass("thumbnail")
-                .append($('<img />', {
-                        src: thumb
-                    })
-                )
-            )
-
+    function addRealImage(full, thumb, id) {
+        var source   = $("#asset-thumbnail-template").html();
+        var template = Handlebars.compile(source);
+        var context = {id: id, uri: full, thumbUri: thumb}
+        var html = template(context);
+        var node = $(html);
         var newImg = $(node).find('img')[0];
         $("#thumbnails").append(node);
         if (newImg.filters) {

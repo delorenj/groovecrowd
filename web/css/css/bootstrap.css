@@ -4438,4 +4438,8 @@ span.price {
   position: absolute;
   top: 5px;
   right: 5px;
+  display: none;
+}
+.thumbnail:hover button.close {
+  display: block;
 }
