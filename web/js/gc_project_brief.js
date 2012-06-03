@@ -13,11 +13,11 @@
     }
 
     gc_project_brief.initSWFUpload = function() {
-        console.log("init swfupload");
+        console.log("init swfupload: " + Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val());
         var project_id = $("form[id^='project']").attr("id").split("-")[1]                 
         gc_project_brief.swfu = new SWFUpload({
             // Backend Settings
-            upload_url: Routing.generate('asset_upload', {"id": project_id}),
+            upload_url: Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(),
 
             // File Upload Settings
             file_size_limit : "1000 MB",   // 12MB
@@ -333,7 +333,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $(".thumbnail button.close").click(function() {
+    $(".thumbnail button.close").on("click", function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];
         var asset_id = $(this).closest('li').attr('id').split('-')[1];
         $.post(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}), function(data) {
@@ -345,7 +345,7 @@ $(document).ready(function() {
                 alert("error!");
             }
         })
-    });
+    })  ;
 
     $(".yoxview").yoxview({ 
         skin: "top_menu",

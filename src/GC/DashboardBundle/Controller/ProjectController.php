@@ -219,7 +219,7 @@ class ProjectController extends Controller
 				return $this->redirect($this->generateUrl('project_payment'));
 			} else {
 				return $this->render('GCDashboardBundle:Project:package_select.html.twig', 
-					array(	"id" => $code, 
+					array(	"id" => Helpers::idToCode($project->getId()), 
 							"phase" => $phase, 
 							"project" => $project, 
 							"prices" => $prices, 
@@ -279,6 +279,7 @@ class ProjectController extends Controller
 				$project->setExpiresAt(new \DateTime("now + " . $project->getContestLength() . " day"));
 				$em->persist($project);
 				$em->flush();
+				$request->getSession()->set("continueCode", "");
 				if($this->get('security.context')->getToken()->getUser() == "anon.") {
 					$this->get('logger')->info("-------------------USER IS NOT LOGGED IN ------------------");
 					$token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));

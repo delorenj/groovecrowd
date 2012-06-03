@@ -55,7 +55,7 @@ class AssetController extends Controller
         /***
         /* If anonymous, translate code to id
         /**/
-        if($this->get('security.context')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
+        if(false === $this->get('security.context')->isGranted('ROLE_USER')) {
             $this->get('logger')->info('ANONYMOUS UPLOAD DETECTED: ' . $id);
             if(preg_match("/^\d+$/", $id) == 1) {
                 return Helpers::buildJSONResponse(301, "Invalid project id format");
@@ -63,6 +63,12 @@ class AssetController extends Controller
                 $id = Helpers::codeToId($id);
                 $codified = true;
                 $this->get('logger')->info('Translated code: ' . $id);
+            }
+        } else {
+            if(preg_match("/^[A-Z\d]+$/", $id) == 1) {
+                $id = Helpers::codeToId($id);
+                $codified = true;
+                $this->get('logger')->info('Translated code: ' . $id);                
             }
         }
 
@@ -195,6 +201,7 @@ class AssetController extends Controller
     }   
 
     public function deleteAsset(Request $request, $id) {
+        $this->get('logger')->info(json_encode($_POST));
         return new Response(json_encode(array("responseCode"=>301)), "301");
     }
 
