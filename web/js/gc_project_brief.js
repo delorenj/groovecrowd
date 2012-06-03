@@ -20,7 +20,7 @@
             upload_url: Routing.generate('asset_upload', {"id": project_id}),
 
             // File Upload Settings
-            file_size_limit : "12 MB",   // 12MB
+            file_size_limit : "1000 MB",   // 12MB
             file_types : "*.jpg; *.jpeg, *.png; *.gif; *.avi; *.mp4; *.m4v; *.mpg; *.mpeg",
             file_types_description : "Images and Videos",
             file_upload_limit : "0",
@@ -57,24 +57,26 @@
 
     //Private Methods
     function fileQueueError(file, errorCode, message) {
+        console.log("fileQueueError: " + message);        
         try {
-            var imageName = "error.gif";
-            var errorName = "";
+            var source = $("#file-upload-template").html();
+            var template = Handlebars.compile(source);
             if (errorCode === SWFUpload.errorCode_QUEUE_LIMIT_EXCEEDED) {
                 errorName = "You have attempted to queue too many files.";
             }
 
-            if (errorName !== "") {
-                alert(errorName);
-                return;
-            }
+            // if (errorName !== "") {
+            //     alert(errorName);
+            //     return;
+            // }
 
             switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
                 imageName = "zerobyte.gif";
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-                imageName = "toobig.gif";
+                var html = template({percentage: "0", "message": "Sorry, that file is too big!", "messagetype": "alert-error"});
+                $("#divFileProgressContainer").html(html);
                 break;
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
@@ -90,6 +92,7 @@
     }
 
     function fileDialogComplete(numFilesSelected, numFilesQueued) {
+        console.log("fileDialogComplete: " + numFilesQueued);        
         try {
             if (numFilesQueued > 0) {
                 this.startUpload();
@@ -100,17 +103,17 @@
     }
 
     function uploadProgress(file, bytesLoaded) {
-
+        console.log("uploadProgress: " + bytesLoaded);
         try {
             var percent = Math.ceil((bytesLoaded / file.size) * 100);
 
             var progress = new FileProgress(file,  this.customSettings.upload_target);
-            progress.setProgress(percent);
+            progress.setProgress(100);
             if (percent === 100) {
                 progress.setStatus("Creating thumbnail...");
                 progress.toggleCancel(false, this);
             } else {
-                progress.setStatus("Uploading...");
+                progress.setStatus("Uploading " + file.name + "...");
                 progress.toggleCancel(true, this);
             }
         } catch (ex) {
@@ -119,20 +122,20 @@
     }
 
     function uploadSuccess(file, serverData) {
+        console.log("uploadSuccess");        
         try {
             var progress = new FileProgress(file,  this.customSettings.upload_target);
-            var data = JSON.parse(serverData);
+            var response = JSON.parse(serverData);
 
-            if (data.responseCode == "200") {
-                addRealImage(data.uri, data.thumb, data.id);
+            if (response.OK == 1) {
+                addRealImage(response.data.uri, response.data.thumb, response.data.id);
 
-                progress.setStatus("Thumbnail Created.");
+                progress.setStatus("Your file is uploaded!");
                 progress.toggleCancel(false);
             } else {
-                progress.setStatus("Error.");
+                progress.setStatus("Oops! Something went wrong =(");
                 progress.toggleCancel(false);
             }
-
 
         } catch (ex) {
             this.debug(ex);
@@ -140,15 +143,15 @@
     }
 
     function uploadComplete(file) {
+        console.log("uploadComplete");
         try {
             /*  I want the next upload to continue automatically so I'll call startUpload here */
             if (this.getStats().files_queued > 0) {
                 this.startUpload();
             } else {
                 var progress = new FileProgress(file,  this.customSettings.upload_target);
-                progress.setComplete();
-                progress.setStatus("All images received.");
-                progress.toggleCancel(false);
+                progress.setComplete();             
+                //progress.toggleCancel(false);
             }
         } catch (ex) {
             this.debug(ex);
@@ -156,6 +159,7 @@
     }
 
     function uploadError(file, errorCode, message) {
+        console.log("uploadError: " + message);        
         var imageName =  "error.gif";
         var progress;
         try {
@@ -257,87 +261,49 @@
      * ****************************************** */
 
     function FileProgress(file, targetID) {
+        var source   = $("#file-upload-template").html();
+        this.template = Handlebars.compile(source);
+        var context = {percentage: "100", message: "Your file is <strong>Uploading...</strong>", messagetype: "alert-info"}
+        var html = this.template(context);
+
+        $("#divFileProgressContainer").html(html);
         this.fileProgressID = "divFileProgress";
-
-        this.fileProgressWrapper = document.getElementById(this.fileProgressID);
-        if (!this.fileProgressWrapper) {
-            this.fileProgressWrapper = document.createElement("div");
-            this.fileProgressWrapper.className = "progressWrapper";
-            this.fileProgressWrapper.id = this.fileProgressID;
-
-            this.fileProgressElement = document.createElement("div");
-            this.fileProgressElement.className = "progressContainer";
-
-            var progressCancel = document.createElement("a");
-            progressCancel.className = "progressCancel";
-            progressCancel.href = "#";
-            progressCancel.style.visibility = "hidden";
-            progressCancel.appendChild(document.createTextNode(" "));
-
-            var progressText = document.createElement("div");
-            progressText.className = "progressName";
-            progressText.appendChild(document.createTextNode(file.name));
-
-            var progressBar = document.createElement("div");
-            progressBar.className = "progressBarInProgress";
-
-            var progressStatus = document.createElement("div");
-            progressStatus.className = "progressBarStatus";
-            progressStatus.innerHTML = "&nbsp;";
-
-            this.fileProgressElement.appendChild(progressCancel);
-            this.fileProgressElement.appendChild(progressText);
-            this.fileProgressElement.appendChild(progressStatus);
-            this.fileProgressElement.appendChild(progressBar);
-
-            this.fileProgressWrapper.appendChild(this.fileProgressElement);
-
-            document.getElementById(targetID).appendChild(this.fileProgressWrapper);
-            fadeIn(this.fileProgressWrapper, 0);
-
-        } else {
-            this.fileProgressElement = this.fileProgressWrapper.firstChild;
-            this.fileProgressElement.childNodes[1].firstChild.nodeValue = file.name;
-        }
-
-        this.height = this.fileProgressWrapper.offsetHeight;
 
     }
     FileProgress.prototype.setProgress = function (percentage) {
-        this.fileProgressElement.className = "progressContainer green";
-        this.fileProgressElement.childNodes[3].className = "progressBarInProgress";
-        this.fileProgressElement.childNodes[3].style.width = percentage + "%";
+        var html = this.template({percentage: percentage, message: "Your file is <strong>Uploading...</strong>", messagetype: "alert-info"});
+        $("#divFileProgressContainer").html(html);
     };
     FileProgress.prototype.setComplete = function () {
-        this.fileProgressElement.className = "progressContainer blue";
-        this.fileProgressElement.childNodes[3].className = "progressBarComplete";
-        this.fileProgressElement.childNodes[3].style.width = "";
-
+        var html = this.template({percentage: 100, message: "Your file is <strong>Uploaded!</strong>", messagetype: "alert-success"});
+        $("#divFileProgressContainer").html(html).find("div.progress").removeClass("active");
+        setTimeout(function(){
+            $("#divFileProgress").fadeOut();
+        }, 2000);
     };
     FileProgress.prototype.setError = function () {
-        this.fileProgressElement.className = "progressContainer red";
-        this.fileProgressElement.childNodes[3].className = "progressBarError";
-        this.fileProgressElement.childNodes[3].style.width = "";
+        var html = this.template({percentage: 0, message: "<strong>Oops!</strong> Something went wrong =(", messagetype: "alert-error"});
+        $("#divFileProgressContainer").html(html);        
 
     };
     FileProgress.prototype.setCancelled = function () {
-        this.fileProgressElement.className = "progressContainer";
-        this.fileProgressElement.childNodes[3].className = "progressBarError";
-        this.fileProgressElement.childNodes[3].style.width = "";
-
+        var html = this.template({percentage: 0, message: "Your file upload was <strong>Cancelled</strong>", messagetype: ""});
+        $("#divFileProgressContainer").html(html);        
     };
+
     FileProgress.prototype.setStatus = function (status) {
-        this.fileProgressElement.childNodes[2].innerHTML = status;
+        $("#file-upload-message").html(status);        
     };
 
     FileProgress.prototype.toggleCancel = function (show, swfuploadInstance) {
-        this.fileProgressElement.childNodes[0].style.visibility = show ? "visible" : "hidden";
+        var visibility = show ? "visible" : "hidden";
+        $("#divFileProgressContainer").css("visibility", visibility);
         if (swfuploadInstance) {
             var fileID = this.fileProgressID;
-            this.fileProgressElement.childNodes[0].onclick = function () {
+            $("#divFileProgressContainer").click(function() {
                 swfuploadInstance.cancelUpload(fileID);
                 return false;
-            };
+            });
         }
     };        
  

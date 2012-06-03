@@ -1,6 +1,7 @@
 <?php
-
 namespace GC\DataLayerBundle;
+
+use Symfony\Component\HttpFoundation\Response;
 
 setlocale(LC_ALL, 'en_US.UTF8');
 
@@ -17,6 +18,17 @@ class Helpers {
                 $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
 
                 return $clean;
+        }
+
+        static function buildJSONResponse($code, $msg, $data=array()) {
+          $ok = (int)($code == 200);
+          $resp = array(
+            "OK" => $ok,
+            "code" => $code,
+            "msg" => $msg,
+            "data" => $data);
+          
+          return new Response(json_encode($resp), $code);
         }
 
         static function dec2string($decimal, $base) 

@@ -1,7 +1,7 @@
 parameters:
-#    gc_dashboard.example.class: GC\DashboardBundle\Example
+    acl_helper.class: GC\DashboardBundle\Services\AclHelper
 
 services:
-#    gc_dashboard.example:
-#        class: %gc_dashboard.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    acl_helper:
+        class:  %acl_helper.class%
+        arguments: [@security.acl.provider, @security.context, @logger]
