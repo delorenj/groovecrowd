@@ -65,7 +65,7 @@ class AssetController extends Controller
                 $this->get('logger')->info('Translated code: ' . $id);
             }
         } else {
-            if(preg_match("/^[A-Z\d]+$/", $id) == 1) {
+            if(preg_match("/[A-Z]$/", $id) == 1) {
                 $id = Helpers::codeToId($id);
                 $codified = true;
                 $this->get('logger')->info('Translated code: ' . $id);                
@@ -201,7 +201,9 @@ class AssetController extends Controller
     }   
 
     public function deleteAction(Request $request, $id) {
-        return Helpers::buildJSONResponse(301, "Not yet implemented");
+        // $this->get('logger')->info(Helpers::buildJSONResponse(301, "Not yet implemented"));
+        // return Helpers::buildJSONResponse(200, "Not yet implemented");
+        return new Response(json_encode(array("OK" => "1", "code" => 200, "msg" => "thanks")), 200);
     }
 
     protected function createThumbnail($img, $target_width, $target_height) {

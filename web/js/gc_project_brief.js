@@ -339,15 +339,10 @@ $(document).ready(function() {
     $(".thumbnail button.close").on("click", function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];
         var asset_id = $(this).closest('li').attr('id').split('-')[1];
+        console.log(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}));
         $.post(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}), function(data) {
-            if(data.responseCode == "200") {
-                $(this).closest('li').fadeOut(function() {
-                    $(this).remove();
-                })
-            } else {
-                alert("error!");
-            }
-        })
+            alert("balls");
+        }, "json");
         return false;
     });
 

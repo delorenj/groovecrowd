@@ -132,12 +132,19 @@ class ProjectController extends Controller
 
 	public function briefAction(Request $request) {
 		$em = $this->getDoctrine()->getEntityManager();
+		$userManager = $this->container->get('fos_user.user_manager');		
 		$phase = 2;
 		$project = $this->projectFromSession($request);
 		$progress = $this->progressFromProject($project);
 		if($redirect = $this->progressRedirect($progress, $phase)) {
 			return $this->redirect($redirect);
 		}
+
+    	if(false === $this->get('security.context')->isGranted('ROLE_USER')) {
+    		$project_id = Helpers::idToCode($project->getId());
+    	} else {
+    		$project_id = $project->getId();
+    	}
 
 		$form = $this->createForm(new ProjectDescriptionType(), $project);
 		$tags = $project->getTags();
@@ -152,7 +159,7 @@ class ProjectController extends Controller
 				array(	"phase" => $phase,
 					 	"form" => $form->createView(), 
 					 	"tag_list" => $tag_list, 
-					 	"id" => Helpers::idToCode($project->getId()),
+					 	"id" => $project_id,
 					    'session' => array(
 					        'name' => ini_get('session.name'),
 					        'id' => session_id(),
@@ -179,7 +186,7 @@ class ProjectController extends Controller
 					array(	"phase" => $phase,
 						 	"form" => $form->createView(), 
 						 	"tag_list" => $tag_list, 
-						 	"id" => Helpers::idToCode($project->getId()),
+						 	"id" => $project_id,
 						 	"assets" => $project->getAssets()));			
 			}
 		}
