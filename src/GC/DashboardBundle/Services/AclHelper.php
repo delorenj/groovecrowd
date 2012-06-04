@@ -21,20 +21,24 @@ class AclHelper {
     }	
 
     public function bindUserToObject($object, $mask) {
-      if($this->securityContext->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
+      if(false === $this->securityContext->isGranted('ROLE_USER')) {
+        $this->logger->info('No ACL: Anonymous');
       	return 0;
       } 	
       // creating the ACL
+      $this->logger->info('Creating the ACL');
       $objectIdentity = ObjectIdentity::fromDomainObject($object);
-      $acl = $aclProvider->createAcl($objectIdentity);
+      $acl = $this->aclProvider->createAcl($objectIdentity);
 
       // retrieving the security identity of the currently logged-in user
+      $this->logger->info('Retrieving the security identity of the currently logged-in user');      
       $user = $this->securityContext->getToken()->getUser();
       $securityIdentity = UserSecurityIdentity::fromAccount($user);
 
       // grant owner access
+      $this->logger->info('Grant owner access');            
       $acl->insertObjectAce($securityIdentity, $mask);
-      $aclProvider->updateAcl($acl); 
+      $this->aclProvider->updateAcl($acl); 
 
       return 1;
     }

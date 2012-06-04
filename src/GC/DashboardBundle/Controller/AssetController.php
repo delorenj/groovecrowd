@@ -189,8 +189,8 @@ class AssetController extends Controller
         /***
         /* Bind asset to ACL if not anonymous
         /**/            
-        $this->get('acl_helper')->bindUserToObject($asset, MaskBuilder::MASK_OWNER);
-
+        $bound = $this->get('acl_helper')->bindUserToObject($asset, MaskBuilder::MASK_OWNER);
+        
         $data = array(
             "uri" => $full_uri,
             "thumb" => $thumb_uri,
