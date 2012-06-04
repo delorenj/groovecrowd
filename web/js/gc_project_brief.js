@@ -221,6 +221,9 @@
 
         newImg.onload = function () {
             fadeIn(newImg, 0);
+            $(".yoxview").yoxview({ 
+                skin: "top_menu",
+                backgroundColor: "#ffffff" });            
         };
         newImg.src = src;
     }
@@ -345,7 +348,8 @@ $(document).ready(function() {
                 alert("error!");
             }
         })
-    })  ;
+        return false;
+    });
 
     $(".yoxview").yoxview({ 
         skin: "top_menu",

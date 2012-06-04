@@ -190,7 +190,7 @@ class AssetController extends Controller
         /* Bind asset to ACL if not anonymous
         /**/            
         $bound = $this->get('acl_helper')->bindUserToObject($asset, MaskBuilder::MASK_OWNER);
-        
+
         $data = array(
             "uri" => $full_uri,
             "thumb" => $thumb_uri,
@@ -200,9 +200,8 @@ class AssetController extends Controller
 
     }   
 
-    public function deleteAsset(Request $request, $id) {
-        $this->get('logger')->info(json_encode($_POST));
-        return new Response(json_encode(array("responseCode"=>301)), "301");
+    public function deleteAction(Request $request, $id) {
+        return Helpers::buildJSONResponse(301, "Not yet implemented");
     }
 
     protected function createThumbnail($img, $target_width, $target_height) {
