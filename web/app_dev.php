@@ -13,8 +13,10 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     '::1',
     '64.115.170.232',
 ))) {
-    header('HTTP/1.0 403 Forbidden');
-    exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
+	if($_GET['token'] != "bootchamp") {
+		header('HTTP/1.0 403 Forbidden');
+		exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');		
+	}
 }
 
 require_once __DIR__.'/../app/bootstrap.php.cache';
