@@ -314,9 +314,7 @@
 
 
 $(document).ready(function() {
-
     $(".gc-control-label > label").addClass("control-label");
-    // $(".gc-radio label").addClass("radio");
     $(".tag-widget").tagsInput({
         'width': '320px',
         'placeholderColor': '#369BD7',
@@ -341,7 +339,9 @@ $(document).ready(function() {
         var asset_id = $(this).closest('li').attr('id').split('-')[1];
         console.log(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}));
         $.post(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}), function(data) {
-            alert("balls");
+            if(data.OK == "1") {
+                $("#asset-" + asset_id).fadeOut();
+            }
         }, "json");
         return false;
     });

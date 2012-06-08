@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use GC\DataLayerBundle\Helpers;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 
@@ -200,10 +201,16 @@ class AssetController extends Controller
 
     }   
 
-    public function deleteAction(Request $request, $id) {
-        // $this->get('logger')->info(Helpers::buildJSONResponse(301, "Not yet implemented"));
-        // return Helpers::buildJSONResponse(200, "Not yet implemented");
-        return new Response(json_encode(array("OK" => "1", "code" => 200, "msg" => "thanks")), 200);
+    public function deleteAction(Request $request, $id, $aid) {
+        $em = $this->getDoctrine()->getEntityManager();        
+        $repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectAsset');
+        $asset = $repo->find($aid);
+        if($this->get('acl_helper')->canDelete($asset, $id)) {
+            $em->remove($asset);    
+            return new Response(json_encode(array("OK" => "1", "code" => 200, "msg" => "thanks")), 200);
+        } else {
+            return new Response(json_encode(array("OK" => "0", "code" => 300, "msg" => "Error deleting asset")), 300);
+        }
     }
 
     protected function createThumbnail($img, $target_width, $target_height) {

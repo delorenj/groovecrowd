@@ -43,4 +43,23 @@ class AclHelper {
       return 1;
     }
 
+    public function canDelete($object, $claimed_id) {
+      if(false === $this->securityContext->isGranted('ROLE_USER')) {
+        $this->logger->info('No ACL: Anonymous Delete - checking asset/project relationship');
+        $real_id = $asset->getProject()->getId();
+        if($claimed_id == $real_id) {
+          $this->get('logger')->info('IDs match - good to delete');
+          return true;
+        } else {
+          return false;
+        }
+      } else {    
+        if (false === $this->securityContext->isGranted('DELETE', $asset))
+        {
+            return false;
+        } else {
+          return true;
+        }
+      }
+    }
 }
