@@ -75,7 +75,7 @@ class AssetController extends Controller
             $majortype = $majortype[0];
             if($majortype == "video") {
                 $this->get('logger')->info('Video found! forwarding to video processing controller');
-                return $this->forward('GCDashboardBundle:Project:uploadVideoAsset', array('id' => $id));
+                return $this->uploadVideo($request, $id);
             }
         }
         $this->get('logger')->info('filetype: ' . $filetype);
@@ -275,7 +275,7 @@ class AssetController extends Controller
     }
 
 
-    protected function uploadVideoAction(Request $request, $id) {
+    protected function uploadVideo(Request $request, $id) {
         return Helpers::buildJSONResponse(301, "Not implemented yet!");
     }
 

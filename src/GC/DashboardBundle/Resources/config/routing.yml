@@ -57,10 +57,3 @@ asset_upload:
     options:
         expose: true
 
-asset_upload_video:
-    pattern: /project/{id}/video/add
-    defaults: { _controller: GCDashboardBundle:Asset:uploadVideo }
-    requirements:
-        _method: POST
-    options:
-        expose: true

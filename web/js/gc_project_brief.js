@@ -137,8 +137,8 @@
                 progress.setStatus("Your file is uploaded!");
                 progress.toggleCancel(false);
             } else {
-                progress.setStatus("Oops! Something went wrong =(");
-                progress.toggleCancel(false);
+                progress.setError();
+                //progress.toggleCancel(false);
             }
 
         } catch (ex) {
@@ -147,19 +147,19 @@
     }
 
     function uploadComplete(file) {
-        console.log("uploadComplete");
-        try {
-            /*  I want the next upload to continue automatically so I'll call startUpload here */
-            if (this.getStats().files_queued > 0) {
-                this.startUpload();
-            } else {
-                var progress = new FileProgress(file,  this.customSettings.upload_target);
-                progress.setComplete();             
-                //progress.toggleCancel(false);
-            }
-        } catch (ex) {
-            this.debug(ex);
-        }
+        // console.log("uploadComplete");
+        // try {
+        //     /*  I want the next upload to continue automatically so I'll call startUpload here */
+        //     if (this.getStats().files_queued > 0) {
+        //         this.startUpload();
+        //     } else {
+        //         var progress = new FileProgress(file,  this.customSettings.upload_target);
+        //         progress.setComplete();             
+        //         //progress.toggleCancel(false);
+        //     }
+        // } catch (ex) {
+        //     this.debug(ex);
+        // }
     }
 
     function uploadError(file, errorCode, message) {
@@ -290,8 +290,12 @@
         }, 2000);
     };
     FileProgress.prototype.setError = function () {
+        console.log("in error setter");
         var html = this.template({percentage: 0, message: "<strong>Oops!</strong> Something went wrong =(", messagetype: "alert-error"});
-        $("#divFileProgressContainer").html(html);        
+        $("#divFileProgressContainer").html(html).find("div.progress").removeClass("active");
+        setTimeout(function(){
+            $("#divFileProgress").fadeOut();
+        }, 2000);
 
     };
     FileProgress.prototype.setCancelled = function () {
