@@ -326,7 +326,7 @@ $(document).ready(function() {
 
     $("#upload-btn").click(function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];        
-        $.post(Routing.generate('asset_from_web', { "id": project_id }), {
+        $.post(Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(), {
                 url: $("#projectDescription_web_upload").val()
             }, function(data) {
                 alert("yay!: " + data);

@@ -32,11 +32,6 @@ class ProjectDescriptionType extends AbstractType
     		'required' => false,
     		'label' => "URL"));
 
-    	$builder->add('web_upload_description', "textarea", array(
-    		'property_path' => false,
-    		'required' => false,
-    		'label' => "Description"));
-
 	}
 
 	public function getName() {

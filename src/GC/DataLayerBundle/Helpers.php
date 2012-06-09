@@ -20,6 +20,43 @@ class Helpers {
                 return $clean;
         }
 
+        static function ShowFileExtension($filepath) 
+        { 
+            preg_match('/[^?]*/', $filepath, $matches); 
+            $string = $matches[0]; 
+          
+            $pattern = preg_split('/\./', $string, -1, PREG_SPLIT_OFFSET_CAPTURE); 
+
+            # check if there is any extension 
+            if(count($pattern) == 1) 
+            { 
+                return null;
+            } 
+            
+            if(count($pattern) > 1) 
+            { 
+                $filenamepart = $pattern[count($pattern)-1][0]; 
+                preg_match('/[^?]*/', $filenamepart, $matches); 
+                return $matches[0]; 
+            } 
+            return null;
+        } 
+        
+        static function ShowFileName($filepath) 
+        { 
+            preg_match('/[^?]*/', $filepath, $matches); 
+            $string = $matches[0]; 
+            #split the string by the literal dot in the filename 
+            $pattern = preg_split('/\./', $string, -1, PREG_SPLIT_OFFSET_CAPTURE); 
+            #get the last dot position 
+            $lastdot = $pattern[count($pattern)-1][1]; 
+            #now extract the filename using the basename function 
+            $filename = basename(substr($string, 0, $lastdot-1)); 
+            #return the filename part 
+            return $filename; 
+        } 
+
+
         static function buildJSONResponse($code, $msg, $data=array()) {
           $ok = (int)($code == 200);
           $resp = array(

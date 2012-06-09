@@ -18,25 +18,33 @@ class AssetController extends Controller
   
     }
 
-    public function uploadVideoAction(Request $request, $id) {
-        return Helper::buildJSONResponse(301, "Not implemented yet!");
-    }
-
-
-    public function uploadImageOrVideoAnonymousAction(Request $request, $code) {
-        $id = Helpers::codeToId($code);
-        $this->get('logger')->info('ANONYMOUS UPLOAD: pid=' . $id);
-        return $this->uploadImageOrVideoAction($request, $id);
-    }
-
     public function uploadImageOrVideoAction(Request $request, $id) {
 
         /***
-        /* Check the upload
+        /* Check for web asset
         /**/
-        if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
+        if($url = $request->request->get("url")) {
+            // Download image
+            $ext = Helpers::ShowFileExtension($url);        
+            $filename = Helpers::ShowFileName($url) . "." . $ext;
+            $tempFile = sys_get_temp_dir() . $filename;            
+            file_put_contents($tempFile, file_get_contents($url));
+
+        }
+
+        /***
+        /* If no web asset, check for file upload
+        /**/
+        else if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
             $this->get('logger')->info("ERROR: Filedata not found");
-            return Helper::buildJSONResponse(301, "Error uploading file");
+            return Helpers::buildJSONResponse(301, "Error uploading file");
+
+        /***
+        /* If here, upload was good, do upload stuff
+        /**/            
+        } else {
+            $filename = preg_replace("/\s+/", "+", $request->request->get('Filename'));   
+            $tempFile = $_FILES["Filedata"]["tmp_name"];
         }
 
         /***
@@ -46,12 +54,58 @@ class AssetController extends Controller
         $imgThumbPathPrefix = $imgPathPrefix . "thumbs/";
         $codified = false;      
         $em = $this->getDoctrine()->getEntityManager();
-        $project_repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");        
-        $url = $request->request->get('url');
+        $project_repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
         $this->get('logger')->info("adding web media from url $url for project $id");
         $s3 = $this->get('aws_s3');
-        $filedata = $_FILES["Filedata"];
-        $filename = preg_replace("/\s+/", "+", $request->request->get('Filename'));
+
+        /***
+        /*  Redirect if file uploaded was a video
+        /**/
+        if(!$filetype = exif_imagetype($tempFile)) {
+            //Maybe a video?
+            $finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+            $mimetype = finfo_file($finfo, $tempFile);
+            finfo_close($finfo);            
+            $this->get('logger')->info('finfo: ' . $mimetype);
+            $majortype = explode('/', $mimetype);
+            $majortype = $majortype[0];
+            if($majortype == "video") {
+                $this->get('logger')->info('Video found! forwarding to video processing controller');
+                return $this->forward('GCDashboardBundle:Project:uploadVideoAsset', array('id' => $id));
+            }
+        }
+        $this->get('logger')->info('filetype: ' . $filetype);
+
+
+        /***
+        /* If uploaded, Create img from filedata
+        /**/
+        try {
+            switch($filetype) {
+                case 1:
+                    $img = imagecreatefromgif($tempFile);
+                    imagegif($img, sys_get_temp_dir() . $filename);                    
+                break;
+                case 2:
+                    $img = imagecreatefromjpeg($tempFile);
+                    imagejpeg($img, sys_get_temp_dir() . $filename);                    
+                break;
+                case 3:
+                    $img = imagecreatefrompng($tempFile);           
+                    imagepng($img, sys_get_temp_dir() . $filename);                                        
+                break;
+                default:
+                    return Helpers::buildJSONResponse(301, "Invalid image type");
+            }           
+        } catch(Exception $e) {
+            return Helpers::buildJSONResponse(301, "Error creating image handle");
+        }
+
+        if (!$img) {        
+            return Helpers::buildJSONResponse(301, "Could not create image handle");
+        }
+
+
 
         /***
         /* If anonymous, translate code to id
@@ -82,54 +136,6 @@ class AssetController extends Controller
         }
 
         /***
-        /*  Redirect if file uploaded was a video
-        /**/
-        if(!$filetype = exif_imagetype($filedata["tmp_name"])) {
-            //Maybe a video?
-            $finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-            $mimetype = finfo_file($finfo, $filedata["tmp_name"]);
-            finfo_close($finfo);            
-            $this->get('logger')->info('finfo: ' . $mimetype);
-            $majortype = explode('/', $mimetype);
-            $majortype = $majortype[0];
-            if($majortype == "video") {
-                $this->get('logger')->info('Video found! forwarding to video processing controller');
-                return $this->forward('GCDashboardBundle:Project:uploadVideoAsset', array('id' => $id));
-            }
-        }
-        $this->get('logger')->info('filetype: ' . $filetype);
-
-
-        /***
-        /* Create img from filedata
-        /**/
-        try {
-            switch($filetype) {
-                case 1:
-                    $img = imagecreatefromgif($filedata["tmp_name"]);
-                    imagegif($img, sys_get_temp_dir() . $filename);                    
-                break;
-                case 2:
-                    $img = imagecreatefromjpeg($filedata["tmp_name"]);
-                    imagejpeg($img, sys_get_temp_dir() . $filename);                    
-                break;
-                case 3:
-                    $img = imagecreatefrompng($filedata["tmp_name"]);           
-                    imagepng($img, sys_get_temp_dir() . $filename);                                        
-                break;
-                default:
-                    return Helper::buildJSONResponse(301, "Invalid image type");
-            }           
-        } catch(Exception $e) {
-            return Helper::buildJSONResponse(301, "Error creating image handle");
-        }
-
-        if (!$img) {        
-            return Helper::buildJSONResponse(301, "Could not create image handle");
-        }
-
-
-        /***
         /* Create thumb from img
         /**/
         $thumb_img = $this->createThumbnail($img, 160, 110);
@@ -149,9 +155,8 @@ class AssetController extends Controller
                 default:
             }           
         } catch(Exception $e) {
-            return Helper::buildJSONResponse(301, "Error creating image thumb handle");
+            return Helpers::buildJSONResponse(301, "Error creating image thumb handle");
         }
-
 
         /***
         /* Upload image and image thumb to Amazon S3 bucket
@@ -176,7 +181,7 @@ class AssetController extends Controller
         /***
         /* Persist image URLs to database and associate with project
         /**/
-        $type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('upload');
+        $type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('image');
         $asset = new ProjectAsset();
         $asset->setAssetType($type);
         $asset->setUri($full_uri);
@@ -207,9 +212,14 @@ class AssetController extends Controller
         $asset = $repo->find($aid);
 
         if($this->get('acl_helper')->canDeleteAsset($asset, $id)) {
-            $s3 = $this->get('aws_s3');            
-            $s3->create_object('groovecrowd', $asset->getUri());
-            $s3->create_object('groovecrowd', $asset->getThumbUri());
+            $s3 = $this->get('aws_s3');
+            preg_match("/^http:\/\/groovecrowd.s3.amazonaws.com\/(.*)$/", $asset->getUri(), $matches);            
+            $s3->delete_object('groovecrowd', $matches[1]);
+
+            preg_match("/^http:\/\/groovecrowd.s3.amazonaws.com\/(.*)$/", $asset->getThumbUri(), $matches);            
+            $s3->delete_object('groovecrowd', $matches[1]);
+
+            $s3->delete_object('groovecrowd', $asset->getThumbUri());
             $em->remove($asset);  
             $em->flush();
             return new Response(json_encode(array("OK" => "1", "code" => 200, "msg" => "thanks")), 200);
@@ -217,6 +227,7 @@ class AssetController extends Controller
             return new Response(json_encode(array("OK" => "0", "code" => 300, "msg" => "Error deleting asset")), 300);
         }
     }
+
 
     protected function createThumbnail($img, $target_width, $target_height) {
         $width = imageSX($img);
@@ -257,6 +268,11 @@ class AssetController extends Controller
             return null;
         }
         return $thumb_img;
+    }
+
+
+    protected function uploadVideoAction(Request $request, $id) {
+        return Helpers::buildJSONResponse(301, "Not implemented yet!");
     }
 
 }
