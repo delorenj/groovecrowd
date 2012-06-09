@@ -55,6 +55,10 @@
         });
     };
 
+    gc_project_brief.addRealImage = function(full, thumb, id) {
+        addRealImage(full, thumb, id);
+    }
+
     //Private Methods
     function fileQueueError(file, errorCode, message) {
         console.log("fileQueueError: " + message);        
@@ -226,7 +230,7 @@
                 skin: "top_menu",
                 backgroundColor: "#ffffff" });            
         };
-        newImg.src = src;
+//        newImg.src = src;
     }
 
     function fadeIn(element, opacity) {
@@ -315,6 +319,10 @@
 
 
 $(document).ready(function() {
+    $(document).ajaxError(function(event, request, settings) {
+        alert("Error requesting page " + settings.url);
+    });
+
     $(".gc-control-label > label").addClass("control-label");
     $(".tag-widget").tagsInput({
         'width': '320px',
@@ -328,8 +336,12 @@ $(document).ready(function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];        
         $.post(Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(), {
                 url: $("#projectDescription_web_upload").val()
-            }, function(data) {
-                alert("yay!: " + data);
+            }, function(response) {
+                if(response.OK == "1") {
+                    gc_project_brief.addRealImage(response.data.uri, response.data.thumb, response.data.id); 
+                } else {
+                    alert(response.msg);
+                }
             }, "json"
         );
         return false;

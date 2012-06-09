@@ -65,7 +65,7 @@ class Helpers {
             "msg" => $msg,
             "data" => $data);
           
-          return new Response(json_encode($resp), $code);
+          return new Response(json_encode($resp), 200);
         }
 
         static function dec2string($decimal, $base) 

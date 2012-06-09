@@ -58,6 +58,10 @@ class AssetController extends Controller
         $this->get('logger')->info("adding web media from url $url for project $id");
         $s3 = $this->get('aws_s3');
 
+        if($s3->if_object_exists("groovecrowd", $imgPathPrefix . $filename)) {
+            return Helpers::buildJSONResponse(301, "This file was uploaded already!");            
+        }
+
         /***
         /*  Redirect if file uploaded was a video
         /**/
