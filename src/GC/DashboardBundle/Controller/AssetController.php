@@ -201,12 +201,17 @@ class AssetController extends Controller
 
     }   
 
-    public function deleteAction(Request $request, $id, $aid) {
+    public function deleteAction(Request $request, $id, $aid) {        
         $em = $this->getDoctrine()->getEntityManager();        
         $repo = $this->getDoctrine()->getRepository('GCDataLayerBundle:ProjectAsset');
         $asset = $repo->find($aid);
-        if($this->get('acl_helper')->canDelete($asset, $id)) {
-            $em->remove($asset);    
+
+        if($this->get('acl_helper')->canDeleteAsset($asset, $id)) {
+            $s3 = $this->get('aws_s3');            
+            $s3->create_object('groovecrowd', $asset->getUri());
+            $s3->create_object('groovecrowd', $asset->getThumbUri());
+            $em->remove($asset);  
+            $em->flush();
             return new Response(json_encode(array("OK" => "1", "code" => 200, "msg" => "thanks")), 200);
         } else {
             return new Response(json_encode(array("OK" => "0", "code" => 300, "msg" => "Error deleting asset")), 300);

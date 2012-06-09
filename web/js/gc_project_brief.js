@@ -207,6 +207,7 @@
         var html = template(context);
         var node = $(html);
         var newImg = $(node).find('img')[0];
+        $("#media-container div.alert").css("display", "none");
         $("#thumbnails").append(node);
         if (newImg.filters) {
             try {
@@ -340,7 +341,13 @@ $(document).ready(function() {
         console.log(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}));
         $.post(Routing.generate('asset_delete', {'id': project_id, 'aid': asset_id}), function(data) {
             if(data.OK == "1") {
-                $("#asset-" + asset_id).fadeOut();
+                $("#asset-" + asset_id).fadeOut("slow", function() {
+                    $(this).remove();
+                    console.log($("#thumbnails").children().length);
+                    if($("#thumbnails").children().length == 0) {
+                        $("#media-container div.alert").css("display", "block");
+                    }
+                });
             }
         }, "json");
         return false;

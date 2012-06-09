@@ -110,10 +110,13 @@
 			</div>
 			<div id="media-container">
 				{% if assets|length == 0 %}
-				<div class="alert alert-info">
+					{% set show = "display: block" %}
+				{% else %}
+					{% set show = "display: none" %}
+				{% endif %}				
+				<div class="alert alert-info" style="{{show}}">
 				  <p>Have a video or image? Add some media to enhance your listing</p>
 				</div>
-				{% endif %}
 				<ul id="thumbnails" class="thumbnails yoxview">
 					{% for item in assets %}
 					 	<li id='asset-{{item.id}}' class="span2">

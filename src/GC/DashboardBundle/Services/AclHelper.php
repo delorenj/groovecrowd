@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use GC\DataLayerBundle\Helpers;
 
 class AclHelper {
 
@@ -43,20 +44,23 @@ class AclHelper {
       return 1;
     }
 
-    public function canDelete($object, $claimed_id) {
+    public function canDeleteAsset($asset, $claimed_id) {
       if(false === $this->securityContext->isGranted('ROLE_USER')) {
         $this->logger->info('No ACL: Anonymous Delete - checking asset/project relationship');
         $real_id = $asset->getProject()->getId();
-        if($claimed_id == $real_id) {
-          $this->get('logger')->info('IDs match - good to delete');
+        $this->logger->info('Real pid: ' . $real_id);
+        $this->logger->info('Claimed pid: ' . $claimed_id);
+        if(Helpers::codeToId($claimed_id) == $real_id) {
+          $this->logger->info('IDs match - good to delete');
           return true;
         } else {
+          $this->logger->info('IDs did not match - not allowed to delete');
           return false;
         }
-      } else {    
+      } else {
         if (false === $this->securityContext->isGranted('DELETE', $asset))
         {
-            return false;
+          return false;
         } else {
           return true;
         }
