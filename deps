@@ -96,3 +96,6 @@
 [AmazonWebServicesBundle]
     git=http://github.com/Cybernox/AmazonWebServicesBundle.git
     target=/bundles/Cybernox/AmazonWebServicesBundle
+
+[PandaStream]
+    git=https://github.com/pandastream/panda_client_php.git

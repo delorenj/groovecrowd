@@ -276,7 +276,51 @@ class AssetController extends Controller
 
 
     protected function uploadVideo(Request $request, $id) {
-        return Helpers::buildJSONResponse(301, "Not implemented yet!");
+        $imgPathPrefix = "contest/" . $id . "/";        
+        $codified = false;      
+        $em = $this->getDoctrine()->getEntityManager();
+        $project_repo = $this->getDoctrine()->getRepository("GCDataLayerBundle:Project");
+
+        /***
+        /* If anonymous, translate code to id
+        /**/
+        if(false === $this->get('security.context')->isGranted('ROLE_USER')) {
+            $this->get('logger')->info('ANONYMOUS UPLOAD DETECTED: ' . $id);
+            if(preg_match("/^\d+$/", $id) == 1) {
+                return Helpers::buildJSONResponse(301, "Invalid project id format");
+            } else {
+                $id = Helpers::codeToId($id);
+                $codified = true;
+                $this->get('logger')->info('Translated code: ' . $id);
+            }
+        } else {
+            if(preg_match("/[A-Z]$/", $id) == 1) {
+                $id = Helpers::codeToId($id);
+                $codified = true;
+                $this->get('logger')->info('Translated code: ' . $id);                
+            }
+        }
+
+        /***
+        /* Find project, or return error if project not found
+        /**/
+        if(!$project = $project_repo->find($id)) {
+            if($codified) $id = Helpers::idToCode($id);
+            return Helpers::buildJSONResponse(404, "Project not found: " . $id);
+        }
+
+        $res = $this->get('panda_helper')->upload($_FILES["Filedata"]["tmp_name"], $imgPathPrefix);
+        $type = $this->getDoctrine()->getRepository('GCDataLayerBundle:AssetType')->findOneByName('video');
+        $asset = new ProjectAsset();
+        $asset->setAssetType($type);
+        $asset->setUri("http://groovecrowd.s3.amazonaws.com/" . $imgPathPrefix . $res->id . $res->extname);
+        $asset->setThumbUri("http://groovecrowd.s3.amazonaws.com/" . $imgPathPrefix . $res->id . "_1.jpg");
+        $asset->setCreatedAt(new \DateTime('now'));
+        $asset->setProject($project);
+        $em->persist($asset);
+        $em->flush();
+
+        return Helpers::buildJSONResponse(200, "Uploaded");
     }
 
 }

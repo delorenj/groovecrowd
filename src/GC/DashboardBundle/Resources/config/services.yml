@@ -1,7 +1,16 @@
 parameters:
     acl_helper.class: GC\DashboardBundle\Services\AclHelper
+    panda_helper.class: GC\DashboardBundle\Services\PandaHelper
+    panda.cloud_id: b65bd64388722545009b299ff7a5ff50
+    panda.key: AKIAJFUS3NL733ETVELA
+    panda.secret: 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
+    panda.url: api.pandastream.com
 
 services:
     acl_helper:
         class:  %acl_helper.class%
         arguments: [@security.acl.provider, @security.context, @logger]
+
+    panda_helper:
+        class: %panda_helper.class%
+        arguments: [@logger]
