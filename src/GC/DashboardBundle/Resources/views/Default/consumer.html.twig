@@ -1,5 +1,22 @@
 {% extends 'GCDashboardBundle::layout.html.twig' %}
 
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/underscore.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/json2.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/backbone-min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/gc_consumer_dashboard.js') }}" type="text/javascript"></script>
+    
+ 	<script type="text/x-handlebars-template" id="project-template">
+ 	{% raw %}
+ 		<li>
+	 		<h1><a href="#">{{title}}</a></h1>
+	 		<img src="{{asset}}" />
+	 		<p>{{description}}</p>
+ 		</li>
+ 	{% endraw %}
+ 	</script>
+{% endblock %}
 
 {% block body %}
 	<div class="subnav">
@@ -10,27 +27,7 @@
 	      <li class=""><a href="#">Payment History</a></li>
 	    </ul>
 	</div>
-	<div class="span12">
+	<div id="groove-list" class="span12">
 		<h1>Grooves in the making</h1>
-		<table class="table table-striped">
-			<thead>
-			  <tr>
-			    <th>Project Title</th>
-			    <th>Payout</th>
-			    <th>Remaining</th>
-			    <th>Grooves</th>
-			  </tr>
-			</thead>
-			<tbody>
-				{% for p in projects %}
-					<tr>
-						<td><a href="{{ path('project_show', {'id': p.id})}}">{{ p.title }}</a></td>
-						<td>${{ p.payoutAmount }}</td>
-						<td>{{ p.remaining}} days</td>
-						<td>{{ p.grooveCount }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
     </div>
 {% endblock %}

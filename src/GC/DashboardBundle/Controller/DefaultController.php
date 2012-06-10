@@ -35,8 +35,12 @@ class DefaultController extends Controller
 			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
     	}
 
-        return $this->render('GCDashboardBundle:Default:consumer.html.twig', 
-        	array('projects' => $projects));
+        if($this->getRequest()->isXmlHttpRequest()) {
+            $this->get('logger')->info('Ajax Request');
+            return Helpers::buildJSONResponse(200, "", json_encode($projects));
+        } else {
+            return $this->render('GCDashboardBundle:Default:consumer.html.twig');    
+        }        
 	}
 
     public function creatorIndexAction() {
@@ -45,5 +49,6 @@ class DefaultController extends Controller
     	$grooveSets = $user->getGrooveSets();
         return $this->render('GCDashboardBundle:Default:creator.html.twig', 
         	array('grooveSets' => $grooveSets));
-	}	
+	}
+
 }
