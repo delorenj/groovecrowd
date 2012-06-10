@@ -27,11 +27,6 @@ class ProjectDescriptionType extends AbstractType
     		'required' => false,
     		'label' => "Tags"));
 
-    	$builder->add('web_upload', "url", array(
-    		'property_path' => false,
-    		'required' => false,
-    		'label' => "URL"));
-
 	}
 
 	public function getName() {

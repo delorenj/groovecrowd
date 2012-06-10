@@ -320,7 +320,17 @@ class AssetController extends Controller
         $em->persist($asset);
         $em->flush();
 
-        return Helpers::buildJSONResponse(200, "Uploaded");
+        /***
+        /* Bind asset to ACL if not anonymous
+        /**/            
+        $this->get('acl_helper')->bindUserToObject($asset, MaskBuilder::MASK_OWNER);
+
+        $data = array(
+            "uri" => $asset->getUri(),
+            "thumb" => $asset->getThumbUri(),
+            "id" => $asset->getId());
+
+        return Helpers::buildJSONResponse(200, "Video uploaded", $data);        
     }
 
 }

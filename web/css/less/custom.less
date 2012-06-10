@@ -32,6 +32,48 @@ footer {
 @iconSpritePath:          "../../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../../img/glyphicons-halflings-white.png";
 
+
+// Asset Thumnail Stuff
+// -------------------------
+@thumbnailWidth:		260px;
+@thumbnailHeight:		180px;
+@mediaContainerHeight:	@thumbnailHeight;
+@mediaContainerMargin:  20px;
+
+#media-container {
+//	background-color: #ededed;
+	height: @mediaContainerHeight;
+	margin-top: @mediaContainerMargin;
+	margin-bottom: @mediaContainerMargin;
+}
+
+#swf-container {
+	display: inline;
+	width: 180px;
+	height: 33px;
+	margin-bottom: 10px;
+}
+
+.thumbnail {
+	position: relative;
+	height: @thumbnailHeight;
+	width: @thumbnailWidth;
+}
+
+.thumbnail button.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: none;
+}
+
+.thumbnail:hover button.close {
+	display: block;
+}
+
+
+
+// -------------------------
 .user-image {
 	display: block;	
 	margin-top: 5px;
@@ -101,26 +143,4 @@ span.price {
 
 #package-select-controls button.active {
 	background-color: @green;
-}
-
-#swf-container {
-	display: inline;
-	width: 180px;
-	height: 33px;
-	margin-bottom: 10px;
-}
-
-.thumbnail {
-	position: relative;
-}
-
-.thumbnail button.close {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	display: none;
-}
-
-.thumbnail:hover button.close {
-	display: block;
 }

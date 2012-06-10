@@ -2,6 +2,85 @@
 
     var imgPath = "/img/";
 
+    var Asset = Backbone.Model.extend({
+      defaults: {
+        id: '',
+        uri: '',
+        thumbUri: '',
+        caption: '',
+        type: '',
+        state: ''
+      },
+      select: function(state){
+        this.set({'state': state ? 'selected' : ''});
+      }
+    });    
+
+    var Assets = Backbone.Collection.extend({
+      model: Asset,
+      fetch: function(){
+        // return _.map(["test"], function(url){ return new Asset({uri: url})});
+        // return _.map(fields, function(uri, thumbUri, caption, type){ 
+        //     return new Asset({
+        //         uri: url,
+        //         thumbUri: thumbUri,
+        //         caption: caption,
+        //         type: type 
+        //     })
+        // });
+            return new Asset({
+                    id: "1", 
+                    uri: "http://www.cakemakingcourse.com/images/bake-cake-graphic.jpg", 
+                    thumbUri: "http://www.cakemakingcourse.com/images/bake-cake-graphic.jpg"});
+
+      },
+      select: function(model){
+        if( this.selectedAsset() ){
+          this.selectedAsset().select(false);
+        }
+        this.selected = model;
+        this.selected.select(true);
+        this.trigger('assets:selected');
+      },
+      selectedThumb: function(){
+        return this.selected;
+      }        
+    });
+
+    var AssetView = Backbone.View.extend({
+      tagName: 'li',
+      className: "asset",
+      template: $("#asset-thumbnail-template").html(),
+      events: {
+        "click" : "selectThumb"
+      },
+      initialize: function(){
+        _.bindAll(this, 'change');          
+        this.model.bind('change', this.render, this);
+      },
+      render: function(){
+        console.log('rendering');
+        template = Handlebars.compile(this.template);
+        var context = this.model.toJSON();
+        var html = template(context);        
+        $(this.el).html(html);
+        return this;
+      },
+      selectThumb: function(){
+        assets.select(this.model);
+      }
+    });
+
+    var AppView = Backbone.View.extend({
+        el: $("#media-container"),
+        render: function(){
+            _.each(new Assets().fetch(),
+                function(t){
+                $('#media-container ul').append( new AssetView({model: t}).render().el)
+            });
+        }
+    });
+
     //Public Methods
     gc_project_brief.onRemoveTag = function(tag) {
         var project_id = $("form[id^='project']").attr("id").split("-")[1]         
@@ -11,6 +90,20 @@
             }
         ));
     }
+
+    gc_project_brief.initMediaContainer = function() {
+        var t = Handlebars.compile($("#upload-button-template").html());
+        var html = t();
+        $("#media-container ul").append(html);
+
+        var t = Handlebars.compile($("#upload-alert-template").html());
+        var html = t({message: "Have a video or image to enhance your listing? Upload some here!", messagetype: "alert-info"});
+        $("#media-container").prepend(html);
+
+        var App = new AppView;
+        App.render();
+    }
+
 
     gc_project_brief.initSWFUpload = function() {
         console.log("init swfupload: " + Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val());
@@ -36,10 +129,10 @@
             upload_complete_handler : uploadComplete,
 
             // Button Settings
-            button_image_url : imgPath + "upload-btn.png",
+            button_image_url : "http://placehold.it/260x680&text=Add Image or Video",
             button_placeholder_id : "spanButtonPlaceholder",
-            button_width: 191,
-            button_height: 34,
+            button_width: 260,
+            button_height: 180,
             // button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
             // button_cursor: SWFUpload.CURSOR.HAND,
             
@@ -334,22 +427,9 @@ $(document).ready(function() {
         'onRemoveTag': gc_project_brief.onRemoveTag
     });
 
+    gc_project_brief.initMediaContainer();
     gc_project_brief.initSWFUpload();
 
-    $("#upload-btn").click(function() {
-        var project_id = $("form[id^='project']").attr("id").split("-")[1];        
-        $.post(Routing.generate('asset_upload', {"id": project_id}) + "?" + $("#session_name").val() + "=" + $("#session_id").val(), {
-                url: $("#projectDescription_web_upload").val()
-            }, function(response) {
-                if(response.OK == "1") {
-                    gc_project_brief.addRealImage(response.data.uri, response.data.thumb, response.data.id); 
-                } else {
-                    alert(response.msg);
-                }
-            }, "json"
-        );
-        return false;
-    });
 
     $(".thumbnail button.close").on("click", function() {
         var project_id = $("form[id^='project']").attr("id").split("-")[1];
@@ -369,7 +449,4 @@ $(document).ready(function() {
         return false;
     });
 
-    $(".yoxview").yoxview({ 
-        skin: "top_menu",
-        backgroundColor: "#ffffff" });
 });

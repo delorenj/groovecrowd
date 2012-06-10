@@ -4369,6 +4369,31 @@ footer {
   height: 150px;
   background-color: #f1f1f1;
 }
+#media-container {
+  height: 180px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#swf-container {
+  display: inline;
+  width: 180px;
+  height: 33px;
+  margin-bottom: 10px;
+}
+.thumbnail {
+  position: relative;
+  height: 180px;
+  width: 260px;
+}
+.thumbnail button.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+}
+.thumbnail:hover button.close {
+  display: block;
+}
 .user-image {
   display: block;
   margin-top: 5px;
@@ -4424,22 +4449,4 @@ span.price {
 }
 #package-select-controls button.active {
   background-color: #73a839;
-}
-#swf-container {
-  display: inline;
-  width: 180px;
-  height: 33px;
-  margin-bottom: 10px;
-}
-.thumbnail {
-  position: relative;
-}
-.thumbnail button.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: none;
-}
-.thumbnail:hover button.close {
-  display: block;
 }
