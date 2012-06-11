@@ -23,13 +23,13 @@
         }
     });
 
-    var List = Backbone.Collection.extend({
+    var ProjectCollection = Backbone.Collection.extend({
         model: Project,
         url: Routing.generate("dashboard_consumer_index")
 
     });
 
-    var ProjetView = Backbone.View.extend({
+    var ProjectView = Backbone.View.extend({
         tagName: 'li',
 
         events: {
@@ -47,10 +47,10 @@
             context = {
                 title: this.model.get('title'),
                 description: this.model.get('description'),
-                asset: this.model.get('asset')
+//                asset: this.model.get('asset')
             };
             html = source(context);
-
+            console.log(html);
             $(this.el).html(html);
             return this;
         },
@@ -60,7 +60,7 @@
         }
     });
 
-    var ListView = Backbone.View.extend({
+    var ProjectCollectionView = Backbone.View.extend({
         el : $('#groove-list'),
 
         events : {
@@ -69,26 +69,30 @@
 
         initialize : function(){
             _.bindAll(this, 'render');
-
-            this.collection = new List();
-            this.collection.fetch();            
-            this.counter = 0;
-            this.render();
+            var that = this;
+            $.get(Routing.generate("dashboard_consumer_index"), function(response) {
+                var projects = new Array;
+                _.each(response, function(i,x) {
+                    projects[x] = new Project(i);
+                });
+                that.collection = new ProjectCollection(projects);
+                that.counter = 0;
+                that.render();
+            }, "json");
         },
 
         render: function(){
             $(this.el).append("<ul></ul>");
             _(this.collection.models).each(function(item){
-                appendItem(item);
+                var projectView = new ProjectView({
+                    model: item
+                });
+                $('ul', this.el).append(projectView.render().el);
             }, this);
         }
 
     });
 
-    var listView = new ListView();
-
-    $.get(Routing.generate("dashboard_consumer_index"), function(response) {
-        console.log(response);
-    })
+    var listView = new ProjectCollectionView();
 
 }(jQuery));
