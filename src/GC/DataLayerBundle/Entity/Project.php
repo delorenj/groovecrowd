@@ -613,10 +613,17 @@ class Project
             "category" => $this->category->toArray());
 
         $tags = array();
-        foreach($this->tags as $t) {
-            $tags[] = $t->getName();
+        foreach($this->tags as $x) {
+            $tags[] = $x->getName();
         }
         $a["tags"] = $tags;
+
+        $assets = array();
+        foreach($this->assets as $x) {
+            $assets[] = $x->toArray();
+        }
+        $a["assets"] = $assets;
+
         return $a;
     }
 }

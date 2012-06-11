@@ -6,18 +6,20 @@
 
     var Project = Backbone.Model.extend({
         defaults: {
-            title: "Title",
-            description: "Description",
-            payout_guaranteed: "0",
-            enabled: "1",
-            blind: "0",
-            flags: "0",
-            created_at: "",
-            modified_at: "",
-            contest_length: "",
-            project_type: "",
-            protection: "0",
-            asset: ""
+            title: "",
+            description: "",
+            organizaion: "",
+            payoutGuaranteed: "",
+            protection: "",
+            contestLength: "",
+            enabled: "",
+            fullGrooveSetsOnly: "",
+            blind: "",
+            flags: "",
+            projectType: "",
+            createdAt: "",
+            modifiedAt: "",
+            category: ""
         }
     });
 
