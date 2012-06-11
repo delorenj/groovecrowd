@@ -5,6 +5,10 @@ namespace GC\DashboardBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use GC\DataLayerBundle\Helpers;
 
 class DefaultController extends Controller
 {
@@ -25,7 +29,7 @@ class DefaultController extends Controller
     	$user = $this->get('security.context')->getToken()->getUser();
     	$userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');  	
     	$projects = $userRepo->findAllActiveProjects($user);
-
+        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new JsonEncoder()));
     	$now = time();
     	foreach($projects as $p) {
 			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
@@ -37,7 +41,11 @@ class DefaultController extends Controller
 
         if($this->getRequest()->isXmlHttpRequest()) {
             $this->get('logger')->info('Ajax Request');
-            return Helpers::buildJSONResponse(200, "", json_encode($projects));
+            $projectArray = array();
+            foreach($projects as $p) {
+                $projectArray[] = $p->toArray();
+            }
+            return new Response(json_encode($projectArray), 200);
         } else {
             return $this->render('GCDashboardBundle:Default:consumer.html.twig');    
         }        

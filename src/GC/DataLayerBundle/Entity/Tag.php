@@ -223,4 +223,9 @@ class Tag
     {
         return $this->slug;
     }
+
+    public function toArray() {
+        return array(
+            "name" => $this->name);
+    }
 }

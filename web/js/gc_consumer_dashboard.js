@@ -85,4 +85,8 @@
 
     var listView = new ListView();
 
+    $.get(Routing.generate("dashboard_consumer_index"), function(response) {
+        console.log(response);
+    })
+
 }(jQuery));
