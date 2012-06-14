@@ -31,7 +31,7 @@ class DefaultController extends Controller
     	$projects = $userRepo->findAllActiveProjects($user);
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new JsonEncoder()));
     	$now = time();
-    	foreach($projects as $p) {
+    	foreach($projects as $p) {            
 			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
 			$datediff = $then - $now;
 			$p->remaining = floor($datediff/(60*60*24));
@@ -47,7 +47,8 @@ class DefaultController extends Controller
             }
             return new Response(json_encode($projectArray), 200);
         } else {
-            return $this->render('GCDashboardBundle:Default:consumer.html.twig');    
+            //$this->get('logger')->info('HERE:' . $projects->getTitle());
+            return $this->render('GCDashboardBundle:Default:consumer.html.twig', array("projects" => $projects));    
         }        
 	}
 

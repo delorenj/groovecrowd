@@ -13,11 +13,6 @@ App.Project = Backbone.Model.extend({
         projectType: "",
         createdAt: "",
         modifiedAt: "",
-        category: "",
-        assets: ""
-    },
-
-    expiresIn: function() {
-        return this.get('contestLength');
+        category: ""
     }
 });
