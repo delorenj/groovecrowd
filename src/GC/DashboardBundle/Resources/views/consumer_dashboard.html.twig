@@ -1,0 +1,60 @@
+{% extends 'GCDashboardBundle::layout.html.twig' %}
+
+{% block javascripts %}
+	{{ parent() }}
+
+    {% javascripts     	
+		'../app/Resources/public/js/backbone/underscore.js'    	
+		'../app/Resources/public/js/backbone/json2.js'    	
+		'../app/Resources/public/js/backbone/backbone-min.js'
+    	output="js/backbone.js"
+	%}
+	    <script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+	<div class="subnav">
+		{% block subnav %}
+		    <ul class="nav nav-tabs">		    
+		      <li class="{% if app.request.attributes.get('_route') == 'dashboard_index' %}active{% endif %}"><a href="#">Current Contests</a></li>
+		      <li class=""><a href="#">Recent Activity</a></li>
+		      <li class=""><a href="#">Past Contests</a></li>
+		      <li class=""><a href="#">Payment History</a></li>
+		    </ul>
+		{% endblock %}
+	</div>	
+	<div id="project-header" class="container">	
+		{% block project_header %}
+			<div class="row">
+				<div class="span6">
+					<h3>{{project.title}}</h3>
+					<ul class="project-types">						
+						<li><img src="http://placehold.it/24x24" alt="{{ project.projectType.slug }}" /><span>{{ project.projectType.name }}</span></li>
+						<li><img src="http://placehold.it/24x24" alt="{{ project.category.slug }}" /><span>{{ project.category.name }}</span></li>
+
+					</ul>
+					<ul class="project-watch-links">
+						<li><a href="#">Watch Project</a></li>
+						<li><a href="#">Watch Category</a></li>
+					</ul>
+					<ul class="project-nav-links">
+						<li><a href="#">Project Brief</a></li>
+						<li><a href="#">Inspiration Board</a></li>
+						<li><a href="#">Entries({{project.grooveCount}})</a></li>
+					</ul>
+
+				</div>
+				<div class="span6">
+					<span class="payout-amount pull-right">${{ project.payoutAmount }}</span>					
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+    </div>	
+    <div class="project-content" class="span12">
+		{% block project_content %}
+			<p>hi</p>
+		{% endblock %}
+	</div>
+{% endblock %}

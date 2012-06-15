@@ -32,6 +32,47 @@ footer {
 @iconSpritePath:          "../../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../../img/glyphicons-halflings-white.png";
 
+
+// Mixins
+// -------------------------
+.barlist {
+	display: inline;
+	text-decoration: none;	
+	padding: 0 10px;
+}
+
+// Project Dashboard
+// -------------------------
+.payout-amount {
+	font-size: 3em;
+	font-weight: bold;
+	color: @blueDark;
+}
+
+ul.project-watch-links, ul.project-types {
+	margin: 10px 0;
+	li {
+		.barlist;
+		&:first-child {
+			padding-left: 0;
+		}	
+		img {
+			padding: 0 3px;
+		}
+	}
+}
+
+ul.project-nav-links {
+	margin: 40px 0 10px 0;
+	font-size:1.8em;
+	li {
+		.barlist;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}
+
 .user-image {
 	display: block;	
 	margin-top: 5px;

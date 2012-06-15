@@ -46,9 +46,8 @@ class DefaultController extends Controller
                 $projectArray[] = $p->toArray();
             }
             return new Response(json_encode($projectArray), 200);
-        } else {
-            //$this->get('logger')->info('HERE:' . $projects->getTitle());
-            return $this->render('GCDashboardBundle:Default:consumer.html.twig', array("projects" => $projects));    
+        } else {            
+            return $this->render('GCDashboardBundle:Default:consumer.html.twig', array("projects" => $projects));
         }        
 	}
 

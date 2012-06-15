@@ -19,7 +19,7 @@ App.ProjectView = Backbone.View.extend({
             expiresIn: this.model.expiresIn(),
             projectType: this.model.get('projectType'),
             blind: this.model.get('blind'),
-            category: this.mode.get('category'),
+            category: this.model.get('category'),
             payoutGuaranteed: this.model.get('payoutGuaranteed')
         };
         html = source(context);

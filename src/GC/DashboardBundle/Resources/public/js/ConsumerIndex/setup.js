@@ -1,5 +1,5 @@
 (function($) {
 
-    App.projectsView = new App.ProjectsView();
+    //App.projectsView = new App.ProjectsView();
 
 }(jQuery));

@@ -1,16 +1,7 @@
-{% extends 'GCDashboardBundle::layout.html.twig' %}
+{% extends 'GCDashboardBundle::consumer_dashboard.html.twig' %}
 
 {% block javascripts %}
 	{{ parent() }}
-
-    {% javascripts     	
-		'../app/Resources/public/js/backbone/underscore.js'    	
-		'../app/Resources/public/js/backbone/json2.js'    	
-		'../app/Resources/public/js/backbone/backbone-min.js'
-    	output="js/backbone.js"
-	%}
-	    <script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}
 
 	{% javascripts
     	'../app/Resources/public/js/handlebars-1.0.0.beta.6.js'
@@ -21,28 +12,15 @@
     %}
     	<script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}
-
- 	<script type="text/x-handlebars-template" id="project-template">
- 	{% raw %}
- 		<li>
-	 		<h1><a href="#">{{title}}</a></h1>
-	 		<p>{{description}}</p>
-	 		<p>{{expiresIn}} days remaining</p>
- 		</li>
- 	{% endraw %}
- 	</script>
 {% endblock %}
 
-{% block body %}
-	<div class="subnav">
-	    <ul class="nav nav-tabs">
-	      <li class="active"><a href="#">Current Contests</a></li>
-	      <li class=""><a href="#">Recent Activity</a></li>
-	      <li class=""><a href="#">Past Contests</a></li>
-	      <li class=""><a href="#">Payment History</a></li>
-	    </ul>
-	</div>
-	<div id="groove-list" class="span12">
-		<h1>{{projects[0].title}}</h1>
-    </div>
+{% set project=projects[0] %}
+
+{% block subnav %}
+    <ul class="nav nav-tabs">		    
+      <li class="active"><a href="#">Current Contests</a></li>
+      <li class=""><a href="#">Recent Activity</a></li>
+      <li class=""><a href="#">Past Contests</a></li>
+      <li class=""><a href="#">Payment History</a></li>
+    </ul>
 {% endblock %}
