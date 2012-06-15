@@ -94,6 +94,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setProject($this->getReference('project-trailer'));
         $p->setDescription('Trailer soundtrack');
         $p->setMinLengthInMilliseconds(30000);
+        $this->addReference('project-trailer-groove-slot', $p);        
         $this->manager->persist($p);
         $this->manager->flush();        
 

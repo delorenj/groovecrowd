@@ -4374,40 +4374,52 @@ footer {
   text-decoration: none;
   padding: 0 10px;
 }
-.payout-amount {
+.paymentAmount {
   font-size: 3em;
   font-weight: bold;
   color: #033c73;
 }
-ul.project-watch-links,
-ul.project-types {
+ul.projectWatchLinks,
+ul.projectTypes {
   margin: 10px 0;
 }
-ul.project-watch-links li,
-ul.project-types li {
+ul.projectWatchLinks li,
+ul.projectTypes li {
   display: inline;
   text-decoration: none;
   padding: 0 10px;
 }
-ul.project-watch-links li:first-child,
-ul.project-types li:first-child {
+ul.projectWatchLinks li:first-child,
+ul.projectTypes li:first-child {
   padding-left: 0;
 }
-ul.project-watch-links li img,
-ul.project-types li img {
+ul.projectWatchLinks li img,
+ul.projectTypes li img {
   padding: 0 3px;
 }
-ul.project-nav-links {
+ul.projectNavLinks {
   margin: 40px 0 10px 0;
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
-ul.project-nav-links li {
+ul.projectNavLinks li {
   display: inline;
   text-decoration: none;
   padding: 0 10px;
+  border-right: 1px solid #3e78b3;
 }
-ul.project-nav-links li:first-child {
+ul.projectNavLinks li:first-child {
   padding-left: 0;
+}
+ul.projectNavLinks li:last-child {
+  border: none;
+}
+#projectHeader div.row {
+  position: relative;
+}
+#contestLengthWidget {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 .user-image {
   display: block;

@@ -43,13 +43,13 @@ footer {
 
 // Project Dashboard
 // -------------------------
-.payout-amount {
+.paymentAmount {
 	font-size: 3em;
 	font-weight: bold;
 	color: @blueDark;
 }
 
-ul.project-watch-links, ul.project-types {
+ul.projectWatchLinks, ul.projectTypes {
 	margin: 10px 0;
 	li {
 		.barlist;
@@ -62,15 +62,29 @@ ul.project-watch-links, ul.project-types {
 	}
 }
 
-ul.project-nav-links {
+ul.projectNavLinks {
 	margin: 40px 0 10px 0;
-	font-size:1.8em;
+	font-size:1.4em;
 	li {
 		.barlist;
+		border-right: 1px solid @blue;		
 		&:first-child {
 			padding-left: 0;
 		}
+		&:last-child {
+			border: none;
+		}
 	}
+}
+
+#projectHeader div.row {
+	position: relative;
+}
+
+#contestLengthWidget {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
 }
 
 .user-image {

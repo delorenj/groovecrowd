@@ -24,30 +24,33 @@
 		    </ul>
 		{% endblock %}
 	</div>	
-	<div id="project-header" class="container">	
+	<div id="projectHeader" class="container">	
 		{% block project_header %}
 			<div class="row">
-				<div class="span6">
+				<div class="span12">
 					<h3>{{project.title}}</h3>
-					<ul class="project-types">						
+					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>					
+					<ul class="projectTypes">						
 						<li><img src="http://placehold.it/24x24" alt="{{ project.projectType.slug }}" /><span>{{ project.projectType.name }}</span></li>
 						<li><img src="http://placehold.it/24x24" alt="{{ project.category.slug }}" /><span>{{ project.category.name }}</span></li>
 
 					</ul>
-					<ul class="project-watch-links">
+					<ul class="projectWatchLinks">
 						<li><a href="#">Watch Project</a></li>
 						<li><a href="#">Watch Category</a></li>
 					</ul>
-					<ul class="project-nav-links">
-						<li><a href="#">Project Brief</a></li>
-						<li><a href="#">Inspiration Board</a></li>
-						<li><a href="#">Entries({{project.grooveCount}})</a></li>
+					<ul class="projectNavLinks">
+						{% block projectNavLinks %}
+							<li>Project Brief</li>
+							<li><a href="#">Inspiration Board</a></li>
+							<li><a href="#">Entries({{project.grooveCount}})</a></li>
+						{% endblock %}
 					</ul>
+					<div id="contestLengthWidget">	
+						<img src="http://placehold.it/350x30&text=Contest Length Widget" />
+					</div>
 
-				</div>
-				<div class="span6">
-					<span class="payout-amount pull-right">${{ project.payoutAmount }}</span>					
-				</div>
+				</div>					
 			</div>
 		</div>
 		{% endblock %}
