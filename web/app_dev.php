@@ -12,6 +12,7 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     '127.0.0.1',
     '::1',
     '64.115.170.232',
+    '68.197.110.120',
 ))) {
 //	if(!isset($_GET['token']) || (isset($_GET['token']) && ($_GET['token'] != "bootchamp"))) {
 		header('HTTP/1.0 403 Forbidden');
