@@ -2,7 +2,7 @@
 
 {% block javascripts %}
 	{{ parent() }}
-
+	 <script type="text/javascript" src="http://www.labs.mimmin.com/countdown/remaining.js"></script>
     {% javascripts     	
 		'../app/Resources/public/js/backbone/underscore.js'    	
 		'../app/Resources/public/js/backbone/json2.js'    	
@@ -50,12 +50,7 @@
 						<div id="contestLengthWidget" class="progress progress-info span4">
 						    <div class="bar" data-fill="{{ project.percentComplete ~ '%' }}"></div>					    
 						</div>
-						{% if project.secondsRemaining < 60*60*24 %}
-							<div id="contestLengthWidgetCountdown">{{ project.countdown }}</div>
-						{% else %}
-							<div id="contestLengthWidgetCountdown">{{ project.daysRemaining }}</div>
-						{% endif %}						
-						
+						<div id="contestLengthWidgetCountdown" data-time="{{ project.expiresAt|date("Y-m-d H:i:s") }}"></div>
 					</div>
 				</div>					
 			</div>
