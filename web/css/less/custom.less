@@ -43,6 +43,16 @@ footer {
 
 // Project Dashboard
 // -------------------------
+#contestLengthWidget {
+	float: right;
+	margin-top: 40px;
+	.transition(width 2s ease-in-out);
+}
+
+.progress, .progress .bar {
+	height: 25px;
+}
+
 .paymentAmount {
 	font-size: 3em;
 	font-weight: bold;
@@ -75,16 +85,19 @@ ul.projectNavLinks {
 			border: none;
 		}
 	}
+	.active {
+		color: @blueDark;
+	}
 }
 
 #projectHeader div.row {
 	position: relative;
 }
 
-#contestLengthWidget {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
+#contestLengthWidgetCountdown {
+	text-align: center;
+	font-size: 1.2em;
+	color: @blue;
 }
 
 .user-image {

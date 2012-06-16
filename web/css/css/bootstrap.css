@@ -4374,6 +4374,19 @@ footer {
   text-decoration: none;
   padding: 0 10px;
 }
+#contestLengthWidget {
+  float: right;
+  margin-top: 40px;
+  -webkit-transition: width 2s ease-in-out;
+  -moz-transition: width 2s ease-in-out;
+  -ms-transition: width 2s ease-in-out;
+  -o-transition: width 2s ease-in-out;
+  transition: width 2s ease-in-out;
+}
+.progress,
+.progress .bar {
+  height: 25px;
+}
 .paymentAmount {
   font-size: 3em;
   font-weight: bold;
@@ -4413,13 +4426,16 @@ ul.projectNavLinks li:first-child {
 ul.projectNavLinks li:last-child {
   border: none;
 }
+ul.projectNavLinks .active {
+  color: #033c73;
+}
 #projectHeader div.row {
   position: relative;
 }
-#contestLengthWidget {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+#contestLengthWidgetCountdown {
+  text-align: center;
+  font-size: 1.2em;
+  color: #3e78b3;
 }
 .user-image {
   display: block;

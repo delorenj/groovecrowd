@@ -7,6 +7,7 @@
 		'../app/Resources/public/js/backbone/underscore.js'    	
 		'../app/Resources/public/js/backbone/json2.js'    	
 		'../app/Resources/public/js/backbone/backbone-min.js'
+		'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
     	output="js/backbone.js"
 	%}
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -29,27 +30,33 @@
 			<div class="row">
 				<div class="span12">
 					<h3>{{project.title}}</h3>
-					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>					
+					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>
 					<ul class="projectTypes">						
 						<li><img src="http://placehold.it/24x24" alt="{{ project.projectType.slug }}" /><span>{{ project.projectType.name }}</span></li>
 						<li><img src="http://placehold.it/24x24" alt="{{ project.category.slug }}" /><span>{{ project.category.name }}</span></li>
-
 					</ul>
 					<ul class="projectWatchLinks">
 						<li><a href="#">Watch Project</a></li>
 						<li><a href="#">Watch Category</a></li>
 					</ul>
-					<ul class="projectNavLinks">
+					<ul class="projectNavLinks span8">
 						{% block projectNavLinks %}
-							<li>Project Brief</li>
+							<li class='active'>Project Brief</li>
 							<li><a href="#">Inspiration Board</a></li>
 							<li><a href="#">Entries({{project.grooveCount}})</a></li>
 						{% endblock %}
 					</ul>
-					<div id="contestLengthWidget">	
-						<img src="http://placehold.it/350x30&text=Contest Length Widget" />
+					<div id="contestLengthWidgetContainer" class="span4">
+						<div id="contestLengthWidget" class="progress progress-info span4">
+						    <div class="bar" data-fill="{{ project.percentComplete ~ '%' }}"></div>					    
+						</div>
+						{% if project.secondsRemaining < 60*60*24 %}
+							<div id="contestLengthWidgetCountdown">{{ project.countdown }}</div>
+						{% else %}
+							<div id="contestLengthWidgetCountdown">{{ project.daysRemaining }}</div>
+						{% endif %}						
+						
 					</div>
-
 				</div>					
 			</div>
 		</div>

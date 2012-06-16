@@ -34,7 +34,10 @@ class DefaultController extends Controller
     	foreach($projects as $p) {            
 			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
 			$datediff = $then - $now;
-			$p->remaining = floor($datediff/(60*60*24));
+			$p->secondsRemaining = $datediff;
+            $p->daysRemaining = $datediff/(60*60*24);
+            $p->countdown = gmdate("H:i:s", $p->secondsRemaining);
+            $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
             $p->payoutAmount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getPayoutAmount($p); //REFACTOR 
 			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
     	}
