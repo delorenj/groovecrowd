@@ -2,6 +2,14 @@ dashboard_index:
     pattern:  /dashboard
     defaults: { _controller: GCDashboardBundle:Default:index }
 
+dashboard_consumer_index:
+    pattern: /dashboard/consumer/projects
+    defaults: { _controller: GCDashboardBundle:Default:consumerIndex }
+    requirements:
+        _method: GET
+    options:
+        expose: true
+
 project_back:
     pattern: /project/back
     defaults: { _controller: GCDashboardBundle:Project:back }

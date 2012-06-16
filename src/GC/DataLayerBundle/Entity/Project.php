@@ -594,4 +594,36 @@ class Project
     {
         return $this->assets;
     }
+
+    public function toArray() {
+        $a = array(
+            "title" => $this->title,
+            "description" => $this->description,
+            "organizaion" => $this->organization,
+            "payoutGuaranteed" => $this->payoutGuaranteed,
+            "protection" => $this->protection,
+            "contestLength" => $this->contestLength,
+            "enabled" => $this->enabled,
+            "fullGrooveSetsOnly" => $this->fullGrooveSetsOnly,
+            "blind" => $this->blind,
+            "flags" => $this->flags,
+            "projectType" => $this->projectType->getName(),
+            "createdAt" => $this->createdAt,
+            "modifiedAt" => $this->modifiedAt,
+            "category" => $this->category->toArray());
+
+        $tags = array();
+        foreach($this->tags as $x) {
+            $tags[] = $x->getName();
+        }
+        $a["tags"] = $tags;
+
+        $assets = array();
+        foreach($this->assets as $x) {
+            $assets[] = $x->toArray();
+        }
+        $a["assets"] = $assets;
+
+        return $a;
+    }
 }

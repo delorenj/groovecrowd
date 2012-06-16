@@ -198,4 +198,14 @@ class ProjectAsset
     {
         return $this->thumbUri;
     }
+
+    public function toArray() {
+        return array(
+            "id" => $this->id,
+            "uri" => $this->uri,
+            "thumbUri" => $this->thumbUri,
+            "caption" => $this->caption,
+            "createdAt" => $this->createdAt,
+            "assetType" => $this->assetType->getName());
+    }
 }

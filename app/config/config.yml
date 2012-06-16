@@ -46,13 +46,17 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    # java: /usr/bin/java
+    java: /usr/bin/java
     filters:
-        cssrewrite: ~
         # closure:
         #     jar: %kernel.root_dir%/java/compiler.jar
         # yui_css:
         #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+        cssrewrite: ~        
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
 
 # Doctrine Configuration
 doctrine:

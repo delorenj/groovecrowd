@@ -4369,6 +4369,74 @@ footer {
   height: 150px;
   background-color: #f1f1f1;
 }
+.barlist {
+  display: inline;
+  text-decoration: none;
+  padding: 0 10px;
+}
+#contestLengthWidget {
+  float: right;
+  margin-top: 40px;
+  -webkit-transition: width 2s ease-in-out;
+  -moz-transition: width 2s ease-in-out;
+  -ms-transition: width 2s ease-in-out;
+  -o-transition: width 2s ease-in-out;
+  transition: width 2s ease-in-out;
+}
+.progress,
+.progress .bar {
+  height: 25px;
+}
+.paymentAmount {
+  font-size: 3em;
+  font-weight: bold;
+  color: #033c73;
+}
+ul.projectWatchLinks,
+ul.projectTypes {
+  margin: 10px 0;
+}
+ul.projectWatchLinks li,
+ul.projectTypes li {
+  display: inline;
+  text-decoration: none;
+  padding: 0 10px;
+}
+ul.projectWatchLinks li:first-child,
+ul.projectTypes li:first-child {
+  padding-left: 0;
+}
+ul.projectWatchLinks li img,
+ul.projectTypes li img {
+  padding: 0 3px;
+}
+ul.projectNavLinks {
+  margin: 40px 0 10px 0;
+  font-size: 1.4em;
+}
+ul.projectNavLinks li {
+  display: inline;
+  text-decoration: none;
+  padding: 0 10px;
+  border-right: 1px solid #3e78b3;
+}
+ul.projectNavLinks li:first-child {
+  padding-left: 0;
+}
+ul.projectNavLinks li:last-child {
+  border: none;
+}
+ul.projectNavLinks .active {
+  color: #033c73;
+}
+#projectHeader div.row {
+  position: relative;
+}
+#contestLengthWidgetCountdown {
+  text-align: center;
+  font-size: 1.2em;
+  color: #3e78b3;
+}
 .user-image {
   display: block;
   margin-top: 5px;

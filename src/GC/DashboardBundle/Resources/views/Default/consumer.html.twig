@@ -1,36 +1,26 @@
-{% extends 'GCDashboardBundle::layout.html.twig' %}
+{% extends 'GCDashboardBundle::consumer_dashboard.html.twig' %}
 
+{% block javascripts %}
+	{{ parent() }}
 
-{% block body %}
-	<div class="subnav">
-	    <ul class="nav nav-tabs">
-	      <li class="active"><a href="#">Current Contests</a></li>
-	      <li class=""><a href="#">Recent Activity</a></li>
-	      <li class=""><a href="#">Past Contests</a></li>
-	      <li class=""><a href="#">Payment History</a></li>
-	    </ul>
-	</div>
-	<div class="span12">
-		<h1>Grooves in the making</h1>
-		<table class="table table-striped">
-			<thead>
-			  <tr>
-			    <th>Project Title</th>
-			    <th>Payout</th>
-			    <th>Remaining</th>
-			    <th>Grooves</th>
-			  </tr>
-			</thead>
-			<tbody>
-				{% for p in projects %}
-					<tr>
-						<td><a href="{{ path('project_show', {'id': p.id})}}">{{ p.title }}</a></td>
-						<td>${{ p.payoutAmount }}</td>
-						<td>{{ p.remaining}} days</td>
-						<td>{{ p.grooveCount }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-    </div>
+	{% javascripts
+    	'../app/Resources/public/js/handlebars-1.0.0.beta.6.js'
+    	'@GCDashboardBundle/Resources/public/js/Assets/*' 
+    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/app/*' 
+    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/setup.js'
+    	output="js/main.js"
+    %}
+    	<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+
+{% set project=projects[0] %}
+
+{% block subnav %}
+    <ul class="nav nav-tabs">		    
+      <li class="active"><a href="#">Current Contests</a></li>
+      <li class=""><a href="#">Recent Activity</a></li>
+      <li class=""><a href="#">Past Contests</a></li>
+      <li class=""><a href="#">Payment History</a></li>
+    </ul>
 {% endblock %}

@@ -32,6 +32,74 @@ footer {
 @iconSpritePath:          "../../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../../img/glyphicons-halflings-white.png";
 
+
+// Mixins
+// -------------------------
+.barlist {
+	display: inline;
+	text-decoration: none;	
+	padding: 0 10px;
+}
+
+// Project Dashboard
+// -------------------------
+#contestLengthWidget {
+	float: right;
+	margin-top: 40px;
+	.transition(width 2s ease-in-out);
+}
+
+.progress, .progress .bar {
+	height: 25px;
+}
+
+.paymentAmount {
+	font-size: 3em;
+	font-weight: bold;
+	color: @blueDark;
+}
+
+ul.projectWatchLinks, ul.projectTypes {
+	margin: 10px 0;
+	li {
+		.barlist;
+		&:first-child {
+			padding-left: 0;
+		}	
+		img {
+			padding: 0 3px;
+		}
+	}
+}
+
+ul.projectNavLinks {
+	margin: 40px 0 10px 0;
+	font-size:1.4em;
+	li {
+		.barlist;
+		border-right: 1px solid @blue;		
+		&:first-child {
+			padding-left: 0;
+		}
+		&:last-child {
+			border: none;
+		}
+	}
+	.active {
+		color: @blueDark;
+	}
+}
+
+#projectHeader div.row {
+	position: relative;
+}
+
+#contestLengthWidgetCountdown {
+	text-align: center;
+	font-size: 1.2em;
+	color: @blue;
+}
+
 .user-image {
 	display: block;	
 	margin-top: 5px;

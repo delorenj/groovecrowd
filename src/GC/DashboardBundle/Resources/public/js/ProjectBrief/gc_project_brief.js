@@ -369,7 +369,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $(".yoxview").yoxview({ 
-        skin: "top_menu",
-        backgroundColor: "#ffffff" });
+    // $(".yoxview").yoxview({ 
+    //     skin: "top_menu",
+    //     backgroundColor: "#ffffff" });
 });

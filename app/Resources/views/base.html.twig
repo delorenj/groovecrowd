@@ -9,14 +9,9 @@
         <meta name="author" content="">
 
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/bootstrap.css') }}" />
-            <style type="text/css">
-              body {
-                /*padding-top: 60px;*/
-                /*padding-bottom: 40px;*/
-              }
-            </style>
-            <link rel="stylesheet" type="text/css" href="{{ asset('/css/css/responsive.css') }}" />
+            {% stylesheets 'css/css/bootstrap.css' 'css/css/responsive.css' %}
+                <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+            {% endstylesheets %}
          {% endblock %}
         <!-- Le styles -->
 
@@ -135,24 +130,20 @@
         {% endblock %}                
     </footer>
     {% block javascripts %}
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-transition.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-alert.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-modal.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-dropdown.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-scrollspy.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-tab.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-tooltip.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-popover.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-button.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-collapse.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-carousel.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-typeahead.js') }}"></script>
+
+        {% javascripts '../app/Resources/public/js/jquery.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts
+            '../app/Resources/public/js/twitter-bootstrap/bootstrap-tooltip.js'
+            '../app/Resources/public/js/twitter-bootstrap/*'
+            '../app/Resources/public/js/gc/*'
+            output="js/bootstrap.js"
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>        
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     {% endblock %}
 
 </body>
