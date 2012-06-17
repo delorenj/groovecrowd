@@ -43,10 +43,25 @@ footer {
 
 // Project Dashboard
 // -------------------------
+@contestLengthWidgetArrowWidth: 23px;
+@contestLengthWidgetArrowHeight: 30px;
+@contestLengthWidgetHeightOffset: 40px;
+
 #contestLengthWidget {
 	float: right;
-	margin-top: 40px;
+	margin-top: @contestLengthWidgetHeightOffset;
 	.transition(width 2s ease-in-out);
+}
+
+#contestLengthWidgetContainer {
+	position: relative;
+
+}
+
+.contestLengthWidgetArrow {
+	position: absolute;
+	top: @contestLengthWidgetHeightOffset - @contestLengthWidgetArrowHeight;
+	margin-left: -@contestLengthWidgetArrowWidth/2;
 }
 
 .progress, .progress .bar {

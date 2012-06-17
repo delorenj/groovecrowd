@@ -4383,6 +4383,14 @@ footer {
   -o-transition: width 2s ease-in-out;
   transition: width 2s ease-in-out;
 }
+#contestLengthWidgetContainer {
+  position: relative;
+}
+.contestLengthWidgetArrow {
+  position: absolute;
+  top: 10px;
+  margin-left: -11.5px;
+}
 .progress,
 .progress .bar {
   height: 25px;
