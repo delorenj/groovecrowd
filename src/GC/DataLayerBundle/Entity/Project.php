@@ -120,7 +120,7 @@ class Project
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
 
-    private $expiresAt;
+    private $createdAt;
 
     /**
      * @var datetime $expiresAt
@@ -128,7 +128,7 @@ class Project
      * @ORM\Column(name="expires_at", type="datetime", nullable=true)
      */
 
-    private $createdAt;
+    private $expiresAt;
 
     /**
      * @var datetime $modifiedAt
