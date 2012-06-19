@@ -4388,7 +4388,7 @@ footer {
 }
 .contestLengthWidgetArrow {
   position: absolute;
-  top: 10px;
+  top: -10px;
   margin-left: -11.5px;
 }
 .progress,

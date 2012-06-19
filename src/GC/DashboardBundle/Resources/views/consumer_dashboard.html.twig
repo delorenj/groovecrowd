@@ -7,11 +7,21 @@
 		'../app/Resources/public/js/backbone/underscore.js'    	
 		'../app/Resources/public/js/backbone/json2.js'    	
 		'../app/Resources/public/js/backbone/backbone-min.js'
+		'../app/Resources/public/js/handlebars-1.0.0.beta.6.js'		
 		'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
     	output="js/backbone.js"
 	%}
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}
+
+	<script id="contestLengthWidgetArrowTemplate" type="text/x-handlebars-template">
+	{% raw %}
+		<div class='contestLengthWidgetArrow'>
+			<h5 style='width: 60px; margin-right:3px;'>{{ label }}</h5>
+			<img src='/img/arrow-blue-outline-down-23x30.png'></img>
+		</div>
+	{% endraw %}
+	</script>
 {% endblock %}
 
 {% block body %}

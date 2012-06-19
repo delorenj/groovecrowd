@@ -1,12 +1,13 @@
 (function(ContestLengthWidget, $) {
     var widget = $("#contestLengthWidget .bar");
     var arrowContainer = $("#contestLengthWidgetContainer");
-    var arrow = "<div class='contestLengthWidgetArrow'><h5 style='width: 60px;'>Day 1</h5><img src='/img/arrow-blue-outline-down-23x30.png'></img></div>"
+    var arrow = Handlebars.compile($("#contestLengthWidgetArrowTemplate").html());
+    console.log(arrow);
     var countdown = $("#contestLengthWidgetCountdown");    
     var expiresAt = $(countdown).attr("data-time");
-    var larrow = $(arrow);
-    var rarrow = $(arrow);
-
+    var larrow = arrow({label: "Day 1"});
+    var rarrow = arrow({label: "Day 15"});
+    
     ContestLengthWidget.init = function() {
         initProgressBar();
         initCountdownTimer();
