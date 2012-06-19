@@ -2,6 +2,15 @@
 
 {% block javascripts %}
 	{{ parent() }}
+	<script id="arrow-template" type="text/x-handlebars-template">
+	{% raw %}
+		<div id='{{id}}' class='contestLengthWidgetArrow'>
+			<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
+			<img src='/img/arrow-blue-outline-down-23x30.png'></img>
+		</div>
+	{% endraw %}
+	</script>
+
 	 <script type="text/javascript" src="http://www.labs.mimmin.com/countdown/remaining.js"></script>
     {% javascripts     	
 		'../app/Resources/public/js/backbone/underscore.js'    	
@@ -14,14 +23,6 @@
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 
-	<script id="contestLengthWidgetArrowTemplate" type="text/x-handlebars-template">
-	{% raw %}
-		<div class='contestLengthWidgetArrow'>
-			<h5 style='width: 60px; margin-right:3px;'>{{ label }}</h5>
-			<img src='/img/arrow-blue-outline-down-23x30.png'></img>
-		</div>
-	{% endraw %}
-	</script>
 {% endblock %}
 
 {% block body %}
@@ -58,7 +59,7 @@
 					</ul>
 					<div id="contestLengthWidgetContainer" class="span4">
 						<div id="contestLengthWidget" class="progress progress-info span4">
-						    <div class="bar" data-fill="{{ project.percentComplete ~ '%' }}"></div>					    
+						    <div class="bar" data-fill="{{ project.percentComplete }}"></div>					    
 						</div>
 						<div id="contestLengthWidgetCountdown" data-time="{{ project.expiresAt|date("Y-m-d H:i:s") }}"></div>
 					</div>
