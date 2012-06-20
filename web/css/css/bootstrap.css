@@ -4374,6 +4374,9 @@ footer {
   text-decoration: none;
   padding: 0 10px;
 }
+.projectHeader {
+  margin-bottom: 40px;
+}
 #contestLengthWidget {
   float: right;
   margin-top: 40px;
@@ -4444,6 +4447,13 @@ ul.projectNavLinks .active {
   text-align: center;
   font-size: 1.2em;
   color: #3e78b3;
+}
+.projectContent h1 {
+  margin-bottom: 15px;
+}
+.projectContent p {
+  font-size: 2em;
+  line-height: 1.3em;
 }
 .user-image {
   display: block;
