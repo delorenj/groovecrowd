@@ -18,7 +18,7 @@ use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
 use GC\DashboardBundle\Form\Type\PackageSelectionType;
 use GC\DashboardBundle\Form\Type\PaymentType;
 
-class ProjectController extends Controller
+class ProjectCreateController extends Controller
 {
 
    public function indexAction()
