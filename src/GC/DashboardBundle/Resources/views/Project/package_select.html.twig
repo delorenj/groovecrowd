@@ -3,7 +3,12 @@
 
 {% block javascripts %}
 	{{ parent() }}
-    <script src="{{ asset('js/gc_package_select.js?2') }}" type="text/javascript"></script>
+		{% javascripts
+			'@GCDashboardBundle/Resources/public/js/PackageSelect/main.js'
+			output="main.js"
+		%}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+       {% endjavascripts %}
 {% endblock %}
 
 {% block formheader %}
