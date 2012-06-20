@@ -13,12 +13,13 @@
 
 	 <script type="text/javascript" src="http://www.labs.mimmin.com/countdown/remaining.js"></script>
     {% javascripts     	
+    	'../app/Resources/public/js/moment.min.js'    	
 		'../app/Resources/public/js/backbone/underscore.js'    	
 		'../app/Resources/public/js/backbone/json2.js'    	
 		'../app/Resources/public/js/backbone/backbone-min.js'
 		'../app/Resources/public/js/handlebars-1.0.0.beta.6.js'		
 		'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
-    	output="js/backbone.js"
+    	output="js/main.js"
 	%}
 	    <script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}
@@ -59,7 +60,7 @@
 					</ul>
 					<div id="contestLengthWidgetContainer" class="span4">
 						<div id="contestLengthWidget" class="progress progress-info span4">
-						    <div class="bar" data-fill="{{ project.percentComplete }}"></div>					    
+						    <div class="bar" data-fill="{{ project.percentComplete }}" data-length="{{project.contestLength}}"></div>					    
 						</div>
 						<div id="contestLengthWidgetCountdown" data-time="{{ project.expiresAt|date("Y-m-d H:i:s") }}"></div>
 					</div>
