@@ -12,39 +12,33 @@ dashboard_consumer_index:
 
 project_back:
     pattern: /project/back
-    defaults: { _controller: GCDashboardBundle:Project:back }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:back }
     options:
         expose: true
 
-project_show:
-    pattern: /project/{id}
-    defaults: { _controller: GCDashboardBundle:Project:show }
-    requirements:
-        id: \d+
-
 project_new:
     pattern: /project/new
-    defaults: { _controller: GCDashboardBundle:Project:new }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:new }
 
 project_category_select:
     pattern: /project/new/category
-    defaults: { _controller: GCDashboardBundle:Project:categorySelect }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:categorySelect }
 
 project_brief:
     pattern: /project/new/brief
-    defaults: { _controller: GCDashboardBundle:Project:brief }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:brief }
 
 project_package:
     pattern: /project/new/package
-    defaults: { _controller: GCDashboardBundle:Project:package }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:package }
 
 project_payment:
     pattern: /project/new/launch
-    defaults: { _controller: GCDashboardBundle:Project:payment }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:payment }
 
 project_remove_tag:
     pattern: /project/{id}/tag/remove/{tag}
-    defaults: { _controller: GCDashboardBundle:Project:removeTag }
+    defaults: { _controller: GCDashboardBundle:ProjectCreate:removeTag }
     options:
         expose: true
 
