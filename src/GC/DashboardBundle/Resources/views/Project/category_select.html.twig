@@ -1,5 +1,14 @@
 {% extends 'GCDashboardBundle::breadcrumb_form.html.twig' %}
 
+{% block javascripts %}
+	{{ parent() }}
+	{% javascripts 
+		'@GCDashboardBundle/Resources/public/js/CategorySelect/main.js' 
+		output="bundle.js" %}
+	    <script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+
 {% block formheader %}
 	<h1>Select a category</h1>
 {% endblock %}
