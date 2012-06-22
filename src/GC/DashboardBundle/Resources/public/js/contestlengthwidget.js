@@ -6,9 +6,11 @@
     var expiresAt = $(countdown).attr("data-time");
     var secondsRemaining = remaining.getSeconds(expiresAt);    
     var contestLength = $(widget).attr("data-length");
-    var currentDay = Math.ceil(contestLength - secondsRemaining/60/60/24);    
-    var larrow = arrow({id: "larrow", label: "Day " + currentDay, offset: 5, left:"true"});
-    var rarrow = arrow({id: "rarrow", label: "Day " + contestLength, offset: 9});
+    var currentDay = Math.floor(contestLength - secondsRemaining/60/60/24); 
+    var larrowLabel = (function() {
+        return "Day " + parseInt(currentDay+1);
+    })();
+    var larrow = arrow({id: "larrow", label: larrowLabel, offset: 5});
     
     ContestLengthWidget.init = function() {
         initProgressBar();
@@ -18,19 +20,13 @@
     function initProgressBar() {
         complete = $(widget).attr('data-fill');
         $(widget).width(complete + "%");
-        $(arrowContainer).prepend(rarrow);
-        setPercentComplete("rarrow", 100);
-
-        if(remaining.getSeconds(expiresAt) > 86400) {
-            $(arrowContainer).prepend(larrow);
-            setPercentComplete("larrow", (currentDay/contestLength)*100);
-        }
+        $(arrowContainer).prepend(larrow);
+        setPercentComplete("larrow", (currentDay/contestLength)*100);
         
     }
 
     function initCountdownTimer() {
         if(remaining.getSeconds(expiresAt) <= 86400) {
-            $("#larrow").hide();
             setInterval(
                 function() {
                     $(countdown).html(remaining.getString(remaining.getSeconds(expiresAt), null, false) + ' left!');
