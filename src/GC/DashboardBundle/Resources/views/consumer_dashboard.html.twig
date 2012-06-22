@@ -5,8 +5,13 @@
 	<script id="arrow-template" type="text/x-handlebars-template">
 	{% raw %}
 		<div id='{{id}}' class='contestLengthWidgetArrow'>
+			{{#if left}}
 			<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
 			<img src='/img/arrow-blue-outline-down-23x30.png'></img>
+			{{else}}
+			<img src='/img/arrow-blue-outline-up-23x30.png'></img>			
+			<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
+			{{/if}}			
 		</div>
 	{% endraw %}
 	</script>
