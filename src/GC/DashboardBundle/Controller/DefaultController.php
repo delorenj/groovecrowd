@@ -38,15 +38,6 @@ class DefaultController extends Controller
             $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
             $p->payoutAmount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getPayoutAmount($p); //REFACTOR 
 			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
-            $this->get('logger')->info('TIME: Now=' . date("Y-m-d H:i:s", $now) . " ------- " . number_format($now));
-            $this->get('logger')->info('TIME: Then=' . date("Y-m-d H:i:s", $then) . " ------- " . number_format($then));
-            $this->get('logger')->info('TIME: Original Then=' . $p->getExpiresAt()->format('Y-m-d H:i:s'));
-            $this->get('logger')->info('TIME: Datediff=' . number_format($datediff));
-            $this->get('logger')->info('TIME: Denom=' . number_format(60*60*24));
-            $this->get('logger')->info('TIME: Remaining=' . date('H:i:s', $p->secondsRemaining));
-            $this->get('logger')->info('TIME: Length=' . $p->getContestLength());
-            $this->get('logger')->info('TIME: Percentage: ' . $p->percentComplete . "\n\r");
-
     	}
 
         if($this->getRequest()->isXmlHttpRequest()) {

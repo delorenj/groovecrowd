@@ -1,3 +1,1 @@
-window.App = {
-	// Main Namespace
-};
+window.App=window.App||{};

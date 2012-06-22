@@ -7,13 +7,13 @@
     var secondsRemaining = remaining.getSeconds(expiresAt);    
     var contestLength = $(widget).attr("data-length");
     var currentDay = Math.ceil(contestLength - secondsRemaining/60/60/24);    
-    var larrow = arrow({id: "larrow", label: "Day " + currentDay, offset: 5, direction: "down"});
-    var rarrow = arrow({id: "rarrow", label: "Day " + contestLength, offset: 9, direction: "up"});
+    var larrow = arrow({id: "larrow", label: "Day " + currentDay, offset: 5, left:"true"});
+    var rarrow = arrow({id: "rarrow", label: "Day " + contestLength, offset: 9});
     
     ContestLengthWidget.init = function() {
         initProgressBar();
         initCountdownTimer();
-    }
+    };
 
     function initProgressBar() {
         complete = $(widget).attr('data-fill');

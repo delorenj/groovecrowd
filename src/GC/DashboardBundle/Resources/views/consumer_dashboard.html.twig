@@ -1,36 +1,5 @@
 {% extends 'GCDashboardBundle::layout.html.twig' %}
 
-{% block javascripts %}
-	{{ parent() }}
-	<script id="arrow-template" type="text/x-handlebars-template">
-	{% raw %}
-		<div id='{{id}}' class='contestLengthWidgetArrow'>
-			{{#if left}}
-			<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
-			<img src='/img/arrow-blue-outline-down-23x30.png'></img>
-			{{else}}
-			<img src='/img/arrow-blue-outline-up-23x30.png'></img>			
-			<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
-			{{/if}}			
-		</div>
-	{% endraw %}
-	</script>
-
-	 <script type="text/javascript" src="http://www.labs.mimmin.com/countdown/remaining.js"></script>
-    {% javascripts     	
-    	'../app/Resources/public/js/moment.min.js'    	
-		'../app/Resources/public/js/backbone/underscore.js'    	
-		'../app/Resources/public/js/backbone/json2.js'    	
-		'../app/Resources/public/js/backbone/backbone-min.js'
-		'../app/Resources/public/js/handlebars-1.0.0.beta.6.js'		
-		'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
-    	output="js/main.js"
-	%}
-	    <script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}
-
-{% endblock %}
-
 {% block body %}
 	<div class="subnav">
 		{% block subnav %}
