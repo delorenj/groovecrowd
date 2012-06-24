@@ -1,16 +1,46 @@
-{% extends 'GCDashboardBundle::layout.html.twig' %}
+{% extends 'GCDashboardBundle::consumer_dashboard.html.twig' %}
 
-{% block body %}
-	<div class="subnav">
-	    <ul class="nav nav-tabs">
-	      <li class="active"><a href="#">Current Contests</a></li>
-	      <li class=""><a href="#">Recent Activity</a></li>
-	      <li class=""><a href="#">Past Contests</a></li>
-	      <li class=""><a href="#">Payment History</a></li>
-	    </ul>
-	</div>
-	<div class="span12">
-		<h1>Project: {{project.title}}</h1>
+{% block javascripts %}
+	{{ parent() }}
 
+  <script id="arrow-template" type="text/x-handlebars-template">
+  {% raw %}
+    <div id='{{id}}' class='contestLengthWidgetArrow'>
+        <h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
+        <img src='/img/arrow-blue-outline-down-23x30.png'></img>
     </div>
+  {% endraw %}
+  </script>
+  
+	{% javascripts
+      '@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'  
+    	'@GCDashboardBundle/Resources/public/js/Assets/*' 
+    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/app/*' 
+    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/setup.js'
+    	output="bundle.js"
+    %}
+    	<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+{% endblock %}
+
+{% set project=projects[0] %}
+
+{% block subnav %}
+    <ul class="nav nav-tabs">		    
+      <li class="active"><a href="#">Current Contests</a></li>
+      <li class=""><a href="#">Recent Activity</a></li>
+      <li class=""><a href="#">Past Contests</a></li>
+      <li class=""><a href="#">Payment History</a></li>
+    </ul>
+{% endblock %}
+
+{% block project_content %}
+  <h1>Description</h1>
+  <p>{{ project.description }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 {% endblock %}

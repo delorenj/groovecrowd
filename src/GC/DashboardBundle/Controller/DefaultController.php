@@ -14,14 +14,12 @@ class DefaultController extends Controller
 {
    public function indexAction()
     {
-        $this->get('logger')->info('Here');
     	$user = $this->get('security.context')->getToken()->getUser();
     	$userRepo = $this->userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');
     	if($user->hasRole('ROLE_CREATOR')) {
     		return $this->forward('GCDashboardBundle:Default:creatorIndex');
-    		return $r;
     	} elseif($user->hasRole('ROLE_CONSUMER')) {
-    		return $this->forward('GCDashboardBundle:Default:consumerIndex');
+    		return $this->forward('GCDashboardBundle:Project:index');
     	}
     }
 

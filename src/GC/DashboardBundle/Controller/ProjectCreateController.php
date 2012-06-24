@@ -20,20 +20,6 @@ use GC\DashboardBundle\Form\Type\PaymentType;
 
 class ProjectCreateController extends Controller
 {
-
-   public function indexAction()
-    {
-        return new Response("todo");
-    }
-
-    public function showAction($id) {
-    	$project = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->find($id);
-
-        return $this->render('GCDashboardBundle:Project:show.html.twig', 
-        	array('project' => $project));
-	}
-
-
 	public function removeTagAction(Request $request, $id, $tag) {
 		$this->get('logger')->info("removing tag $tag from project $id");
 	 	$em = $this->getDoctrine()->getEntityManager();
