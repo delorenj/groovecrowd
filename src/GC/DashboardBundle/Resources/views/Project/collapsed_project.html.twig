@@ -1,0 +1,30 @@
+<div id="project-{{project.id}}" class="projectRow container">  
+  <div class="row">
+    <div class="span12">
+      <h3><a href="{{ path('project_show', {id: project.id}) }}">{{project.title}}</a></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      {% include "GCDashboardBundle:Project:projectTypes.html.twig" %}    
+    </div>
+    <div class="span2">
+      <h3>Stuff</h3>        
+    </div>
+    <div class="span2">
+      <h3>Stuff</h3>        
+    </div>
+    <div class="span2">
+      <h3>Stuff</h3>        
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+        <ul class="projectStatLinks">
+          <li><a href="#"><i class="icon-comment"></i>3 Comments</a></li>
+          <li><a href="#"><i class="icon-music"></i>2 Entries</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i>455 Views</a></li>
+        </ul>
+      </div>
+  </div>
+</div>

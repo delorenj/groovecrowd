@@ -4404,21 +4404,25 @@ footer {
   color: #033c73;
 }
 ul.projectWatchLinks,
-ul.projectTypes {
+ul.projectTypes,
+ul.projectStatLinks {
   margin: 10px 0;
 }
 ul.projectWatchLinks li,
-ul.projectTypes li {
+ul.projectTypes li,
+ul.projectStatLinks li {
   display: inline;
   text-decoration: none;
   padding: 0 10px;
 }
 ul.projectWatchLinks li:first-child,
-ul.projectTypes li:first-child {
+ul.projectTypes li:first-child,
+ul.projectStatLinks li:first-child {
   padding-left: 0;
 }
 ul.projectWatchLinks li img,
-ul.projectTypes li img {
+ul.projectTypes li img,
+ul.projectStatLinks li img {
   padding: 0 3px;
 }
 ul.projectNavLinks {
@@ -4447,6 +4451,9 @@ ul.projectNavLinks .active {
   text-align: center;
   font-size: 1.2em;
   color: #3e78b3;
+}
+.projectRow {
+  margin-bottom: 30px;
 }
 .projectContent h1 {
   margin-bottom: 15px;

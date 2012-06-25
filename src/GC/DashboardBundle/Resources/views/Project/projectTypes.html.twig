@@ -1,0 +1,13 @@
+<ul class="projectTypes"> 
+	<li><i class="icon-headphones"></i><span>{{ project.projectType.name }}</span></li>
+	<li><i class="icon-music"></i><span>{{ project.category.name }}</span></li>
+
+	{% if project.payoutGuaranteed %}
+		<li><i>$</i><span>Guaranteed</span></li>
+	{% endif %}
+
+	{% if project.blind %}
+		<li><i class="icon-eye-close"></i><span>Blind</span></li>
+	{% endif %}
+
+</ul>        

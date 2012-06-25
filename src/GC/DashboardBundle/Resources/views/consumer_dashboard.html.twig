@@ -17,10 +17,7 @@
 				<div class="span12">
 					<h3>{{project.title}}</h3>
 					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>
-					<ul class="projectTypes">						
-						<li><img src="http://placehold.it/24x24" alt="{{ project.projectType.slug }}" /><span>{{ project.projectType.name }}</span></li>
-						<li><img src="http://placehold.it/24x24" alt="{{ project.category.slug }}" /><span>{{ project.category.name }}</span></li>
-					</ul>
+      				{% include "GCDashboardBundle:Project:projectTypes.html.twig" %}
 					<ul class="projectWatchLinks">
 						<li><a href="#">Watch Project</a></li>
 						<li><a href="#">Watch Category</a></li>
