@@ -20,20 +20,11 @@ use GC\DashboardBundle\Form\Type\PaymentType;
 
 class ProjectController extends Controller
 {
-   public function indexAction()
+   public function consumerIndexAction()
     {
         $user = $this->get('security.context')->getToken()->getUser();
-        $userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');      
-        $projects = $userRepo->findAllActiveProjects($user);
-        $now = time();
-        foreach($projects as $p) {            
-            $then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
-            $datediff = $then - $now;
-            $p->secondsRemaining = $datediff;
-            $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
-            $p->payoutAmount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getPayoutAmount($p); //REFACTOR 
-            $p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
-        }
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        $projects = $projectRepo->findAllActiveProjects($user);
 
         if($this->getRequest()->isXmlHttpRequest()) {
             $this->get('logger')->info('Ajax Request');
@@ -42,15 +33,14 @@ class ProjectController extends Controller
                 $projectArray[] = $p->toArray();
             }
             return new Response(json_encode($projectArray), 200);
-        } elseif (count($projects) == 1) {  
-        $this->get('logger')->info('here');          
-            return $this->render('GCDashboardBundle:Project:show.html.twig', array("project" => $projects[0]));
         } else {
             return $this->render('GCDashboardBundle:Project:index.html.twig', array("projects" => $projects));
         }
     }
 
-    public function showAction() {
-        return $this->render('GCDashboardBundle:Project:show.html.twig');
+    public function showAction($id) {
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        $p = $projectRepo->find($id);
+        return $this->render('GCDashboardBundle:Project:show.html.twig', array("project" => $p));
     }
 }

@@ -12,21 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
-	public function findAllActiveProjects($user) {
-	    $query = $this->getEntityManager()
-	        ->createQuery('
-	            SELECT p, u FROM GCDataLayerBundle:Project p
-	            JOIN p.user u
-	            WHERE p.user = :user
-	            AND p.enabled=1
-	            AND p.expiresAt > :now'
-	        )->setParameter('user', $user)
-	        ->setParameter('now', new \DateTime('now'));
-
-	    try {
-	        return $query->getResult();
-	    } catch (\Doctrine\ORM\NoResultException $e) {
-	        return null;
-	    }
-	}
 }

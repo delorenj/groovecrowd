@@ -19,36 +19,10 @@ class DefaultController extends Controller
     	if($user->hasRole('ROLE_CREATOR')) {
     		return $this->forward('GCDashboardBundle:Default:creatorIndex');
     	} elseif($user->hasRole('ROLE_CONSUMER')) {
-    		return $this->forward('GCDashboardBundle:Project:index');
+    		return $this->forward('GCDashboardBundle:Project:consumerIndex');
     	}
     }
 
-    public function consumerIndexAction() {
-    	$user = $this->get('security.context')->getToken()->getUser();
-    	$userRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:User');  	
-    	$projects = $userRepo->findAllActiveProjects($user);
-        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new JsonEncoder()));
-    	$now = time();
-    	foreach($projects as $p) {            
-			$then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
-			$datediff = $then - $now;
-			$p->secondsRemaining = $datediff;
-            $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
-            $p->payoutAmount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getPayoutAmount($p); //REFACTOR 
-			$p->grooveCount = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project')->getGrooveCount($p); //REFACTOR
-    	}
-
-        if($this->getRequest()->isXmlHttpRequest()) {
-            $this->get('logger')->info('Ajax Request');
-            $projectArray = array();
-            foreach($projects as $p) {
-                $projectArray[] = $p->toArray();
-            }
-            return new Response(json_encode($projectArray), 200);
-        } else {            
-            return $this->render('GCDashboardBundle:Default:consumer.html.twig', array("projects" => $projects));
-        }        
-	}
 
     public function creatorIndexAction() {
     	$user = $this->get('security.context')->getToken()->getUser();

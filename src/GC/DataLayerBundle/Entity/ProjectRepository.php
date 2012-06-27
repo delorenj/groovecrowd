@@ -12,6 +12,40 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProjectRepository extends EntityRepository
 {
+    public function find($id) {
+        $query = $this->getEntityManager()
+            ->createQuery('
+                SELECT p FROM GCDataLayerBundle:Project p
+                WHERE p.id = :id')
+            ->setParameter('id', $id);
+        try {
+            $projects = $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+        $projects = $this->formatProjects($projects);
+        return $projects[0];        
+
+    }
+
+    public function findAllActiveProjects($user) {
+        $query = $this->getEntityManager()
+            ->createQuery('
+                SELECT p, u FROM GCDataLayerBundle:Project p
+                JOIN p.user u
+                WHERE p.user = :user
+                AND p.enabled=1
+                AND p.expiresAt > :now'
+            )->setParameter('user', $user)
+            ->setParameter('now', new \DateTime('now'));
+
+        try {
+            $projects = $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+        return $this->formatProjects($projects);
+    }
 
     public function getGrooveCount($project) {
         return  $this->_em->createQuery('SELECT COUNT(g.id) FROM GC\DataLayerBundle\Entity\Groove g 
@@ -57,5 +91,21 @@ class ProjectRepository extends EntityRepository
         } else {
             return 0;
         }
+    }
+
+
+/**
+* Helpers
+**/
+    protected function formatProjects($projects) {
+        foreach($projects as $p) {            
+            $then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
+            $datediff = $then - time();
+            $p->secondsRemaining = $datediff;
+            $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
+            $p->payoutAmount = $this->getPayoutAmount($p);
+            $p->grooveCount = $this->getGrooveCount($p);
+        }
+        return $projects;        
     }
 }
