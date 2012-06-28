@@ -28,6 +28,10 @@ project_brief:
     pattern: /project/new/brief
     defaults: { _controller: GCDashboardBundle:ProjectCreate:brief }
 
+project_edit:
+    pattern: /project/{id}/edit/
+    defaults: { _controller: GCDashboardBundle:Project:edit }
+
 project_show:
     pattern: /project/{id}
     defaults: { _controller: GCDashboardBundle:Project:show }

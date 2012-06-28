@@ -17,14 +17,15 @@ class ProjectRepository extends EntityRepository
             ->createQuery('
                 SELECT p FROM GCDataLayerBundle:Project p
                 WHERE p.id = :id')
-            ->setParameter('id', $id);
+            ->setParameter('id', $id)
+            ->setMaxResults(1);
         try {
-            $projects = $query->getResult();
+            $project = $query->getSingleResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
         }
-        $projects = $this->formatProjects($projects);
-        return $projects[0];        
+        $this->formatProject($project);
+        return $project;
 
     }
 
@@ -44,7 +45,8 @@ class ProjectRepository extends EntityRepository
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
         }
-        return $this->formatProjects($projects);
+        $this->formatProjects($projects);
+        return $projects;
     }
 
     public function getGrooveCount($project) {
@@ -97,15 +99,29 @@ class ProjectRepository extends EntityRepository
 /**
 * Helpers
 **/
-    protected function formatProjects($projects) {
-        foreach($projects as $p) {            
+    protected function formatProjects(&$projects) {
+        if(!$projects) {
+            return null;
+        }
+
+        foreach($projects as &$p) {
+            $this->formatProject($p);
+        }
+    }
+
+    protected function formatProject(&$p) {
+        if(!$p->isEnabled()) {
+            return ;
+        }
+        if($p->getExpiresAt()) {
             $then = strtotime($p->getExpiresAt()->format('Y-m-d H:i:s'));
             $datediff = $then - time();
             $p->secondsRemaining = $datediff;
             $p->percentComplete = 100-($p->secondsRemaining/($p->getContestLength()*60*60*24))*100;
-            $p->payoutAmount = $this->getPayoutAmount($p);
-            $p->grooveCount = $this->getGrooveCount($p);
         }
-        return $projects;        
+
+        $p->payoutAmount = $this->getPayoutAmount($p);
+        $p->grooveCount = $this->getGrooveCount($p);        
+
     }
 }

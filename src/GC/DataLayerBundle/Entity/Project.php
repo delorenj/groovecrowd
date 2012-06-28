@@ -287,6 +287,16 @@ class Project
         return $this->enabled;
     }
 
+/**
+     * Get enabled
+     *
+     * @return integer 
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
     /**
      * Set blind
      *

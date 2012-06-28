@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use GC\DataLayerBundle\Entity\User;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
@@ -141,7 +142,7 @@ class ProjectCreateController extends Controller
 		$tag_list = implode(',', $t);
 
 		if($request->getMethod() == "GET") {
-			return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+			return $this->render('GCDashboardBundle:project_brief.html.twig', 
 				array(	"phase" => $phase,
 					 	"form" => $form->createView(), 
 					 	"tag_list" => $tag_list, 
@@ -168,7 +169,7 @@ class ProjectCreateController extends Controller
 				$em->flush();	
 				return $this->redirect($this->generateUrl('project_package'));
 			} else {
-				return $this->render('GCDashboardBundle:Project:project_brief.html.twig', 
+				return $this->render('GCDashboardBundle:project_brief.html.twig', 
 					array(	"phase" => $phase,
 						 	"form" => $form->createView(), 
 						 	"tag_list" => $tag_list, 
@@ -256,12 +257,11 @@ class ProjectCreateController extends Controller
 		} else if($request->getMethod() == "POST") {
 			$form->bindRequest($request);
 			if($form->isValid()) {
-		        if(!$user->hasRole('USER') &&	 !$user->hasRole('ROLE_CONSUMER')) {
+		        if(!$user->hasRole('USER') && !$user->hasRole('ROLE_CONSUMER')) {
 		        	$this->get('logger')->info('User doesnt have role USER');
 		        	$user->setEnabled(1);
 		        	$user->addRole("ROLE_CONSUMER");
 		        	$userManager->updateUser($user);
-		        	$this->get('logger')->info('here');
 		        }
 				$progress->setPhase($phase);
 				$em->persist($progress);
@@ -278,6 +278,7 @@ class ProjectCreateController extends Controller
 					$token = new UsernamePasswordToken($user, null, 'main', array('ROLE_USER'));
 					$this->get('security.context')->setToken($token);
 				}
+				$this->get('acl_helper')->bindUserToObject($project, MaskBuilder::MASK_OPERATOR);				
 				$return = $this->redirect($this->generateUrl('dashboard_index'));
 				return $return;
 			} else {

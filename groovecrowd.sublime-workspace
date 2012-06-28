@@ -383,7 +383,7 @@
 			"file": "src/GC/DashboardBundle/Controller/DefaultController.php",
 			"settings":
 			{
-				"buffer_size": 2680,
+				"buffer_size": 1294,
 				"line_ending": "Unix"
 			}
 		},
@@ -391,7 +391,7 @@
 			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
 			"settings":
 			{
-				"buffer_size": 2477,
+				"buffer_size": 1848,
 				"line_ending": "Unix"
 			}
 		},
@@ -399,7 +399,7 @@
 			"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
 			"settings":
 			{
-				"buffer_size": 1812,
+				"buffer_size": 1924,
 				"line_ending": "Unix"
 			}
 		},
@@ -447,7 +447,7 @@
 			"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
 			"settings":
 			{
-				"buffer_size": 1721,
+				"buffer_size": 1445,
 				"line_ending": "Unix"
 			}
 		},
@@ -460,10 +460,13 @@
 			}
 		},
 		{
+			"contents": "<div id=\"project-{{project.id}}\" class=\"projectRow container\">  \n  <div class=\"row\">\n    <div class=\"span12\">\n      <h3><a href=\"{{ path('project_show', {id: project.id}) }}\">{{project.title}}</a></h3>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"span6\">\n      {% include \"GCDashboardBundle:Project:projectTypes.html.twig\" %}\n    </div>\n    <div class=\"span2\">\n      <h3>Stuff</h3>        \n    </div>\n    <div class=\"span2\">\n      <h3>Stuff</h3>        \n    </div>\n    <div class=\"span2\">\n      <h3>Stuff</h3>        \n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"span12\">\n        <ul class=\"projectStatLinks\">\n          <li><a href=\"#\"><i class=\"icon-comment\"></i>3 Comments</a></li>\n          <li><a href=\"#\"><i class=\"icon-music\"></i>2 Entries</a></li>\n          <li><a href=\"#\"><i class=\"icon-eye-open\"></i>455 Views</a></li>\n        </ul>\n      <a href=\"\">Edit</a>        \n      </div>\n  </div>\n</div>\n",
 			"file": "src/GC/DashboardBundle/Resources/views/Project/collapsed_project.html.twig",
+			"file_size": 929,
+			"file_write_time": 1340802876000000,
 			"settings":
 			{
-				"buffer_size": 898,
+				"buffer_size": 928,
 				"line_ending": "Unix"
 			}
 		},
@@ -498,6 +501,14 @@
 			"settings":
 			{
 				"buffer_size": 12720,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+			"settings":
+			{
+				"buffer_size": 3856,
 				"line_ending": "Unix"
 			}
 		}
@@ -618,6 +629,7 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/header.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/Partials/header.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/twig/92/32/795541557720067f6a327c2ee8f0.php",
@@ -744,8 +756,7 @@
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc_payment.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/underscore.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/json2.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/js/yoxview/json2.js",
-		"/Applications/MAMP/htdocs/groovecrowd/app/bootstrap.php.cache"
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/yoxview/json2.js"
 	],
 	"find":
 	{
@@ -753,7 +764,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 91.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css",
@@ -980,7 +991,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1006,7 +1017,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1034,7 +1045,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 346.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1044,15 +1055,15 @@
 					"file": "src/GC/DashboardBundle/Controller/DefaultController.php",
 					"settings":
 					{
-						"buffer_size": 2680,
+						"buffer_size": 1294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								885,
+								885
 							]
 						],
 						"settings":
@@ -1063,7 +1074,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1073,15 +1084,15 @@
 					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
 					"settings":
 					{
-						"buffer_size": 2477,
+						"buffer_size": 1848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2089,
-								2089
+								1646,
+								1646
 							]
 						],
 						"settings":
@@ -1102,15 +1113,15 @@
 					"file": "src/GC/DashboardBundle/Resources/config/routing.yml",
 					"settings":
 					{
-						"buffer_size": 1812,
+						"buffer_size": 1924,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								980,
-								980
+								937,
+								937
 							]
 						],
 						"settings":
@@ -1120,7 +1131,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 66.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1166,8 +1177,8 @@
 						"selection":
 						[
 							[
-								639,
-								639
+								603,
+								603
 							]
 						],
 						"settings":
@@ -1204,7 +1215,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 498.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1269,22 +1280,22 @@
 					"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
 					"settings":
 					{
-						"buffer_size": 1721,
+						"buffer_size": 1445,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								852,
-								852
+								871,
+								871
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1325,15 +1336,15 @@
 					"file": "src/GC/DashboardBundle/Resources/views/Project/collapsed_project.html.twig",
 					"settings":
 					{
-						"buffer_size": 898,
+						"buffer_size": 928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								132,
-								137
+								880,
+								880
 							]
 						],
 						"settings":
@@ -3395,8 +3406,8 @@
 						"selection":
 						[
 							[
-								11904,
-								11910
+								12718,
+								12718
 							]
 						],
 						"settings":
@@ -3407,7 +3418,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8616.0,
+						"translation.y": 8563.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+					"settings":
+					{
+						"buffer_size": 3856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								286,
+								286
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -3461,6 +3501,42 @@
 		"selected_items":
 		[
 			[
+				"rou",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"show",
+				"src/GC/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"proje",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"user",
+				"src/GC/DataLayerBundle/Entity/UserRepository.php"
+			],
+			[
+				"defau",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"routing",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"projectr",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"dash",
+				"src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
+			],
+			[
 				"consumer",
 				"src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
 			],
@@ -3491,10 +3567,6 @@
 			[
 				"index.html.",
 				"src/GC/DashboardBundle/Resources/views/Project/index.html.twig"
-			],
-			[
-				"proje",
-				"src/GC/DashboardBundle/Controller/ProjectController.php"
 			],
 			[
 				"projectcontroller",
@@ -3535,10 +3607,6 @@
 			[
 				"contest",
 				"src/GC/DashboardBundle/Resources/public/js/contestlengthwidget.js"
-			],
-			[
-				"routing",
-				"vendor/bundles/FOS/JsRoutingBundle/Resources/config/routing/routing.xml"
 			],
 			[
 				"bootstrap.css",
@@ -3679,10 +3747,6 @@
 			[
 				"aclh",
 				"src/GC/DashboardBundle/Services/AclHelper.php"
-			],
-			[
-				"",
-				"src/GC/DashboardBundle/Controller/AssetController.php"
 			],
 			[
 				"acl",
@@ -3845,10 +3909,6 @@
 				"src/GC/DashboardBundle/Resources/views/Project/payment.html.twig"
 			],
 			[
-				"projectr",
-				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
-			],
-			[
 				"pri",
 				"src/GC/DataLayerBundle/Entity/PriceMapRepository.php"
 			],
@@ -3951,26 +4011,6 @@
 			[
 				"tag.php",
 				"src/GC/DataLayerBundle/Entity/Tag.php"
-			],
-			[
-				"var",
-				"web/css/less/variables.less"
-			],
-			[
-				"custome",
-				"vendor/doctrine/tests/Doctrine/Tests/Models/ECommerce/ECommerceCustomer.php"
-			],
-			[
-				"form",
-				"vendor/bundles/FOS/UserBundle/Resources/views/form.html.twig"
-			],
-			[
-				"form_div",
-				"vendor/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig"
-			],
-			[
-				"fields",
-				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
 			]
 		],
 		"width": 0.0

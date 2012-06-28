@@ -1,0 +1,14 @@
+{% extends 'GCDashboardBundle::project_brief.html.twig' %}
+
+{% block breadcrumbs %}{% endblock %}
+{% block minorbreadcrumbs %}{% endblock %}
+
+
+{% block confirm_text %}Save{% endblock %}
+
+{% block back_button %}
+	<a id="cancel" class="btn btn-primary" href="{{ path('project_show', {id: id}) }}">Cancel</a>
+{% endblock %}
+
+
+

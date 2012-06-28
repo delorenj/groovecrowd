@@ -6,16 +6,7 @@
   </div>
   <div class="row">
     <div class="span6">
-      {% include "GCDashboardBundle:Project:projectTypes.html.twig" %}    
-    </div>
-    <div class="span2">
-      <h3>Stuff</h3>        
-    </div>
-    <div class="span2">
-      <h3>Stuff</h3>        
-    </div>
-    <div class="span2">
-      <h3>Stuff</h3>        
+      {% include "GCDashboardBundle:Project:projectTypes.html.twig" %}
     </div>
   </div>
   <div class="row">
@@ -25,6 +16,7 @@
           <li><a href="#"><i class="icon-music"></i>2 Entries</a></li>
           <li><a href="#"><i class="icon-eye-open"></i>455 Views</a></li>
         </ul>
+      <a href="{{path('project_edit', {id: project.id})}}">Edit</a>        
       </div>
   </div>
 </div>

@@ -16,6 +16,11 @@
 			<div class="row">
 				<div class="span12">
 					<h3>{{project.title}}</h3>
+					<h5>
+						{% if is_granted('EDIT', project) %}
+							<a href="{{ path('project_edit', {id: project.id}) }}">Edit contest details</a>
+						{% endif %}						
+					</h5>
 					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>
       				{% include "GCDashboardBundle:Project:projectTypes.html.twig" %}
 					<ul class="projectWatchLinks">

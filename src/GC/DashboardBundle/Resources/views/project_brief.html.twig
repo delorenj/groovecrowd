@@ -10,7 +10,6 @@
 			'../app/Resources/public/js/swfupload/swfupload.speed.js'
 			'../app/Resources/public/js/swfupload/swfupload.js'
 			'@GCDashboardBundle/Resources/public/js/ProjectBrief/main.js'
-			output="bundle.js"
 		%}
             <script type="text/javascript" src="{{ asset_url }}"></script>
        {% endjavascripts %}
@@ -134,7 +133,9 @@
 		<input id="session_id" type="hidden" value="{{session.id}}" />
 		{{ form_rest(form) }}
 		{{ parent() }}
-		<a id="backbutton" class="btn btn-primary" href="{{ path('project_category_select') }}">Back</a>
+		{% block back_button %}
+			<a id="backbutton" class="btn btn-primary" href="{{ path('project_category_select') }}">Back</a>
+		{% endblock %}
 	</form>
 {% endblock %}
 
