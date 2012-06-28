@@ -6,19 +6,28 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;	
 use GC\DataLayerBundle\Entity\Category;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Entity\Package;
 use GC\DataLayerBundle\Entity\GrooveSlot;
 
-class LoadProjectData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
+class LoadProjectData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
+    protected $manager;
+    protected $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     public function getOrder() {
         return 20;
     }
-
-    protected $manager;
 
     public function load(ObjectManager $manager)
     {
@@ -47,7 +56,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->addReference('project-game', $p);
         $this->manager->persist($p);
         $this->manager->flush();
-
+        $this->container->get('logger')->info('ACL:: About to bind to ACL');
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-game'));
         $p->setDescription('Fun, catchy track');
@@ -64,6 +74,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setAssetType($manager->merge($this->getReference('asset-image')));
         $this->manager->persist($p);
         $this->manager->flush();
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));        
 
         $p = new Project();
         $postedDate = "now";
@@ -89,6 +100,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->addReference('project-trailer', $p);
         $this->manager->persist($p);
         $this->manager->flush();
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
+
 
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-trailer'));
@@ -105,6 +118,8 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setAssetType($manager->merge($this->getReference('asset-image')));
         $this->manager->persist($p);
         $this->manager->flush();    
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
+
 
         //Come back to set winner later...
         $p = new Project();
@@ -129,7 +144,9 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $p->setFlags(0);
         $this->addReference('project-fx', $p);
         $this->manager->persist($p);
-        $this->manager->flush();        
+        $this->manager->flush();
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
+          
 
         $p = new GrooveSlot();
         $p->setProject($this->getReference('project-fx'));
