@@ -372,4 +372,19 @@ class User extends BaseUser
     {
         return $this->phone;
     }
+
+    public function getLastInitial() {
+    	return strtoupper(substr($this->last_name, 0, 1)) . ".";
+    }
+
+    public function toArray() {
+        $a = array(
+        	"id" => $this->getId(),
+        	"username" => $this->getUsername(),
+        	"first_name" => $this->getFirstName(),
+        	"last_initial" => $this->getLastInitial(),
+            "image" => $this->getImage());
+
+       	return $a;
+    }    
 }

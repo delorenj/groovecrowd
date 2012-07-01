@@ -16,6 +16,15 @@ project_back:
     options:
         expose: true
 
+project_comments:
+    pattern: /project/{id}/comments
+    defaults: { _controller: GCDashboardBundle:Project:comments }
+    options:
+        expose: true
+    requirements:
+        _method: GET
+        id: \d+
+
 project_new:
     pattern: /project/new
     defaults: { _controller: GCDashboardBundle:ProjectCreate:new }

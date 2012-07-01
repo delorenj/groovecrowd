@@ -615,6 +615,7 @@ class Project
 
     public function toArray() {
         $a = array(
+        	"id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
             "organizaion" => $this->organization,
@@ -642,6 +643,11 @@ class Project
         }
         $a["assets"] = $assets;
 
+        $comments = array();
+        foreach($this->comments as $x) {
+            $comments[] = $x->toArray();
+        }
+        $a["comments"] = $comments;
         return $a;
     }
 

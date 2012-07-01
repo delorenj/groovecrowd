@@ -3,23 +3,36 @@
 {% block javascripts %}
 	{{ parent() }}
 
-  <script id="arrow-template" type="text/x-handlebars-template">
-  {% raw %}
-    <div id='{{id}}' class='contestLengthWidgetArrow'>
-        <h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
-        <img src='/img/arrow-blue-outline-down-23x30.png'></img>
-    </div>
-  {% endraw %}
-  </script>
-  
+	<script id="arrow-template" type="text/x-handlebars-template">
+	{% raw %}
+		<div id='{{id}}' class='contestLengthWidgetArrow'>
+				<h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
+				<img src='/img/arrow-blue-outline-down-23x30.png'></img>
+		</div>
+	{% endraw %}
+	</script>
+	
+	<script id="comment-template" type="text/x-handlebars-template">
+	{% raw %}
+		<a class="comment-img" href="#non">
+			<img src="/img/profiles/{{ user.image }}" alt="" width="50" height="50">
+		</a>
+		<div class="comment-body">
+			<div class="text">
+				<p>{{ body }}</p>
+			</div>
+			<p class="attribution">by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> at {{ createdAt.date }}</p>
+		</div>
+	{% endraw %}
+	</script>
+
 	{% javascripts
-      '@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'  
-    	'@GCDashboardBundle/Resources/public/js/Assets/*' 
-    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/app/*' 
-    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/setup.js'
-    	output="bundle.js"
-    %}
-    	<script type="text/javascript" src="{{ asset_url }}"></script>
+			'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
+			'@GCDashboardBundle/Resources/public/js/Assets/*' 
+			'@GCDashboardBundle/Resources/public/js/Show/app/*' 
+			'@GCDashboardBundle/Resources/public/js/Show/setup.js'
+		%}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 
 {% endblock %}
@@ -27,11 +40,13 @@
 {% block subnav %}{% endblock %}
 
 {% block project_content %}
-  <h1>Description</h1>
-  <p>{{ project.description }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h1>Description</h1>
+	<p>{{ project.description }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<section id="comments" class="comments"></section>
 {% endblock %}

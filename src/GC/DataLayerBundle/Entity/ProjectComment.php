@@ -169,4 +169,14 @@ class ProjectComment
     {
         return $this->user;
     }
+
+    public function toArray() {
+        $a = array(
+        	"id" => $this->id,
+        	"user" => $this->user->toArray(),
+            "body" => $this->body,            
+            "createdAt" => $this->createdAt);
+
+       	return $a;
+    }
 }

@@ -39,6 +39,17 @@ class ProjectController extends Controller
         }
     }
 
+    public function commentsAction($id) {
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        if(!$p = $projectRepo->find($id)) {
+            throw $this->createNotFoundException('The project does not exist');
+        }
+
+        $comments = $p->toArray();
+        $comments = $comments["comments"];
+        return new Response(json_encode($comments), 200);
+    }
+    
     public function showAction($id) {
         $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
         $p = $projectRepo->find($id);
