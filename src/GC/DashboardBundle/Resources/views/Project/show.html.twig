@@ -27,7 +27,7 @@
 			</div>
 
 			{{#if isComment}}
-			<p class="attribution">by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> at {{ createdAt.date }}</p>
+			<p class="attribution">by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> {{ createdAt.formattedDate }}</p>
 			{{else}}
 			<a class="submitComment" type="submit" href='#comment'>Add Comment</a>
 			{{/if}}

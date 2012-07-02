@@ -7,18 +7,7 @@ App.Comment = Backbone.Model.extend({
 
     initialize: function() {
     	var date = this.get('createdAt');
-    	if(date) this.set("createdAt", {date: moment(date.date).fromNow()});
+    	if(date && date.date) this.set("createdAt", {formattedDate: moment(date.date, "YYYY-MM-DD HH:mm:ss").fromNow()});
     },
 
-    // sync: function(method, model, callbacks) {
-    // 	$.ajax({
-    // 		url: this.url, 
-    // 		type: "POST",
-    // 		data: model, 
-    // 		dataType: "json",
-    // 		success: callbacks.success,
-    // 		error: callbacks.error
-    // 	});
-
-    // }
 });
