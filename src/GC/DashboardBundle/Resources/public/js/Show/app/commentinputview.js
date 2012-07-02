@@ -9,7 +9,6 @@ App.CommentInputView = Backbone.View.extend({
     initialize:function () {
         _.bindAll(this, 'render', 'addComment');
         this.model.bind("reset", this.render, this);
-        App.comments.bind('add', this.appendComment);
 
         var placeholder = new App.Comment({
             id: "next-comment", 
@@ -26,11 +25,6 @@ App.CommentInputView = Backbone.View.extend({
  
     render:function (eventName) {
         return this;
-    },
-
-    appendComment: function(comment) {
-		$("#comments").append(new App.CommentView({model:comment}).render().el);
-        $("#commentBody").val("");
     },
 
     addComment: function() {
@@ -55,6 +49,7 @@ App.CommentInputView = Backbone.View.extend({
         //         alert("boo");
         //     }
         // });
+        console.log("addComment: " + JSON.stringify(comment));
         App.comments.add(comment);
     }
 });

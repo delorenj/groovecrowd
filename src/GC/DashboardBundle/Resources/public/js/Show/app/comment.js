@@ -1,6 +1,5 @@
 App.Comment = Backbone.Model.extend({
     defaults: {
-    	id: "new-comment",
         isComment: true
     },
 
