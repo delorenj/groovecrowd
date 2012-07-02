@@ -35,7 +35,7 @@ class AclHelper {
 		$this->logger->info('ACL:: Retrieving the security identity of the currently logged-in user');
 
 		if(!$user) {
-			$this->get('logger')->info('ACL:: Getting ACL from session');
+			$this->logger->info('ACL:: Getting ACL from session');
 			$user = $this->securityContext->getToken()->getUser();	
 			$securityIdentity = UserSecurityIdentity::fromAccount($user);
 		} else {

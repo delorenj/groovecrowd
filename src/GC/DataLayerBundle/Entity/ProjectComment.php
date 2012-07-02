@@ -46,9 +46,7 @@ class ProjectComment
      * @var Project
      *
      * @ORM\ManyToOne(targetEntity="Project")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
 
@@ -56,12 +54,9 @@ class ProjectComment
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
 
 
     /**
@@ -172,5 +167,15 @@ class ProjectComment
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function toArray() {
+        $a = array(
+        	"id" => $this->id,
+        	"user" => $this->user->toArray(),
+            "body" => $this->body,            
+            "createdAt" => $this->createdAt);
+
+       	return $a;
     }
 }

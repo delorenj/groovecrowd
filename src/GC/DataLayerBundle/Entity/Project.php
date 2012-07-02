@@ -170,11 +170,19 @@ class Project
      **/
     protected $assets;
 
+/**
+     * @ORM\OneToMany(targetEntity="ProjectComment", mappedBy="project")
+     * @ORM\JoinTable(name="project_comment")
+     **/
+    protected $comments;
+
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->assets = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+
     }
 
     /**
@@ -607,6 +615,7 @@ class Project
 
     public function toArray() {
         $a = array(
+        	"id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
             "organizaion" => $this->organization,
@@ -634,6 +643,31 @@ class Project
         }
         $a["assets"] = $assets;
 
+        $comments = array();
+        foreach($this->comments as $x) {
+            $comments[] = $x->toArray();
+        }
+        $a["comments"] = $comments;
         return $a;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param GC\DataLayerBundle\Entity\ProjectComment $comments
+     */
+    public function addProjectComment(\GC\DataLayerBundle\Entity\ProjectComment $comments)
+    {
+        $this->comments[] = $comments;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

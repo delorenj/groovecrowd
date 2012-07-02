@@ -41,6 +41,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         $user = $userManager->createUser();
         $user->setUsername("consumer");
         $user->setPlainPassword("test");
+        $user->setFirstName("Jarad");
+        $user->setLastName("DeLorenzo");
         $user->setEmail("consumer@sweetshoes.com");
         $user->setEnabled(true);       
         $user->addRole("ROLE_CONSUMER"); 
@@ -51,6 +53,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
         //test creator
         $user = $userManager->createUser();
         $user->setUsername("creator");
+        $user->setFirstName("Boathro");
+        $user->setLastName("Larmtran");
         $user->setPlainPassword("test");
         $user->setEmail("creator@bootsandass.com");
         $user->setEnabled(true);       
@@ -84,6 +88,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, Containe
             $user = $userManager->createUser();
             $user->setUsername("test" . $i);
             $user->setPlainPassword("test");
+            $user->setFirstName("Tractors");
+            $user->setLastName("Hambone");
             $user->setEmail("test" . $i . "@testies.com");
             $user->setEnabled(true);
             $user->addRole("ROLE_CONSUMER");  
