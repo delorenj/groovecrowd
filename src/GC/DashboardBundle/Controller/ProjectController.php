@@ -36,7 +36,8 @@ class ProjectController extends Controller
     }
 
     public function commentsAction($id) {
-        $em = $this->getDoctrine()->getEntityManager();        
+        $em = $this->getDoctrine()->getEntityManager();    
+        $user = $this->get('security.context')->getToken()->getUser();
         $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');  
         $request = $this->getRequest();
 
@@ -47,6 +48,9 @@ class ProjectController extends Controller
         if($request->getMethod() == "GET") {
             $comments = $p->toArray();
             $comments = $comments["comments"];
+            foreach ($comments as &$c) {
+                $c["canDelete"] = $this->get('acl_helper')->canDelete($c);
+            }
             return new Response(json_encode($comments), 200);            
         } else if($request->getMethod() == "POST") {
             $payload = $request->getContent();
@@ -61,10 +65,11 @@ class ProjectController extends Controller
             $comment->setProject($p);
             $comment->setCreatedAt(new \DateTime());
             $comment->setPrivate(false);
-            $comment->setUser($this->get('security.context')->getToken()->getUser());
+            $comment->setUser($user);
             $em->persist($comment);
             $em->flush();
             $this->get('acl_helper')->bindUserToObject($comment, MaskBuilder::MASK_OPERATOR);
+            $this->get('acl_helper')->bindUserToObject($comment, MaskBuilder::MASK_DELETE, $p->getUser());
             return new Response(json_encode($comment), 200);
         }
 

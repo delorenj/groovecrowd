@@ -29,6 +29,8 @@ class AclHelper {
       // creating the ACL
 		$this->logger->info('ACL:: Creating the ACL');
 		$objectIdentity = ObjectIdentity::fromDomainObject($object);
+
+		//TODO!!!:  add try catch for creating acl
 		$acl = $this->aclProvider->createAcl($objectIdentity);
 
       // retrieving the security identity of the currently logged-in user
@@ -55,15 +57,15 @@ class AclHelper {
 
 	public function canDeleteAsset($asset, $claimed_id) {
 		if(false === $this->securityContext->isGranted('ROLE_USER')) {
-			$this->logger->info('No ACL: Anonymous Delete - checking asset/project relationship');
+			$this->logger->info('ACL:: No ACL: Anonymous Delete - checking asset/project relationship');
 			$real_id = $asset->getProject()->getId();
-			$this->logger->info('Real pid: ' . $real_id);
-			$this->logger->info('Claimed pid: ' . $claimed_id);
+			$this->logger->info('ACL:: Real pid: ' . $real_id);
+			$this->logger->info('ACL:: Claimed pid: ' . $claimed_id);
 			if(Helpers::codeToId($claimed_id) == $real_id) {
-				$this->logger->info('IDs match - good to delete');
+				$this->logger->info('ACL:: IDs match - good to delete');
 				return true;
 			} else {
-				$this->logger->info('IDs did not match - not allowed to delete');
+				$this->logger->info('ACL:: IDs did not match - not allowed to delete');
 				return false;
 			}
 		} else {
@@ -77,7 +79,18 @@ class AclHelper {
 	}
 
 	public function canEdit($object) {
+		if(false === $this->securityContext->isGranted('ROLE_USER')) {
+			$this->logger->info('ACL:: No ACL: Anonymous');
+			return 0;
+		} 	
 		return (true === $this->securityContext->isGranted('EDIT', $object));
 	}
 
+	public function canDelete($object) {
+		if(false === $this->securityContext->isGranted('ROLE_USER')) {
+			$this->logger->info('ACL:: No ACL: Anonymous');
+			return 0;
+		} 			
+		return (true === $this->securityContext->isGranted('DELETE', $object));
+	}
 }

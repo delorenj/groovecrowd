@@ -26,8 +26,13 @@
 				{{/if}}
 			</div>
 
-			{{#if isComment}}
-			<p class="attribution">by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> {{ createdAt.formattedDate }}</p>
+			{{#if isComment}}		
+			<p class="attribution">
+				by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> {{ createdAt.formattedDate }} 
+				{{#if canDelete }}
+				<a class="btn btn-inverse btn-mini">Delete</a>
+				{{/if}}
+			</p>
 			{{else}}
 			<a class="submitComment" type="submit" href='#comment'>Add Comment</a>
 			{{/if}}
@@ -58,6 +63,8 @@
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 	<section id="comments" class="comments"></section>
+	{% if is_granted('ROLE_USER') %}
 	<section id="commentInput" class="comments" data-image="{{app.user.image}}" data-first="{{app.user.firstName}}" data-last="{{app.user.lastInitial}}"></section>
+	{% endif %}
 
 {% endblock %}

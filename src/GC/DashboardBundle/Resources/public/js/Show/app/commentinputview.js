@@ -49,14 +49,17 @@ App.CommentInputView = Backbone.View.extend({
             createdAt: {
                 date: null,
                 formattedDate: now
-            }
+            },
+            canDelete: true
         });
 
         comment.save(null,{
             success: function(model, response) {
+                console.log("yay");
                 $("#commentBody").val("");
             },
             error: function(model, response) {
+                console.log("error posting comment");
             }
         });
 
