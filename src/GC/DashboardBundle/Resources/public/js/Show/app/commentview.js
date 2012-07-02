@@ -6,6 +6,7 @@ App.CommentView = Backbone.View.extend({
  
     render:function (eventName) {
         $(this.el).html(this.template(this.model.toJSON()));
+        this.delegateEvents();
         return this;
     }
 });

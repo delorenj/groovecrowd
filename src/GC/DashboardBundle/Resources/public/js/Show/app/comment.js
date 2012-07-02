@@ -1,14 +1,13 @@
 App.Comment = Backbone.Model.extend({
     defaults: {
-        id: "",
-        image: "http://groovecrowd.local/img/profiles/default.jpg",
-        created_at: moment()
+    	id: "new-comment",
+        isComment: true
     },
+
+    url: Routing.generate("project_comments", {"id": $('#projectHeader').attr('data-id')}),
 
     initialize: function() {
-    },
-
-    createdAt: function() {
-        return moment(this.get('created_at'));
+    	var date = this.get('createdAt');
+    	if(date) this.set("createdAt", {date: moment(date.date).fromNow()});
     }
 });

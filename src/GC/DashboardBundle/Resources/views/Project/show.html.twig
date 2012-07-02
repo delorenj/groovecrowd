@@ -18,10 +18,19 @@
 			<img src="/img/profiles/{{ user.image }}" alt="" width="50" height="50">
 		</a>
 		<div class="comment-body">
-			<div class="text">
+			<div {{#if isComment}}class="text"{{/if}}>
+				{{#if isComment}}
 				<p>{{ body }}</p>
+				{{else}}
+				<textarea id="commentBody" class="boxsizingBorder" placeholder="Add a comment" width="300"></textarea>
+				{{/if}}
 			</div>
+
+			{{#if isComment}}
 			<p class="attribution">by <a href="#non">{{ user.first_name }} {{ user.last_initial }}</a> at {{ createdAt.date }}</p>
+			{{else}}
+			<a class="submitComment" type="submit" href='#comment'>Add Comment</a>
+			{{/if}}
 		</div>
 	{% endraw %}
 	</script>
@@ -49,4 +58,6 @@
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 	<section id="comments" class="comments"></section>
+	<section id="commentInput" class="comments" data-image="{{app.user.image}}" data-first="{{app.user.firstName}}" data-last="{{app.user.lastInitial}}"></section>
+
 {% endblock %}
