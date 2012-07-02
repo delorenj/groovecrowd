@@ -6,18 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use GC\DataLayerBundle\Entity\User;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
-use GC\DataLayerBundle\Entity\ProjectCreationProgress;
 use GC\DataLayerBundle\Entity\ProjectAsset;
+use GC\DataLayerBundle\Entity\ProjectComment;
 use GC\DataLayerBundle\Helpers;
-use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
-use GC\DashboardBundle\Form\Type\PackageSelectionType;
-use GC\DashboardBundle\Form\Type\PaymentType;
 
 class ProjectController extends Controller
 {
@@ -40,14 +36,38 @@ class ProjectController extends Controller
     }
 
     public function commentsAction($id) {
-        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        $em = $this->getDoctrine()->getEntityManager();        
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');  
+        $request = $this->getRequest();
+
         if(!$p = $projectRepo->find($id)) {
             throw $this->createNotFoundException('The project does not exist');
         }
 
-        $comments = $p->toArray();
-        $comments = $comments["comments"];
-        return new Response(json_encode($comments), 200);
+        if($request->getMethod() == "GET") {
+            $comments = $p->toArray();
+            $comments = $comments["comments"];
+            return new Response(json_encode($comments), 200);            
+        } else if($request->getMethod() == "POST") {
+            $payload = $request->getContent();
+            if(!empty($payload)) {
+                $params = json_decode($payload, true);
+            } else {
+                return new Response(json_encode(array("OK" => "0", "msg" => "Invalid comment post")), 500);            
+            }
+            $this->get('logger')->info('COMMENT: Creating a new comment object');
+            $comment = new ProjectComment();
+            $comment->setBody($params["body"]);
+            $comment->setProject($p);
+            $comment->setCreatedAt(new \DateTime());
+            $comment->setPrivate(false);
+            $comment->setUser($this->get('security.context')->getToken()->getUser());
+            $em->persist($comment);
+            $em->flush();
+            $this->get('acl_helper')->bindUserToObject($comment, MaskBuilder::MASK_OPERATOR);
+            return new Response(json_encode($comment), 200);
+        }
+
     }
     
     public function showAction($id) {

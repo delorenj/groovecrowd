@@ -41,15 +41,15 @@ App.CommentInputView = Backbone.View.extend({
             }
         });
 
-        // comment.save({
-        //     success: function() {
-        //         alert("yay!");
-        //     },
-        //     error: function() {
-        //         alert("boo");
-        //     }
-        // });
-        console.log("addComment: " + JSON.stringify(comment));
+        comment.save(null,{
+            success: function(model, response) {
+                alert("yay!");
+            },
+            error: function(model, response) {
+                alert("boo");
+            }
+        });
+
         App.comments.add(comment);
     }
 });

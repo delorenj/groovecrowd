@@ -59,7 +59,6 @@ class ProjectComment
     private $user;
 
 
-
     /**
      * Get id
      *
