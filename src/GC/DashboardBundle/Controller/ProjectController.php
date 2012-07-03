@@ -75,7 +75,26 @@ class ProjectController extends Controller
         }
 
     }
-    
+
+    public function assetsAction($id) {
+        $em = $this->getDoctrine()->getEntityManager();    
+        $user = $this->get('security.context')->getToken()->getUser();
+        if(! $user->hasRole('ROLE_USER')) {
+            return new Response(json_encode(array("OK" => "0", "msg" => "Log in to view project media")), 500);            
+        }
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');  
+        $request = $this->getRequest();
+
+        if(!$p = $projectRepo->find($id)) {
+            throw $this->createNotFoundException('The project does not exist');
+        }
+
+        $assets = $p->toArray();
+        $assets = $assets["assets"];
+        return new Response(json_encode($assets), 200);            
+
+    }
+
     public function showAction($id) {
         $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
         $p = $projectRepo->find($id);
