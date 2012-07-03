@@ -9,3 +9,4 @@
 /web/grooves/*
 *.bmml
 .DS_Store
+*.sublime-workspace
