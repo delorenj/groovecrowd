@@ -7,6 +7,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use Symfony\Component\Security\Acl\Exception\AclAlreadyExistsException;
+
 use GC\DataLayerBundle\Helpers;
 
 class AclHelper {
@@ -30,8 +32,12 @@ class AclHelper {
 		$this->logger->info('ACL:: Creating the ACL');
 		$objectIdentity = ObjectIdentity::fromDomainObject($object);
 
-		//TODO!!!:  add try catch for creating acl
-		$acl = $this->aclProvider->createAcl($objectIdentity);
+		try{
+			$acl = $this->aclProvider->createAcl($objectIdentity);
+		}	
+		catch(AclAlreadyExistsException $e) {
+			$acl = $this->aclProvider->findAcl($objectIdentity);
+		}	
 
       // retrieving the security identity of the currently logged-in user
 		$this->logger->info('ACL:: Retrieving the security identity of the currently logged-in user');
