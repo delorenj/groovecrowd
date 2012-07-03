@@ -11,7 +11,7 @@
 		    </ul>
 		{% endblock %}
 	</div>	
-	<div id="projectHeader" class="container" data-id="{{project.id}}">	
+	<div id="projectHeader" class="container" {% if project is defined %}data-id="{{project.id}}"{% endif %}>	
 		{% block project_header %}
 			<div class="row">
 				<div class="span12">

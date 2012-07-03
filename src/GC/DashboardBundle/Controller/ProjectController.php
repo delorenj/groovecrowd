@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use GC\DataLayerBundle\Entity\Project;
 use GC\DataLayerBundle\Entity\ProjectType;
+use GC\DashboardBundle\Form\Type\ProjectDescriptionType;
 use GC\DataLayerBundle\Entity\ProjectAsset;
 use GC\DataLayerBundle\Entity\ProjectComment;
 use GC\DataLayerBundle\Helpers;

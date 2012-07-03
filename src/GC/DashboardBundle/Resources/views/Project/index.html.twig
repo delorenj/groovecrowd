@@ -1,28 +1,5 @@
 {% extends 'GCDashboardBundle::consumer_dashboard.html.twig' %}
 
-{% block javascripts %}
-	{{ parent() }}
-
-  <script id="arrow-template" type="text/x-handlebars-template">
-  {% raw %}
-    <div id='{{id}}' class='contestLengthWidgetArrow'>
-        <h5 style='width: 60px; position:relative; left:-{{ offset }}px;'>{{ label }}</h5>
-        <img src='/img/arrow-blue-outline-down-23x30.png'></img>
-    </div>
-  {% endraw %}
-  </script>
-  
-	{% javascripts
-      '@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'  
-    	'@GCDashboardBundle/Resources/public/js/Assets/*' 
-    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/app/*' 
-    	'@GCDashboardBundle/Resources/public/js/ConsumerIndex/setup.js'
-    %}
-    	<script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}
-
-{% endblock %}
-
 {% block subnav %}
     <ul class="nav nav-tabs">		    
       <li class="active"><a href="#">Current Contests</a></li>
