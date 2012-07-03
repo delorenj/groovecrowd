@@ -66,7 +66,7 @@
             var source = $("#file-upload-template").html();
             var template = Handlebars.compile(source);
             if (errorCode === SWFUpload.errorCode_QUEUE_LIMIT_EXCEEDED) {
-                errorName = "You have attempted to queue too many files.";
+                var errorName = "You have attempted to queue too many files.";
             }
 
             // if (errorName !== "") {
@@ -76,7 +76,7 @@
 
             switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                imageName = "zerobyte.gif";
+                var imageName = "zerobyte.gif";
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                 var html = template({percentage: "0", "message": "Sorry, that file is too big!", "messagetype": "alert-error"});
@@ -85,7 +85,7 @@
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
             default:
-                alert(message);
+                console.log("SWFUpload error");
                 break;
             }
 
@@ -193,7 +193,7 @@
                 imageName = "uploadlimit.gif";
                 break;
             default:
-                alert(message);
+                console.log("SWFUpload error");
                 break;
             }
 
@@ -324,7 +324,7 @@
 
 $(document).ready(function() {
     $(document).ajaxError(function(event, request, settings) {
-        alert("Error requesting page " + settings.url);
+        console.log("Error requesting page " + settings.url);
     });
 
     $(".gc-control-label > label").addClass("control-label");
@@ -343,8 +343,6 @@ $(document).ready(function() {
             }, function(response) {
                 if(response.OK == "1") {
                     gc_project_brief.addRealImage(response.data.uri, response.data.thumb, response.data.id); 
-                } else {
-                    alert(response.msg);
                 }
             }, "json"
         );

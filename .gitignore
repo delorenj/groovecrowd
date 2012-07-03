@@ -10,3 +10,4 @@
 *.bmml
 .DS_Store
 *.sublime-workspace
+*.log
