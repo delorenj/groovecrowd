@@ -1,8 +1,30 @@
 {
-	"folders":
-	[
-		{
-			"path": "/Applications/MAMP/htdocs/groovecrowd"
-		}
-	]
+    "folders":
+    [
+        {
+        	"name": "Root",
+			"path": "/Applications/MAMP/htdocs/groovecrowd",
+            "folder_exclude_patterns": ["app/cache", "app/logs", "node_modules", "vendor"],
+            "file_exclude_patterns": ["*.sublime*"]
+        },
+        {
+            "path": "assets",
+            "name": "Assets",
+            "folder_exclude_patterns": ["assets/css"]
+        },
+        {
+            "path": "src/GC",
+            "name": "Bundles"
+        },
+        {
+            "path": "app/config",
+            "name": "Configs"
+        },
+        {
+            "path": "web",
+            "name": "Public",
+            "file_exclude_patterns": ["*.swf", "*.txt", "*.ico"],
+            "folder_exclude_patterns": ["bundles", "css", "js"]
+        }        
+    ]
 }
