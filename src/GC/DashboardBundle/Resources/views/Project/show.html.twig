@@ -40,15 +40,9 @@
 	{% endraw %}
 	</script>
 
-	{% javascripts
-			'@GCDashboardBundle/Resources/public/js/contestlengthwidget.js'
-			'@GCDashboardBundle/Resources/public/js/MediaGallery/app/*'
-			'@GCDashboardBundle/Resources/public/js/MediaGallery/setup.js' 			
-			'@GCDashboardBundle/Resources/public/js/Show/app/*' 
-			'@GCDashboardBundle/Resources/public/js/Show/setup.js'
-		%}
-			<script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}
+	<script type="text/javascript" src="{{ asset('js/gc/ContestLengthWidget.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/gc/MediaGallery/all.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/gc/Show/all.min.js') }}"></script>	
 
 {% endblock %}
 

@@ -9,9 +9,7 @@
         <meta name="author" content="">
 
         {% block stylesheets %}
-            {% stylesheets 'css/bootstrap.css' 'css/responsive.css' %}
-                <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-            {% endstylesheets %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/styles.min.css') }}" />            
          {% endblock %}
         <!-- Le styles -->
 
@@ -130,23 +128,9 @@
         {% endblock %}                
     </footer>
     {% block javascripts %}
-
-        {% javascripts 
-            '../app/Resources/public/js/jquery.min.js' 
-            '../app/Resources/public/js/plugins/*'
-            '../app/Resources/public/js/twitter-bootstrap/bootstrap.min.js'
-            '../app/Resources/public/js/moment.min.js'      
-            '../app/Resources/public/js/backbone/underscore.js'     
-            '../app/Resources/public/js/backbone/json2.js'      
-            '../app/Resources/public/js/backbone/backbone-min.js'            
-            '../app/Resources/public/js/handlebars-1.0.0.beta.6.min.js'
-            '../app/Resources/public/js/gc/*'
-            'bundles/fosjsrouting/js/router.js'
-            output='base.js'
-            %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}        
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>    
+            <script type="text/javascript" src="{{asset('js/lib/core.min.js')}}"></script>
     {% endblock %}
 
 </body>

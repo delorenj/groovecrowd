@@ -45,6 +45,10 @@ module.exports = function(grunt) {
         src: ['assets/js/gc/Show/**/*.js'],
         dest: 'web/js/gc/Show/all.js'
       },
+      contestLengthWidget: {
+        src: 'assets/js/gc/contestlengthwidget.js',
+        dest: 'web/js/gc/contestlengthwidget.js'
+      },
       projectCategorySelect: {
         src: ['assets/js/gc/CategorySelect/**/*.js'],
         dest: 'web/js/gc/CategorySelect/all.js'
@@ -95,6 +99,10 @@ module.exports = function(grunt) {
         src: '<config:concat.projectPackageSelect.dest>',
         dest: 'web/js/gc/PackageSelect/all.min.js'
       },
+      contestLengthWidget: {
+        src: '<config:concat.contestLengthWidget.dest>',
+        dest: 'web/js/gc/ContestLengthWidget.min.js'
+      },      
       projectPayment: {
         src: '<config:concat.projectPayment.dest>',
         dest: 'web/js/gc/Payment/all.min.js'
