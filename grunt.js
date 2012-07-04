@@ -1,6 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
-
+  
   // Project configuration.
   grunt.initConfig({
     meta: {
@@ -10,11 +10,25 @@ module.exports = function(grunt) {
         '* http://www.groovecrowd.com/\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
         'Jarad DeLorenzo; Licensed MIT */'
-    },
+    },  
+    less: {
+      bootstrap: {
+        src: ['assets/less/bootstrap.less'],
+        dest:'assets/css/bootstraps.css'        
+      },
+      responsive: {
+        src: ['assets/less/responsive.less'],
+        dest:'assets/css/responsive.css'        
+      }      
+    },    
     lint: {
       files: ['assets/js/gc/**/*.js'] 
     },
     concat: {
+      css: {
+        src: ['assets/css/*.css'],
+        dest:'web/css/styles.css'
+      },
       jquery: {
         src:  ['assets/js/lib/jquery.min.js','assets/js/lib/plugins/**/*.js'],
         dest: 'web/js/lib/jquery.js'
@@ -53,6 +67,10 @@ module.exports = function(grunt) {
       }                              
     },
     min: {
+      require: {
+        src: 'assets/js/lib/require.js',
+        dest: 'web/js/lib/require.min.js'
+      },
       core: {
         src: '<config:concat.swfupload.dest>',
         dest: 'web/js/lib/swfupload.min.js'
@@ -84,11 +102,28 @@ module.exports = function(grunt) {
       projectBrief: {
         src: '<config:concat.projectBrief.dest>',
         dest: 'web/js/gc/ProjectBrief/all.min.js'
-      }   
+      }
     },
     watch: {
-      files: '<config:lint.files>',
-      tasks: 'lint'
+      jslib: {
+        files: 'assets/js/lib/**/*.js',
+        tasks: 'concat min'
+      },
+      gc: {
+        files: 'assets/js/gc/**/*.js',
+        tasks: 'lint concat min'
+      },      
+      css: {
+        files: 'assets/less/**/*.less',
+        tasks: 'less concat cssmin'
+      }
+      
+    },
+    cssmin: {
+      css: {
+        src: '<config:concat.css.dest>',
+        dest: 'web/css/styles.min.css'
+      }
     },
     jshint: {
       options: {
@@ -102,7 +137,9 @@ module.exports = function(grunt) {
         undef: true,
         boss: true,
         eqnull: true,
-        browser: true
+        browser: true,
+        smarttabs: true,
+        devel: true
       },
       globals: {
         $: false,
@@ -119,13 +156,17 @@ module.exports = function(grunt) {
         Backbone: false,
         _: false,
         Routing: false,
-        console: false,
+        require: false
       }
     },
     uglify: {}
   });
 
-  // Default task.
-  grunt.registerTask('default', 'lint concat min');
+  grunt.loadNpmTasks('grunt-less');
+  grunt.loadNpmTasks('grunt-css');
 
+  // Default task.
+  grunt.registerTask('default', 'lint less concat min cssmin');
+  grunt.registerTask('js', 'lint concat min');
+  grunt.registerTask('css', 'less concat cssmin');
 };

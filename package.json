@@ -1,0 +1,8 @@
+{
+  "name": "Groovecrowd",
+  "version": "0.0.1",
+  "dependencies" : {
+    "grunt-less":  ">0.0.0",
+    "grunt-css":   ">0.0.0"
+  }
+}
