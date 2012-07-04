@@ -29,10 +29,22 @@ module.exports = function(grunt) {
         src: ['assets/css/*.css'],
         dest:'web/css/styles.css'
       },
+      backbone: {
+        src:  ['assets/js/lib/backbone/backbone.lib.js'],
+        dest: 'web/js/lib/backbone/backbone.lib.js'
+      },      
       jquery: {
-        src:  ['assets/js/lib/jquery.min.js','assets/js/lib/plugins/**/*.js'],
-        dest: 'web/js/lib/jquery.js'
-      },
+        src:  ['assets/js/lib/jquery.lib.js','assets/js/lib/jquery/plugins/**/*.js'],
+        dest: 'web/js/lib/jquery/jquery.lib.js'
+      },      
+      underscore: {
+        src:  ['assets/js/lib/underscore/underscore.lib.js'],
+        dest: 'web/js/lib/underscore/underscore.lib.js'
+      },            
+      json2: {
+        src:  ['assets/js/lib/json2/json2.lib.js'],
+        dest: 'web/js/lib/json2/json2.lib.js'
+      },            
       swfupload: {
         src:  ['assets/js/swfupload/swfupload.swfobject.js','assets/js/swfupload/swfupload.cookies.js','assets/js/swfupload/swfupload.queue.js','assets/js/swfupload/swfupload.speed.js','assets/js/swfupload/swfupload.js'],
         dest: 'web/js/lib/swfupload.js'
@@ -71,18 +83,54 @@ module.exports = function(grunt) {
       }                              
     },
     min: {
+      requiremain: {
+        src: 'assets/js/main.js',
+        dest: 'web/js/main.js'
+      },
       require: {
         src: 'assets/js/lib/require.js',
         dest: 'web/js/lib/require.min.js'
       },
-      core: {
+      swfupload: {
         src: '<config:concat.swfupload.dest>',
         dest: 'web/js/lib/swfupload.min.js'
       },  
       core: {
         src: '<config:concat.core.dest>',
         dest: 'web/js/lib/core.min.js'
+      },
+      backbone: {
+        src: '<config:concat.backbone.dest>',
+        dest: 'web/js/lib/backbone/backbone.min.js'
       },      
+      jquery: {
+        src: '<config:concat.jquery.dest>',
+        dest: 'web/js/lib/jquery/jquery.min.js'
+      },
+      underscore: {
+        src: '<config:concat.underscore.dest>',
+        dest: 'web/js/lib/underscore/underscore.min.js'
+      },               
+      json2: {
+        src: '<config:concat.json2.dest>',
+        dest: 'web/js/lib/json2/json2.min.js'
+      }, 
+      backbonewrapper: {
+        src: 'assets/js/lib/backbone/backbone.js',
+        dest: 'web/js/lib/backbone/backbone.js'
+      },      
+      jquerywrapper: {
+        src: 'assets/js/lib/jquery/jquery.js',
+        dest: 'web/js/lib/jquery/jquery.js'
+      },
+      underscorewrapper: {
+        src: 'assets/js/lib/underscore/underscore.js',
+        dest: 'web/js/lib/underscore/underscore.js'
+      },               
+      json2wrapper: {
+        src: 'assets/js/lib/json2/json2.js',
+        dest: 'web/js/lib/json2/json2.js'
+      },                    
       projectShow: {
         src: '<config:concat.projectShow.dest>',
         dest: 'web/js/gc/Show/all.min.js'
