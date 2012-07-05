@@ -1,165 +1,109 @@
 /*global module:false*/
 module.exports = function(grunt) {
+
+  fs = require( "fs" ),
+  path = require( "path" ),
+  request = require( "request" ),
+
+  libFiles = grunt.file.expandFiles( "assets/js/lib/**/*.js" ),
+  gcFiles = grunt.file.expandFiles("assets/js/gc/**/*.js"),
+
+  lessFiles = [
+    "bootstrap",
+    "responsive"
+  ].map(function( component ) {
+    return "assets/less/" + component + ".less";
+  }),
+
+  cssFiles = [
+    "bootstrap",
+    "responsive"
+  ].map(function( component ) {
+    return "assets/css/" + component + ".css";
+  }),
+
+  minify = {};
+
+  function mapMinFile( file ) {
+    return file.replace( /\.js$/, ".min.js" );
+  }
+  
+  libFiles.forEach(function( file ) {
+    minify[ mapMinFile( file ) ] = [ "<banner>", file ];
+  });
+
+  gcFiles.forEach(function( file ) {
+    minify[ mapMinFile( file ) ] = [ "<banner>", file ];
+  });
+
+
+  // grunt plugins
+  grunt.loadNpmTasks( "grunt-css" );
+  grunt.loadNpmTasks( "grunt-html" );
+  grunt.loadNpmTasks('grunt-less');
+  grunt.loadTasks( "build/tasks" );
+
+  grunt.registerHelper( "strip_all_banners", function( filepath ) {
+    return grunt.file.read( filepath ).replace( /^\s*\/\*[\s\S]*?\*\/\s*/g, "" );
+  });
+
+  function stripBanner( files ) {
+    return files.map(function( file ) {
+      return "<strip_all_banners:" + file + ">";
+    });
+  }
+
+  function stripDirectory( file ) {
+    // TODO: we're receiving the directive, so we need to strip the trailing >
+    // we should be receving a clean path without the directive
+    return file.replace( /.+\/(.+?)>?$/, "$1" );
+  }
+  // allow access from banner template
+  global.stripDirectory = stripDirectory;
+
+  function createBanner( files ) {
+    // strip folders
+    var fileNames = files && files.map( stripDirectory );
+    return "/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - " +
+      "<%= grunt.template.today('isoDate') %>\n" +
+      "<%= pkg.homepage ? '* ' + pkg.homepage + '\n' : '' %>" +
+      "* Includes: " + (files ? fileNames.join(", ") : "<%= stripDirectory(grunt.task.current.file.src[1]) %>") + "\n" +
+      "* Copyright (c) <%= grunt.template.today('yyyy') %> <%= pkg.author.name %>; */";
+  }
+
   
   // Project configuration.
   grunt.initConfig({
+    pkg: "<json:package.json>",
+
     meta: {
-      version: '0.1.0',
-      banner: '/*! groovecrowd - v<%= meta.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        '* http://www.groovecrowd.com/\n' +
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-        'Jarad DeLorenzo; Licensed MIT */'
-    },  
+      banner: createBanner(),
+      bannerAll: createBanner( gcFiles ),
+      bannerCSS: createBanner( cssFiles )      
+    },
+    copy: {
+      assets: {
+        src: ["assets/js/**/*.js", "assets/css/**/*.css"],
+        strip: /^assets/,
+        dest: "web/"
+      }
+    },
     less: {
-      bootstrap: {
-        src: ['assets/less/bootstrap.less'],
-        dest:'assets/css/bootstraps.css'        
-      },
-      responsive: {
-        src: ['assets/less/responsive.less'],
-        dest:'assets/css/responsive.css'        
-      }      
+      files: {
+        src: [ lessFiles ],
+        dest: "assets/css/styles.css"        
+      } 
     },    
     lint: {
       files: ['assets/js/gc/**/*.js'] 
     },
     concat: {
       css: {
-        src: ['assets/css/*.css'],
-        dest:'web/css/styles.css'
-      },
-      backbone: {
-        src:  ['assets/js/lib/backbone/backbone.lib.js'],
-        dest: 'web/js/lib/backbone/backbone.lib.js'
-      },      
-      jquery: {
-        src:  ['assets/js/lib/jquery.lib.js','assets/js/lib/jquery/plugins/**/*.js'],
-        dest: 'web/js/lib/jquery/jquery.lib.js'
-      },      
-      underscore: {
-        src:  ['assets/js/lib/underscore/underscore.lib.js'],
-        dest: 'web/js/lib/underscore/underscore.lib.js'
-      },            
-      json2: {
-        src:  ['assets/js/lib/json2/json2.lib.js'],
-        dest: 'web/js/lib/json2/json2.lib.js'
-      },            
-      swfupload: {
-        src:  ['assets/js/swfupload/swfupload.swfobject.js','assets/js/swfupload/swfupload.cookies.js','assets/js/swfupload/swfupload.queue.js','assets/js/swfupload/swfupload.speed.js','assets/js/swfupload/swfupload.js'],
-        dest: 'web/js/lib/swfupload.js'
-      },
-      core: {
-        src:  ['<config:concat.jquery.dest>','assets/js/lib/twitter-bootstrap/**/*.js','assets/js/lib/moment.min.js','assets/js/lib/handlebars-1.0.0.beta.6.min.js','assets/js/lib/backbone/underscore.js','assets/js/lib/backbone/json2.js','assets/js/lib/backbone/backbone.js','assets/js/lib/gc/app.js'],
-        dest: 'web/js/lib/core.js'
-      },
-      projectShow: {
-        src: ['assets/js/gc/Show/**/*.js'],
-        dest: 'web/js/gc/Show/all.js'
-      },
-      contestLengthWidget: {
-        src: 'assets/js/gc/contestlengthwidget.js',
-        dest: 'web/js/gc/contestlengthwidget.js'
-      },
-      projectCategorySelect: {
-        src: ['assets/js/gc/CategorySelect/**/*.js'],
-        dest: 'web/js/gc/CategorySelect/all.js'
-      },
-      projectMediaGallery: {
-        src: ['assets/js/gc/MediaGallery/**/*.js'],
-        dest: 'web/js/gc/MediaGallery/all.js'
-      },
-      projectPackageSelect: {
-        src: ['assets/js/gc/PackageSelect/**/*.js'],
-        dest: 'web/js/gc/PackageSelect/all.js'
-      },
-      projectPayment: {
-        src: ['assets/js/gc/Payment/**/*.js'],
-        dest: 'web/js/gc/Payment/all.js'
-      },
-      projectBrief: {
-        src: ['assets/js/gc/ProjectBrief/**/*.js'],
-        dest: 'web/js/gc/ProjectBrief/all.js'
-      }                              
-    },
-    min: {
-      requiremain: {
-        src: 'assets/js/main.js',
-        dest: 'web/js/main.js'
-      },
-      require: {
-        src: 'assets/js/lib/require.js',
-        dest: 'web/js/lib/require.min.js'
-      },
-      swfupload: {
-        src: '<config:concat.swfupload.dest>',
-        dest: 'web/js/lib/swfupload.min.js'
-      },  
-      core: {
-        src: '<config:concat.core.dest>',
-        dest: 'web/js/lib/core.min.js'
-      },
-      backbone: {
-        src: '<config:concat.backbone.dest>',
-        dest: 'web/js/lib/backbone/backbone.min.js'
-      },      
-      jquery: {
-        src: '<config:concat.jquery.dest>',
-        dest: 'web/js/lib/jquery/jquery.min.js'
-      },
-      underscore: {
-        src: '<config:concat.underscore.dest>',
-        dest: 'web/js/lib/underscore/underscore.min.js'
-      },               
-      json2: {
-        src: '<config:concat.json2.dest>',
-        dest: 'web/js/lib/json2/json2.min.js'
-      }, 
-      backbonewrapper: {
-        src: 'assets/js/lib/backbone/backbone.js',
-        dest: 'web/js/lib/backbone/backbone.js'
-      },      
-      jquerywrapper: {
-        src: 'assets/js/lib/jquery/jquery.js',
-        dest: 'web/js/lib/jquery/jquery.js'
-      },
-      underscorewrapper: {
-        src: 'assets/js/lib/underscore/underscore.js',
-        dest: 'web/js/lib/underscore/underscore.js'
-      },               
-      json2wrapper: {
-        src: 'assets/js/lib/json2/json2.js',
-        dest: 'web/js/lib/json2/json2.js'
-      },                    
-      projectShow: {
-        src: '<config:concat.projectShow.dest>',
-        dest: 'web/js/gc/Show/all.min.js'
-      },
-      projectCategorySelect: {
-        src: ['web/js/gc/CategorySelect/all.js'],
-        dest: 'web/js/gc/CategorySelect/all.min.js'
-      },
-      projectMediaGallery: {
-        src: '<config:concat.projectMediaGallery.dest>',
-        dest: 'web/js/gc/MediaGallery/all.min.js'
-      },
-      projectPackageSelect: {
-        src: '<config:concat.projectPackageSelect.dest>',
-        dest: 'web/js/gc/PackageSelect/all.min.js'
-      },
-      contestLengthWidget: {
-        src: '<config:concat.contestLengthWidget.dest>',
-        dest: 'web/js/gc/ContestLengthWidget.min.js'
-      },      
-      projectPayment: {
-        src: '<config:concat.projectPayment.dest>',
-        dest: 'web/js/gc/Payment/all.min.js'
-      },
-      projectBrief: {
-        src: '<config:concat.projectBrief.dest>',
-        dest: 'web/js/gc/ProjectBrief/all.min.js'
+        src: [ "<banner:meta.bannerCSS>", stripBanner( cssFiles ) ],
+        dest: "assets/css/styles.css"
       }
     },
+    min: minify,
     watch: {
       jslib: {
         files: 'assets/js/lib/**/*.js',
@@ -218,11 +162,9 @@ module.exports = function(grunt) {
     uglify: {}
   });
 
-  grunt.loadNpmTasks('grunt-less');
-  grunt.loadNpmTasks('grunt-css');
-
   // Default task.
-  grunt.registerTask('default', 'lint less concat min cssmin');
-  grunt.registerTask('js', 'lint concat min');
-  grunt.registerTask('css', 'less concat cssmin');
+  grunt.registerTask('default', 'lint less concat:css cssmin');
+  grunt.registerTask('prod', 'lint less concat min cssmin copy');  
+  grunt.registerTask('js', 'lint concat:js');
+  grunt.registerTask('css', 'less concat:css cssmin copy');
 };
