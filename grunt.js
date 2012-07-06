@@ -107,15 +107,15 @@ module.exports = function(grunt) {
     watch: {
       jslib: {
         files: 'assets/js/lib/**/*.js',
-        tasks: 'concat min'
+        tasks: 'copy'
       },
       gc: {
         files: 'assets/js/gc/**/*.js',
-        tasks: 'lint concat min'
+        tasks: 'lint copy'
       },      
       css: {
         files: 'assets/less/**/*.less',
-        tasks: 'less concat cssmin'
+        tasks: 'less concat:css cssmin'
       }
       
     },
@@ -156,14 +156,15 @@ module.exports = function(grunt) {
         Backbone: false,
         _: false,
         Routing: false,
-        require: false
+        require: false,
+        define: false
       }
     },
     uglify: {}
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint less concat:css cssmin');
+  grunt.registerTask('default', 'lint less concat copy');
   grunt.registerTask('prod', 'lint less concat min cssmin copy');  
   grunt.registerTask('js', 'lint concat:js');
   grunt.registerTask('css', 'less concat:css cssmin copy');
