@@ -1,15 +1,13 @@
 define([
-  'jQuery',
-  'backbone',
-  'moment',
-  'fosrouter'], function($, Backbone, moment, Routing) {
+  'moment'], function(moment) {
 
   var comment = Backbone.Model.extend({
     defaults: {
       isComment: true
     },
 
-    url: Routing.generate('project_comments', {'id': $('#projectHeader').attr('data-id')}),
+    // url: Routing.generate('project_comments', {'id': $('#projectHeader').attr('data-id')}),
+    url: "/project/" + $('#projectHeader').attr('data-id') + "/comments",
 
     initialize: function() {
       var date = this.get('createdAt');

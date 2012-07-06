@@ -1,11 +1,9 @@
 define([
-  'jQuery',
-  'underscore',
-  'backbone',
   'moment',
   'gc/Show/app/comment',
   'gc/Show/app/commentview',
-  'gc/Show/app/comments'], function($, _, Backbone, moment, Comment, CommentView, Comments) {
+  'gc/Show/app/comments'], function(moment, Comment, CommentView, Comments) {
+    console.log(CommentView);
     var commentInputView = Backbone.View.extend({
 
       el: $('#commentInput'),
@@ -18,7 +16,6 @@ define([
 
       initialize: function() {
         _.bindAll(this, 'render', 'addComment', 'showKey');
-        this.model.bind('reset', this.render, this);
 
         var placeholder = new Comment({
           id: 'next-comment',
@@ -29,7 +26,7 @@ define([
           },
           isComment: false});
 
-        $(this.el).append(CommentView({model: placeholder}).render().el);
+        $(this.el).append(new CommentView({model: placeholder}).render().el);
 
       },
 
@@ -38,7 +35,7 @@ define([
       },
 
       showKey: function(e) {
-        if (e.keyCode === '13') {
+        if (e.keyCode === 13) {
           this.addComment();
         }
       },
@@ -47,7 +44,7 @@ define([
         var body = $('#commentBody').val();
         if (body === '') { return; }
         var now = moment().fromNow();
-        var comment = Comment({
+        var comment = new Comment({
           body: body,
           user: {
             image: $(this.el).attr('data-image'),
@@ -71,8 +68,8 @@ define([
           }
         });
 
-        Comments.add(comment);
+        this.model.add(comment);
       }
     });
-    return new commentInputView;
+    return commentInputView;
 });

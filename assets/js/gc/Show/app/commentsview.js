@@ -1,8 +1,5 @@
 define([
-  'jQuery',
-  'underscore',
-  'backbone',
-  'gc/Show/app/commentview'], function($, _, Backbone, CommentView) {
+  'gc/Show/app/commentview'], function(CommentView) {
 
     var commentsView = Backbone.View.extend({
 
@@ -27,8 +24,9 @@ define([
       },
 
       appendComment: function(comment) {
-        $(this.el).append(CommentView({model: comment}).render().el);
+        console.log(JSON.stringify(comment));
+        $(this.el).append(new CommentView({model: comment}).render().el);
       }
     });
-    return new commentsView;
+    return commentsView;
 });

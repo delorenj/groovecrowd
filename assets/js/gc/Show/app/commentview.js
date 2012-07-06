@@ -1,7 +1,5 @@
 define([
-    'jQuery',
-    'backbone',
-    'handlebars'], function($, Backbone, Handlebars) {
+    'require'], function() {
         var commentView = Backbone.View.extend({
 
           tagName: 'article',
@@ -14,5 +12,5 @@ define([
             return this;
         }
     });
-    return new commentView;
+    return commentView;
 });

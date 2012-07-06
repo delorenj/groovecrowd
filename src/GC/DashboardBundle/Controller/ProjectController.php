@@ -47,12 +47,16 @@ class ProjectController extends Controller
         }
 
         if($request->getMethod() == "GET") {
+            $this->get('logger')->info('COMMENT: Getting comments for project ' . $id);
             $comments = $p->toArray();
             $comments = $comments["comments"];
+            $this->get('logger')->info('COMMENT: Number of comments --> ' . count($comments));            
             foreach ($comments as &$c) {
                 $c["canDelete"] = $this->get('acl_helper')->canDelete($c);
             }
-            return new Response(json_encode($comments), 200);            
+            $response = new Response(json_encode($comments), 200);
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
         } else if($request->getMethod() == "POST") {
             $payload = $request->getContent();
             if(!empty($payload)) {

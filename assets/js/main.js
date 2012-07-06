@@ -28,6 +28,10 @@ require.config({
         exports: "Handlebars"
     },
 
+    "underscore": {
+        exports: "_"
+    },
+
     "backbone": {
         deps: ["json2","handlebars", "underscore", "jQuery"],
         exports: "Backbone"
@@ -35,6 +39,8 @@ require.config({
   }
 });
 
-// require(['app'], function(App){
-//   console.log("initialized: " + window.location.pathname);
-// });
+require(['bootstrap', 'jQuery','underscore', 'backbone', 'handlebars'], function() {
+  require(['gc/Show/setup'], function() {
+
+  });
+});

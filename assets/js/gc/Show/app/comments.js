@@ -1,7 +1,5 @@
 define([
-	'jQuery',
-	'backbone',
-	'gc/Show/app/comment'], function($, Backbone, Comment) {
+	'gc/Show/app/comment'], function(Comment) {
 
 	var comments = Backbone.Collection.extend({
 		model: Comment,
