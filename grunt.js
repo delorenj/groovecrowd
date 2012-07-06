@@ -25,9 +25,9 @@ module.exports = function(grunt) {
   minify = {};
 
   function mapMinFile( file ) {
-    return file.replace( /\.js$/, ".min.js" );
+    return file.replace( /\.js$/, ".min.js" ).replace(/^assets\//, "web/");
   }
-  
+
   libFiles.forEach(function( file ) {
     minify[ mapMinFile( file ) ] = [ "<banner>", file ];
   });

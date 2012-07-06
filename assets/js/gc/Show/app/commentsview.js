@@ -1,26 +1,34 @@
-App.CommentsView = Backbone.View.extend({
+define([
+  'jQuery',
+  'underscore',
+  'backbone',
+  'gc/Show/app/commentview'], function($, _, Backbone, CommentView) {
 
-  el: $('#comments'),
+    var commentsView = Backbone.View.extend({
 
-  initialize: function(options) {
-    var that = this;
-    _.bindAll(this, 'render', 'appendComment');
-    this.collection.bind('add', function(model) {
-      that.appendComment(model);
+      el: $('#comments'),
+
+      initialize: function(options) {
+        var that = this;
+        _.bindAll(this, 'render', 'appendComment');
+        this.collection.bind('add', function(model) {
+          that.appendComment(model);
+        });
+
+      },
+
+      render: function(eventName) {
+        var that = this;
+        _.each(this.collection.models, function(comment) {
+          that.appendComment(comment);
+        }, this);
+
+        return this;
+      },
+
+      appendComment: function(comment) {
+        $(this.el).append(CommentView({model: comment}).render().el);
+      }
     });
-
-  },
-
-  render: function(eventName) {
-    var that = this;
-    _.each(this.collection.models, function(comment) {
-      that.appendComment(comment);
-    }, this);
-
-    return this;
-  },
-
-  appendComment: function(comment) {
-    $(this.el).append(new App.CommentView({model: comment}).render().el);
-  }
+    return new commentsView;
 });

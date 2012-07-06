@@ -40,10 +40,11 @@
 	{% endraw %}
 	</script>
 
-	<script type="text/javascript" src="{{ asset('js/gc/ContestLengthWidget.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/gc/MediaGallery/all.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/gc/Show/all.min.js') }}"></script>	
-
+	<script type='text/javascript'>
+		require(['require', 'gc/Show/setup'], function() {
+			console.log("thanks");
+		});
+	</script>
 {% endblock %}
 
 {% block subnav %}{% endblock %}

@@ -3,24 +3,38 @@ require.config({
   paths: {
     json2: 'lib/json2',    
     jQuery: 'lib/jquery/jquery',
-    Underscore: 'lib/underscore',
-    Backbone: 'lib/backbone',
-    Handlebars: 'lib/handlebars',
-    Moment: 'lib/moment',
-    Countdown: 'lib/countdown',
-    Bootstrap: 'lib/twitter-bootstrap/bootstrap',
-    SWFUpload: 'lib/swfupload'
+    underscore: 'lib/underscore',
+    backbone: 'lib/backbone',
+    handlebars: 'lib/handlebars',
+    moment: 'lib/moment',
+    countdown: 'lib/countdown',
+    bootstrap: 'lib/bootstrap',
+    SWFUpload: 'lib/swfupload',
+    // fosrouter: '../bundles/fosjsrouting/js/router',
+    text: "lib/text" 
+  },
+
+  shim: {
+    "bootstrap": {
+        deps: ["jQuery"],
+        exports: "$"
+    },
+
+    // "fosrouter": {
+    //     exports: "Routing"
+    // },
+
+    "handlebars": {
+        exports: "Handlebars"
+    },
+
+    "backbone": {
+        deps: ["json2","handlebars", "underscore", "jQuery"],
+        exports: "Backbone"
+    }
   }
-
 });
 
-require([
-
-  // Load our app module and pass it to our definition function
-  'app'
-
-], function(App){
-  // The "app" dependency is passed in as "App"
-  // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function
-  App.initialize();
-});
+// require(['app'], function(App){
+//   console.log("initialized: " + window.location.pathname);
+// });

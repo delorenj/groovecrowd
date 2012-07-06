@@ -1,9 +1,13 @@
-(function($) {
+require([
+	'jQuery',
+	'backbone',
+	'gc/Show/app/commentinputview',
+	'gc/Show/app/comments',
+	'gc/Show/app/commentsview'], function($, Backbone, CommentInputView, Comments, CommentsView) {
 
-	App.comments = new App.Comments();
-	App.comments.fetch({add: true, success: function() {
-		App.commentsView = new App.CommentsView({collection: App.comments}).render().el;
-		App.commentInputView = new App.CommentInputView({model: App.comments}).render().el;
+	var comments = new Comments();
+	comments.fetch({add: true, success: function() {
+		var commentsView = CommentsView({collection: comments}).render().el;
+		var commentInputView = CommentInputView({model: comments}).render().el;
 	}});
-
-}(jQuery));
+});

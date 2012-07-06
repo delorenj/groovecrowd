@@ -1,15 +1,23 @@
-App.Comment = Backbone.Model.extend({
-  defaults: {
-    isComment: true
-  },
+define([
+  'jQuery',
+  'backbone',
+  'moment',
+  'fosrouter'], function($, Backbone, moment, Routing) {
 
-  url: Routing.generate('project_comments', {'id': $('#projectHeader').attr('data-id')}),
+  var comment = Backbone.Model.extend({
+    defaults: {
+      isComment: true
+    },
 
-  initialize: function() {
-    var date = this.get('createdAt');
-    if (date && date.date) {
-      this.set('createdAt', {formattedDate: moment(date.date, 'YYYY-MM-DD HH:mm:ss').fromNow()});
+    url: Routing.generate('project_comments', {'id': $('#projectHeader').attr('data-id')}),
+
+    initialize: function() {
+      var date = this.get('createdAt');
+      if (date && date.date) {
+        this.set('createdAt', {formattedDate: moment(date.date, 'YYYY-MM-DD HH:mm:ss').fromNow()});
+      }
     }
-  }
+  });
 
+  return comment;
 });

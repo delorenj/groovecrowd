@@ -1,12 +1,18 @@
-App.CommentView = Backbone.View.extend({
+define([
+    'jQuery',
+    'backbone',
+    'handlebars'], function($, Backbone, Handlebars) {
+        var commentView = Backbone.View.extend({
 
-  tagName: 'article',
-	className: 'comment',
-  template: Handlebars.compile($('#comment-template').html()),
+          tagName: 'article',
+          className: 'comment',
+          template: Handlebars.compile($('#comment-template').html()),
 
-  render: function(eventName) {
-    $(this.el).html(this.template(this.model.toJSON()));
-    this.delegateEvents();
-    return this;
-  }
+          render: function(eventName) {
+            $(this.el).html(this.template(this.model.toJSON()));
+            this.delegateEvents();
+            return this;
+        }
+    });
+    return new commentView;
 });
