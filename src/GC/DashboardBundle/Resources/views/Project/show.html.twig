@@ -26,19 +26,7 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-	<div id="mediaGallery">
-		<ul class="thumbnails">
-			{% for asset in project.assets %}
-				<li class="span2">
-					<a class="thumbnail" href="#">
-						<img src="{{asset('img/profiles/default.jpg')}}" alt="">
-					</a>
-					<h5>{{asset.assetType.name}}</h5>
-					<p>{{asset.caption}}</p>
-				</li>
-			{% endfor %}
-		</ul>			
-	</div>
+	<div id="mediaGallery"></div>
 
 	<section id="comments" class="comments"></section>
 	{% if is_granted('ROLE_USER') %}

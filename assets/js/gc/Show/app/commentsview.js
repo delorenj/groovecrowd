@@ -24,7 +24,6 @@ define([
       },
 
       appendComment: function(comment) {
-        console.log(JSON.stringify(comment));
         $(this.el).append(new CommentView({model: comment}).render().el);
       }
     });

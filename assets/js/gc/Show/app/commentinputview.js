@@ -3,7 +3,6 @@ define([
   'gc/Show/app/comment',
   'gc/Show/app/commentview',
   'gc/Show/app/comments'], function(moment, Comment, CommentView, Comments) {
-    console.log(CommentView);
     var commentInputView = Backbone.View.extend({
 
       el: $('#commentInput'),
@@ -60,7 +59,6 @@ define([
 
         comment.save(null, {
           success: function(model, response) {
-            console.log('yay');
             $('#commentBody').val('');
           },
           error: function(model, response) {

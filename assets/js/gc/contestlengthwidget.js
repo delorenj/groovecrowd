@@ -1,7 +1,7 @@
-define(['moment', 'remaining'], function(moment) {
+define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arrowTemplate) {
     var widget = $('#contestLengthWidget .bar');
     var arrowContainer = $('#contestLengthWidgetContainer');
-    var arrow = Handlebars.compile($('#arrow-template').html());
+    var arrow = Handlebars.compile(arrowTemplate);
     var countdown = $('#contestLengthWidgetCountdown');
     var expiresAt = $(countdown).attr('data-time');
     var secondsRemaining = remaining.getSeconds(expiresAt);
