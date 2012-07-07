@@ -10,6 +10,7 @@ require.config({
     countdown: 'lib/countdown',
     bootstrap: 'lib/bootstrap',
     SWFUpload: 'lib/swfupload',
+    remaining: 'http://www.labs.mimmin.com/countdown/remaining'
     // fosrouter: '../bundles/fosjsrouting/js/router',
   },
 
@@ -17,6 +18,10 @@ require.config({
     "bootstrap": {
         deps: ["jQuery"],
         exports: "$"
+    },
+
+    "remaining": {
+      exports: "remaining"
     },
 
     // "fosrouter": {

@@ -106,7 +106,7 @@ module.exports = function(grunt) {
     min: minify,
     watch: {
       jslib: {
-        files: 'assets/js/lib/**/*.js',
+        files: 'assets/js/**/*',
         tasks: 'copy'
       },
       gc: {
