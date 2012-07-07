@@ -1,5 +1,5 @@
 require.config({
-//  baseUrl: '/js/',
+  baseUrl: '/js',
   paths: {
     json2: 'lib/json2',    
     jQuery: 'lib/jquery/jquery',
@@ -11,7 +11,6 @@ require.config({
     bootstrap: 'lib/bootstrap',
     SWFUpload: 'lib/swfupload',
     // fosrouter: '../bundles/fosjsrouting/js/router',
-    text: "lib/text" 
   },
 
   shim: {

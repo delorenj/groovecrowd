@@ -83,7 +83,7 @@ module.exports = function(grunt) {
     },
     copy: {
       assets: {
-        src: ["assets/js/**/*.js", "assets/css/**/*.css"],
+        src: ["assets/js/**/*.js", "assets/css/**/*.css", "assets/js/**/*.html"],
         strip: /^assets/,
         dest: "web/"
       }
