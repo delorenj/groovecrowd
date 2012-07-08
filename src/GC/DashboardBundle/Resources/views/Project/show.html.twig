@@ -22,8 +22,22 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-	<ul class='thumbnails' id="mediaGallery"></ul>
+	<div id="galleria">
+		{% for a in project.assets %}
+			{% if a.assetType.name == 'image' %}
+				<a href="{{a.uri}}"><img src="{{a.thumbUri}}"></a>
+			{% else %}
+				<a href="{{a.uri}}"><img src="{{a.thumbUri}}"></a>
+			{% endif %}
+		{% endfor %}
+	</div>
 
+	<div id="mediaGallery">
+		<div class="primary clearfix"></div>
+		<div>
+			<ul class='thumbnails'></ul>
+		</div>
+	</div>
 	<section id="comments" class="comments"></section>
 	{% if is_granted('ROLE_USER') %}
 	<section id="commentInput" class="comments" data-image="{{app.user.image}}" data-first="{{app.user.firstName}}" data-last="{{app.user.lastInitial}}"></section>

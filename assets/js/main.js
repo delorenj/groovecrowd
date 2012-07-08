@@ -10,7 +10,8 @@ require.config({
     countdown: 'lib/countdown',
     bootstrap: 'lib/bootstrap',
     SWFUpload: 'lib/swfupload',
-    remaining: 'http://www.labs.mimmin.com/countdown/remaining'
+    remaining: 'http://www.labs.mimmin.com/countdown/remaining',
+    galleria: 'lib/galleria/galleria-1.2.7',    
     // fosrouter: '../bundles/fosjsrouting/js/router',
   },
 
@@ -18,6 +19,13 @@ require.config({
     "bootstrap": {
         deps: ["jQuery"],
         exports: "$"
+    },
+
+    "galleria": {
+        deps: [
+          "jQuery",
+          "text!/js/lib/galleria/themes/classic/galleria.classic.css"],
+        exports: "Galleria"
     },
 
     "remaining": {

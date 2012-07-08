@@ -26,6 +26,7 @@ class LoadSimpleData extends AbstractFixture implements FixtureInterface, Ordere
         $this->manager = $manager;
         $this->asset("image");
         $this->asset("video");        
+        $this->asset("audio");
 
         $this->groove("generic");
         $this->groove("midi");

@@ -1,9 +1,9 @@
 define([
-  'gc/MediaGallery/app/assetView'], function(AssetView) {
+  'gc/MediaGallery/app/thumbView'], function(ThumbView) {
 
     var view = Backbone.View.extend({
 
-      el: $('#mediaGallery'),
+      el: $('#mediaGallery div ul.thumbnails'),
 
       initialize: function(options) {
         var that = this;
@@ -24,7 +24,7 @@ define([
       },
 
       appendAsset: function(asset) {
-        $(this.el).append(new AssetView({model: asset}).render().el);
+        $(this.el).append(new ThumbView({model: asset}).render().el);
       }
     });
     return view;

@@ -9,6 +9,5 @@
 /web/grooves/*
 *.bmml
 .DS_Store
-*.sublime-workspace
 *.log
 node_modules

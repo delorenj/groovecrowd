@@ -1,0 +1,2218 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"con",
+				"countdown"
+			],
+			[
+				"cont",
+				"contestLengthWidgetArrowHeight"
+			],
+			[
+				"rel",
+				"relative"
+			],
+			[
+				"arr",
+				"arrowWidth"
+			],
+			[
+				"contest",
+				"contestLengthWidgetHeightOffset"
+			],
+			[
+				"arro",
+				"arrowContainer"
+			],
+			[
+				"w",
+				"widget"
+			],
+			[
+				"sec",
+				"secondsRemaining"
+			],
+			[
+				"date",
+				"datediff"
+			],
+			[
+				"da",
+				"datediff"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"pr",
+				"project-types"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"pro",
+				"projects"
+			],
+			[
+				"ex",
+				"expiresIn"
+			],
+			[
+				"proje",
+				"projects"
+			],
+			[
+				"App",
+				"AppView"
+			],
+			[
+				"me",
+				"mediaContainerMargin"
+			],
+			[
+				"med",
+				"mediaContainerMargin"
+			],
+			[
+				"media",
+				"mediaContainerHeight"
+			],
+			[
+				"thum",
+				"thumbnailWidth"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"api_",
+				"api_url"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"sign",
+				"signature"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"uplo",
+				"uploadVideoAction"
+			],
+			[
+				"add",
+				"addRealImage"
+			],
+			[
+				"preg",
+				"preg_match"
+			],
+			[
+				"gc_p",
+				"gc_project_brief_gallery"
+			],
+			[
+				"code",
+				"codeToId"
+			],
+			[
+				"cl",
+				"claimed_id"
+			],
+			[
+				"jso",
+				"json_encode"
+			],
+			[
+				"perce",
+				"percentage"
+			],
+			[
+				"visi",
+				"visibility"
+			],
+			[
+				"div",
+				"divFileProgressContainer"
+			],
+			[
+				"message",
+				"message-type"
+			],
+			[
+				"file",
+				"fileQueueError"
+			],
+			[
+				"upl",
+				"uploadComplete"
+			],
+			[
+				"thu",
+				"thumb_uri"
+			],
+			[
+				"secu",
+				"securityContext"
+			],
+			[
+				"Mask",
+				"MASK_OWNER"
+			],
+			[
+				"cod",
+				"codified"
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"uploadV",
+				"uploadImageOrVideoAction"
+			],
+			[
+				"ge",
+				"generate"
+			],
+			[
+				"imagecrea",
+				"imagecreatefromgif"
+			],
+			[
+				"new_",
+				"new_img"
+			],
+			[
+				"img",
+				"imgPathPrefix"
+			],
+			[
+				"new",
+				"newImg"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"init",
+				"initSWFUpload"
+			],
+			[
+				"gc",
+				"gc_project_brief"
+			],
+			[
+				"prog",
+				"progress"
+			],
+			[
+				"cate",
+				"categorySelect"
+			],
+			[
+				"projectF",
+				"projectFromSession"
+			],
+			[
+				"progress",
+				"progressFromProject"
+			],
+			[
+				"category",
+				"categorySelect"
+			],
+			[
+				"aut",
+				"authenticateUser"
+			],
+			[
+				"tar",
+				"targetPath"
+			],
+			[
+				"last",
+				"last_username"
+			],
+			[
+				"project",
+				"projectRepo"
+			],
+			[
+				"user",
+				"userManager"
+			],
+			[
+				"pack",
+				"packageName"
+			],
+			[
+				"prop",
+				"property_exists"
+			],
+			[
+				"GC",
+				"GCDataLayerBundle"
+			],
+			[
+				"tag-p",
+				"tag-pizzacato"
+			],
+			[
+				"ProjectC",
+				"ProjectCreationProgress"
+			],
+			[
+				"cur",
+				"cursor	cursor: type"
+			],
+			[
+				"ass",
+				"assertEquals"
+			],
+			[
+				"Gr",
+				"GrooveSet"
+			],
+			[
+				"setPay",
+				"setPayoutAmount"
+			],
+			[
+				"pay",
+				"setPayoutAmount"
+			],
+			[
+				"full",
+				"fullGrooveSetsOnly"
+			],
+			[
+				"En",
+				"EntityRepository"
+			],
+			[
+				"Pro",
+				"ProjectBundle"
+			],
+			[
+				"O",
+				"OrderedFixtureInterface"
+			],
+			[
+				"Cont",
+				"ContainerAwareInterface"
+			],
+			[
+				"re",
+				"realtive"
+			],
+			[
+				"v",
+				"variable"
+			],
+			[
+				"hero",
+				"hero-carousel"
+			],
+			[
+				"pad",
+				"padding	padding: T R B L"
+			],
+			[
+				"nav",
+				"navbarBackground"
+			],
+			[
+				"body",
+				"bodyColor"
+			],
+			[
+				"dir",
+				"dirtHeight"
+			],
+			[
+				"logo",
+				"logoHeight"
+			],
+			[
+				"Auth",
+				"Auth	Laravel: Auth::logout()"
+			],
+			[
+				"el",
+				"elder_score"
+			],
+			[
+				"data",
+				"initData"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+			"settings":
+			{
+				"buffer_size": 1120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/views/base.html.twig",
+			"settings":
+			{
+				"buffer_size": 7297,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/main.js",
+			"settings":
+			{
+				"buffer_size": 1020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/asset.js",
+			"settings":
+			{
+				"buffer_size": 197,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/assets.js",
+			"settings":
+			{
+				"buffer_size": 215,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/assetView.js",
+			"settings":
+			{
+				"buffer_size": 387,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/Show/app/commentsview.js",
+			"settings":
+			{
+				"buffer_size": 736,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/assetIndexView.js",
+			"settings":
+			{
+				"buffer_size": 695,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 599 files for \"fosjsrouter\" (regex)\n\n0 matches across 0 files\n\n\nSearching 599 files for \"fosrouter\" (regex)\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n9 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 1884,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "assets/js/gc/Show/app/commentinputview.js",
+			"settings":
+			{
+				"buffer_size": 1798,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/contestlengthwidget.js",
+			"settings":
+			{
+				"buffer_size": 1685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+			"settings":
+			{
+				"buffer_size": 7251,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/Show/templates/comment.html",
+			"settings":
+			{
+				"buffer_size": 692,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grunt.js",
+			"settings":
+			{
+				"buffer_size": 4363,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/setup.js",
+			"settings":
+			{
+				"buffer_size": 275,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/templates/asset.html",
+			"settings":
+			{
+				"buffer_size": 111,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/templates/arrow.html",
+			"settings":
+			{
+				"buffer_size": 202,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/GC/DashboardBundle/Controller/AssetController.php",
+			"settings":
+			{
+				"buffer_size": 12582,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/JSHint/JSHint.sublime-build",
+	"command_palette":
+	{
+		"height": 50.0,
+		"selected_items":
+		[
+			[
+				"thumb",
+				"Snippet: Bootstrap thumbnails"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"spa",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"spac",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tabs",
+				"View: Toggle Tabs"
+			],
+			[
+				"ali",
+				"Abacus: align selection"
+			],
+			[
+				"asset",
+				"SymfonyCommander assets:install"
+			],
+			[
+				"sccl",
+				"SymfonyCommander cache:clear (dev)"
+			],
+			[
+				"boot butt",
+				"Snippet: Bootstrap small button"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"aba",
+				"Abacus: align selection"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"tbgrid",
+				"Snippet: Twitter Bootstrap basic three column grid"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"terminal",
+				"Preferences: Terminal Settings – Default"
+			],
+			[
+				"tb",
+				"Snippet: Twitter Bootstrap basic four column grid"
+			],
+			[
+				"drop",
+				"Snippet: Twitter Bootstrap button dropdowns"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"twig",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"set",
+				"Set Syntax: HTML"
+			],
+			[
+				"vintage",
+				"Set Syntax: VintageEx Command Line"
+			],
+			[
+				"controller",
+				"Snippet: Symfony2 / Controller / Redirect"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Tidy HTML"
+			],
+			[
+				"back",
+				"Snippet: CSS background: #fff url('') 0 0 repeat;"
+			],
+			[
+				"bac",
+				"Snippet: CSS background: #fff url('') 0 0 repeat;"
+			],
+			[
+				"pick",
+				"Color picker"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"lara",
+				"Snippet: Laravel: Auth::login()"
+			],
+			[
+				"Snippet:",
+				"Snippet: Laravel: URL::to_route()"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <?php … ?>"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 124.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/setup.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comments.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comment.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/moment.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/grunt.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/text.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/text.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/templates/comment.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/app.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectComment.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Project.php",
+		"/Applications/MAMP/htdocs/groovecrowd/build/tasks.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Controller/WelcomeController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/twitter-bootstrap/bootstrap.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/twitter-bootstrap/bootstrap.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/styles.min.css",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/backbone.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/min/**/*",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/**/min.*",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/bannered/**/*",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/responsive.less",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/bootstrap.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/styles.css",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/css/styles.css",
+		"/Applications/MAMP/htdocs/groovecrowd/package.json",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/countdown.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/countdown.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/moment.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/handlebars.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/handlebars-1.0.0.beta.6.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/jquery/jquery.lib.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/backbone/backbone.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/underscore/underscore.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/json2/json2.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/json2/json2.lib.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/jquery/jquery.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
+		"/Applications/MAMP/htdocs/groovecrowd/groovecrowd.sublime-project",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/project_brief.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/custom.less",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/css/bootstrap.css",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/mixins.less",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/styles.min.css",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/grid.less",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/require.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectCreateController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/index.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/collapsed_project.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/comment.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/comments.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/commentsview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/commentinputview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/setup.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadUserData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/less/custom.less",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Services/AclHelper.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/DefaultController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/MediaGallery/setup.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectAsset.php",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/CategorySelect/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentsview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentinputview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/contestlengthwidget.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/commentview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/show_all.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/setup.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Payment/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/ProjectBrief/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/contestlengthwidget.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/core.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/core.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/plugins/countdown.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/backbone.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/backbone/underscore.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/gc/app.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/show_all.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/js/script.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/User.php",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectCommentData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/consumer.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/projectTypes.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/edit.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/edit.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/AssetController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/PackageSelect/main.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/Package.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/UserRepository.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/header.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/Partials/header.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/app/cache/dev/twig/92/32/795541557720067f6a327c2ee8f0.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/ProjectCreate/package_select.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/ProjectCreate/show.html.twig",
+		"/Users/jdelorenzo/.gitconfig",
+		"/Users/jdelorenzo/.zshrc",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/CategorySelect/main.js",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/SymfonyCommander.sublime-settings",
+		"/Users/jdelorenzo/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/SymfonyCommander.sublime-settings",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/handlebars-1.0.0.beta.6.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Assets/asset.js",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/plugins/countdown.min.js",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/handlebars-1.0.0.beta.6.js",
+		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/gc/app.js",
+		"/Applications/MAMP/htdocs/groovecrowd/web/bundles/fosjsrouting/js/router.js",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/GoogleClosure/BaseCompilerFilter.php",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/Yui/JsCompressorFilter.php",
+		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/Yui/BaseCompressorFilter.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 91.0,
+		"where_history":
+		[
+			"<project>",
+			"/Applications/MAMP/htdocs/groovecrowd",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log",
+			"/Applications/MAMP/htdocs/groovecrowd",
+			"/Applications/MAMP/htdocs/groovecrowd/assets/less",
+			"/Applications/MAMP/htdocs/groovecrowd/assets/css",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/app/config,/Applications/MAMP/htdocs/groovecrowd/app/Resources ,-*.log,-*.css,-*.cache.*,-*.sublime-workspace,/Applications/MAMP/htdocs/groovecrowd/",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/app/config,/Applications/MAMP/htdocs/groovecrowd/app/Resources ,-*.log,-*.css,-*.cache.*,-*.sublime-workspace",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-*.cache.*,-*.sublime-workspace",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-*.php,-*.sublime-workspace",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-*.php",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-*cache*",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-*cache",
+			"/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-/Applications/MAMP/htdocs/groovecrowd/app/cache",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-cache/*/",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log,-*.css,-cache",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log, -*.css, -cache/*",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log, -*.css, -cache",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log, -*.css",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd,-*.log",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web,/Applications/MAMP/htdocs/groovecrowd",
+			"/Applications/MAMP/htdocs/groovecrowd/src,/Applications/MAMP/htdocs/groovecrowd/web",
+			"/Applications/MAMP/htdocs/groovecrowd/src",
+			"/Applications/MAMP/htdocs/groovecrowd/web",
+			"/Applications/MAMP/htdocs/groovecrowd/src",
+			"/Applications/MAMP/htdocs/groovecrowd/",
+			"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Resources/config/doctrine/metadata/orm",
+			"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity",
+			"",
+			"base.html.twig",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"collect",
+			"append",
+			"model",
+			"fosrouter",
+			"fosjsrouter",
+			"twitter-bootstrap",
+			"strip_all",
+			"cssFiles",
+			"\\.min",
+			".min",
+			"min",
+			"backbone",
+			"order!lib/",
+			"/bootstrap.css",
+			"contest",
+			"contestlengthwidget",
+			"Resources/public/js",
+			"compre",
+			"yuicompres",
+			"Resources/public/js",
+			"css/css",
+			"css/cs",
+			"css/css/",
+			"../../",
+			"css/css",
+			" == ",
+			"project_id",
+			" == ",
+			"alert",
+			") retu",
+			" == ",
+			"==",
+			"complete",
+			"remain",
+			"date",
+			"comments",
+			"ProjectDescriptionType",
+			"ConsumerIndex/app",
+			"\\$acl",
+			"$acl",
+			"is_granted",
+			"moment",
+			"created_at",
+			"getLastInitial",
+			"last_initial",
+			"doctype",
+			"compile",
+			"tab ",
+			"Routing.generate",
+			"xmlhttp",
+			"now",
+			"moment",
+			"username",
+			"assets",
+			"Jbi",
+			"CoreBundle",
+			"jbi",
+			"get(",
+			"OPERATOR",
+			"MASK_BUILDER",
+			"Save",
+			"continue",
+			"project_brief.html.twig",
+			"OWNER",
+			"bindUserToOb",
+			"enable",
+			"packageSelect",
+			"ena",
+			"formatProjects",
+			"error",
+			"detect",
+			"tab",
+			"path\\(",
+			"path(",
+			"type",
+			"font-deco",
+			"horizon",
+			"ul",
+			"ul li",
+			"header",
+			"project",
+			"huh",
+			"Here",
+			"huh",
+			"Project:",
+			"Default:",
+			"Default::",
+			"left:.*%",
+			"left",
+			"output=",
+			"gc_project.js",
+			"gc_project",
+			"selectFormChoice",
+			"selectFormChoise",
+			"handlebars",
+			"handlebars*.js",
+			"handlebars*.js$",
+			"handlebars-1\\.*.js$",
+			"/handlebars-1\\.*.js$/",
+			"/^.*handlebars-1.*.js$/",
+			"^.*handlebars-1.*.js$",
+			"handlebars-1.*.js$",
+			"ssl",
+			"zend",
+			"Resources/public/js/",
+			"gc_payment",
+			"gc_package",
+			"gc_project_brief.js",
+			"gc_pack",
+			"Project:",
+			"ProjectController",
+			"x-handlebars-template",
+			"template",
+			"Handlebars",
+			"raw",
+			"demo",
+			"contestLengthWidget",
+			"payout-amount",
+			"payment-amount",
+			"trailer",
+			"project-types",
+			"project-watch-links",
+			"project-nav-links",
+			"ul",
+			"text-decoration",
+			"font-decoration",
+			"decoration"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"json2",
+			"underscore",
+			"css",
+			"css/",
+			" === ",
+			"===",
+			"assets",
+			"ProjectCreate:",
+			"gc_category_select",
+			"ProjectCreate:",
+			"groovecrowd",
+			"paymentAmount",
+			"projectTypes",
+			"projectWatchLinks",
+			"projectNavLinks",
+			": \"\",",
+			": \"\"",
+			"gc_consumer_dashboard",
+			"Helpers:",
+			"thumb_img",
+			"../../img",
+			"project_brief",
+			"project_categorySelect",
+			"",
+			"payment",
+			"package_select",
+			"gc_project_brief",
+			"gc_project_description",
+			"h2",
+			"gc",
+			"",
+			"h1",
+			"voice-over",
+			"setPackageId(",
+			"))->getId());",
+			"-audio-fx",
+			"voiceover",
+			"-music",
+			"project-type-",
+			"product-type-",
+			"setProjectTypeId",
+			"setPackageTypeId",
+			"User",
+			"PackageTypeId",
+			"Package",
+			"Project",
+			"image",
+			"mage",
+			"User",
+			"viewed",
+			"setPlainPassword",
+			"User",
+			"",
+			"protected",
+			"') }}\"></script>",
+			"Welcome",
+			"65"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 15,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
+					"settings":
+					{
+						"buffer_size": 1120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								843,
+								843
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Resources/views/base.html.twig",
+					"settings":
+					{
+						"buffer_size": 7297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7145,
+								7145
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1225.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/js/main.js",
+					"settings":
+					{
+						"buffer_size": 1020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								389,
+								389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "assets/js/gc/MediaGallery/app/asset.js",
+					"settings":
+					{
+						"buffer_size": 197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								162,
+								162
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "assets/js/gc/MediaGallery/app/assets.js",
+					"settings":
+					{
+						"buffer_size": 215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								209,
+								209
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "assets/js/gc/MediaGallery/app/assetView.js",
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "assets/js/gc/Show/app/commentsview.js",
+					"settings":
+					{
+						"buffer_size": 736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								736
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "assets/js/gc/MediaGallery/app/assetIndexView.js",
+					"settings":
+					{
+						"buffer_size": 695,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								492,
+								492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"settings":
+					{
+						"buffer_size": 1884,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										268,
+										277
+									],
+									[
+										400,
+										409
+									],
+									[
+										591,
+										600
+									],
+									[
+										847,
+										856
+									],
+									[
+										979,
+										988
+									],
+									[
+										1167,
+										1176
+									],
+									[
+										1426,
+										1435
+									],
+									[
+										1558,
+										1567
+									],
+									[
+										1749,
+										1758
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								498,
+								498
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "assets/js/gc/Show/app/commentinputview.js",
+					"settings":
+					{
+						"buffer_size": 1798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1653,
+								1660
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 250.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "assets/js/gc/contestlengthwidget.js",
+					"settings":
+					{
+						"buffer_size": 1685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"settings":
+					{
+						"buffer_size": 7251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4233,
+								4233
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1017.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "assets/js/gc/Show/templates/comment.html",
+					"settings":
+					{
+						"buffer_size": 692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "grunt.js",
+					"settings":
+					{
+						"buffer_size": 4363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2452,
+								2452
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 995.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "assets/js/gc/MediaGallery/setup.js",
+					"settings":
+					{
+						"buffer_size": 275,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								265,
+								265
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "assets/js/gc/MediaGallery/templates/asset.html",
+					"settings":
+					{
+						"buffer_size": 111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "assets/js/gc/templates/arrow.html",
+					"settings":
+					{
+						"buffer_size": 202,
+						"regions":
+						{
+							"TagLint":
+							{
+								"flags": 52,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										188,
+										194
+									]
+								],
+								"scope": "variable.parameter"
+							}
+						},
+						"selection":
+						[
+							[
+								202,
+								202
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/GC/DashboardBundle/Controller/AssetController.php",
+					"settings":
+					{
+						"buffer_size": 12582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SymfonyCommander":
+	{
+		"height": 98.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Assets/js/gc/MediaGallery/templates/asset.html"
+			],
+			[
+				"procon",
+				"Bundles/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"asset.ht",
+				"Assets/js/gc/MediaGallery/templates/asset.html"
+			],
+			[
+				"routi",
+				"Bundles/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"asscon",
+				"Bundles/DashboardBundle/Controller/AssetController.php"
+			],
+			[
+				"grun",
+				"Root/grunt.js"
+			],
+			[
+				"show",
+				"Bundles/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"grunt",
+				"Root/grunt.js"
+			],
+			[
+				"coment",
+				"Assets/js/gc/Show/templates/comment.js"
+			],
+			[
+				"proj",
+				"Root/src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"procom",
+				"Bundles/DataLayerBundle/Entity/ProjectComment.php"
+			],
+			[
+				"project",
+				"Bundles/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"routin",
+				"Bundles/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"routing",
+				"Bundles/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"comment",
+				"Assets/js/gc/Show/app/comment.js"
+			],
+			[
+				"base",
+				"Root/app/Resources/views/base.html.twig"
+			],
+			[
+				"app.j",
+				"Assets/js/app.js"
+			],
+			[
+				"main",
+				"Assets/js/main.js"
+			],
+			[
+				"index.",
+				"Bundles/WelcomeBundle/Resources/views/Welcome/index.html.twig"
+			],
+			[
+				"welcom",
+				"Bundles/WelcomeBundle/Controller/WelcomeController.php"
+			],
+			[
+				"styles",
+				"Root/web/css/styles.min.css"
+			],
+			[
+				"back",
+				"Root/web/js/lib/backbone.min.js"
+			],
+			[
+				"respo",
+				"Assets/less/responsive.less"
+			],
+			[
+				"boot",
+				"Assets/less/bootstrap.less"
+			],
+			[
+				"styl",
+				"Root/web/css/styles.min.css"
+			],
+			[
+				"style",
+				"Root/web/css/styles.css"
+			],
+			[
+				"pack",
+				"Root/package.json"
+			],
+			[
+				"json2",
+				"Assets/js/lib/json2/json2.lib.js"
+			],
+			[
+				"consumer",
+				"Bundles/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
+			],
+			[
+				"custome",
+				"assets/less/custom.less"
+			],
+			[
+				"grid.",
+				"assets/less/grid.less"
+			],
+			[
+				"",
+				"grunt.js"
+			],
+			[
+				"setup",
+				"assets/js/gc/MediaGallery/setup.js"
+			],
+			[
+				"comment.",
+				"assets/js/gc/Show/app/comment.js"
+			],
+			[
+				"inputview",
+				"assets/js/gc/Show/app/commentinputview.js"
+			],
+			[
+				"comments",
+				"assets/js/gc/Show/app/commentsview.js"
+			],
+			[
+				"conte",
+				"assets/js/gc/contestlengthwidget.js"
+			],
+			[
+				"categorysele",
+				"assets/js/gc/CategorySelect/main.js"
+			],
+			[
+				"probrie",
+				"src/GC/DashboardBundle/Resources/views/project_brief.html.twig"
+			],
+			[
+				"sho",
+				"src/GC/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"proass",
+				"src/GC/DataLayerBundle/Entity/ProjectAsset.php"
+			],
+			[
+				"pro",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"rou",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"cons",
+				"src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
+			],
+			[
+				"rout",
+				"src/GC/DashboardBundle/Resources/config/routing.yml"
+			],
+			[
+				"defaul",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"consum",
+				"src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
+			],
+			[
+				"acl",
+				"src/GC/DashboardBundle/Services/AclHelper.php"
+			],
+			[
+				"procont",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"cust",
+				"web/css/less/custom.less"
+			],
+			[
+				"procomm",
+				"src/GC/DataLayerBundle/Entity/ProjectComment.php"
+			],
+			[
+				"proco",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"createcon",
+				"src/GC/DashboardBundle/Controller/ProjectCreateController.php"
+			],
+			[
+				"projectcomm",
+				"src/GC/DataLayerBundle/Entity/ProjectComment.php"
+			],
+			[
+				"proje",
+				"src/GC/DataLayerBundle/Entity/Project.php"
+			],
+			[
+				"proc",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"c",
+				"web/css/less/custom.less"
+			],
+			[
+				"cu",
+				"web/css/less/custom.less"
+			],
+			[
+				"custom",
+				"web/css/less/custom.less"
+			],
+			[
+				"projconr",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"comview",
+				"src/GC/DashboardBundle/Resources/public/js/Show/app/commentsview.js"
+			],
+			[
+				"show.",
+				"src/GC/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"user.",
+				"src/GC/DataLayerBundle/Entity/User.php"
+			],
+			[
+				"projecomm",
+				"src/GC/DataLayerBundle/Entity/ProjectComment.php"
+			],
+			[
+				"projectcon",
+				"src/GC/DashboardBundle/Controller/ProjectController.php"
+			],
+			[
+				"colla",
+				"src/GC/DashboardBundle/Resources/views/Project/collapsed_project.html.twig"
+			],
+			[
+				"prorepo",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"brea",
+				"src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig"
+			],
+			[
+				"brie",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"bread",
+				"src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig"
+			],
+			[
+				"project_",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"aclhe",
+				"src/GC/DashboardBundle/Services/AclHelper.php"
+			],
+			[
+				"brief",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"payme",
+				"src/GC/DashboardBundle/Resources/views/Project/payment.html.twig"
+			],
+			[
+				"cate",
+				"src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig"
+			],
+			[
+				"fields",
+				"src/GC/DataLayerBundle/Resources/views/Form/fields.html.twig"
+			],
+			[
+				"main.js",
+				"src/GC/DashboardBundle/Resources/public/js/PackageSelect/main.js"
+			],
+			[
+				"package_se",
+				"src/GC/DashboardBundle/Resources/views/Project/package_select.html.twig"
+			],
+			[
+				"package",
+				"src/GC/DataLayerBundle/Entity/Package.php"
+			],
+			[
+				"projectr",
+				"src/GC/DataLayerBundle/Entity/ProjectRepository.php"
+			],
+			[
+				"projectc",
+				"src/GC/DashboardBundle/Controller/ProjectCreateController.php"
+			],
+			[
+				"aclh",
+				"src/GC/DashboardBundle/Services/AclHelper.php"
+			],
+			[
+				"user",
+				"src/GC/DataLayerBundle/Entity/UserRepository.php"
+			],
+			[
+				"defau",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"dash",
+				"src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig"
+			],
+			[
+				"cus",
+				"web/css/less/custom.less"
+			],
+			[
+				"custo",
+				"web/css/less/custom.less"
+			],
+			[
+				"welcome",
+				"src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig"
+			],
+			[
+				"index.html.",
+				"src/GC/DashboardBundle/Resources/views/Project/index.html.twig"
+			],
+			[
+				"projectcontroller",
+				"src/GC/DashboardBundle/Controller/ProjectCreateController.php"
+			],
+			[
+				"fosjsrouting/js/",
+				"web/bundles/fosjsrouting/js/router.js"
+			],
+			[
+				"jscom",
+				"vendor/assetic/src/Assetic/Filter/Yui/JsCompressorFilter.php"
+			],
+			[
+				"basecomp",
+				"vendor/assetic/src/Assetic/Filter/Yui/BaseCompressorFilter.php"
+			],
+			[
+				"basec",
+				"vendor/assetic/src/Assetic/Filter/GoogleClosure/BaseCompilerFilter.php"
+			],
+			[
+				"tags",
+				"web/css/css/jquery.tagsinput.css"
+			],
+			[
+				"jquer",
+				"app/Resources/public/js/jquery.min.js"
+			],
+			[
+				"contest",
+				"src/GC/DashboardBundle/Resources/public/js/contestlengthwidget.js"
+			],
+			[
+				"bootstrap.css",
+				"web/css/css/bootstrap.css"
+			],
+			[
+				"gc_",
+				"src/GC/DashboardBundle/Resources/public/js/ProjectBrief/gc_project_brief.js"
+			],
+			[
+				"app_de",
+				"web/app_dev.php"
+			],
+			[
+				"progress",
+				"web/css/less/progress-bars.less"
+			],
+			[
+				"projectty",
+				"src/GC/DataLayerBundle/Entity/ProjectType.php"
+			],
+			[
+				"mixins",
+				"web/css/less/mixins.less"
+			],
+			[
+				"navs.",
+				"web/css/less/navs.less"
+			],
+			[
+				"vari",
+				"web/css/less/variables.less"
+			],
+			[
+				"def",
+				"src/GC/DashboardBundle/Controller/DefaultController.php"
+			],
+			[
+				"deps",
+				"deps"
+			],
+			[
+				"bas",
+				"app/Resources/views/base.html.twig"
+			],
+			[
+				"projecta",
+				"src/GC/DataLayerBundle/Entity/ProjectAsset.php"
+			],
+			[
+				"gc",
+				"web/js/gc_consumer_dashboard.js"
+			],
+			[
+				"category",
+				"src/GC/DataLayerBundle/Entity/Category.php"
+			],
+			[
+				"bri",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"custom.l",
+				"web/css/less/custom.less"
+			],
+			[
+				"projectd",
+				"src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php"
+			],
+			[
+				"confi",
+				"app/config/config.yml"
+			],
+			[
+				"param",
+				"app/config/parameters.ini"
+			],
+			[
+				"help",
+				"src/GC/DataLayerBundle/Helpers.php"
+			],
+			[
+				"helpers",
+				"src/GC/DataLayerBundle/Helpers.php"
+			],
+			[
+				"descript",
+				"src/GC/DashboardBundle/Form/Type/ProjectDescriptionType.php"
+			],
+			[
+				"projectass",
+				"src/GC/DataLayerBundle/Entity/ProjectAsset.php"
+			],
+			[
+				"project_b",
+				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
+			],
+			[
+				"asset",
+				"src/GC/DashboardBundle/Controller/AssetController.php"
+			],
+			[
+				"app_dev",
+				"web/app_dev.php"
+			],
+			[
+				"para",
+				"app/config/parameters.ini"
+			],
+			[
+				"appke",
+				"app/AppKernel.php"
+			],
+			[
+				"bootstrap.php",
+				"app/bootstrap.php.cache"
+			],
+			[
+				"appk",
+				"app/AppKernel.php"
+			],
+			[
+				"securit",
+				"app/config/security.yml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true
+}

@@ -2,10 +2,9 @@
     "folders":
     [
         {
-        	"name": "Root",
-			"path": "/Applications/MAMP/htdocs/groovecrowd",
-            "folder_exclude_patterns": ["app/cache", "app/logs", "node_modules", "vendor"],
-            "file_exclude_patterns": ["*.sublime*"]
+            "name": "Root",
+            "path": "/Applications/MAMP/htdocs/groovecrowd",
+            "folder_exclude_patterns": ["app/cache", "app/logs", "node_modules", "vendor"]
         },
         {
             "path": "assets",
@@ -21,10 +20,14 @@
             "name": "Configs"
         },
         {
+            "path": "src/GC/DataLayerBundle/DataFixtures/ORM",
+            "name": "Fixtures"
+        },        
+        {
             "path": "web",
             "name": "Public",
             "file_exclude_patterns": ["*.swf", "*.txt", "*.ico"],
-            "folder_exclude_patterns": ["bundles", "css", "js"]
-        }        
+            "folder_exclude_patterns": ["css", "js"]
+        }
     ]
 }

@@ -1,8 +1,8 @@
-define(['text!/gc/MediaGallery/templates/asset'], function(html) {
+define(['text!/gc/MediaGallery/templates/thumb'], function(html) {
         var view = Backbone.View.extend({
 
           tagName: 'li',
-          className: 'asset span2',
+          className: 'span2',
           template: Handlebars.compile(html),
 
           render: function(eventName) {

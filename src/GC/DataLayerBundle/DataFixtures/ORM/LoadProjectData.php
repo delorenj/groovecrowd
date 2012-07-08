@@ -68,10 +68,33 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
 
         $p = new ProjectAsset();
         $p->setProject($this->getReference('project-game'));
-        $p->setUri("http://www.youtube.com/watch?v=dha4drF5EmQ");
-        $p->setCaption("I want music throughout the entire experience. It would be nice to have it loop smoothly.");
+        $p->setUri("https://s3.amazonaws.com/groovecrowd/test/image3.jpg");
+        $p->setThumbUri("https://s3.amazonaws.com/groovecrowd/test/thumbs/image3.jpg");        
+        $p->setCaption("This is a sweet image to test the media gallery");
         $p->setCreatedAt(new \DateTime("now"));
         $p->setAssetType($manager->merge($this->getReference('asset-image')));
+        $this->manager->persist($p);
+        $this->manager->flush();
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));        
+
+        $p = new ProjectAsset();
+        $p->setProject($this->getReference('project-game'));
+        $p->setUri("https://s3.amazonaws.com/groovecrowd/test/audio1.mp3");
+        $p->setThumbUri("/img/audiodefault.png");        
+        $p->setCaption("One of the best Bill Evans songs!");
+        $p->setCreatedAt(new \DateTime("now"));
+        $p->setAssetType($manager->merge($this->getReference('asset-audio')));
+        $this->manager->persist($p);
+        $this->manager->flush();
+        $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));        
+
+        $p = new ProjectAsset();
+        $p->setProject($this->getReference('project-game'));
+        $p->setUri("https://s3.amazonaws.com/groovecrowd/test/video1.mp4");
+        $p->setThumbUri("https://s3.amazonaws.com/groovecrowd/test/video1.jpg");  
+        $p->setCaption("Check out this video, which tests the extent of my ballos");              
+        $p->setCreatedAt(new \DateTime("now"));
+        $p->setAssetType($manager->merge($this->getReference('asset-video')));
         $this->manager->persist($p);
         $this->manager->flush();
         $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));        

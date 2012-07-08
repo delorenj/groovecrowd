@@ -3,8 +3,13 @@ define(function() {
     defaults: {
       image: "img/profiles/default.jpg",
       type: "Image",
-      caption: "No Caption"
-    }
+      caption: "No Caption",
+      state: ""
+    },
+
+    select: function(state){
+      this.set({'state': state ? 'selected' : ''});
+    }    
   });
 
   return model;
