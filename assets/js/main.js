@@ -12,6 +12,7 @@ require.config({
     SWFUpload: 'lib/swfupload',
     remaining: 'http://www.labs.mimmin.com/countdown/remaining',
     galleria: 'lib/galleria/galleria-1.2.7',    
+    jwplayer: 'lib/jwplayer/jwplayer'
     // fosrouter: '../bundles/fosjsrouting/js/router',
   },
 
@@ -30,6 +31,10 @@ require.config({
 
     "remaining": {
       exports: "remaining"
+    },
+
+    "jwplayer": {
+      exports: "jwplayer"
     },
 
     // "fosrouter": {
