@@ -19,7 +19,7 @@ require([
     //     width: 480
     // });    
     jwplayer('mediaplayer').setup({
-        file: 'test/video1.mp4',        
+        file: 'test/video.mp4',        
         width: '640',
         height: '480',
         skin: '/js/lib/jwplayer/grungetape.zip',
@@ -29,7 +29,7 @@ require([
         },{
             type: "html5",
             config: {
-                file: "http://dwt7rwekfqghm.cloudfront.net/test/video1.mp4",
+                file: "http://dwt7rwekfqghm.cloudfront.net/test/video.mp4",
                 provider: "video"
             }
         }],    

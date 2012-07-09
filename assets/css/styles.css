@@ -1,6 +1,6 @@
-/*! Groovecrowd - v0.0.1 - 2012-07-08
+/*! Groovecrowd - v0.0.1 - 2012-07-09
 * http://groovecrowd.com
-* Includes: bootstrap.css, responsive.css
+* Includes: styles.css
 * Copyright (c) 2012 Jarad DeLorenzo; */
 
 @import url(https://fonts.googleapis.com/css?family=Telex);
@@ -4467,6 +4467,12 @@ ul.projectNavLinks .active {
   font-size: 2em;
   line-height: 1.3em;
 }
+#mediaplayer_wrapper {
+  margin: auto !important;
+}
+#galleria {
+  height: 467px;
+}
 article,
 aside,
 figure,
@@ -4632,6 +4638,15 @@ span.price {
   display: block;
 }
 
+/*!
+ * Bootstrap Responsive v2.0.2
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
 .clearfix {
   *zoom: 1;
 }

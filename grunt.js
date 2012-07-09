@@ -16,8 +16,7 @@ module.exports = function(grunt) {
   }),
 
   cssFiles = [
-    "bootstrap",
-    "responsive"
+    "styles"
   ].map(function( component ) {
     return "assets/css/" + component + ".css";
   }),
@@ -115,7 +114,7 @@ module.exports = function(grunt) {
       },      
       css: {
         files: 'assets/less/**/*.less',
-        tasks: 'less concat:css cssmin'
+        tasks: 'less concat:css cssmin copy'
       }
       
     },
