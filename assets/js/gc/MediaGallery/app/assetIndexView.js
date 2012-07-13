@@ -5,6 +5,7 @@ define([
 
       el: $('#mediaGallery div ul.thumbnails'),
 
+
       initialize: function(options) {
         var that = this;
         _.bindAll(this, 'render');
@@ -24,7 +25,7 @@ define([
       },
 
       appendAsset: function(asset) {
-        $(this.el).append(new ThumbView({model: asset}).render().el);
+        $(this.el).append(new ThumbView({model: asset, collection: this.collection}).render().el);
       }
     });
     return view;

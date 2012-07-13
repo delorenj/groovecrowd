@@ -371,7 +371,7 @@
 			"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
 			"settings":
 			{
-				"buffer_size": 1120,
+				"buffer_size": 1192,
 				"line_ending": "Unix"
 			}
 		},
@@ -387,7 +387,7 @@
 			"file": "assets/js/main.js",
 			"settings":
 			{
-				"buffer_size": 1020,
+				"buffer_size": 1322,
 				"line_ending": "Unix"
 			}
 		},
@@ -395,7 +395,7 @@
 			"file": "assets/js/gc/MediaGallery/app/asset.js",
 			"settings":
 			{
-				"buffer_size": 197,
+				"buffer_size": 307,
 				"line_ending": "Unix"
 			}
 		},
@@ -403,15 +403,15 @@
 			"file": "assets/js/gc/MediaGallery/app/assets.js",
 			"settings":
 			{
-				"buffer_size": 215,
+				"buffer_size": 440,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "assets/js/gc/MediaGallery/app/assetView.js",
+			"file": "assets/js/gc/MediaGallery/app/thumbView.js",
 			"settings":
 			{
-				"buffer_size": 387,
+				"buffer_size": 550,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,49 +427,15 @@
 			"file": "assets/js/gc/MediaGallery/app/assetIndexView.js",
 			"settings":
 			{
-				"buffer_size": 695,
+				"buffer_size": 743,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 599 files for \"fosjsrouter\" (regex)\n\n0 matches across 0 files\n\n\nSearching 599 files for \"fosrouter\" (regex)\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/main.js:\n   11      bootstrap: 'lib/bootstrap',\n   12      SWFUpload: 'lib/swfupload',\n   13:     // fosrouter: '../bundles/fosjsrouting/js/router',\n   14      text: \"lib/text\" \n   15    },\n   ..\n   21      },\n   22  \n   23:     // \"fosrouter\": {\n   24      //     exports: \"Routing\"\n   25      // },\n\n/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/comment.js:\n    3    'backbone',\n    4    'moment',\n    5:   'fosrouter'], function($, Backbone, moment, Routing) {\n    6  \n    7    var comment = Backbone.Model.extend({\n\n9 matches across 6 files\n",
+			"file": "assets/js/gc/MediaGallery/app/primaryView.js",
 			"settings":
 			{
-				"buffer_size": 1884,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "assets/js/gc/Show/app/commentinputview.js",
-			"settings":
-			{
-				"buffer_size": 1798,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "assets/js/gc/contestlengthwidget.js",
-			"settings":
-			{
-				"buffer_size": 1685,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
-			"settings":
-			{
-				"buffer_size": 7251,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "assets/js/gc/Show/templates/comment.html",
-			"settings":
-			{
-				"buffer_size": 692,
+				"buffer_size": 1178,
 				"line_ending": "Unix"
 			}
 		},
@@ -477,7 +443,47 @@
 			"file": "grunt.js",
 			"settings":
 			{
-				"buffer_size": 4363,
+				"buffer_size": 4347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/imageView.js",
+			"settings":
+			{
+				"buffer_size": 381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/videoView.js",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/app/audioView.js",
+			"settings":
+			{
+				"buffer_size": 290,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/templates/image.html",
+			"settings":
+			{
+				"buffer_size": 115,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/gc/MediaGallery/templates/video.html",
+			"settings":
+			{
+				"buffer_size": 29,
 				"line_ending": "Unix"
 			}
 		},
@@ -485,31 +491,23 @@
 			"file": "assets/js/gc/MediaGallery/setup.js",
 			"settings":
 			{
-				"buffer_size": 275,
+				"buffer_size": 1166,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "assets/js/gc/MediaGallery/templates/asset.html",
+			"file": "assets/less/custom.less",
 			"settings":
 			{
-				"buffer_size": 111,
+				"buffer_size": 5260,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "assets/js/gc/templates/arrow.html",
+			"file": "assets/js/gc/MediaGallery/templates/thumb.html",
 			"settings":
 			{
-				"buffer_size": 202,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/GC/DashboardBundle/Controller/AssetController.php",
-			"settings":
-			{
-				"buffer_size": 12582,
+				"buffer_size": 70,
 				"line_ending": "Unix"
 			}
 		}
@@ -517,20 +515,20 @@
 	"build_system": "Packages/JSHint/JSHint.sublime-build",
 	"command_palette":
 	{
-		"height": 50.0,
+		"height": 375.0,
 		"selected_items":
 		[
 			[
-				"thumb",
-				"Snippet: Bootstrap thumbnails"
+				"spa",
+				"Indentation: Convert to Spaces"
 			],
 			[
 				"rein",
 				"Indentation: Reindent Lines"
 			],
 			[
-				"spa",
-				"Indentation: Convert to Spaces"
+				"thumb",
+				"Snippet: Bootstrap thumbnails"
 			],
 			[
 				"rei",
@@ -690,6 +688,30 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/groovecrowd/assets/css/styles.css",
+		"/Applications/MAMP/htdocs/groovecrowd/web/css/styles.min.css",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/less/custom.less",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/galleria/themes/classic/galleria.classic.css",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/galleria/galleria-1.2.7.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/AssetController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/templates/arrow.html",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/templates/image.html",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/templates/thumb.html",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/setup.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/templates/comment.html",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/contestlengthwidget.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentinputview.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/app/imageView.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/app/selectedView.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/templates/asset.html",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/app/assetView.js",
+		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/app/largeView.js",
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadSimpleData.php",
+		"/Applications/MAMP/htdocs/groovecrowd/groovecrowd.sublime-project",
+		"/Applications/MAMP/htdocs/groovecrowd/groovecrowd.sublime-workspace",
+		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/setup.js",
@@ -712,7 +734,6 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/WelcomeBundle/Controller/WelcomeController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/twitter-bootstrap/bootstrap.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/twitter-bootstrap/bootstrap.min.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/css/styles.min.css",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/backbone.min.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/min/**/*",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/**/min.*",
@@ -720,7 +741,6 @@
 		"/Applications/MAMP/htdocs/groovecrowd/assets/less/responsive.less",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/less/bootstrap.less",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/styles.css",
-		"/Applications/MAMP/htdocs/groovecrowd/assets/css/styles.css",
 		"/Applications/MAMP/htdocs/groovecrowd/package.json",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/countdown.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/countdown.min.js",
@@ -736,16 +756,13 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/consumer_dashboard.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/views/base.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/app/config/config.yml",
-		"/Applications/MAMP/htdocs/groovecrowd/groovecrowd.sublime-project",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/project_brief.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/assets/less/custom.less",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/css/bootstrap.css",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/less/mixins.less",
 		"/Applications/MAMP/htdocs/groovecrowd/web/css/css/styles.min.css",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/less/grid.less",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/require.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectCreateController.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/ProjectController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/index.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/collapsed_project.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectRepository.php",
@@ -763,14 +780,11 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/ProjectAsset.php",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/CategorySelect/main.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentsview.js",
-		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Show/app/commentinputview.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/contestlengthwidget.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Show/app/commentview.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/show_all.js",
-		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/MediaGallery/setup.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/Payment/main.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/ProjectBrief/main.js",
-		"/Applications/MAMP/htdocs/groovecrowd/assets/js/gc/contestlengthwidget.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/core.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/lib/core.min.js",
 		"/Applications/MAMP/htdocs/groovecrowd/assets/js/lib/plugins/countdown.min.js",
@@ -780,16 +794,13 @@
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/gc/Show/show_all.min.js",
 		"/Applications/MAMP/htdocs/groovecrowd/web/js/script.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/Entity/User.php",
-		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectCommentData.php",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DataLayerBundle/DataFixtures/ORM/LoadProjectData.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Default/consumer.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/projectTypes.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/breadcrumb_form.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/edit.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/edit.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Controller/AssetController.php",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/PackageSelect/main.js",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/payment.html.twig",
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/category_select.html.twig",
@@ -804,20 +815,7 @@
 		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/ProjectCreate/show.html.twig",
 		"/Users/jdelorenzo/.gitconfig",
 		"/Users/jdelorenzo/.zshrc",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/Project/new.html.twig",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/CategorySelect/main.js",
-		"/Users/jdelorenzo/Library/Application Support/Sublime Text 2/Packages/User/SymfonyCommander.sublime-settings",
-		"/Users/jdelorenzo/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/SymfonyCommander.sublime-settings",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/handlebars-1.0.0.beta.6.min.js",
-		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/public/js/Assets/asset.js",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/plugins/countdown.min.js",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/handlebars-1.0.0.beta.6.js",
-		"/Applications/MAMP/htdocs/groovecrowd/app/Resources/public/js/gc/app.js",
-		"/Applications/MAMP/htdocs/groovecrowd/web/bundles/fosjsrouting/js/router.js",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/GoogleClosure/BaseCompilerFilter.php",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/Yui/JsCompressorFilter.php",
-		"/Applications/MAMP/htdocs/groovecrowd/vendor/assetic/src/Assetic/Filter/Yui/BaseCompressorFilter.php"
+		"/Applications/MAMP/htdocs/groovecrowd/src/GC/DashboardBundle/Resources/views/layout.html.twig"
 	],
 	"find":
 	{
@@ -828,6 +826,7 @@
 		"height": 91.0,
 		"where_history":
 		[
+			"<project>,/Applications/MAMP/htdocs/groovecrowd",
 			"<project>",
 			"/Applications/MAMP/htdocs/groovecrowd",
 			"/Applications/MAMP/htdocs/groovecrowd,-*.log",
@@ -870,6 +869,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"none sele",
+			"mediaplayer",
+			"black",
 			"console",
 			"collect",
 			"append",
@@ -994,10 +996,7 @@
 			"project-types",
 			"project-watch-links",
 			"project-nav-links",
-			"ul",
-			"text-decoration",
-			"font-decoration",
-			"decoration"
+			"ul"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1073,7 +1072,7 @@
 	"groups":
 	[
 		{
-			"selected": 15,
+			"selected": 17,
 			"sheets":
 			[
 				{
@@ -1081,15 +1080,15 @@
 					"file": "src/GC/DashboardBundle/Resources/views/Project/show.html.twig",
 					"settings":
 					{
-						"buffer_size": 1120,
+						"buffer_size": 1192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								843,
-								843
+								794,
+								794
 							]
 						],
 						"settings":
@@ -1116,8 +1115,8 @@
 						"selection":
 						[
 							[
-								7145,
-								7145
+								355,
+								477
 							]
 						],
 						"settings":
@@ -1128,7 +1127,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1225.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1138,15 +1137,15 @@
 					"file": "assets/js/main.js",
 					"settings":
 					{
-						"buffer_size": 1020,
+						"buffer_size": 1322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								389,
-								389
+								882,
+								882
 							]
 						],
 						"settings":
@@ -1166,15 +1165,15 @@
 					"file": "assets/js/gc/MediaGallery/app/asset.js",
 					"settings":
 					{
-						"buffer_size": 197,
+						"buffer_size": 307,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								162,
-								162
+								276,
+								276
 							]
 						],
 						"settings":
@@ -1194,20 +1193,21 @@
 					"file": "assets/js/gc/MediaGallery/app/assets.js",
 					"settings":
 					{
-						"buffer_size": 215,
+						"buffer_size": 440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								209,
-								209
+								273,
+								273
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1217,18 +1217,18 @@
 				},
 				{
 					"buffer": 5,
-					"file": "assets/js/gc/MediaGallery/app/assetView.js",
+					"file": "assets/js/gc/MediaGallery/app/thumbView.js",
 					"settings":
 					{
-						"buffer_size": 387,
+						"buffer_size": 550,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								381,
-								381
+								508,
+								508
 							]
 						],
 						"settings":
@@ -1276,15 +1276,15 @@
 					"file": "assets/js/gc/MediaGallery/app/assetIndexView.js",
 					"settings":
 					{
-						"buffer_size": 695,
+						"buffer_size": 743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								492,
-								492
+								689,
+								689
 							]
 						],
 						"settings":
@@ -1301,93 +1301,18 @@
 				},
 				{
 					"buffer": 8,
+					"file": "assets/js/gc/MediaGallery/app/primaryView.js",
 					"settings":
 					{
-						"buffer_size": 1884,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										268,
-										277
-									],
-									[
-										400,
-										409
-									],
-									[
-										591,
-										600
-									],
-									[
-										847,
-										856
-									],
-									[
-										979,
-										988
-									],
-									[
-										1167,
-										1176
-									],
-									[
-										1426,
-										1435
-									],
-									[
-										1558,
-										1567
-									],
-									[
-										1749,
-										1758
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								498,
-								498
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "assets/js/gc/Show/app/commentinputview.js",
-					"settings":
-					{
-						"buffer_size": 1798,
+						"buffer_size": 1178,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1653,
-								1660
+								424,
+								424
 							]
 						],
 						"settings":
@@ -1397,25 +1322,53 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 250.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "assets/js/gc/contestlengthwidget.js",
+					"buffer": 9,
+					"file": "grunt.js",
 					"settings":
 					{
-						"buffer_size": 1685,
+						"buffer_size": 4347,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								56,
-								56
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "assets/js/gc/MediaGallery/app/imageView.js",
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								162,
+								162
 							]
 						],
 						"settings":
@@ -1432,54 +1385,26 @@
 				},
 				{
 					"buffer": 11,
-					"file": "src/GC/DashboardBundle/Controller/ProjectController.php",
+					"file": "assets/js/gc/MediaGallery/app/videoView.js",
 					"settings":
 					{
-						"buffer_size": 7251,
+						"buffer_size": 290,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4233,
-								4233
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1017.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "assets/js/gc/Show/templates/comment.html",
-					"settings":
-					{
-						"buffer_size": 692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								225,
+								225
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1488,47 +1413,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "grunt.js",
+					"buffer": 12,
+					"file": "assets/js/gc/MediaGallery/app/audioView.js",
 					"settings":
 					{
-						"buffer_size": 4363,
+						"buffer_size": 290,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2452,
-								2452
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 995.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "assets/js/gc/MediaGallery/setup.js",
-					"settings":
-					{
-						"buffer_size": 275,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								265,
-								265
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1542,26 +1439,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "assets/js/gc/MediaGallery/templates/asset.html",
+					"buffer": 13,
+					"file": "assets/js/gc/MediaGallery/templates/image.html",
 					"settings":
 					{
-						"buffer_size": 111,
+						"buffer_size": 115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								54,
-								54
+								115,
+								0
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1570,51 +1466,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
-					"file": "assets/js/gc/templates/arrow.html",
+					"buffer": 14,
+					"file": "assets/js/gc/MediaGallery/templates/video.html",
 					"settings":
 					{
-						"buffer_size": 202,
-						"regions":
-						{
-							"TagLint":
-							{
-								"flags": 52,
-								"icon": "dot",
-								"regions":
-								[
-									[
-										188,
-										194
-									]
-								],
-								"scope": "variable.parameter"
-							}
-						},
-						"selection":
-						[
-							[
-								202,
-								202
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "src/GC/DashboardBundle/Controller/AssetController.php",
-					"settings":
-					{
-						"buffer_size": 12582,
+						"buffer_size": 29,
 						"regions":
 						{
 						},
@@ -1628,9 +1484,88 @@
 						"settings":
 						{
 							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "assets/js/gc/MediaGallery/setup.js",
+					"settings":
+					{
+						"buffer_size": 1166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								430,
+								430
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "assets/less/custom.less",
+					"settings":
+					{
+						"buffer_size": 5260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1201,
+								1201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 435.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "assets/js/gc/MediaGallery/templates/thumb.html",
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1687,6 +1622,62 @@
 		"selected_items":
 		[
 			[
+				"style.",
+				"Root/web/css/styles.min.css"
+			],
+			[
+				"grunt",
+				"Root/grunt.js"
+			],
+			[
+				"styles",
+				"Root/assets/css/styles.css"
+			],
+			[
+				"assets/css/style",
+				"Root/assets/css/styles.css"
+			],
+			[
+				"",
+				"Assets/less/custom.less"
+			],
+			[
+				"cust",
+				"Assets/less/custom.less"
+			],
+			[
+				"theme",
+				"Assets/js/lib/galleria/themes/classic/galleria.classic.css"
+			],
+			[
+				"custo",
+				"Assets/less/custom.less"
+			],
+			[
+				"bas",
+				"Root/app/Resources/views/base.html.twig"
+			],
+			[
+				"sho",
+				"Bundles/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"main",
+				"Assets/js/main.js"
+			],
+			[
+				"show",
+				"Bundles/DashboardBundle/Resources/views/Project/show.html.twig"
+			],
+			[
+				"ass",
+				"Bundles/DashboardBundle/Controller/AssetController.php"
+			],
+			[
+				"asset",
+				"Bundles/DashboardBundle/Controller/AssetController.php"
+			],
+			[
 				"html",
 				"Assets/js/gc/MediaGallery/templates/asset.html"
 			],
@@ -1708,14 +1699,6 @@
 			],
 			[
 				"grun",
-				"Root/grunt.js"
-			],
-			[
-				"show",
-				"Bundles/DashboardBundle/Resources/views/Project/show.html.twig"
-			],
-			[
-				"grunt",
 				"Root/grunt.js"
 			],
 			[
@@ -1755,20 +1738,12 @@
 				"Assets/js/app.js"
 			],
 			[
-				"main",
-				"Assets/js/main.js"
-			],
-			[
 				"index.",
 				"Bundles/WelcomeBundle/Resources/views/Welcome/index.html.twig"
 			],
 			[
 				"welcom",
 				"Bundles/WelcomeBundle/Controller/WelcomeController.php"
-			],
-			[
-				"styles",
-				"Root/web/css/styles.min.css"
 			],
 			[
 				"back",
@@ -1811,10 +1786,6 @@
 				"assets/less/grid.less"
 			],
 			[
-				"",
-				"grunt.js"
-			],
-			[
 				"setup",
 				"assets/js/gc/MediaGallery/setup.js"
 			],
@@ -1841,10 +1812,6 @@
 			[
 				"probrie",
 				"src/GC/DashboardBundle/Resources/views/project_brief.html.twig"
-			],
-			[
-				"sho",
-				"src/GC/DashboardBundle/Resources/views/Project/show.html.twig"
 			],
 			[
 				"proass",
@@ -1881,10 +1848,6 @@
 			[
 				"procont",
 				"src/GC/DashboardBundle/Controller/ProjectController.php"
-			],
-			[
-				"cust",
-				"web/css/less/custom.less"
 			],
 			[
 				"procomm",
@@ -2031,10 +1994,6 @@
 				"web/css/less/custom.less"
 			],
 			[
-				"custo",
-				"web/css/less/custom.less"
-			],
-			[
 				"welcome",
 				"src/GC/WelcomeBundle/Resources/views/Welcome/index.html.twig"
 			],
@@ -2115,10 +2074,6 @@
 				"deps"
 			],
 			[
-				"bas",
-				"app/Resources/views/base.html.twig"
-			],
-			[
 				"projecta",
 				"src/GC/DataLayerBundle/Entity/ProjectAsset.php"
 			],
@@ -2171,43 +2126,27 @@
 				"src/GC/DashboardBundle/Resources/views/Project/project_brief.html.twig"
 			],
 			[
-				"asset",
-				"src/GC/DashboardBundle/Controller/AssetController.php"
-			],
-			[
 				"app_dev",
 				"web/app_dev.php"
 			],
 			[
 				"para",
 				"app/config/parameters.ini"
-			],
-			[
-				"appke",
-				"app/AppKernel.php"
-			],
-			[
-				"bootstrap.php",
-				"app/bootstrap.php.cache"
-			],
-			[
-				"appk",
-				"app/AppKernel.php"
-			],
-			[
-				"securit",
-				"app/config/security.yml"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/Applications/MAMP/htdocs/ccg/ccg.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

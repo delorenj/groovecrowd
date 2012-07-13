@@ -7,17 +7,17 @@ define([
 	    url: "/project/" + $('#projectHeader').attr('data-id') + "/media",
 
 		select: function(asset){
-			this.selected = asset;
+			if(asset != this.selected) {
+				this.selected = asset;;
+				console.log("selected!");
+				this.trigger("select");				
+			}
 		},
 
 		getSelected: function(){
 			if(this.selected === undefined) {
-				console.log("none selected!");
 				this.select(this.first());
-			} else {
-				console.log("selected: " + this.selected);
-			}
-			console.log(this.selected.toJSON());
+			} 
 			return this.selected;
 		}	    
 	});

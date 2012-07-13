@@ -9,6 +9,7 @@ define(function() {
 
     select: function(state){
       this.set({'state': state ? 'selected' : ''});
+      console.log("set state to: " + state);
     }    
   });
 

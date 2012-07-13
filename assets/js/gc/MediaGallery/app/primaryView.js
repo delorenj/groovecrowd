@@ -11,11 +11,14 @@ define([
 
       initialize: function(){
         _.bindAll(this, 'render');
+        this.collection.bind('select', this.render);  
+
         this.viewType = this.collection.getSelected().get("assetType");
 
       },
 
       render: function() {
+        console.log("rendering primary view");
         var that = this;
         $(this.el).html(function() {
           switch(that.viewType){
@@ -26,7 +29,7 @@ define([
             case "audio":
               return new AudioView({model: that.collection.getSelected()}).render().el;
             default:
-              console.log("unknown asset type: " + this.collection.getSelected().get("assetType"));  
+              console.log("unknown asset type: " + that.collection.getSelected().get("assetType"));  
           }
         });
         return this;
