@@ -2,7 +2,8 @@ define([
   'gc/MediaGallery/app/videoView',
   'gc/MediaGallery/app/imageView',
   'gc/MediaGallery/app/audioView',  
-  'underscore'], function(VideoView, ImageView, AudioView, _) {
+  'underscore',
+  'jwplayer'], function(VideoView, ImageView, AudioView, _, jwplayer) {
 
     var view = Backbone.View.extend({
 
@@ -12,16 +13,18 @@ define([
       initialize: function(){
         _.bindAll(this, 'render');
         this.collection.bind('select', this.render);  
-
-        this.viewType = this.collection.getSelected().get("assetType");
-
       },
 
       render: function() {
-        console.log("rendering primary view");
         var that = this;
+
+        if(window.jwloaded) {
+          jwplayer('mediaplayer').remove();
+          window.jwloaded = false;
+        }
+
         $(this.el).html(function() {
-          switch(that.viewType){
+          switch(that.collection.getSelected().get("assetType")){
             case "image":
               return new ImageView({model: that.collection.getSelected()}).render().el;
             case "video":

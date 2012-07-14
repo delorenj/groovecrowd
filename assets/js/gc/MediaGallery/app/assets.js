@@ -7,9 +7,8 @@ define([
 	    url: "/project/" + $('#projectHeader').attr('data-id') + "/media",
 
 		select: function(asset){
-			if(asset != this.selected) {
-				this.selected = asset;;
-				console.log("selected!");
+			if(asset !== this.selected) {
+				this.selected = asset;
 				this.trigger("select");				
 			}
 		},

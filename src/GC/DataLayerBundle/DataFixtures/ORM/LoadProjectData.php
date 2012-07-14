@@ -90,7 +90,7 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
 
         $p = new ProjectAsset();
         $p->setProject($this->getReference('project-game'));
-        $p->setUri("https://s3.amazonaws.com/groovecrowd/test/video1.mp4");
+        $p->setUri("test/video1.mp4");
         $p->setThumbUri("https://s3.amazonaws.com/groovecrowd/test/video1.jpg");  
         $p->setCaption("Check out this video, which tests the extent of my ballos");              
         $p->setCreatedAt(new \DateTime("now"));

@@ -1,4 +1,4 @@
-/*! Groovecrowd - v0.0.1 - 2012-07-13
+/*! Groovecrowd - v0.0.1 - 2012-07-14
 * http://groovecrowd.com
 * Includes: styles.css
 * Copyright (c) 2012 Jarad DeLorenzo; */
@@ -4469,6 +4469,10 @@ ul.projectNavLinks .active {
 }
 #mediaplayer_wrapper {
   margin: auto !important;
+}
+#mediaGallery .primary {
+  width: 640px;
+  margin: auto;
 }
 #galleria {
   height: 467px;
