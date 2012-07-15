@@ -58,13 +58,6 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->manager->flush();
         $this->container->get('logger')->info('ACL:: About to bind to ACL');
         $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
-        $p = new GrooveSlot();
-        $p->setProject($this->getReference('project-game'));
-        $p->setDescription('Fun, catchy track');
-        $p->setMinLengthInMilliseconds(60000);
-        $this->addReference('gs-game', $p);        
-        $this->manager->persist($p);
-        $this->manager->flush();
 
         $p = new ProjectAsset();
         $p->setProject($this->getReference('project-game'));
@@ -124,15 +117,6 @@ class LoadProjectData extends AbstractFixture implements FixtureInterface, Order
         $this->manager->persist($p);
         $this->manager->flush();
         $this->container->get('acl_helper')->bindUserToObject($p, MaskBuilder::MASK_OPERATOR, $manager->merge($this->getReference('user-consumer')));
-
-
-        $p = new GrooveSlot();
-        $p->setProject($this->getReference('project-trailer'));
-        $p->setDescription('Trailer soundtrack');
-        $p->setMinLengthInMilliseconds(30000);
-        $this->addReference('project-trailer-groove-slot', $p);        
-        $this->manager->persist($p);
-        $this->manager->flush();        
 
         $p = new ProjectAsset();
         $p->setProject($this->getReference('project-trailer'));

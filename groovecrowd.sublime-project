@@ -13,7 +13,9 @@
         },
         {
             "path": "src/GC",
-            "name": "Bundles"
+            "name": "Bundles",
+            "file_exclude_patterns": ["*~"]
+
         },
         {
             "path": "app/config",

@@ -1,14 +1,8 @@
 {% extends 'GCDashboardBundle::consumer_dashboard.html.twig' %}
 
-{% block javascripts %}
-	{{ parent() }}
-
-	<script id="arrow-template" type="text/x-handlebars-template">
-	{% raw %}
-	{% endraw %}
-	</script>
-
-
+{% block jssetup %}
+    require(['gc/Show/setup'], function() {
+    });                        
 {% endblock %}
 
 {% block subnav %}{% endblock %}

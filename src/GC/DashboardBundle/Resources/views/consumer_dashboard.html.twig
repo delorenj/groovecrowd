@@ -31,7 +31,7 @@
 						{% block projectNavLinks %}
 							<li class='active'>Project Brief</li>
 							<li><a href="#">Inspiration Board</a></li>
-							<li><a href="#">Entries({{project.grooveCount}})</a></li>
+							<li><a href="{{ path('project_grooves', {id: project.id}) }}">Entries({{project.grooveCount}})</a></li>
 						{% endblock %}
 					</ul>
 					<div id="contestLengthWidgetContainer" class="span4">

@@ -23,6 +23,14 @@ class Groove
     private $id;
 
     /**
+     * @var Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     */
+    private $project;
+    
+    /**
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=false)
@@ -75,28 +83,8 @@ class Groove
     private $grooveType;
 
     /**
-     * @var GrooveSet
-     *
-     * @ORM\ManyToOne(targetEntity="GrooveSet")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="groove_set_id", referencedColumnName="id")
-     * })
-     */
-    private $grooveSet;
-
-    /**
-     * @var GrooveSlot
-     *
-     * @ORM\ManyToOne(targetEntity="GrooveSlot")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="groove_slot_id", referencedColumnName="id")
-     * })
-     */
-    private $grooveSlot;
-
-    /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="grooves")
-     * @ORM\JoinTable(name="grooves_tags")
+     * @ORM\JoinTable(name="groove_tag")
      **/
     protected $tags;
 
@@ -255,47 +243,7 @@ class Groove
     {
         return $this->grooveType;
     }
-
-    /**
-     * Set grooveSet
-     *
-     * @param GC\DataLayerBundle\Entity\GrooveSet $grooveSet
-     */
-    public function setGrooveSet(\GC\DataLayerBundle\Entity\GrooveSet $grooveSet)
-    {
-        $this->grooveSet = $grooveSet;
-    }
-
-    /**
-     * Get grooveSet
-     *
-     * @return GC\DataLayerBundle\Entity\GrooveSet 
-     */
-    public function getGrooveSet()
-    {
-        return $this->grooveSet;
-    }
-
-    /**
-     * Set grooveSlot
-     *
-     * @param GC\DataLayerBundle\Entity\GrooveSlot $grooveSlot
-     */
-    public function setGrooveSlot(\GC\DataLayerBundle\Entity\GrooveSlot $grooveSlot)
-    {
-        $this->grooveSlot = $grooveSlot;
-    }
-
-    /**
-     * Get grooveSlot
-     *
-     * @return GC\DataLayerBundle\Entity\GrooveSlot
-     */
-    public function getGrooveSlot()
-    {
-        return $this->grooveSlot;
-    }    
-
+ 
     /**
      * Add tags
      *
@@ -314,5 +262,25 @@ class Groove
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set project
+     *
+     * @param GC\DataLayerBundle\Entity\Project $project
+     */
+    public function setProject(\GC\DataLayerBundle\Entity\Project $project)
+    {
+        $this->project = $project;
+    }
+
+    /**
+     * Get project
+     *
+     * @return GC\DataLayerBundle\Entity\Project 
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 }

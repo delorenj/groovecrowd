@@ -49,6 +49,12 @@ project_edit:
     pattern: /project/{id}/edit/
     defaults: { _controller: GCDashboardBundle:Project:edit }
 
+project_grooves:
+    pattern: /project/{id}/grooves/
+    defaults: { _controller: GCDashboardBundle:Project:grooves }
+    requirements:
+      id: \d+
+
 project_show:
     pattern: /project/{id}
     defaults: { _controller: GCDashboardBundle:Project:show }

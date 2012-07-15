@@ -107,6 +107,15 @@ class ProjectController extends Controller
         return $this->render('GCDashboardBundle:Project:show.html.twig', array("project" => $p));
     }
 
+    public function groovesAction($id) {
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        $grooveRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Groove');      
+        $p = $projectRepo->find($id);
+        $g = $grooveRepo->findByProject($id);
+
+        return $this->render('GCDashboardBundle:Project:grooves.html.twig', array("project" => $p, "grooves" => $g));
+    }
+
     public function editAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
         $userManager = $this->container->get('fos_user.user_manager');

@@ -50,8 +50,7 @@ class ProjectRepository extends EntityRepository
     }
 
     public function getGrooveCount($project) {
-        return  $this->_em->createQuery('SELECT COUNT(g.id) FROM GC\DataLayerBundle\Entity\Groove g 
-        	JOIN g.grooveSet gs WHERE gs.project = :project')
+        return  $this->_em->createQuery('SELECT COUNT(g.id) FROM GC\DataLayerBundle\Entity\Groove g WHERE g.project = :project')
         ->setParameter('project', $project)
         ->getSingleScalarResult();
     }

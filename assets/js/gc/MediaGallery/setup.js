@@ -1,8 +1,7 @@
 require([
     'gc/MediaGallery/app/assets',
     'gc/MediaGallery/app/assetIndexView',
-    'gc/MediaGallery/app/primaryView',
-    'galleria'], function(Assets, AssetIndexView, PrimaryView, Galleria) {
+    'gc/MediaGallery/app/primaryView'], function(Assets, AssetIndexView, PrimaryView) {
 
     var assets = new Assets();
     assets.fetch({add: true, success: function() {

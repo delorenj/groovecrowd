@@ -55,9 +55,3 @@ require.config({
     }
   }
 });
-
-require(['bootstrap', 'jQuery','underscore', 'backbone', 'handlebars'], function() {
-  require(['gc/Show/setup'], function() {
-
-  });
-});
