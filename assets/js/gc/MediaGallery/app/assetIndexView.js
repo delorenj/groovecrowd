@@ -3,7 +3,7 @@ define([
 
     var view = Backbone.View.extend({
 
-      el: $('#mediaGallery div ul.thumbnails'),
+      el: $('#mediaGallery ul.thumbnails'),
 
 
       initialize: function(options) {

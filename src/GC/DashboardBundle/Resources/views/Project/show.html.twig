@@ -25,10 +25,16 @@
 	<div id="mediaGallery">
 		<div id="mediaplayer"></div>
 		<div class="primary clearfix"></div>
-		<div>
-			<ul class='thumbnails'></ul>
-		</div>
+		<ul class='thumbnails'></ul>
 	</div>
+
+<!-- 	<div id="galleria">
+		{% for asset in project.assets %}
+			<img src="{{asset.thumbUri}}" />
+		{% endfor %}
+
+	</div>
+ -->
 	<section id="comments" class="comments"></section>
 	{% if is_granted('ROLE_USER') %}
 	<section id="commentInput" class="comments" data-image="{{app.user.image}}" data-first="{{app.user.firstName}}" data-last="{{app.user.lastInitial}}"></section>

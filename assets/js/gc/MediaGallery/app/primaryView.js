@@ -8,7 +8,6 @@ define([
     var view = Backbone.View.extend({
 
       el: $('#mediaGallery div.primary'),
-      viewType: null,
 
       initialize: function(){
         _.bindAll(this, 'render');

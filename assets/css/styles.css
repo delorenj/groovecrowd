@@ -4467,15 +4467,15 @@ ul.projectNavLinks .active {
   font-size: 2em;
   line-height: 1.3em;
 }
-#mediaplayer_wrapper {
-  margin: auto !important;
+#mediaGallery .primary li {
+  list-style: none;
 }
-#mediaGallery .primary {
-  width: 640px;
-  margin: auto;
+#mediaGallery .primary .caption {
+  display: block;
 }
 #galleria {
-  height: 467px;
+  height: 480px;
+  background-color: #ddd !important;
 }
 article,
 aside,
