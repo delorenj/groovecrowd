@@ -29,6 +29,14 @@ class Groove
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
     
     /**
      * @var string $title
@@ -282,5 +290,47 @@ class Groove
     public function getProject()
     {
         return $this->project;
+    }
+
+    public function toArray() {
+        $a = array(
+            "id" => $this->id,
+            "user" => $this->getUser()->toArray(),
+            "title" => $this->getTitle(),
+            "description" => $this->getDescription(),
+            "rating" => $this->getRating(),
+            "uri" => $this->getUri(),
+            "lengthInMilliseconds" => $this->getLengthInMilliseconds(),
+            "grooveType" => $this->getGrooveType()->getName(),
+            "createdAt" => $this->getCreatedAt());
+
+            $tags = array();
+            foreach($this->tags as $x) {
+                $tags[] = $x->getName();
+            }
+            $a["tags"] = $tags;
+
+        return $a;
+    }
+
+
+    /**
+     * Set user
+     *
+     * @param GC\DataLayerBundle\Entity\User $user
+     */
+    public function setUser(\GC\DataLayerBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return GC\DataLayerBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

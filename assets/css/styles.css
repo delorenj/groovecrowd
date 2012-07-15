@@ -4374,10 +4374,39 @@ footer {
   height: 150px;
   background-color: #f1f1f1;
 }
-.barlist {
+ul.barlist {
+  margin: 0;
+}
+ul.barlist li {
   display: inline;
   text-decoration: none;
   padding: 0 10px;
+  border-right: 1px solid #3e78b3;
+}
+ul.barlist li:first-child {
+  padding-left: 0 !important;
+}
+ul.barlist li:last-child {
+  border: none;
+}
+ul.barlist .active {
+  color: #033c73;
+}
+#groove-grid ul li {
+  position: relative;
+  border: 1px solid #eee;
+  padding: 5px;
+}
+#groove-grid ul li a {
+  margin-bottom: 15px;
+}
+#groove-grid ul li div.subGroove {
+  position: relative;
+}
+#groove-grid ul li div.subGroove div.rating {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .projectHeader {
   margin-bottom: 40px;
@@ -4466,6 +4495,9 @@ ul.projectNavLinks .active {
 .projectContent p {
   font-size: 2em;
   line-height: 1.3em;
+}
+.filterBar {
+  margin: 0;
 }
 #mediaGallery .primary li {
   list-style: none;

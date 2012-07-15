@@ -35,10 +35,51 @@ footer {
 
 // Mixins
 // -------------------------
-.barlist {
-	display: inline;
-	text-decoration: none;	
-	padding: 0 10px;
+
+
+ul.barlist {
+	margin: 0;
+	li {
+		display: inline;
+		text-decoration: none;	
+		padding: 0 10px;
+		border-right: 1px solid @blue;		
+		&:first-child {
+			padding-left: 0 !important;
+		}
+		&:last-child {
+			border: none;
+		}
+	}
+	.active {
+		color: @blueDark;
+	}
+}
+
+
+// Groove Grid
+// ---------------------------------------------------------------------------------------
+#groove-grid {
+	ul {
+		li {
+			position: relative;
+			border: 1px solid #eee;
+			padding: 5px;
+
+			a {
+				margin-bottom: 15px;
+			}
+			div.subGroove {
+				position: relative;
+
+				div.rating {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+		}
+	}
 }
 
 // Project Dashboard Header
@@ -81,7 +122,9 @@ footer {
 	ul.projectWatchLinks, ul.projectTypes, ul.projectStatLinks {
 		margin: 10px 0;
 		li {
-			.barlist;
+			display: inline;
+			text-decoration: none;	
+			padding: 0 10px;
 			&:first-child {
 				padding-left: 0;
 			}	
@@ -95,7 +138,9 @@ footer {
 		margin: 40px 0 10px 0;
 		font-size:1.4em;
 		li {
-			.barlist;
+			display: inline;
+			text-decoration: none;	
+			padding: 0 10px;
 			border-right: 1px solid @blue;		
 			&:first-child {
 				padding-left: 0;
@@ -133,6 +178,9 @@ footer {
 	p { font-size: 2em; line-height:1.3em;}
 }
 
+.filterBar {
+	margin: 0;
+}
 // Project gallery
 // #mediaplayer_wrapper {
 // 	margin: auto !important;

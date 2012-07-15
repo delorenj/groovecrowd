@@ -12,7 +12,8 @@ require.config({
     SWFUpload: 'lib/swfupload',
     remaining: 'http://www.labs.mimmin.com/countdown/remaining',
     galleria: 'lib/galleria/galleria-1.2.7',    
-    jwplayer: 'lib/jwplayer/jwplayer'
+    jwplayer: 'lib/jwplayer/jwplayer',
+    raty: 'lib/jquery.raty'
     // fosrouter: '../bundles/fosjsrouting/js/router',
   },
 
@@ -20,6 +21,10 @@ require.config({
     "bootstrap": {
         deps: ["jQuery"],
         exports: "$"
+    },
+
+    "raty": {
+        deps: ["jQuery"]
     },
 
     "galleria": {

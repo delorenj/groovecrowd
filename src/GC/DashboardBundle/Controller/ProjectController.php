@@ -108,12 +108,26 @@ class ProjectController extends Controller
     }
 
     public function groovesAction($id) {
+        $request = $this->getRequest();        
         $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
         $grooveRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Groove');      
         $p = $projectRepo->find($id);
         $g = $grooveRepo->findByProject($id);
 
-        return $this->render('GCDashboardBundle:Project:grooves.html.twig', array("project" => $p, "grooves" => $g));
+        if($request->isXmlHttpRequest()) {
+            foreach($g as $idx=>$groove) {
+                $this->get('logger')->info('GROOVES: idx=' . $idx);
+                $grooves[$idx] = $groove->toArray();
+                $grooves[$idx]["readonly"] = $this->get('acl_helper')->canEdit($p) ? "0":"1";
+            }
+
+            $this->get('logger')->info('GROOVES: Number of grooves --> ' . count($grooves));
+            $response = new Response(json_encode($grooves), 200);
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        } else if($request->getMethod() == "GET") {
+            return $this->render('GCDashboardBundle:Project:grooves.html.twig', array("project" => $p, "grooves" => $g));
+        }
     }
 
     public function editAction($id) {

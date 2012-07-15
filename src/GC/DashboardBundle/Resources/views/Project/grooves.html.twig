@@ -2,6 +2,36 @@
 
 {% block subnav %}{% endblock %}
 
-{% block project_content %}
+{% block jssetup %}
+    require(['gc/Grooves/setup'], function() {
+    });                        
+{% endblock %}
 
+
+{% block projectNavLinks %}
+	<li><a href="{{ path('project_show', {id: project.id}) }}">Project Brief</a></li>
+	<li><a href="#">Inspiration Board</a></li>
+	<li class='active'>Entries({{project.grooveCount}})</li>
+{% endblock %}
+
+{% block project_content %}
+	<div class="filterBar row">
+		<div class="span12">
+			<ul class="barlist">
+				<li class="active">Gallery</li>
+				<li><a href="{{ path('project_grooves', {id: project.id}) }}">List</a></li>
+			</ul>
+			<ul class="barlist pull-right">
+				<span style="font-weight: bold">Order by: </span>
+				<li class="active">Date</li>
+				<li><a href="{{ path('project_grooves', {id: project.id}) }}">Rating</a></li>
+				<li><a href="#">Composer</a></li>				
+			</ul>
+		</div>
+	</div>
+
+	<div id="groove-grid">
+		<ul class="thumbnails">
+		</ul>
+	</div>
 {% endblock %}
