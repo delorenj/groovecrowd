@@ -10,6 +10,14 @@ dashboard_consumer_index:
     options:
         expose: true
 
+project_past:
+    pattern: /project/past
+    defaults: { _controller: GCDashboardBundle:Project:past }
+    requirements:
+        _method: GET
+    options:
+        expose: true
+
 project_back:
     pattern: /project/back
     defaults: { _controller: GCDashboardBundle:ProjectCreate:back }

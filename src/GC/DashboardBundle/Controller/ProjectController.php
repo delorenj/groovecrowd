@@ -27,12 +27,38 @@ class ProjectController extends Controller
         if($this->getRequest()->isXmlHttpRequest()) {
             $this->get('logger')->info('Ajax Request');
             $projectArray = array();
-            foreach($projects as $p) {
-                $projectArray[] = $p->toArray();
+            foreach($projects as $idx=>$p) {
+                $projectArray[$idx] = $p->toArray();
+                $projectArray[$idx]["endedAndNoWinnerYet"] = ($p->getWinningGroove() == null) && ($p->getExpiresAt() < new \DateTime() );
             }
             return new Response(json_encode($projectArray), 200);
         } else {
+            foreach($projects as $idx=>&$p) {
+                $p->endedAndNoWinnerYet = ($p->getWinningGroove() == null) && ($p->getExpiresAt() < new \DateTime() );
+            }            
             return $this->render('GCDashboardBundle:Project:index.html.twig', array("projects" => $projects));
+        }
+    }
+
+   public function pastAction()
+    {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $projectRepo = $this->getDoctrine()->getRepository('GCDataLayerBundle:Project');      
+        $projects = $projectRepo->findAllPastProjects($user);
+
+        if($this->getRequest()->isXmlHttpRequest()) {
+            $this->get('logger')->info('Ajax Request');
+            $projectArray = array();
+            foreach($projects as $idx=>$p) {
+                $projectArray[$idx] = $p->toArray();
+                $projectArray[$idx]["endedAndNoWinnerYet"] = false;
+            }
+            return new Response(json_encode($projectArray), 200);
+        } else {
+            foreach($projects as $idx=>&$p) {
+                $p->endedAndNoWinnerYet = false;
+            }                        
+            return $this->render('GCDashboardBundle:Project:past.html.twig', array("projects" => $projects));
         }
     }
 

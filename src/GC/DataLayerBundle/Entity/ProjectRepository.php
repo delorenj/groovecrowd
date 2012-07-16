@@ -36,7 +36,27 @@ class ProjectRepository extends EntityRepository
                 JOIN p.user u
                 WHERE p.user = :user
                 AND p.enabled=1
-                AND p.expiresAt > :now'
+                AND (p.expiresAt > :now OR p.winningGroove is null)'
+            )->setParameter('user', $user)
+            ->setParameter('now', new \DateTime('now'));
+
+        try {
+            $projects = $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+        $this->formatProjects($projects);
+        return $projects;
+    }
+
+    public function findAllPastProjects($user) {
+        $query = $this->getEntityManager()
+            ->createQuery('
+                SELECT p, u FROM GCDataLayerBundle:Project p
+                JOIN p.user u
+                WHERE p.user = :user
+                AND p.enabled=1
+                AND (p.expiresAt < :now AND p.winningGroove is not null)'
             )->setParameter('user', $user)
             ->setParameter('now', new \DateTime('now'));
 

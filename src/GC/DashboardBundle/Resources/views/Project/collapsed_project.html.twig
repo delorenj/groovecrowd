@@ -1,8 +1,15 @@
 <div id="project-{{project.id}}" class="projectRow container">  
   <div class="row">
     <div class="span12">
-      <h3><a href="{{ path('project_show', {id: project.id}) }}">{{project.title}}</a></h3>
-    </div>
+      <h3>
+        <a href="{{ path('project_show', {id: project.id}) }}">{{project.title}}</a>
+    {% if (project.endedAndNoWinnerYet and project.grooveCount > 0) %}
+      <a href="{{path('project_grooves', {id: project.id} )}}"><span class="label label-success">Pick a winner</span></a>
+    {% elseif (project.endedAndNoWinnerYet and project.grooveCount == 0) %}
+      <a href="{{path('project_grooves', {id: project.id} )}}"><span class="label label-success">Relist your contest</span></a>
+    {% endif %}           
+      </h3>
+    </div> 
   </div>
   <div class="row">
     <div class="span6">
@@ -12,11 +19,13 @@
   <div class="row">
     <div class="span12">
         <ul class="projectStatLinks">
-          <li><a href="#"><i class="icon-comment"></i>{{ project.comments|length}} Comments</a></li>
-          <li><a href="#"><i class="icon-music"></i>2 Entries</a></li>
-          <li><a href="#"><i class="icon-eye-open"></i>455 Views</a></li>
+          <li><a href="{{path('project_show', {id: project.id} )}}"><i class="icon-comment"></i>{{ project.comments|length}} Comments</a></li>
+          <li><a href="{{path('project_grooves', {id: project.id} )}}"><i class="icon-music"></i>{{ project.grooveCount }} Entries</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i>(todo) Views</a></li>
         </ul>
-      <a href="{{path('project_edit', {id: project.id})}}">Edit</a>        
+      {% if (project.expiresAt|date('Y-m-d') > "now"|date('Y-m-d')) %}
+        <a href="{{path('project_edit', {id: project.id})}}">Edit</a>        
+      {% endif %}
       </div>
   </div>
 </div>

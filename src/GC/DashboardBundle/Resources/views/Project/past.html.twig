@@ -2,9 +2,9 @@
 
 {% block subnav %}
     <ul class="nav nav-tabs">		    
-      <li class="active"><a href="#">Current Contests</a></li>
+      <li class=""><a href="{{path ('dashboard_index') }}">Current Contests</a></li>
       <li class=""><a href="#">Recent Activity</a></li>
-      <li class=""><a href="{{path ('project_past') }}">Past Contests</a></li>
+      <li class="active"><a href="#">Past Contests</a></li>
       <li class=""><a href="#">Payment History</a></li>
     </ul>
 {% endblock %}

@@ -28,11 +28,18 @@ class Project
      * @var Package
      *
      * @ORM\ManyToOne(targetEntity="Package")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="package_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="package_id", referencedColumnName="id")
      */
     private $package;
+
+    /**
+     * @var WinningGroove
+     *
+     * @ORM\ManyToOne(targetEntity="Groove")
+     * @ORM\JoinColumn(name="winning_groove_id", referencedColumnName="id")
+     */
+    private $winningGroove;
+
 
     /**
      * @var ProjectType
@@ -629,6 +636,7 @@ class Project
             "projectType" => $this->projectType->getName(),
             "createdAt" => $this->createdAt,
             "modifiedAt" => $this->modifiedAt,
+            "winningGroove" => $this->winningGroove == null ? null : $this->winningGroove->toArray(),
             "category" => $this->category->toArray());
 
         $tags = array();
@@ -669,5 +677,25 @@ class Project
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set winningGroove
+     *
+     * @param GC\DataLayerBundle\Entity\Groove $winningGroove
+     */
+    public function setWinningGroove(\GC\DataLayerBundle\Entity\Groove $winningGroove)
+    {
+        $this->winningGroove = $winningGroove;
+    }
+
+    /**
+     * Get winningGroove
+     *
+     * @return GC\DataLayerBundle\Entity\Groove 
+     */
+    public function getWinningGroove()
+    {
+        return $this->winningGroove;
     }
 }
