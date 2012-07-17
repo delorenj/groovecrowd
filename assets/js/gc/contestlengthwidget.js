@@ -1,4 +1,5 @@
 define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arrowTemplate) {
+    var interval = null;
     var widget = $('#contestLengthWidget .bar');
     var arrowContainer = $('#contestLengthWidgetContainer');
     var arrow = Handlebars.compile(arrowTemplate);
@@ -27,9 +28,16 @@ define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arr
 
     function initCountdownTimer() {
       if (remaining.getSeconds(expiresAt) <= 86400) {
-        setInterval(
+        interval = setInterval(
             function() {
-                      $(countdown).html(remaining.getString(remaining.getSeconds(expiresAt), null, false) + ' left!');
+              var left = remaining.getSeconds(expiresAt);
+              if(left > 0) {
+                $(countdown).html(remaining.getString(left, null, false) + ' left!');
+              } else {
+                $(countdown).html("Contest ended " + moment(expiresAt).format('dddd, MMMM Do YYYY, h:mm a'));
+                clearInterval(interval);
+              }
+                
             }, 1000
         );
       } else {
