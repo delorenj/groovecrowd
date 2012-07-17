@@ -16,11 +16,13 @@
 			<div class="row">
 				<div class="span12">
 					<h3>{{project.title}}</h3>
-					<h5>
+					{% if project.expiresAt|date('Y-m-d') < "now"|date('Y-m-d') %}
 						{% if is_granted('EDIT', project) %}
-							<a href="{{ path('project_edit', {id: project.id}) }}">Edit contest details</a>
+							<h5>
+								<a href="{{ path('project_edit', {id: project.id}) }}">Edit contest details</a>
+							</h5>
 						{% endif %}						
-					</h5>
+					{% endif %}
 					<span class="paymentAmount pull-right">${{ project.payoutAmount }}</span>
       				{% include "GCDashboardBundle:Project:projectTypes.html.twig" %}
 					<ul class="projectWatchLinks">
