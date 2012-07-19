@@ -14,6 +14,7 @@ define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arr
     var larrow = arrow({id: 'larrow', label: larrowLabel, offset: 5});
 
     var init = function() {
+      $('#contestLengthWidget .bar').css('transition', 'none');
       initProgressBar();
       initCountdownTimer();
     };

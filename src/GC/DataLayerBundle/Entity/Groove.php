@@ -301,6 +301,7 @@ class Groove
             "rating" => $this->getRating(),
             "uri" => $this->getUri(),
             "lengthInMilliseconds" => $this->getLengthInMilliseconds(),
+            "lengthFormatted" => $this->getLengthFormatted(),
             "grooveType" => $this->getGrooveType()->getName(),
             "createdAt" => $this->getCreatedAt());
 
@@ -332,5 +333,10 @@ class Groove
     public function getUser()
     {
         return $this->user;
+    }
+
+    private function getLengthFormatted() {
+        $seconds = floor($this->getLengthInMilliseconds()/1000);
+        return gmdate("i:s", $seconds);
     }
 }

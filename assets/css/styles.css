@@ -1,4 +1,4 @@
-/*! Groovecrowd - v0.0.1 - 2012-07-15
+/*! Groovecrowd - v0.0.1 - 2012-07-17
 * http://groovecrowd.com
 * Includes: styles.css
 * Copyright (c) 2012 Jarad DeLorenzo; */
@@ -4373,6 +4373,12 @@ footer {
   padding: 40px;
   height: 150px;
   background-color: #f1f1f1;
+}
+.progress .bar {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
 }
 ul.barlist {
   margin: 0;

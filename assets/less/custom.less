@@ -9,11 +9,11 @@
 }
 
 footer {
-	margin-top: 50px;
-	border-top: 2px solid #eeeeee;
-	padding: 40px;
-	height: 150px;
-	background-color: #f1f1f1;
+    margin-top: 50px;
+    border-top: 2px solid #eeeeee;
+    padding: 40px;
+    height: 150px;
+    background-color: #f1f1f1;
 }
 
 // GRID
@@ -32,54 +32,60 @@ footer {
 @iconSpritePath:          "../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 
+.progress .bar {
+          -webkit-transition: none;
+          -moz-transition: none;
+          -ms-transition: none;
+          -o-transition: none;
+}
 
 // Mixins
 // -------------------------
 
 
 ul.barlist {
-	margin: 0;
-	li {
-		display: inline;
-		text-decoration: none;	
-		padding: 0 10px;
-		border-right: 1px solid @blue;		
-		&:first-child {
-			padding-left: 0 !important;
-		}
-		&:last-child {
-			border: none;
-		}
-	}
-	.active {
-		color: @blueDark;
-	}
+    margin: 0;
+    li {
+        display: inline;
+        text-decoration: none;  
+        padding: 0 10px;
+        border-right: 1px solid @blue;      
+        &:first-child {
+            padding-left: 0 !important;
+        }
+        &:last-child {
+            border: none;
+        }
+    }
+    .active {
+        color: @blueDark;
+    }
 }
 
 
 // Groove Grid
 // ---------------------------------------------------------------------------------------
 #groove-grid {
-	ul {
-		li {
-			position: relative;
-			border: 1px solid #eee;
-			padding: 5px;
+    ul {
+        li {
+            position: relative;
+            border: 1px solid #eee;
+            padding: 5px;
 
-			a {
-				margin-bottom: 15px;
-			}
-			div.subGroove {
-				position: relative;
+            a {
+                margin-bottom: 15px;
+            }
+            div.subGroove {
+                position: relative;
 
-				div.rating {
-					position: absolute;
-					top: 0;
-					right: 0;
-				}
-			}
-		}
-	}
+                div.rating {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
 }
 
 // Project Dashboard Header
@@ -89,84 +95,84 @@ ul.barlist {
 @contestLengthWidgetHeightOffset: 40px;
 
 .projectHeader {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
-	#contestLengthWidget {
-		float: right;
-		margin-top: @contestLengthWidgetHeightOffset;
-		.transition(width 2s ease-in-out);
-	}
+    #contestLengthWidget {
+        float: right;
+        margin-top: @contestLengthWidgetHeightOffset;
+        .transition(width 2s ease-in-out);
+    }
 
-	#contestLengthWidgetContainer {
-		position: relative;
+    #contestLengthWidgetContainer {
+        position: relative;
 
-	}
+    }
 
-	.contestLengthWidgetArrow {
-		position: absolute;
-		top: @contestLengthWidgetArrowHeight - @contestLengthWidgetHeightOffset;
-		margin-left: -@contestLengthWidgetArrowWidth/2;
-	}
+    .contestLengthWidgetArrow {
+        position: absolute;
+        top: @contestLengthWidgetArrowHeight - @contestLengthWidgetHeightOffset;
+        margin-left: -@contestLengthWidgetArrowWidth/2;
+    }
 
-	.progress, .progress .bar {
-		height: 25px;
-	}
+    .progress, .progress .bar {
+        height: 25px;
+    }
 
-	.paymentAmount {
-		font-size: 3em;
-		font-weight: bold;
-		color: @blueDark;
-	}
+    .paymentAmount {
+        font-size: 3em;
+        font-weight: bold;
+        color: @blueDark;
+    }
 
-	ul.projectWatchLinks, ul.projectTypes, ul.projectStatLinks {
-		margin: 10px 0;
-		li {
-			display: inline;
-			text-decoration: none;	
-			padding: 0 10px;
-			&:first-child {
-				padding-left: 0;
-			}	
-			img {
-				padding: 0 3px;
-			}
-		}
-	}
+    ul.projectWatchLinks, ul.projectTypes, ul.projectStatLinks {
+        margin: 10px 0;
+        li {
+            display: inline;
+            text-decoration: none;  
+            padding: 0 10px;
+            &:first-child {
+                padding-left: 0;
+            }   
+            img {
+                padding: 0 3px;
+            }
+        }
+    }
 
-	ul.projectNavLinks {
-		margin: 40px 0 10px 0;
-		font-size:1.4em;
-		li {
-			display: inline;
-			text-decoration: none;	
-			padding: 0 10px;
-			border-right: 1px solid @blue;		
-			&:first-child {
-				padding-left: 0;
-			}
-			&:last-child {
-				border: none;
-			}
-		}
-		.active {
-			color: @blueDark;
-		}
-	}
+    ul.projectNavLinks {
+        margin: 40px 0 10px 0;
+        font-size:1.4em;
+        li {
+            display: inline;
+            text-decoration: none;  
+            padding: 0 10px;
+            border-right: 1px solid @blue;      
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                border: none;
+            }
+        }
+        .active {
+            color: @blueDark;
+        }
+    }
 
-	#projectHeader div.row {
-		position: relative;
-	}
+    #projectHeader div.row {
+        position: relative;
+    }
 
-	#contestLengthWidgetCountdown {
-		text-align: center;
-		font-size: 1.2em;
-		color: @blue;
-	}	
+    #contestLengthWidgetCountdown {
+        text-align: center;
+        font-size: 1.2em;
+        color: @blue;
+    }   
 
 
 .projectRow {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 
@@ -174,40 +180,40 @@ ul.barlist {
 // Project Dashboard Content
 // ---------------------------------------------------------------------------------------
 .projectContent {
-	h1 { margin-bottom: 15px; }
-	p { font-size: 2em; line-height:1.3em;}
+    h1 { margin-bottom: 15px; }
+    p { font-size: 2em; line-height:1.3em;}
 }
 
 .filterBar {
-	margin: 0;
+    margin: 0;
 }
 // Project gallery
 // #mediaplayer_wrapper {
-// 	margin: auto !important;
+//  margin: auto !important;
 // }
 
 // #mediaGallery .primary {
-// 	width: 640px;
-// 	margin: auto;
+//  width: 640px;
+//  margin: auto;
 // }
 
 #mediaGallery {
-	.primary {
-		li {
-			list-style: none;
-		}
-		.caption {
-			display: block;
-		}
-	}
-	.thumbnails {
+    .primary {
+        li {
+            list-style: none;
+        }
+        .caption {
+            display: block;
+        }
+    }
+    .thumbnails {
 
-	}
+    }
 }
 
 #galleria {
-	height:480px;
-	background-color: #ddd !important;
+    height:480px;
+    background-color: #ddd !important;
 }
 
 // Project Comments
@@ -290,15 +296,15 @@ menu, nav, section { display: block; }
 }
 
 .comment textarea {
-	width: 100%;
-	padding: 10px;
-	outline: none;
-	resize: none;
-	overflow: auto;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    resize: none;
+    overflow: auto;
 }
 
 .comments {
-	margin-top: 25px;
+    margin-top: 25px;
 }
 
 .boxsizingBorder {
@@ -308,94 +314,94 @@ menu, nav, section { display: block; }
 }
 
 .user-image {
-	display: block;	
-	margin-top: 5px;
+    display: block; 
+    margin-top: 5px;
 }
 
 .table tr td, a {
-	cursor: default;
+    cursor: default;
 }
 
 .form-header {
-	margin: 10px 0 50px 0;
+    margin: 10px 0 50px 0;
 }
 
 ul.thumbnails li h2 {
-	text-align: center;
+    text-align: center;
 }
 
 ul.thumbnails li {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .minorbreadcrumbs {
-	margin: 35px 0;
+    margin: 35px 0;
 }
 
 .breadcrumbs {
-	margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 .control-label {
-	font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue";
 }
 
 div.tagsinput span.tag {
-	background-color: @linkColor !important;
-	color: @navbarText !important;
-	border: 1px solid lighten(@linkColor,10%) !important;
+    background-color: @linkColor !important;
+    color: @navbarText !important;
+    border: 1px solid lighten(@linkColor,10%) !important;
 }
 
 div.tagsinput span.tag a {
-	color: @navbarText !important;
+    color: @navbarText !important;
 }
 
 ul.checkboxlist li {
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 label.checkbox label {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 ul.horizontal-list li {
-	float: left;
-	padding: 0 5px;
+    float: left;
+    padding: 0 5px;
 }
 
 span.price {
-	position: relative;
-	left: 30px;
-	color: @green;
-	font-size: 0.8em;
+    position: relative;
+    left: 30px;
+    color: @green;
+    font-size: 0.8em;
 }
 
 #package-select-controls button.active {
-	background-color: @green;
+    background-color: @green;
 }
 
 #swf-container {
-	display: inline;
-	width: 180px;
-	height: 33px;
-	margin-bottom: 10px;
+    display: inline;
+    width: 180px;
+    height: 33px;
+    margin-bottom: 10px;
 }
 
 .thumbnail {
-	position: relative;
+    position: relative;
 }
 
 .thumbnail button.close {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
 }
 
 .thumbnail:hover button.close {
-	display: block;
+    display: block;
 }
