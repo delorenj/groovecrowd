@@ -8,8 +8,14 @@ define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arr
     var secondsRemaining = remaining.getSeconds(expiresAt);
     var contestLength = $(widget).attr('data-length');
     var currentDay = Math.floor(contestLength - secondsRemaining / 60 / 60 / 24);
+    var complete = $(widget).attr('data-fill');    
     var larrowLabel = (function() {
-      return 'Day ' + parseInt(currentDay + 1, 10);
+      if(complete < 100) {
+        return 'Day ' + parseInt(currentDay + 1, 10);  
+      } else {
+        return 'Day ' + contestLength;
+      }
+      
     }());
     var larrow = arrow({id: 'larrow', label: larrowLabel, offset: 5});
 
@@ -20,10 +26,13 @@ define(['moment', 'text!/gc/templates/arrow', 'remaining'], function(moment, arr
     };
 
     function initProgressBar() {
-      var complete = $(widget).attr('data-fill');
       $(widget).width(complete + '%');
       $(arrowContainer).prepend(larrow);
-      setPercentComplete('larrow', (currentDay / contestLength) * 100);
+      if(complete < 100) {
+        setPercentComplete('larrow', (currentDay / contestLength) * 100);        
+      } else {
+        setPercentComplete('larrow', 100);
+      }
 
     }
 

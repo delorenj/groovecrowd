@@ -3,5 +3,4 @@ require([
 	'gc/GrooveGallery/setup'], function(ContestLengthWidget) {
 
 	var clw = new ContestLengthWidget();
-
 });

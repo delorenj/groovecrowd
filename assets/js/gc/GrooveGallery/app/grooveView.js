@@ -5,13 +5,27 @@ define(['text!/gc/GrooveGallery/templates/groove', 'moment'], function(html, mom
           className: 'groove span4',
           template: Handlebars.compile(html),
 
-          render: function(eventName) {
-            // this.model.set('length', moment(this.model.get('lengthInMilliseconds')/1000, 's').format('mm:ss'));
-             // this.model.set('length', moment('100', 's').format('m:ss'));
-            $(this.el).html(this.template(this.model.toJSON()));
-            return this;
-          }
+          events: {
+            'click .icon-flag'  : 'flag',
+            'click .rating'     : 'rate'
+          },
 
+          render: function(eventName) {
+            $(this.el).html(this.template(this.model.toJSON()));
+            console.log(this.model.toJSON());
+            return this;
+          },
+
+          flag: function(e) {
+            e.preventDefault();
+            this.model.set('flag', 1);
+            this.model.save();
+          },
+
+          rate: function(e) {
+            this.model.set('rating', $(this.el).find(".rating").raty('score'));
+            this.model.save();
+          }
     });
     return view;
 });

@@ -63,6 +63,16 @@ project_grooves:
     requirements:
       id: \d+
 
+project_grooves_update:
+    pattern: /project/{id}/grooves/{gid}
+    defaults: { _controller: GCDashboardBundle:Groove:update }
+    requirements:
+      _method: PUT
+      id: \d+
+      gid: \d+
+    options:
+      expose: true
+
 project_show:
     pattern: /project/{id}
     defaults: { _controller: GCDashboardBundle:Project:show }

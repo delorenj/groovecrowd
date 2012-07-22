@@ -1,4 +1,4 @@
-/*! Groovecrowd - v0.0.1 - 2012-07-17
+/*! Groovecrowd - v0.0.1 - 2012-07-22
 * http://groovecrowd.com
 * Includes: styles.css
 * Copyright (c) 2012 Jarad DeLorenzo; */
@@ -4414,6 +4414,9 @@ ul.barlist .active {
   top: 0;
   right: 0;
 }
+.icon-flag {
+  cursor: pointer;
+}
 .projectHeader {
   margin-bottom: 40px;
 }
@@ -4616,10 +4619,10 @@ a {
 .form-header {
   margin: 10px 0 50px 0;
 }
-ul.thumbnails li h2 {
+#mediaContainer ul.thumbnails li h2 {
   text-align: center;
 }
-ul.thumbnails li {
+#mediaContainer ul.thumbnails li {
   cursor: pointer;
 }
 .center {

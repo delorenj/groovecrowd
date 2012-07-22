@@ -142,12 +142,13 @@ class ProjectController extends Controller
 
         if($request->isXmlHttpRequest()) {
             foreach($g as $idx=>$groove) {
-                $this->get('logger')->info('GROOVES: idx=' . $idx);
+                $gf = $this->getDoctrine()->getRepository('GCDataLayerBundle:GrooveFlag')->findOneByGroove($groove->getId());
                 $grooves[$idx] = $groove->toArray();
                 $grooves[$idx]["readonly"] = $this->get('acl_helper')->canEdit($p) ? "0":"1";
+                $grooves[$idx]["flag"] = is_null($gf) ? 0 : 1;
+                $this->get('logger')->info('GROOVES: Flag=' . $grooves[$idx]["flag"]);
             }
 
-            $this->get('logger')->info('GROOVES: Number of grooves --> ' . count($grooves));
             $response = new Response(json_encode($grooves), 200);
             $response->headers->set('Content-Type', 'application/json');
             return $response;
