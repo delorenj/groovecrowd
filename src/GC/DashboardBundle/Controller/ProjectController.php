@@ -141,12 +141,13 @@ class ProjectController extends Controller
         $g = $grooveRepo->findByProject($id);
 
         if($request->isXmlHttpRequest()) {
+            $winningGrooveId = is_null($p->getWinningGroove()) ? 0 : $p->getWinningGroove()->getId();
             foreach($g as $idx=>$groove) {
                 $gf = $this->getDoctrine()->getRepository('GCDataLayerBundle:GrooveFlag')->findOneByGroove($groove->getId());
                 $grooves[$idx] = $groove->toArray();
                 $grooves[$idx]["readonly"] = $this->get('acl_helper')->canEdit($p) ? "0":"1";
                 $grooves[$idx]["flag"] = is_null($gf) ? 0 : 1;
-                $grooves[$idx]['winner'] = $p->getWinningGroove()->getId() == $groove->getId();
+                $grooves[$idx]['winner'] = $winningGrooveId == $groove->getId();
             }
 
             $response = new Response(json_encode($grooves), 200);
