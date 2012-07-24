@@ -7,6 +7,9 @@
 	<p>{{title}} ({{lengthFormatted}})</p>
 	<div>{{description}}</div>
 	<div class="pull-right">
+		{{#if winner}}
+		  <span class="label label-success">Winner</span>
+		{{/if}}
 		<a href="#"><i class="icon-flag" /></a>
 	</div> 
 </div>

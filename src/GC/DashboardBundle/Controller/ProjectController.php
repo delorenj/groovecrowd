@@ -146,7 +146,7 @@ class ProjectController extends Controller
                 $grooves[$idx] = $groove->toArray();
                 $grooves[$idx]["readonly"] = $this->get('acl_helper')->canEdit($p) ? "0":"1";
                 $grooves[$idx]["flag"] = is_null($gf) ? 0 : 1;
-                $this->get('logger')->info('GROOVES: Flag=' . $grooves[$idx]["flag"]);
+                $grooves[$idx]['winner'] = $p->getWinningGroove()->getId() == $groove->getId();
             }
 
             $response = new Response(json_encode($grooves), 200);
